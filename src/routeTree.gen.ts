@@ -9,15 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as AuthRouteImport } from './routes/_auth'
 import { Route as AuthDashboardRouteImport } from './routes/_auth/dashboard'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicForgotPasswordRouteImport } from './routes/_public/forgot-password'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
-const AuthDashboardRoute = AuthDashboardRouteImport.update({
-  id: '/_auth/dashboard',
-  path: '/dashboard',
+const AuthRoute = AuthRouteImport.update({
+  id: '/_auth',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthDashboardRoute = AuthDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthRoute,
 } as any)
 const PublicIndexRoute = PublicIndexRouteImport.update({
   id: '/_public/',
@@ -36,19 +41,20 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof PublicIndexRoute
   '/dashboard': typeof AuthDashboardRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
-  '/': typeof PublicIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof PublicIndexRoute
   '/dashboard': typeof AuthDashboardRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
-  '/': typeof PublicIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/_auth': typeof AuthRouteWithChildren
   '/_auth/dashboard': typeof AuthDashboardRoute
   '/_public/forgot-password': typeof PublicForgotPasswordRoute
   '/_public/': typeof PublicIndexRoute
@@ -56,11 +62,12 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/dashboard' | '/forgot-password' | '/' | '/api/auth/$'
+  fullPaths: '/' | '/dashboard' | '/forgot-password' | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/dashboard' | '/forgot-password' | '/' | '/api/auth/$'
+  to: '/' | '/dashboard' | '/forgot-password' | '/api/auth/$'
   id:
     | '__root__'
+    | '/_auth'
     | '/_auth/dashboard'
     | '/_public/forgot-password'
     | '/_public/'
@@ -68,7 +75,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AuthDashboardRoute: typeof AuthDashboardRoute
+  AuthRoute: typeof AuthRouteWithChildren
   PublicForgotPasswordRoute: typeof PublicForgotPasswordRoute
   PublicIndexRoute: typeof PublicIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
@@ -76,12 +83,19 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/_auth': {
+      id: '/_auth'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_auth/dashboard': {
       id: '/_auth/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthDashboardRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthRoute
     }
     '/_public/': {
       id: '/_public/'
@@ -107,8 +121,18 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const rootRouteChildren: RootRouteChildren = {
+interface AuthRouteChildren {
+  AuthDashboardRoute: typeof AuthDashboardRoute
+}
+
+const AuthRouteChildren: AuthRouteChildren = {
   AuthDashboardRoute: AuthDashboardRoute,
+}
+
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  AuthRoute: AuthRouteWithChildren,
   PublicForgotPasswordRoute: PublicForgotPasswordRoute,
   PublicIndexRoute: PublicIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
