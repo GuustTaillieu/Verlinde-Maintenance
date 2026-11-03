@@ -1,0 +1,36 @@
+code;omschrijving;prijs;eenheid;leverancier;groep
+ALC-CEN-192;Alarmcentrale 192 zones;389;st;L00010;ALC
+ALC-CEN-32;Alarmcentrale 32 zones;245;st;L00020;ALC
+KLAV-LCD;Klavier LCD;98;st;L00010;KLAV
+KLAV-TOUCH;Klavier touchscreen;189;st;L00010;KLAV
+PIR-QD;Bewegingsdetector PIR dubbel;39;st;L00010;PIR
+PIR-DT;Bewegingsdetector dual tech;64;st;L00011;PIR
+MC-OPB;Magneetcontact opbouw;"9,5";st;L00020;MC
+MC-INB;Magneetcontact inbouw;"8,5";st;L00011;MC
+SIR-BUI;Buitensirene met flits;119;st;L00020;SIR
+SIR-BIN;Binnensirene;35;st;L00010;SIR
+BAT-12V7;Batterij 12V 7Ah;24;st;L00010;BAT
+BAT-12V18;Batterij 12V 18Ah;58;st;L00010;BAT
+KIES-GSM;GSM-kiezer;149;st;L00020;KIES
+ROOKM-OPT;Rookmelder optisch (adresseerbaar);42;st;L00020;ROOKM
+HITTEM;Hittemelder;38;st;L00011;HITTEM
+HANDM;Handmelder rood;31;st;L00011;HANDM
+BRCEN-4Z;Brandcentrale 4 zones;410;st;L00010;BRCEN
+BRCEN-ADR;Brandcentrale adresseerbaar;1290;st;L00020;BRCEN
+FLITS-BR;Flitslicht brand;55;st;L00010;FLITS
+SIR-BR;Brandsirene binnen;47;st;L00011;SIR
+CAM-4MP-DOME;Camera dome 4MP;129;st;L00011;CAM
+CAM-4MP-BUL;Camera bullet 4MP;135;st;L00011;CAM
+NVR-8CH;NVR 8 kanalen;279;st;L00020;NVR
+HDD-2TB;Harde schijf 2TB surveillance;89;st;L00020;HDD
+BADGE-LZ;Badgelezer;145;st;L00020;BADGE
+DEURCTRL-2;Deurcontroller 2 deuren;520;st;L00020;DEURCTRL
+BADGE-10;Badges (10 st);45;st;L00011;BADGE
+ELSLOT;Elektrisch slot;110;st;L00010;ELSLOT
+ARB-ONDH;Arbeid onderhoud (uur);62;u;;ARB
+ARB-HERST;Arbeid herstelling (uur);68;u;;ARB
+VERPL;Verplaatsing forfait;35;st;;VERPL
+KM;Kilometervergoeding;"0,45";km;;KM
+ATTEST-BR;Keuringsattest brand;45;st;L00020;ATTEST
+ATTEST-INB;Conformiteitsattest inbraak;45;st;L00011;ATTEST
+DIV;Divers materiaal;1;st;L00020;DIV

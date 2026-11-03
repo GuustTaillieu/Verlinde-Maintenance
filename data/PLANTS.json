@@ -1,0 +1,62 @@
+[
+  {
+    "code": "INBR-1",
+    "omschrijving": "INBR tmpl 1",
+    "componenten": 8
+  },
+  {
+    "code": "INBR-2",
+    "omschrijving": "INBR tmpl 2",
+    "componenten": 8
+  },
+  {
+    "code": "INBR-3",
+    "omschrijving": "INBR tmpl 3 (obs.)",
+    "componenten": 8
+  },
+  {
+    "code": "BRAND-1",
+    "omschrijving": "BRAND tmpl 1",
+    "componenten": 7
+  },
+  {
+    "code": "BRAND-2",
+    "omschrijving": "BRAND tmpl 2",
+    "componenten": 7
+  },
+  {
+    "code": "BRAND-3",
+    "omschrijving": "BRAND tmpl 3 (obs.)",
+    "componenten": 7
+  },
+  {
+    "code": "CAM-1",
+    "omschrijving": "CAM tmpl 1",
+    "componenten": 4
+  },
+  {
+    "code": "CAM-2",
+    "omschrijving": "CAM tmpl 2",
+    "componenten": 4
+  },
+  {
+    "code": "CAM-3",
+    "omschrijving": "CAM tmpl 3 (obs.)",
+    "componenten": 4
+  },
+  {
+    "code": "TOEG-1",
+    "omschrijving": "TOEG tmpl 1",
+    "componenten": 4
+  },
+  {
+    "code": "TOEG-2",
+    "omschrijving": "TOEG tmpl 2",
+    "componenten": 4
+  },
+  {
+    "code": "TOEG-3",
+    "omschrijving": "TOEG tmpl 3 (obs.)",
+    "componenten": 4
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "code": "WB-ALG",
+    "omschrijving": "Generic WO"
+  },
+  {
+    "code": "WB-ONDH-INBR",
+    "omschrijving": "Maint. intr. (legacy)"
+  },
+  {
+    "code": "WB-ONDH-INBR2",
+    "omschrijving": "Maint. intr. v2 (2021)"
+  },
+  {
+    "code": "WB-ONDH-BRAND",
+    "omschrijving": "Maint. FD"
+  },
+  {
+    "code": "WB-HERST",
+    "omschrijving": "Corrective"
+  },
+  {
+    "code": "WB-INST",
+    "omschrijving": "Install"
+  },
+  {
+    "code": "WB-TEST",
+    "omschrijving": "DO NOT USE"
+  }
+]

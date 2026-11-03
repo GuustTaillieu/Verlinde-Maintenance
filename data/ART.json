@@ -1,0 +1,282 @@
+[
+  {
+    "code": "ALC-CEN-192",
+    "omschrijving": "Alarmcentrale 192 zones",
+    "prijs": 389,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "ALC"
+  },
+  {
+    "code": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "prijs": 245,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "ALC"
+  },
+  {
+    "code": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "prijs": 98,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "KLAV"
+  },
+  {
+    "code": "KLAV-TOUCH",
+    "omschrijving": "Klavier touchscreen",
+    "prijs": 189,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "KLAV"
+  },
+  {
+    "code": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "prijs": 39,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "PIR"
+  },
+  {
+    "code": "PIR-DT",
+    "omschrijving": "Bewegingsdetector dual tech",
+    "prijs": 64,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "PIR"
+  },
+  {
+    "code": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "prijs": 9.5,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "MC"
+  },
+  {
+    "code": "MC-INB",
+    "omschrijving": "Magneetcontact inbouw",
+    "prijs": 8.5,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "MC"
+  },
+  {
+    "code": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "prijs": 119,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "SIR"
+  },
+  {
+    "code": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "prijs": 35,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "SIR"
+  },
+  {
+    "code": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "prijs": 24,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "BAT"
+  },
+  {
+    "code": "BAT-12V18",
+    "omschrijving": "Batterij 12V 18Ah",
+    "prijs": 58,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "BAT"
+  },
+  {
+    "code": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "prijs": 149,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "KIES"
+  },
+  {
+    "code": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "prijs": 42,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "ROOKM"
+  },
+  {
+    "code": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "prijs": 38,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "HITTEM"
+  },
+  {
+    "code": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "prijs": 31,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "HANDM"
+  },
+  {
+    "code": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "prijs": 410,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "BRCEN"
+  },
+  {
+    "code": "BRCEN-ADR",
+    "omschrijving": "Brandcentrale adresseerbaar",
+    "prijs": 1290,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "BRCEN"
+  },
+  {
+    "code": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "prijs": 55,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "FLITS"
+  },
+  {
+    "code": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "prijs": 47,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "SIR"
+  },
+  {
+    "code": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "prijs": 129,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "CAM"
+  },
+  {
+    "code": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "prijs": 135,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "CAM"
+  },
+  {
+    "code": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "prijs": 279,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "NVR"
+  },
+  {
+    "code": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "prijs": 89,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "HDD"
+  },
+  {
+    "code": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "prijs": 145,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "BADGE"
+  },
+  {
+    "code": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "prijs": 520,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "DEURCTRL"
+  },
+  {
+    "code": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "prijs": 45,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "BADGE"
+  },
+  {
+    "code": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "prijs": 110,
+    "eenheid": "st",
+    "leverancier": "L00010",
+    "groep": "ELSLOT"
+  },
+  {
+    "code": "ARB-ONDH",
+    "omschrijving": "Arbeid onderhoud (uur)",
+    "prijs": 62,
+    "eenheid": "u",
+    "leverancier": "",
+    "groep": "ARB"
+  },
+  {
+    "code": "ARB-HERST",
+    "omschrijving": "Arbeid herstelling (uur)",
+    "prijs": 68,
+    "eenheid": "u",
+    "leverancier": "",
+    "groep": "ARB"
+  },
+  {
+    "code": "VERPL",
+    "omschrijving": "Verplaatsing forfait",
+    "prijs": 35,
+    "eenheid": "st",
+    "leverancier": "",
+    "groep": "VERPL"
+  },
+  {
+    "code": "KM",
+    "omschrijving": "Kilometervergoeding",
+    "prijs": 0.45,
+    "eenheid": "km",
+    "leverancier": "",
+    "groep": "KM"
+  },
+  {
+    "code": "ATTEST-BR",
+    "omschrijving": "Keuringsattest brand",
+    "prijs": 45,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "ATTEST"
+  },
+  {
+    "code": "ATTEST-INB",
+    "omschrijving": "Conformiteitsattest inbraak",
+    "prijs": 45,
+    "eenheid": "st",
+    "leverancier": "L00011",
+    "groep": "ATTEST"
+  },
+  {
+    "code": "DIV",
+    "omschrijving": "Divers materiaal",
+    "prijs": 1,
+    "eenheid": "st",
+    "leverancier": "L00020",
+    "groep": "DIV"
+  }
+]

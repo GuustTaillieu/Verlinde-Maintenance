@@ -1,0 +1,3104 @@
+[
+  {
+    "werkbon": "WB2023-0002",
+    "fiche": "1010",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0003",
+    "fiche": "1205",
+    "omschrijving": "Inbraakalarm Fietsen Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0006",
+    "fiche": "1147",
+    "omschrijving": "Inbraakalarm Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0007",
+    "fiche": "1089",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0008",
+    "fiche": "1117",
+    "omschrijving": "Camerabewaking woning Debruyne",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0014",
+    "fiche": "1154",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0016",
+    "fiche": "1183",
+    "omschrijving": "Branddetectie Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0017",
+    "fiche": "1027",
+    "omschrijving": "Camerabewaking woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0018",
+    "fiche": "1114",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0019",
+    "fiche": "1179",
+    "omschrijving": "Inbraakalarm woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0022",
+    "fiche": "1213",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0023",
+    "fiche": "1177",
+    "omschrijving": "Branddetectie Verzekeringen Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0024",
+    "fiche": "1212",
+    "omschrijving": "Branddetectie woning Marc",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0027",
+    "fiche": "1101",
+    "omschrijving": "Branddetectie woning Tack",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0028",
+    "fiche": "1059",
+    "omschrijving": "Branddetectie woning Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0031",
+    "fiche": "1021",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0033",
+    "fiche": "1181",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0036",
+    "fiche": "1160",
+    "omschrijving": "Camerabewaking woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0038",
+    "fiche": "1224",
+    "omschrijving": "Toegangscontrole woning Ann",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0040",
+    "fiche": "1114",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0043",
+    "fiche": "1087",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0047",
+    "fiche": "1034",
+    "omschrijving": "Branddetectie Fietsen Desmet (nieuw)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0050",
+    "fiche": "1044",
+    "omschrijving": "Camerabewaking pand Industrielaan 5",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0052",
+    "fiche": "1052",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0053",
+    "fiche": "1116",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0055",
+    "fiche": "1095",
+    "omschrijving": "Camerabewaking woning Sofie",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0057",
+    "fiche": "1153",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0059",
+    "fiche": "1115",
+    "omschrijving": "Camerabewaking woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0062",
+    "fiche": "1174",
+    "omschrijving": "Branddetectie woning Vanneste",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0063",
+    "fiche": "1007",
+    "omschrijving": "Camerabewaking Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0066",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0067",
+    "fiche": "1021",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0070",
+    "fiche": "1082",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0073",
+    "fiche": "1123",
+    "omschrijving": "Branddetectie Fam. Vandenberghe (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0074",
+    "fiche": "1149",
+    "omschrijving": "Inbraakalarm Bandencentrale Deprez",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0075",
+    "fiche": "1157",
+    "omschrijving": "Branddetectie pand Blokellestraat 15",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0076",
+    "fiche": "1105",
+    "omschrijving": "Camerabewaking Fietsen Desmet",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0081",
+    "fiche": "1191",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0082",
+    "fiche": "1020",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0085",
+    "fiche": "1214",
+    "omschrijving": "Toegangscontrole woning Dirk",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0086",
+    "fiche": "1006",
+    "omschrijving": "Inbraakalarm pand Oudenaardsesteenweg 36",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0089",
+    "fiche": "1091",
+    "omschrijving": "Inbraakalarm woning Callens",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0090",
+    "fiche": "1004",
+    "omschrijving": "Branddetectie Hoeve Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0091",
+    "fiche": "1012",
+    "omschrijving": "Branddetectie Interieur Vercruysse",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0094",
+    "fiche": "1010",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0096",
+    "fiche": "1129",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0097",
+    "fiche": "1201",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0100",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0102",
+    "fiche": "1178",
+    "omschrijving": "Camerabewaking woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0104",
+    "fiche": "1228",
+    "omschrijving": "Inbraakalarm Tandartspraktijk Declercq",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0105",
+    "fiche": "1060",
+    "omschrijving": "Inbraakalarm pand Hoogstraat 60",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0107",
+    "fiche": "1155",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0110",
+    "fiche": "1134",
+    "omschrijving": "Camerabewaking woning Vandenberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0112",
+    "fiche": "1012",
+    "omschrijving": "Branddetectie Interieur Vercruysse",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0115",
+    "fiche": "1194",
+    "omschrijving": "Camerabewaking Fietsen Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0118",
+    "fiche": "1169",
+    "omschrijving": "Inbraakalarm Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0120",
+    "fiche": "1073",
+    "omschrijving": "Branddetectie woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0123",
+    "fiche": "1030",
+    "omschrijving": "Inbraakalarm woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0125",
+    "fiche": "1226",
+    "omschrijving": "Camerabewaking Verzekeringen Moerman",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0126",
+    "fiche": "1048",
+    "omschrijving": "Branddetectie woning Dejonghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0128",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0131",
+    "fiche": "1206",
+    "omschrijving": "Toegangscontrole pand Bosstraat 49",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0134",
+    "fiche": "1099",
+    "omschrijving": "Toegangscontrole woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0136",
+    "fiche": "1217",
+    "omschrijving": "Camerabewaking Interieur Devos BVBA",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0139",
+    "fiche": "1206",
+    "omschrijving": "Toegangscontrole pand Bosstraat 49",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0142",
+    "fiche": "1117",
+    "omschrijving": "Camerabewaking woning Debruyne",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0145",
+    "fiche": "1143",
+    "omschrijving": "Inbraakalarm Fam. Vanneste (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0147",
+    "fiche": "1090",
+    "omschrijving": "Inbraakalarm woning Bart",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0149",
+    "fiche": "1209",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0150",
+    "fiche": "1185",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0153",
+    "fiche": "1062",
+    "omschrijving": "Inbraakalarm woning Verschuere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0157",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0159",
+    "fiche": "1133",
+    "omschrijving": "Toegangscontrole woning Inge",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0160",
+    "fiche": "1104",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0161",
+    "fiche": "1157",
+    "omschrijving": "Branddetectie pand Blokellestraat 15",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0162",
+    "fiche": "1063",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0163",
+    "fiche": "1121",
+    "omschrijving": "Inbraakalarm Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0166",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0167",
+    "fiche": "1139",
+    "omschrijving": "Toegangscontrole woning Hilde",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0170",
+    "fiche": "1146",
+    "omschrijving": "Toegangscontrole woning Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0173",
+    "fiche": "1194",
+    "omschrijving": "Camerabewaking Fietsen Desmet",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2023-0174",
+    "fiche": "1086",
+    "omschrijving": "Camerabewaking woning Ann",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0175",
+    "fiche": "1184",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0178",
+    "fiche": "1018",
+    "omschrijving": "Camerabewaking woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0179",
+    "fiche": "1060",
+    "omschrijving": "Inbraakalarm pand Hoogstraat 60",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0180",
+    "fiche": "1033",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0181",
+    "fiche": "1167",
+    "omschrijving": "Inbraakalarm Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0182",
+    "fiche": "1005",
+    "omschrijving": "Camerabewaking woning Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0185",
+    "fiche": "1207",
+    "omschrijving": "Branddetectie woning Vandenberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0188",
+    "fiche": "1008",
+    "omschrijving": "Inbraakalarm woning Benoit",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0190",
+    "fiche": "1058",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0191",
+    "fiche": "1111",
+    "omschrijving": "Branddetectie Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0194",
+    "fiche": "1200",
+    "omschrijving": "Inbraakalarm Verzekeringen Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0195",
+    "fiche": "1131",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0196",
+    "fiche": "1186",
+    "omschrijving": "Branddetectie woning Filip",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0197",
+    "fiche": "1055",
+    "omschrijving": "Inbraakalarm Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0198",
+    "fiche": "1188",
+    "omschrijving": "Camerabewaking woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0201",
+    "fiche": "1196",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0203",
+    "fiche": "1176",
+    "omschrijving": "Branddetectie pand Kortrijkseweg 2",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0204",
+    "fiche": "1226",
+    "omschrijving": "Camerabewaking Verzekeringen Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0207",
+    "fiche": "1054",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0210",
+    "fiche": "1088",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0212",
+    "fiche": "1069",
+    "omschrijving": "Camerabewaking woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0214",
+    "fiche": "1096",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0217",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0220",
+    "fiche": "1027",
+    "omschrijving": "Camerabewaking woning Ghekiere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0222",
+    "fiche": "1222",
+    "omschrijving": "Branddetectie Schrijnwerkerij Delbaere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0224",
+    "fiche": "1038",
+    "omschrijving": "Inbraakalarm woning Vanneste",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0225",
+    "fiche": "1005",
+    "omschrijving": "Camerabewaking woning Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2023-0227",
+    "fiche": "1140",
+    "omschrijving": "Toegangscontrole Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2023-0230",
+    "fiche": "1093",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0002",
+    "fiche": "1174",
+    "omschrijving": "Branddetectie woning Vanneste",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0004",
+    "fiche": "1229",
+    "omschrijving": "Branddetectie Tandartspraktijk Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0005",
+    "fiche": "1062",
+    "omschrijving": "Inbraakalarm woning Verschuere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0006",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0008",
+    "fiche": "1085",
+    "omschrijving": "Inbraakalarm woning Vandenberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0011",
+    "fiche": "1076",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0013",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0015",
+    "fiche": "1104",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0016",
+    "fiche": "1001",
+    "omschrijving": "Inbraakalarm woning Inge",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0018",
+    "fiche": "1185",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0021",
+    "fiche": "1174",
+    "omschrijving": "Branddetectie woning Vanneste",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0025",
+    "fiche": "1022",
+    "omschrijving": "Inbraakalarm woning Dirk",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0027",
+    "fiche": "1177",
+    "omschrijving": "Branddetectie Verzekeringen Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0028",
+    "fiche": "1037",
+    "omschrijving": "Inbraakalarm woning Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0029",
+    "fiche": "1140",
+    "omschrijving": "Toegangscontrole Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0031",
+    "fiche": "1208",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0032",
+    "fiche": "1098",
+    "omschrijving": "Toegangscontrole Transport Moerman nv",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0035",
+    "fiche": "1102",
+    "omschrijving": "Branddetectie Restaurant La Ferme",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0036",
+    "fiche": "1002",
+    "omschrijving": "Inbraakalarm Interieur Devos BVBA",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0037",
+    "fiche": "1020",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0038",
+    "fiche": "1031",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0039",
+    "fiche": "1103",
+    "omschrijving": "Branddetectie KAPSALON MIEKE",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0042",
+    "fiche": "1116",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0045",
+    "fiche": "1111",
+    "omschrijving": "Branddetectie Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0046",
+    "fiche": "1076",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0048",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0050",
+    "fiche": "1195",
+    "omschrijving": "Branddetectie woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0052",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0053",
+    "fiche": "1077",
+    "omschrijving": "Inbraakalarm overgenomen van vorige installateur",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0056",
+    "fiche": "1086",
+    "omschrijving": "Camerabewaking woning Ann",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0058",
+    "fiche": "1143",
+    "omschrijving": "Inbraakalarm Fam. Vanneste (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0059",
+    "fiche": "1229",
+    "omschrijving": "Branddetectie Tandartspraktijk Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0060",
+    "fiche": "1169",
+    "omschrijving": "Inbraakalarm Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0066",
+    "fiche": "1128",
+    "omschrijving": "Inbraakalarm Interieur Deprez",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0067",
+    "fiche": "1179",
+    "omschrijving": "Inbraakalarm woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0069",
+    "fiche": "1072",
+    "omschrijving": "Camerabewaking Interieur Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0072",
+    "fiche": "1212",
+    "omschrijving": "Branddetectie woning Marc",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0075",
+    "fiche": "1087",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0077",
+    "fiche": "1082",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0080",
+    "fiche": "1104",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0081",
+    "fiche": "1149",
+    "omschrijving": "Inbraakalarm Bandencentrale Deprez",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0084",
+    "fiche": "1183",
+    "omschrijving": "Branddetectie Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0087",
+    "fiche": "1199",
+    "omschrijving": "Inbraakalarm Schrijnwerkerij Demeyere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0089",
+    "fiche": "1103",
+    "omschrijving": "Branddetectie KAPSALON MIEKE",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0090",
+    "fiche": "1204",
+    "omschrijving": "Branddetectie woning Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0091",
+    "fiche": "1222",
+    "omschrijving": "Branddetectie Schrijnwerkerij Delbaere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0092",
+    "fiche": "1157",
+    "omschrijving": "Branddetectie pand Blokellestraat 15",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0095",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0097",
+    "fiche": "1052",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0098",
+    "fiche": "1112",
+    "omschrijving": "Camerabewaking woning Peter",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0099",
+    "fiche": "1223",
+    "omschrijving": "Branddetectie Fam. Vercruysse (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0100",
+    "fiche": "1008",
+    "omschrijving": "Inbraakalarm woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0102",
+    "fiche": "1090",
+    "omschrijving": "Inbraakalarm woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0103",
+    "fiche": "1121",
+    "omschrijving": "Inbraakalarm Hoeve Ghekiere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0105",
+    "fiche": "1190",
+    "omschrijving": "Branddetectie pand Blokellestraat 20",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0108",
+    "fiche": "1031",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0110",
+    "fiche": "1170",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0111",
+    "fiche": "1172",
+    "omschrijving": "Toegangscontrole Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0113",
+    "fiche": "1053",
+    "omschrijving": "Inbraakalarm woning Pieter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0114",
+    "fiche": "1144",
+    "omschrijving": "Inbraakalarm woning Ghekiere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0116",
+    "fiche": "1031",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0119",
+    "fiche": "1181",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0121",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0123",
+    "fiche": "1121",
+    "omschrijving": "Inbraakalarm Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0125",
+    "fiche": "1088",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0128",
+    "fiche": "1167",
+    "omschrijving": "Inbraakalarm Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0129",
+    "fiche": "1088",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0130",
+    "fiche": "1162",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0133",
+    "fiche": "1012",
+    "omschrijving": "Branddetectie Interieur Vercruysse",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0134",
+    "fiche": "1031",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0136",
+    "fiche": "1155",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0138",
+    "fiche": "1189",
+    "omschrijving": "Inbraakalarm woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0140",
+    "fiche": "1004",
+    "omschrijving": "Branddetectie Hoeve Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0144",
+    "fiche": "1021",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0146",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0148",
+    "fiche": "1038",
+    "omschrijving": "Inbraakalarm woning Vanneste",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0150",
+    "fiche": "1187",
+    "omschrijving": "Toegangscontrole Hoeve Desmet",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0152",
+    "fiche": "1087",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0153",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0154",
+    "fiche": "1057",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0156",
+    "fiche": "1151",
+    "omschrijving": "Branddetectie Wasserij Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0157",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0159",
+    "fiche": "1201",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0162",
+    "fiche": "1110",
+    "omschrijving": "Toegangscontrole woning Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0164",
+    "fiche": "1057",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0166",
+    "fiche": "1144",
+    "omschrijving": "Inbraakalarm woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0168",
+    "fiche": "1206",
+    "omschrijving": "Toegangscontrole pand Bosstraat 49",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0170",
+    "fiche": "1070",
+    "omschrijving": "Toegangscontrole woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0172",
+    "fiche": "1050",
+    "omschrijving": "Branddetectie woning Moerman",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0175",
+    "fiche": "1077",
+    "omschrijving": "Inbraakalarm overgenomen van vorige installateur",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0177",
+    "fiche": "1115",
+    "omschrijving": "Camerabewaking woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0178",
+    "fiche": "1182",
+    "omschrijving": "Inbraakalarm Juwelier Seynaeve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0181",
+    "fiche": "1217",
+    "omschrijving": "Camerabewaking Interieur Devos BVBA",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0184",
+    "fiche": "1203",
+    "omschrijving": "Inbraakalarm woning Verschuere",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0187",
+    "fiche": "1200",
+    "omschrijving": "Inbraakalarm Verzekeringen Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0189",
+    "fiche": "1209",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0190",
+    "fiche": "1186",
+    "omschrijving": "Branddetectie woning Filip",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0191",
+    "fiche": "1221",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0194",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0195",
+    "fiche": "1196",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0196",
+    "fiche": "1156",
+    "omschrijving": "Toegangscontrole Metaalbouw Verschuere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0197",
+    "fiche": "1168",
+    "omschrijving": "Inbraakalarm Bandencentrale Verhaeghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0198",
+    "fiche": "1116",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0201",
+    "fiche": "1153",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0204",
+    "fiche": "1166",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0207",
+    "fiche": "1213",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0208",
+    "fiche": "1013",
+    "omschrijving": "Inbraakalarm woning Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0210",
+    "fiche": "1216",
+    "omschrijving": "Camerabewaking Tandartspraktijk Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0211",
+    "fiche": "1003",
+    "omschrijving": "Inbraakalarm woning Wim",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0213",
+    "fiche": "1030",
+    "omschrijving": "Inbraakalarm woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0215",
+    "fiche": "1097",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0217",
+    "fiche": "1009",
+    "omschrijving": "Branddetectie woning Els",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0219",
+    "fiche": "1078",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0220",
+    "fiche": "1093",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0223",
+    "fiche": "1103",
+    "omschrijving": "Branddetectie KAPSALON MIEKE",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0226",
+    "fiche": "1050",
+    "omschrijving": "Branddetectie woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0227",
+    "fiche": "1025",
+    "omschrijving": "Toegangscontrole pand Otegemstraat 42",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2024-0229",
+    "fiche": "1059",
+    "omschrijving": "Branddetectie woning Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0231",
+    "fiche": "1228",
+    "omschrijving": "Inbraakalarm Tandartspraktijk Declercq",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0234",
+    "fiche": "1131",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2024-0235",
+    "fiche": "1144",
+    "omschrijving": "Inbraakalarm woning Ghekiere",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2024-0238",
+    "fiche": "1096",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0002",
+    "fiche": "1121",
+    "omschrijving": "Inbraakalarm Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0005",
+    "fiche": "1056",
+    "omschrijving": "Camerabewaking woning Deprez",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0008",
+    "fiche": "1196",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0010",
+    "fiche": "1054",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0012",
+    "fiche": "1208",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0013",
+    "fiche": "1182",
+    "omschrijving": "Inbraakalarm Juwelier Seynaeve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0015",
+    "fiche": "1224",
+    "omschrijving": "Toegangscontrole woning Ann",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0018",
+    "fiche": "1184",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0019",
+    "fiche": "1191",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0020",
+    "fiche": "1153",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0021",
+    "fiche": "1154",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0024",
+    "fiche": "1055",
+    "omschrijving": "Inbraakalarm Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0025",
+    "fiche": "1062",
+    "omschrijving": "Inbraakalarm woning Verschuere",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2025-0028",
+    "fiche": "1019",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0029",
+    "fiche": "1131",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0032",
+    "fiche": "1038",
+    "omschrijving": "Inbraakalarm woning Vanneste",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0033",
+    "fiche": "1124",
+    "omschrijving": "Camerabewaking woning Lieve",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0034",
+    "fiche": "1073",
+    "omschrijving": "Branddetectie woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0036",
+    "fiche": "1112",
+    "omschrijving": "Camerabewaking woning Peter",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0038",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0039",
+    "fiche": "1201",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0041",
+    "fiche": "1215",
+    "omschrijving": "Inbraakalarm woning Wim",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0043",
+    "fiche": "1014",
+    "omschrijving": "Inbraakalarm woning Kris",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0045",
+    "fiche": "1221",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0047",
+    "fiche": "1200",
+    "omschrijving": "Inbraakalarm Verzekeringen Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0048",
+    "fiche": "1128",
+    "omschrijving": "Inbraakalarm Interieur Deprez",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0049",
+    "fiche": "1027",
+    "omschrijving": "Camerabewaking woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0051",
+    "fiche": "1114",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0052",
+    "fiche": "1021",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0055",
+    "fiche": "1199",
+    "omschrijving": "Inbraakalarm Schrijnwerkerij Demeyere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0056",
+    "fiche": "1123",
+    "omschrijving": "Branddetectie Fam. Vandenberghe (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0058",
+    "fiche": "1053",
+    "omschrijving": "Inbraakalarm woning Pieter",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0059",
+    "fiche": "1147",
+    "omschrijving": "Inbraakalarm Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0060",
+    "fiche": "1174",
+    "omschrijving": "Branddetectie woning Vanneste",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0064",
+    "fiche": "1031",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0065",
+    "fiche": "1228",
+    "omschrijving": "Inbraakalarm Tandartspraktijk Declercq",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0068",
+    "fiche": "1049",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0070",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0073",
+    "fiche": "1012",
+    "omschrijving": "Branddetectie Interieur Vercruysse",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0075",
+    "fiche": "1185",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0078",
+    "fiche": "1078",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0080",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0082",
+    "fiche": "1063",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0088",
+    "fiche": "1077",
+    "omschrijving": "Inbraakalarm overgenomen van vorige installateur",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0091",
+    "fiche": "1167",
+    "omschrijving": "Inbraakalarm Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0094",
+    "fiche": "1204",
+    "omschrijving": "Branddetectie woning Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0095",
+    "fiche": "1179",
+    "omschrijving": "Inbraakalarm woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0098",
+    "fiche": "1058",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0100",
+    "fiche": "1082",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0102",
+    "fiche": "1177",
+    "omschrijving": "Branddetectie Verzekeringen Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0103",
+    "fiche": "1229",
+    "omschrijving": "Branddetectie Tandartspraktijk Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0106",
+    "fiche": "1170",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0109",
+    "fiche": "1004",
+    "omschrijving": "Branddetectie Hoeve Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0112",
+    "fiche": "1181",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0113",
+    "fiche": "1030",
+    "omschrijving": "Inbraakalarm woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0114",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0116",
+    "fiche": "1162",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0117",
+    "fiche": "1199",
+    "omschrijving": "Inbraakalarm Schrijnwerkerij Demeyere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0120",
+    "fiche": "1143",
+    "omschrijving": "Inbraakalarm Fam. Vanneste (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0121",
+    "fiche": "1143",
+    "omschrijving": "Inbraakalarm Fam. Vanneste (oude klant?)",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0124",
+    "fiche": "1107",
+    "omschrijving": "Toegangscontrole Metaalbouw Vanlerberghe",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2025-0129",
+    "fiche": "1083",
+    "omschrijving": "Branddetectie woning Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0132",
+    "fiche": "1151",
+    "omschrijving": "Branddetectie Wasserij Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0134",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0137",
+    "fiche": "1190",
+    "omschrijving": "Branddetectie pand Blokellestraat 20",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0138",
+    "fiche": "1104",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0141",
+    "fiche": "1195",
+    "omschrijving": "Branddetectie woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0144",
+    "fiche": "1180",
+    "omschrijving": "Branddetectie Tandartspraktijk Declercq",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0145",
+    "fiche": "1095",
+    "omschrijving": "Camerabewaking woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0147",
+    "fiche": "1093",
+    "omschrijving": "Inbraakalarm Sporthal Gemeentelijk (Zwevegem)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0150",
+    "fiche": "1048",
+    "omschrijving": "Branddetectie woning Dejonghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0153",
+    "fiche": "1059",
+    "omschrijving": "Branddetectie woning Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0156",
+    "fiche": "1100",
+    "omschrijving": "Camerabewaking Dierenartsenpraktijk De Leie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0157",
+    "fiche": "1212",
+    "omschrijving": "Branddetectie woning Marc",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0160",
+    "fiche": "1111",
+    "omschrijving": "Branddetectie Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0163",
+    "fiche": "1089",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0165",
+    "fiche": "1022",
+    "omschrijving": "Inbraakalarm woning Dirk",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0167",
+    "fiche": "1209",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0168",
+    "fiche": "1125",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0171",
+    "fiche": "1188",
+    "omschrijving": "Camerabewaking woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0174",
+    "fiche": "1198",
+    "omschrijving": "Inbraakalarm woning Els",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0175",
+    "fiche": "1116",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0176",
+    "fiche": "1101",
+    "omschrijving": "Branddetectie woning Tack",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0178",
+    "fiche": "1207",
+    "omschrijving": "Branddetectie woning Vandenberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0181",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0182",
+    "fiche": "1222",
+    "omschrijving": "Branddetectie Schrijnwerkerij Delbaere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0183",
+    "fiche": "1146",
+    "omschrijving": "Toegangscontrole woning Callens",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0184",
+    "fiche": "1097",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0185",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0187",
+    "fiche": "1226",
+    "omschrijving": "Camerabewaking Verzekeringen Moerman",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0190",
+    "fiche": "1206",
+    "omschrijving": "Toegangscontrole pand Bosstraat 49",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0193",
+    "fiche": "1057",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0194",
+    "fiche": "1105",
+    "omschrijving": "Camerabewaking Fietsen Desmet",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0197",
+    "fiche": "1060",
+    "omschrijving": "Inbraakalarm pand Hoogstraat 60",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0199",
+    "fiche": "1102",
+    "omschrijving": "Branddetectie Restaurant La Ferme",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0202",
+    "fiche": "1190",
+    "omschrijving": "Branddetectie pand Blokellestraat 20",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0203",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0204",
+    "fiche": "1207",
+    "omschrijving": "Branddetectie woning Vandenberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0205",
+    "fiche": "1213",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0208",
+    "fiche": "1155",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0211",
+    "fiche": "1092",
+    "omschrijving": "Toegangscontrole Fam. Seynaeve (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0214",
+    "fiche": "1020",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0216",
+    "fiche": "1003",
+    "omschrijving": "Inbraakalarm woning Wim",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0218",
+    "fiche": "1157",
+    "omschrijving": "Branddetectie pand Blokellestraat 15",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0221",
+    "fiche": "1140",
+    "omschrijving": "Toegangscontrole Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0224",
+    "fiche": "1172",
+    "omschrijving": "Toegangscontrole Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0225",
+    "fiche": "1148",
+    "omschrijving": "Camerabewaking woning Vanlerberghe",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2025-0230",
+    "fiche": "1175",
+    "omschrijving": "Camerabewaking Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0233",
+    "fiche": "1088",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0235",
+    "fiche": "1150",
+    "omschrijving": "Camerabewaking woning Pieter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0238",
+    "fiche": "1094",
+    "omschrijving": "Camerabewaking woning Jan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0239",
+    "fiche": "1184",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0244",
+    "fiche": "1042",
+    "omschrijving": "Toegangscontrole Dierenartsenpraktijk De Leie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0247",
+    "fiche": "1076",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0250",
+    "fiche": "1168",
+    "omschrijving": "Inbraakalarm Bandencentrale Verhaeghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0251",
+    "fiche": "1223",
+    "omschrijving": "Branddetectie Fam. Vercruysse (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0253",
+    "fiche": "1186",
+    "omschrijving": "Branddetectie woning Filip",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0255",
+    "fiche": "1072",
+    "omschrijving": "Camerabewaking Interieur Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0258",
+    "fiche": "1096",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0260",
+    "fiche": "1145",
+    "omschrijving": "Inbraakalarm woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0263",
+    "fiche": "1072",
+    "omschrijving": "Camerabewaking Interieur Devos",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0264",
+    "fiche": "1018",
+    "omschrijving": "Camerabewaking woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2025-0267",
+    "fiche": "1068",
+    "omschrijving": "Camerabewaking Interieur Devos BVBA",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2025-0276",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0002",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0004",
+    "fiche": "1053",
+    "omschrijving": "Inbraakalarm woning Pieter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0007",
+    "fiche": "1175",
+    "omschrijving": "Camerabewaking Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0010",
+    "fiche": "1026",
+    "omschrijving": "Inbraakalarm woning Dirk",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0012",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0014",
+    "fiche": "1212",
+    "omschrijving": "Branddetectie woning Marc",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0017",
+    "fiche": "1012",
+    "omschrijving": "Branddetectie Interieur Vercruysse",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0018",
+    "fiche": "1081",
+    "omschrijving": "Camerabewaking woning Vandaele",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0021",
+    "fiche": "1154",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2026-0022",
+    "fiche": "1168",
+    "omschrijving": "Inbraakalarm Bandencentrale Verhaeghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0024",
+    "fiche": "1088",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0027",
+    "fiche": "1085",
+    "omschrijving": "Inbraakalarm woning Vandenberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0028",
+    "fiche": "1180",
+    "omschrijving": "Branddetectie Tandartspraktijk Declercq",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0030",
+    "fiche": "1074",
+    "omschrijving": "Camerabewaking woning Dirk",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2026-0031",
+    "fiche": "1076",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0034",
+    "fiche": "1020",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0037",
+    "fiche": "1089",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0038",
+    "fiche": "1166",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0039",
+    "fiche": "1189",
+    "omschrijving": "Inbraakalarm woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0041",
+    "fiche": "1034",
+    "omschrijving": "Branddetectie Fietsen Desmet (nieuw)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0044",
+    "fiche": "1077",
+    "omschrijving": "Inbraakalarm overgenomen van vorige installateur",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0047",
+    "fiche": "1196",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0049",
+    "fiche": "1183",
+    "omschrijving": "Branddetectie Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0052",
+    "fiche": "1176",
+    "omschrijving": "Branddetectie pand Kortrijkseweg 2",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0053",
+    "fiche": "1101",
+    "omschrijving": "Branddetectie woning Tack",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0056",
+    "fiche": "1052",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0057",
+    "fiche": "1082",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0060",
+    "fiche": "1131",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0063",
+    "fiche": "1149",
+    "omschrijving": "Inbraakalarm Bandencentrale Deprez",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0064",
+    "fiche": "1049",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0065",
+    "fiche": "1063",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0066",
+    "fiche": "1217",
+    "omschrijving": "Camerabewaking Interieur Devos BVBA",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0068",
+    "fiche": "1182",
+    "omschrijving": "Inbraakalarm Juwelier Seynaeve",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0070",
+    "fiche": "1018",
+    "omschrijving": "Camerabewaking woning Lieve",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0071",
+    "fiche": "1048",
+    "omschrijving": "Branddetectie woning Dejonghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0073",
+    "fiche": "1211",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0076",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0079",
+    "fiche": "1207",
+    "omschrijving": "Branddetectie woning Vandenberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0082",
+    "fiche": "1221",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0084",
+    "fiche": "1198",
+    "omschrijving": "Inbraakalarm woning Els",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0087",
+    "fiche": "1059",
+    "omschrijving": "Branddetectie woning Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0088",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0089",
+    "fiche": "1108",
+    "omschrijving": "Branddetectie Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0092",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0094",
+    "fiche": "1004",
+    "omschrijving": "Branddetectie Hoeve Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0096",
+    "fiche": "1111",
+    "omschrijving": "Branddetectie Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0097",
+    "fiche": "1010",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0099",
+    "fiche": "1096",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0100",
+    "fiche": "1104",
+    "omschrijving": "Branddetectie Kapsalon Mieke",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0101",
+    "fiche": "1056",
+    "omschrijving": "Camerabewaking woning Deprez",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0104",
+    "fiche": "1070",
+    "omschrijving": "Toegangscontrole woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0107",
+    "fiche": "1035",
+    "omschrijving": "Toegangscontrole woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0108",
+    "fiche": "1078",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0110",
+    "fiche": "1037",
+    "omschrijving": "Inbraakalarm woning Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0113",
+    "fiche": "1191",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0114",
+    "fiche": "1072",
+    "omschrijving": "Camerabewaking Interieur Devos",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0117",
+    "fiche": "1185",
+    "omschrijving": "Branddetectie woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0118",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2026-0121",
+    "fiche": "1213",
+    "omschrijving": "Inbraakalarm woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0122",
+    "fiche": "1201",
+    "omschrijving": "Branddetectie Schrijnwerkerij Vandaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0124",
+    "fiche": "1073",
+    "omschrijving": "Branddetectie woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0125",
+    "fiche": "1007",
+    "omschrijving": "Camerabewaking Hoeve Desmet",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0127",
+    "fiche": "1179",
+    "omschrijving": "Inbraakalarm woning Sofie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0128",
+    "fiche": "1156",
+    "omschrijving": "Toegangscontrole Metaalbouw Verschuere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0130",
+    "fiche": "1023",
+    "omschrijving": "Camerabewaking Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0133",
+    "fiche": "1123",
+    "omschrijving": "Branddetectie Fam. Vandenberghe (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0134",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0135",
+    "fiche": "1204",
+    "omschrijving": "Branddetectie woning Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0138",
+    "fiche": "1184",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0140",
+    "fiche": "1107",
+    "omschrijving": "Toegangscontrole Metaalbouw Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0142",
+    "fiche": "1129",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0145",
+    "fiche": "1147",
+    "omschrijving": "Inbraakalarm Wasserij Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0147",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0149",
+    "fiche": "1092",
+    "omschrijving": "Toegangscontrole Fam. Seynaeve (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0151",
+    "fiche": "1003",
+    "omschrijving": "Inbraakalarm woning Wim",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0152",
+    "fiche": "1215",
+    "omschrijving": "Inbraakalarm woning Wim",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0153",
+    "fiche": "1169",
+    "omschrijving": "Inbraakalarm Fietsen Lambrecht",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2026-0156",
+    "fiche": "1223",
+    "omschrijving": "Branddetectie Fam. Vercruysse (oude klant?)",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0159",
+    "fiche": "1166",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0160",
+    "fiche": "1152",
+    "omschrijving": "Inbraakalarm woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0162",
+    "fiche": "1116",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0163",
+    "fiche": "1222",
+    "omschrijving": "Branddetectie Schrijnwerkerij Delbaere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0166",
+    "fiche": "1001",
+    "omschrijving": "Inbraakalarm woning Inge",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0167",
+    "fiche": "1139",
+    "omschrijving": "Toegangscontrole woning Hilde",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0170",
+    "fiche": "1151",
+    "omschrijving": "Branddetectie Wasserij Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0171",
+    "fiche": "1155",
+    "omschrijving": "Branddetectie woning Bart",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0173",
+    "fiche": "1080",
+    "omschrijving": "Toegangscontrole woning Koen",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0176",
+    "fiche": "1125",
+    "omschrijving": "Inbraakalarm woning Johan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0178",
+    "fiche": "1145",
+    "omschrijving": "Inbraakalarm woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0179",
+    "fiche": "1107",
+    "omschrijving": "Toegangscontrole Metaalbouw Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0182",
+    "fiche": "1190",
+    "omschrijving": "Branddetectie pand Blokellestraat 20",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0184",
+    "fiche": "1132",
+    "omschrijving": "Camerabewaking VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0186",
+    "fiche": "1191",
+    "omschrijving": "Inbraakalarm Brasserie 't Hoekske",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0189",
+    "fiche": "1057",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0190",
+    "fiche": "1014",
+    "omschrijving": "Inbraakalarm woning Kris",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0191",
+    "fiche": "1103",
+    "omschrijving": "Branddetectie KAPSALON MIEKE",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0194",
+    "fiche": "1157",
+    "omschrijving": "Branddetectie pand Blokellestraat 15",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0195",
+    "fiche": "1081",
+    "omschrijving": "Camerabewaking woning Vandaele",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0198",
+    "fiche": "1083",
+    "omschrijving": "Branddetectie woning Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0199",
+    "fiche": "1162",
+    "omschrijving": "Inbraakalarm woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0200",
+    "fiche": "1200",
+    "omschrijving": "Inbraakalarm Verzekeringen Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0201",
+    "fiche": "1209",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0202",
+    "fiche": "1186",
+    "omschrijving": "Branddetectie woning Filip",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0203",
+    "fiche": "1030",
+    "omschrijving": "Inbraakalarm woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0206",
+    "fiche": "1058",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0207",
+    "fiche": "1055",
+    "omschrijving": "Inbraakalarm Hoeve Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0208",
+    "fiche": "1156",
+    "omschrijving": "Toegangscontrole Metaalbouw Verschuere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0210",
+    "fiche": "1194",
+    "omschrijving": "Camerabewaking Fietsen Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0215",
+    "fiche": "1169",
+    "omschrijving": "Inbraakalarm Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0217",
+    "fiche": "1102",
+    "omschrijving": "Branddetectie Restaurant La Ferme",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0218",
+    "fiche": "1115",
+    "omschrijving": "Camerabewaking woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0221",
+    "fiche": "1050",
+    "omschrijving": "Branddetectie woning Moerman",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0223",
+    "fiche": "1205",
+    "omschrijving": "Inbraakalarm Fietsen Callens",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0226",
+    "fiche": "1048",
+    "omschrijving": "Branddetectie woning Dejonghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0228",
+    "fiche": "1022",
+    "omschrijving": "Inbraakalarm woning Dirk",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0230",
+    "fiche": "1153",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0231",
+    "fiche": "1019",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0234",
+    "fiche": "1153",
+    "omschrijving": "Branddetectie woning Veerle",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0236",
+    "fiche": "1054",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Garantie"
+  },
+  {
+    "werkbon": "WB2026-0237",
+    "fiche": "1177",
+    "omschrijving": "Branddetectie Verzekeringen Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0239",
+    "fiche": "1135",
+    "omschrijving": "Camerabewaking woning Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0242",
+    "fiche": "1154",
+    "omschrijving": "Inbraakalarm woning Sabbe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0244",
+    "fiche": "1149",
+    "omschrijving": "Inbraakalarm Bandencentrale Deprez",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0246",
+    "fiche": "1221",
+    "omschrijving": "Branddetectie Brasserie 't Hoekske",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0247",
+    "fiche": "1100",
+    "omschrijving": "Camerabewaking Dierenartsenpraktijk De Leie",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0248",
+    "fiche": "1197",
+    "omschrijving": "Camerabewaking Dierenartsenpraktijk De Leie",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0250",
+    "fiche": "1226",
+    "omschrijving": "Camerabewaking Verzekeringen Moerman",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0251",
+    "fiche": "1061",
+    "omschrijving": "Inbraakalarm woning Peter",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0253",
+    "fiche": "1054",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0255",
+    "fiche": "1169",
+    "omschrijving": "Inbraakalarm Fietsen Lambrecht",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0257",
+    "fiche": "1030",
+    "omschrijving": "Inbraakalarm woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0259",
+    "fiche": "1068",
+    "omschrijving": "Camerabewaking Interieur Devos BVBA",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0261",
+    "fiche": "1078",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0264",
+    "fiche": "1183",
+    "omschrijving": "Branddetectie Hoeve Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0265",
+    "fiche": "1054",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0266",
+    "fiche": "1101",
+    "omschrijving": "Branddetectie woning Tack",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0268",
+    "fiche": "1196",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0270",
+    "fiche": "1067",
+    "omschrijving": "Camerabewaking woning Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0272",
+    "fiche": "1094",
+    "omschrijving": "Camerabewaking woning Jan",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0273",
+    "fiche": "1127",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0275",
+    "fiche": "1078",
+    "omschrijving": "Branddetectie Feestzaal De Gouden Leeuw",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0278",
+    "fiche": "1178",
+    "omschrijving": "Camerabewaking woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0280",
+    "fiche": "1072",
+    "omschrijving": "Camerabewaking Interieur Devos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0281",
+    "fiche": "1027",
+    "omschrijving": "Camerabewaking woning Ghekiere",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0282",
+    "fiche": "1208",
+    "omschrijving": "Inbraakalarm Opticien Desmet",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0285",
+    "fiche": "1216",
+    "omschrijving": "Camerabewaking Tandartspraktijk Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0291",
+    "fiche": "1073",
+    "omschrijving": "Branddetectie woning Ghekiere",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0293",
+    "fiche": "1161",
+    "omschrijving": "Camerabewaking Kapsalon Mieke",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0296",
+    "fiche": "1039",
+    "omschrijving": "Branddetectie woning Benoit",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0302",
+    "fiche": "1186",
+    "omschrijving": "Branddetectie woning Filip",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0311",
+    "fiche": "1010",
+    "omschrijving": "Inbraakalarm woning Lieve",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0316",
+    "fiche": "1205",
+    "omschrijving": "Inbraakalarm Fietsen Callens",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0318",
+    "fiche": "1107",
+    "omschrijving": "Toegangscontrole Metaalbouw Vanlerberghe",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0323",
+    "fiche": "1178",
+    "omschrijving": "Camerabewaking woning Dewaele",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0324",
+    "fiche": "1082",
+    "omschrijving": "Branddetectie woning Johan",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0327",
+    "fiche": "1005",
+    "omschrijving": "Camerabewaking woning Vanlerberghe",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0330",
+    "fiche": "1058",
+    "omschrijving": "Inbraakalarm VZW De Klaproos",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0332",
+    "fiche": "1202",
+    "omschrijving": "Branddetectie woning Kris",
+    "soort": "Herstelling"
+  },
+  {
+    "werkbon": "WB2026-0334",
+    "fiche": "1103",
+    "omschrijving": "Branddetectie KAPSALON MIEKE",
+    "soort": "Onderhoud"
+  },
+  {
+    "werkbon": "WB2026-0341",
+    "fiche": "1051",
+    "omschrijving": "Camerabewaking Fietsen Benoit",
+    "soort": "Herstelling"
+  }
+]

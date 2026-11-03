@@ -1,0 +1,8714 @@
+[
+  {
+    "fiche": "1001",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1001",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1001",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "SN934946",
+    "locatie": ""
+  },
+  {
+    "fiche": "1001",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1001",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1001",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1001",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1001",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1002",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN167707",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1002",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1002",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1002",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1002",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1002",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1002",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1002",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN598080",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1003",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN383058",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1003",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1003",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "SN626314",
+    "locatie": ""
+  },
+  {
+    "fiche": "1003",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN500863",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1003",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1003",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1004",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1004",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 11,
+    "serienr": "SN723165",
+    "locatie": ""
+  },
+  {
+    "fiche": "1004",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1004",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1004",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "SN279275",
+    "locatie": ""
+  },
+  {
+    "fiche": "1004",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1004",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1005",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1005",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "SN513270",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1005",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1005",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN355793",
+    "locatie": ""
+  },
+  {
+    "fiche": "1006",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1006",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1006",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "SN463454",
+    "locatie": ""
+  },
+  {
+    "fiche": "1006",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1006",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN598558",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1006",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN808709",
+    "locatie": ""
+  },
+  {
+    "fiche": "1007",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1007",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1007",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1008",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1008",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1008",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1008",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1008",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN879526",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1008",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1008",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1009",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1009",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 15,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1009",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "SN426181",
+    "locatie": ""
+  },
+  {
+    "fiche": "1009",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN628285",
+    "locatie": ""
+  },
+  {
+    "fiche": "1009",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1009",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1010",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1010",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN460772",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1010",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "SN108283",
+    "locatie": ""
+  },
+  {
+    "fiche": "1010",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1010",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1010",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1012",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN294323",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1012",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 19,
+    "serienr": "SN124119",
+    "locatie": ""
+  },
+  {
+    "fiche": "1012",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1012",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1012",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1012",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1013",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN871951",
+    "locatie": ""
+  },
+  {
+    "fiche": "1013",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1013",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1013",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1013",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1013",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN520232",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1013",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1014",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN941963",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1014",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1014",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "SN319837",
+    "locatie": ""
+  },
+  {
+    "fiche": "1014",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "SN159981",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1014",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN809051",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1014",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1014",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1018",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN714739",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1018",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1018",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "SN562850",
+    "locatie": ""
+  },
+  {
+    "fiche": "1018",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1019",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "SN442966",
+    "locatie": ""
+  },
+  {
+    "fiche": "1019",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1019",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN193616",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1020",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1020",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1020",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1020",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1020",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN799272",
+    "locatie": ""
+  },
+  {
+    "fiche": "1021",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN221758",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1021",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN684913",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1021",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1021",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "SN525043",
+    "locatie": ""
+  },
+  {
+    "fiche": "1021",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1021",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1021",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN121600",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1022",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1022",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1022",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1022",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1022",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN454892",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1022",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1022",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1023",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN492404",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1023",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1023",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1023",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1025",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1025",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "SN486045",
+    "locatie": ""
+  },
+  {
+    "fiche": "1025",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1025",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1026",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1026",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1026",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1026",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 5,
+    "serienr": "SN372203",
+    "locatie": ""
+  },
+  {
+    "fiche": "1026",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1026",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1026",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1027",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN390824",
+    "locatie": ""
+  },
+  {
+    "fiche": "1027",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1027",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1027",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1030",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN538717",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1030",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1030",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1030",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1030",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1030",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1031",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1031",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1031",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "SN298625",
+    "locatie": ""
+  },
+  {
+    "fiche": "1031",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1031",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1031",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1031",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1031",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1033",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1033",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1033",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1033",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1033",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1033",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1033",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1034",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1034",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1034",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "SN269597",
+    "locatie": ""
+  },
+  {
+    "fiche": "1034",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1034",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1034",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN724538",
+    "locatie": ""
+  },
+  {
+    "fiche": "1035",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN543540",
+    "locatie": ""
+  },
+  {
+    "fiche": "1035",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "SN174480",
+    "locatie": ""
+  },
+  {
+    "fiche": "1035",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "SN533385",
+    "locatie": ""
+  },
+  {
+    "fiche": "1035",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1036",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1036",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 3,
+    "serienr": "SN456956",
+    "locatie": ""
+  },
+  {
+    "fiche": "1036",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1036",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN558366",
+    "locatie": ""
+  },
+  {
+    "fiche": "1037",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1037",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1037",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1037",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1037",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1037",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1037",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN661947",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1038",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1038",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN455804",
+    "locatie": ""
+  },
+  {
+    "fiche": "1038",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1038",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1038",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN178431",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1038",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1038",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN736540",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1039",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1039",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 17,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1039",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1039",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1039",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1039",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1041",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1041",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "SN325304",
+    "locatie": ""
+  },
+  {
+    "fiche": "1041",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1041",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1042",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1042",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1042",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1042",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 4,
+    "serienr": "SN607253",
+    "locatie": ""
+  },
+  {
+    "fiche": "1044",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN528186",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1044",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1044",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1044",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN448614",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1047",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1047",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "SN354714",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1047",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1047",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1048",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN200206",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1048",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 14,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1048",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1048",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1048",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1048",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN179273",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1048",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1049",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1049",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 19,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1049",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN452191",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1049",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "SN783831",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1049",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1049",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1049",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1050",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN711544",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1050",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 18,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1050",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1050",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1050",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN483040",
+    "locatie": ""
+  },
+  {
+    "fiche": "1051",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1051",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1051",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "SN629379",
+    "locatie": ""
+  },
+  {
+    "fiche": "1051",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN755977",
+    "locatie": ""
+  },
+  {
+    "fiche": "1052",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN689031",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1052",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1052",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1052",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1052",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1052",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1053",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1053",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1053",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1053",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1053",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1053",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1053",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1053",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1054",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1054",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN714070",
+    "locatie": ""
+  },
+  {
+    "fiche": "1054",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1054",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1054",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1054",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1055",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN314071",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1055",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1055",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "SN297795",
+    "locatie": ""
+  },
+  {
+    "fiche": "1055",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1055",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1055",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN170044",
+    "locatie": ""
+  },
+  {
+    "fiche": "1055",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1056",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1056",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "SN681786",
+    "locatie": ""
+  },
+  {
+    "fiche": "1056",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1056",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1057",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1057",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 12,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1057",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1057",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1057",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1057",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1057",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN985876",
+    "locatie": ""
+  },
+  {
+    "fiche": "1058",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN539410",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1058",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1058",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "SN975822",
+    "locatie": ""
+  },
+  {
+    "fiche": "1058",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1058",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1058",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN224374",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1058",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1058",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN598639",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1059",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1059",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1059",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN536641",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1059",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1059",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1059",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1060",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN750012",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1060",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1060",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1060",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "SN801615",
+    "locatie": ""
+  },
+  {
+    "fiche": "1060",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1060",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1061",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1061",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1061",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "SN734841",
+    "locatie": ""
+  },
+  {
+    "fiche": "1061",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1061",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1061",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN261437",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1061",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1062",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1062",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1062",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1062",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1062",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN474411",
+    "locatie": ""
+  },
+  {
+    "fiche": "1062",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN566647",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1062",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1062",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1063",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN424058",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1063",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1063",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1063",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1063",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN182823",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1063",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN829199",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1063",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1067",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1067",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "SN397208",
+    "locatie": ""
+  },
+  {
+    "fiche": "1067",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1067",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN990506",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1068",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN374571",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1068",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 3,
+    "serienr": "SN896603",
+    "locatie": ""
+  },
+  {
+    "fiche": "1068",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1068",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1069",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1069",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1069",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1069",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1070",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN442155",
+    "locatie": ""
+  },
+  {
+    "fiche": "1070",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1070",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "SN912345",
+    "locatie": ""
+  },
+  {
+    "fiche": "1070",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1071",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN513868",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1071",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1071",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "SN729645",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1071",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1072",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN873512",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1072",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "SN251214",
+    "locatie": ""
+  },
+  {
+    "fiche": "1072",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1072",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN405205",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1073",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1073",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 12,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1073",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1073",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1073",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1073",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "SN473605",
+    "locatie": ""
+  },
+  {
+    "fiche": "1073",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN574557",
+    "locatie": ""
+  },
+  {
+    "fiche": "1074",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1074",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1074",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1074",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN389657",
+    "locatie": ""
+  },
+  {
+    "fiche": "1075",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1075",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 1,
+    "serienr": "SN222738",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1075",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "SN158314",
+    "locatie": ""
+  },
+  {
+    "fiche": "1075",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1076",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1076",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 12,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1076",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1076",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1076",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1076",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "SN943209",
+    "locatie": ""
+  },
+  {
+    "fiche": "1076",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1077",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1077",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1077",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "SN755527",
+    "locatie": ""
+  },
+  {
+    "fiche": "1077",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1077",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN859136",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1077",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN241755",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1077",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1078",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN239437",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1078",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 10,
+    "serienr": "SN280867",
+    "locatie": ""
+  },
+  {
+    "fiche": "1078",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1078",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "SN698156",
+    "locatie": ""
+  },
+  {
+    "fiche": "1078",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1079",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1079",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "SN992581",
+    "locatie": ""
+  },
+  {
+    "fiche": "1079",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "SN603017",
+    "locatie": ""
+  },
+  {
+    "fiche": "1079",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "SN102497",
+    "locatie": ""
+  },
+  {
+    "fiche": "1080",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1080",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "SN586145",
+    "locatie": ""
+  },
+  {
+    "fiche": "1080",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "SN456339",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1080",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "SN500251",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1081",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1081",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1081",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1081",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1082",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1082",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 9,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1082",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1082",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1082",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1082",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "SN772880",
+    "locatie": ""
+  },
+  {
+    "fiche": "1082",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN270994",
+    "locatie": ""
+  },
+  {
+    "fiche": "1083",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1083",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 16,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1083",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1083",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1083",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1083",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "SN780843",
+    "locatie": ""
+  },
+  {
+    "fiche": "1083",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN985302",
+    "locatie": ""
+  },
+  {
+    "fiche": "1085",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1085",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1085",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "SN231937",
+    "locatie": ""
+  },
+  {
+    "fiche": "1085",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "SN203628",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1085",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1085",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN215750",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1085",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1086",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1086",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "SN387585",
+    "locatie": ""
+  },
+  {
+    "fiche": "1086",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1086",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1087",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN268562",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1087",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1087",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1087",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1087",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1087",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN392447",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1087",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1087",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1088",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1088",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 16,
+    "serienr": "SN616691",
+    "locatie": ""
+  },
+  {
+    "fiche": "1088",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1088",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1088",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1088",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1089",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1089",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN428893",
+    "locatie": ""
+  },
+  {
+    "fiche": "1089",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1089",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1089",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1089",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1089",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1089",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1090",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN607625",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1090",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1090",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1090",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1090",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN146255",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1091",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1091",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN871698",
+    "locatie": ""
+  },
+  {
+    "fiche": "1091",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1091",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 5,
+    "serienr": "SN110886",
+    "locatie": ""
+  },
+  {
+    "fiche": "1091",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN865903",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1091",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN781814",
+    "locatie": ""
+  },
+  {
+    "fiche": "1092",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN530355",
+    "locatie": ""
+  },
+  {
+    "fiche": "1092",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 1,
+    "serienr": "SN351916",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1092",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1092",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1093",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1093",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1093",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "SN666025",
+    "locatie": ""
+  },
+  {
+    "fiche": "1093",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1093",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN686450",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1093",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN496327",
+    "locatie": ""
+  },
+  {
+    "fiche": "1093",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1094",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN496695",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1094",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "SN412257",
+    "locatie": ""
+  },
+  {
+    "fiche": "1094",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "SN237693",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1094",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1095",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1095",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1095",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "SN585667",
+    "locatie": ""
+  },
+  {
+    "fiche": "1095",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1096",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1096",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN259305",
+    "locatie": ""
+  },
+  {
+    "fiche": "1096",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "SN339845",
+    "locatie": ""
+  },
+  {
+    "fiche": "1096",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1096",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN288407",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1096",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN846788",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1096",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN407606",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1097",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1097",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 18,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1097",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1097",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1097",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN286139",
+    "locatie": ""
+  },
+  {
+    "fiche": "1098",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1098",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1098",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1098",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 2,
+    "serienr": "SN244842",
+    "locatie": ""
+  },
+  {
+    "fiche": "1099",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1099",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1099",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 2,
+    "serienr": "SN608721",
+    "locatie": ""
+  },
+  {
+    "fiche": "1099",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1100",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1100",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1100",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "SN815705",
+    "locatie": ""
+  },
+  {
+    "fiche": "1100",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 20,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1101",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "SN737425",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1101",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN860884",
+    "locatie": ""
+  },
+  {
+    "fiche": "1102",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1102",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 14,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1102",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1102",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1102",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1102",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1103",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN163257",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1103",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1103",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1103",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1103",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1103",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1103",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1104",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN844211",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1104",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 17,
+    "serienr": "SN802172",
+    "locatie": ""
+  },
+  {
+    "fiche": "1104",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "SN213490",
+    "locatie": ""
+  },
+  {
+    "fiche": "1104",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1104",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1104",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1105",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN317225",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1105",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1105",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1105",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1106",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1106",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1106",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1106",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 4,
+    "serienr": "SN366968",
+    "locatie": ""
+  },
+  {
+    "fiche": "1107",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1107",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1107",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1107",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "SN361538",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1108",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN736079",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1108",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 16,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1108",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "SN500347",
+    "locatie": ""
+  },
+  {
+    "fiche": "1108",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1108",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1108",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN331783",
+    "locatie": ""
+  },
+  {
+    "fiche": "1109",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1109",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN641473",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1109",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1109",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "SN207375",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1109",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN169203",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1109",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1110",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1110",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1110",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "SN340920",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1110",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "SN591628",
+    "locatie": ""
+  },
+  {
+    "fiche": "1111",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1111",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1111",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1111",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1111",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1112",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1112",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1112",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1112",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN249288",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1113",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN464529",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1113",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1113",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "SN606261",
+    "locatie": ""
+  },
+  {
+    "fiche": "1113",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1114",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1114",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN712917",
+    "locatie": ""
+  },
+  {
+    "fiche": "1114",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1114",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1114",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN794235",
+    "locatie": ""
+  },
+  {
+    "fiche": "1114",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN366924",
+    "locatie": ""
+  },
+  {
+    "fiche": "1115",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN246330",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1115",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "SN270560",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1115",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "SN867289",
+    "locatie": ""
+  },
+  {
+    "fiche": "1115",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1116",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1116",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 20,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1116",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "SN887320",
+    "locatie": ""
+  },
+  {
+    "fiche": "1116",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1116",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1116",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN376055",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1116",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1117",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1117",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1117",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1117",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1121",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1121",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN128163",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1121",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1121",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1121",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN555529",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1121",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1122",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1122",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1122",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1123",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN785145",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1123",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 22,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1123",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN847003",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1123",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1123",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1123",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1124",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1124",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1124",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "SN545756",
+    "locatie": ""
+  },
+  {
+    "fiche": "1124",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1125",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN493318",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1125",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1125",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1125",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "SN320134",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1125",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1125",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1125",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN962221",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1127",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1127",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 13,
+    "serienr": "SN452838",
+    "locatie": ""
+  },
+  {
+    "fiche": "1127",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1127",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1127",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN745335",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1127",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1128",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1128",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1128",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1128",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1128",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN406720",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1128",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN587205",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1128",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1129",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN303196",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1129",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN459524",
+    "locatie": ""
+  },
+  {
+    "fiche": "1129",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1129",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1129",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1129",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1129",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN502424",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1130",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN891105",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1130",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1130",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "SN579500",
+    "locatie": ""
+  },
+  {
+    "fiche": "1130",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1130",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1130",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1130",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1131",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN835301",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1131",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 22,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1131",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1131",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1131",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN797029",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1131",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1132",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1132",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1132",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1132",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1133",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1133",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1133",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 2,
+    "serienr": "SN357139",
+    "locatie": ""
+  },
+  {
+    "fiche": "1133",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 3,
+    "serienr": "SN636810",
+    "locatie": ""
+  },
+  {
+    "fiche": "1134",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN941081",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1134",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1134",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1134",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1135",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1135",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1135",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN927187",
+    "locatie": ""
+  },
+  {
+    "fiche": "1139",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN628245",
+    "locatie": ""
+  },
+  {
+    "fiche": "1139",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1139",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1139",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1140",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN648077",
+    "locatie": ""
+  },
+  {
+    "fiche": "1140",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1140",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1140",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1143",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1143",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1143",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1143",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "SN333354",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1143",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN114250",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1143",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1143",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1144",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1144",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1144",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1144",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "SN109545",
+    "locatie": ""
+  },
+  {
+    "fiche": "1144",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN420204",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1144",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN410621",
+    "locatie": ""
+  },
+  {
+    "fiche": "1145",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1145",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN815493",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1145",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "SN411215",
+    "locatie": ""
+  },
+  {
+    "fiche": "1145",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1145",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1145",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1145",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN328568",
+    "locatie": ""
+  },
+  {
+    "fiche": "1146",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1146",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "SN783169",
+    "locatie": ""
+  },
+  {
+    "fiche": "1146",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1146",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1147",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1147",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1147",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1147",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1147",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN268604",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1147",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN927467",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1147",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1147",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN206617",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1148",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1148",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1148",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1148",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN433138",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1149",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1149",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN690497",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1149",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1149",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1149",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN729216",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1149",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1150",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN204981",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1150",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1150",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1150",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1151",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1151",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 16,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1151",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1151",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1151",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "SN707783",
+    "locatie": ""
+  },
+  {
+    "fiche": "1151",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN194720",
+    "locatie": ""
+  },
+  {
+    "fiche": "1152",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1152",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1152",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1152",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1152",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1152",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN210476",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1153",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1153",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 13,
+    "serienr": "SN347870",
+    "locatie": ""
+  },
+  {
+    "fiche": "1153",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1153",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1153",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1153",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1153",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1154",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1154",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1154",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "SN481303",
+    "locatie": ""
+  },
+  {
+    "fiche": "1154",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1154",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1154",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN322975",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1155",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 15,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "SN361959",
+    "locatie": ""
+  },
+  {
+    "fiche": "1155",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1156",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1156",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1156",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "SN130356",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1156",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "SN724834",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1157",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 7,
+    "serienr": "SN568804",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN656847",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN951470",
+    "locatie": ""
+  },
+  {
+    "fiche": "1157",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN556726",
+    "locatie": ""
+  },
+  {
+    "fiche": "1160",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1160",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1160",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 3,
+    "serienr": "SN202057",
+    "locatie": ""
+  },
+  {
+    "fiche": "1160",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1161",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN163762",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1161",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1161",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1162",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1162",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1162",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1162",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1162",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1162",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1162",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1162",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN240784",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1163",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN158881",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1163",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1163",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1163",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN388575",
+    "locatie": ""
+  },
+  {
+    "fiche": "1166",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN103333",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1166",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1166",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1166",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1166",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1166",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN128623",
+    "locatie": ""
+  },
+  {
+    "fiche": "1167",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1167",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN742744",
+    "locatie": ""
+  },
+  {
+    "fiche": "1167",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "SN941325",
+    "locatie": ""
+  },
+  {
+    "fiche": "1167",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN398264",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1167",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN520602",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1168",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1168",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1168",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1168",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "SN948485",
+    "locatie": ""
+  },
+  {
+    "fiche": "1168",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1168",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1168",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1168",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "SN914614",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1169",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1169",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1169",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1169",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1169",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN789644",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1169",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN761719",
+    "locatie": ""
+  },
+  {
+    "fiche": "1169",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1170",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN214841",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1170",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 10,
+    "serienr": "SN915968",
+    "locatie": ""
+  },
+  {
+    "fiche": "1170",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1170",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1170",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1170",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1170",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1172",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1172",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "SN890663",
+    "locatie": ""
+  },
+  {
+    "fiche": "1172",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1172",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "SN451510",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1173",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN491324",
+    "locatie": ""
+  },
+  {
+    "fiche": "1173",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "SN450215",
+    "locatie": ""
+  },
+  {
+    "fiche": "1173",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 3,
+    "serienr": "SN850763",
+    "locatie": ""
+  },
+  {
+    "fiche": "1173",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1174",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1174",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 21,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1174",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1174",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1174",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN927878",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1174",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1175",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1175",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1175",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1175",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1176",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1176",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 21,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1176",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "SN315965",
+    "locatie": ""
+  },
+  {
+    "fiche": "1176",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "SN469046",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1176",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1176",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN546346",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1176",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN567576",
+    "locatie": ""
+  },
+  {
+    "fiche": "1177",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN914547",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1177",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 21,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1177",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1177",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1177",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1177",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1177",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1178",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN257626",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1178",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1178",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1178",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1179",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1179",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1179",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1179",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1179",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1179",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1179",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1179",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1180",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1180",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 19,
+    "serienr": "SN345707",
+    "locatie": ""
+  },
+  {
+    "fiche": "1180",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN404561",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1180",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1180",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1180",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "SN151807",
+    "locatie": ""
+  },
+  {
+    "fiche": "1180",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1181",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN880462",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1181",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1181",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1181",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1181",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1181",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN329109",
+    "locatie": ""
+  },
+  {
+    "fiche": "1181",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1182",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1182",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1182",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1182",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1182",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN264666",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1182",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1182",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1183",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1183",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 17,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1183",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1183",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1183",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN361488",
+    "locatie": ""
+  },
+  {
+    "fiche": "1183",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1183",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1184",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1184",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1184",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "SN432729",
+    "locatie": ""
+  },
+  {
+    "fiche": "1184",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1184",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1184",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1184",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1185",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1185",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 11,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1185",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1185",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1185",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1185",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "SN960559",
+    "locatie": ""
+  },
+  {
+    "fiche": "1185",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "SN794589",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1186",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1187",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1187",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 2,
+    "serienr": "SN147896",
+    "locatie": ""
+  },
+  {
+    "fiche": "1187",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1187",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1188",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1188",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "SN703643",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1188",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1188",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1189",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1189",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1189",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "SN948812",
+    "locatie": ""
+  },
+  {
+    "fiche": "1189",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1189",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1189",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1189",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN496791",
+    "locatie": ""
+  },
+  {
+    "fiche": "1190",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1190",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 20,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1190",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1190",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN897272",
+    "locatie": ""
+  },
+  {
+    "fiche": "1190",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1190",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1191",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1191",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1191",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1191",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1191",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN313511",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1191",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1191",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1191",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1194",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN735788",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1194",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1194",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN273111",
+    "locatie": ""
+  },
+  {
+    "fiche": "1195",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1195",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 11,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1195",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1195",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1195",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "SN219871",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1195",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1195",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1196",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1196",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 18,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1196",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN774695",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1196",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1196",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1196",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN298725",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1196",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN505945",
+    "locatie": ""
+  },
+  {
+    "fiche": "1197",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1197",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1197",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN532399",
+    "locatie": ""
+  },
+  {
+    "fiche": "1198",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN692395",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1198",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN831105",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1198",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1198",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1198",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1198",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN802522",
+    "locatie": ""
+  },
+  {
+    "fiche": "1199",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1199",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1199",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1199",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1199",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "SN984001",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1199",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN609949",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1200",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1200",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1200",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 8,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1200",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1200",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1200",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1201",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1201",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 10,
+    "serienr": "SN787260",
+    "locatie": ""
+  },
+  {
+    "fiche": "1201",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1201",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1201",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1201",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1201",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN557050",
+    "locatie": "garage"
+  },
+  {
+    "fiche": "1202",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 11,
+    "serienr": "SN338299",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "SN672551",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1202",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1203",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN763031",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1203",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1203",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1203",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1203",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN266853",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1203",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1203",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1204",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1204",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 20,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1204",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1204",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1204",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1204",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN624208",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1204",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1205",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1205",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "SN891152",
+    "locatie": ""
+  },
+  {
+    "fiche": "1205",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 2,
+    "serienr": "SN714819",
+    "locatie": ""
+  },
+  {
+    "fiche": "1205",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1205",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN173352",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1205",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1206",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "SN856253",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1206",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1206",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1206",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1207",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1207",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1207",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN851619",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1207",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1207",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "SN947123",
+    "locatie": ""
+  },
+  {
+    "fiche": "1207",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1207",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1208",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1208",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1208",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1208",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1208",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1208",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1208",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN106949",
+    "locatie": ""
+  },
+  {
+    "fiche": "1209",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1209",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 19,
+    "serienr": "SN466610",
+    "locatie": ""
+  },
+  {
+    "fiche": "1209",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "SN777302",
+    "locatie": ""
+  },
+  {
+    "fiche": "1209",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1209",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1209",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1209",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN593359",
+    "locatie": ""
+  },
+  {
+    "fiche": "1210",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN174087",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1210",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1210",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "SN107658",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1211",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1211",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 4,
+    "serienr": "SN948150",
+    "locatie": ""
+  },
+  {
+    "fiche": "1211",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1211",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "SN167079",
+    "locatie": ""
+  },
+  {
+    "fiche": "1211",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1211",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1211",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1212",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "refter"
+  },
+  {
+    "fiche": "1212",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 17,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1212",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1212",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN764285",
+    "locatie": ""
+  },
+  {
+    "fiche": "1212",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 1,
+    "serienr": "SN738934",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1212",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1213",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1213",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1213",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1213",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1213",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1213",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1214",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 2,
+    "serienr": "SN516006",
+    "locatie": ""
+  },
+  {
+    "fiche": "1214",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1214",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 4,
+    "serienr": "SN190116",
+    "locatie": ""
+  },
+  {
+    "fiche": "1214",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 3,
+    "serienr": "SN939570",
+    "locatie": ""
+  },
+  {
+    "fiche": "1215",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1215",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 1,
+    "serienr": "SN541156",
+    "locatie": "traphal"
+  },
+  {
+    "fiche": "1215",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1215",
+    "artikel": "MC-OPB",
+    "omschrijving": "Magneetcontact opbouw",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1215",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "SN171154",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1215",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1215",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1215",
+    "artikel": "KIES-GSM",
+    "omschrijving": "GSM-kiezer",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1216",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "SN563919",
+    "locatie": "living"
+  },
+  {
+    "fiche": "1216",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1216",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1216",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1217",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "winkel"
+  },
+  {
+    "fiche": "1217",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1217",
+    "artikel": "CAM-4MP-BUL",
+    "omschrijving": "Camera bullet 4MP",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1217",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1221",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1221",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 10,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1221",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "bureel"
+  },
+  {
+    "fiche": "1221",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "kelder"
+  },
+  {
+    "fiche": "1221",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN627617",
+    "locatie": ""
+  },
+  {
+    "fiche": "1222",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN794241",
+    "locatie": ""
+  },
+  {
+    "fiche": "1222",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 18,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1222",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 1,
+    "serienr": "SN430262",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1222",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1222",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1222",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN500856",
+    "locatie": "inkom"
+  },
+  {
+    "fiche": "1223",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 16,
+    "serienr": "SN926009",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 2,
+    "serienr": "SN833596",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 6,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "SN983576",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1223",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "SN774894",
+    "locatie": ""
+  },
+  {
+    "fiche": "1224",
+    "artikel": "DEURCTRL-2",
+    "omschrijving": "Deurcontroller 2 deuren",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "magazijn"
+  },
+  {
+    "fiche": "1224",
+    "artikel": "BADGE-LZ",
+    "omschrijving": "Badgelezer",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1224",
+    "artikel": "ELSLOT",
+    "omschrijving": "Elektrisch slot",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1224",
+    "artikel": "BADGE-10",
+    "omschrijving": "Badges (10 st)",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1225",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1225",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 1,
+    "serienr": "SN522876",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1225",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1226",
+    "artikel": "NVR-8CH",
+    "omschrijving": "NVR 8 kanalen",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1226",
+    "artikel": "CAM-4MP-DOME",
+    "omschrijving": "Camera dome 4MP",
+    "aantal": 4,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1226",
+    "artikel": "HDD-2TB",
+    "omschrijving": "Harde schijf 2TB surveillance",
+    "aantal": 2,
+    "serienr": "SN550321",
+    "locatie": ""
+  },
+  {
+    "fiche": "1228",
+    "artikel": "ALC-CEN-32",
+    "omschrijving": "Alarmcentrale 32 zones",
+    "aantal": 1,
+    "serienr": "SN651513",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1228",
+    "artikel": "KLAV-LCD",
+    "omschrijving": "Klavier LCD",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1228",
+    "artikel": "PIR-QD",
+    "omschrijving": "Bewegingsdetector PIR dubbel",
+    "aantal": 7,
+    "serienr": "SN211352",
+    "locatie": ""
+  },
+  {
+    "fiche": "1228",
+    "artikel": "SIR-BUI",
+    "omschrijving": "Buitensirene met flits",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1228",
+    "artikel": "SIR-BIN",
+    "omschrijving": "Binnensirene",
+    "aantal": 1,
+    "serienr": "",
+    "locatie": "keuken"
+  },
+  {
+    "fiche": "1228",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 1,
+    "serienr": "SN986412",
+    "locatie": "achterdeur"
+  },
+  {
+    "fiche": "1229",
+    "artikel": "BRCEN-4Z",
+    "omschrijving": "Brandcentrale 4 zones",
+    "aantal": 1,
+    "serienr": "SN410548",
+    "locatie": "gang 1e verd."
+  },
+  {
+    "fiche": "1229",
+    "artikel": "ROOKM-OPT",
+    "omschrijving": "Rookmelder optisch (adresseerbaar)",
+    "aantal": 13,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1229",
+    "artikel": "HITTEM",
+    "omschrijving": "Hittemelder",
+    "aantal": 1,
+    "serienr": "SN733583",
+    "locatie": "zolder"
+  },
+  {
+    "fiche": "1229",
+    "artikel": "HANDM",
+    "omschrijving": "Handmelder rood",
+    "aantal": 5,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1229",
+    "artikel": "SIR-BR",
+    "omschrijving": "Brandsirene binnen",
+    "aantal": 3,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1229",
+    "artikel": "FLITS-BR",
+    "omschrijving": "Flitslicht brand",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  },
+  {
+    "fiche": "1229",
+    "artikel": "BAT-12V7",
+    "omschrijving": "Batterij 12V 7Ah",
+    "aantal": 2,
+    "serienr": "",
+    "locatie": ""
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "code": "TDC",
+    "naam": "Tom De Coninck",
+    "rol": "RES-T1"
+  },
+  {
+    "code": "WVH",
+    "naam": "Wout Vanhoutte",
+    "rol": "RES-T1"
+  },
+  {
+    "code": "JMS",
+    "naam": "Jens Maes",
+    "rol": "RES-T2 (PT)"
+  },
+  {
+    "code": "DV",
+    "naam": "Dirk Verlinde",
+    "rol": "ADM/MGR"
+  },
+  {
+    "code": "BRT",
+    "naam": "Brandtec (onderaannemer)",
+    "rol": "EXT"
+  }
+]
