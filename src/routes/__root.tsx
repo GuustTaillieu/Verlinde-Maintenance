@@ -51,7 +51,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="dark font-sans antialiased wrap-anywhere selection:bg-accent min-h-screen flex flex-col">
+      <body className="font-sans antialiased wrap-anywhere selection:bg-accent min-h-screen flex flex-col">
         <div className="flex-1">
           {children}
         </div>

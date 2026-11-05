@@ -5,5 +5,5 @@ export const Route = createFileRoute('/_public/forgot-password')({
 })
 
 function RouteComponent() {
-  return <div>Hello "/_public/forgot-password"!</div>
+  return <div>Not Implemented to make the app limited in scope</div>
 }

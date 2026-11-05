@@ -10,18 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthRouteImport } from './routes/_auth'
-import { Route as AuthDashboardRouteImport } from './routes/_auth/dashboard'
+import { Route as AuthManagerRouteImport } from './routes/_auth/_manager'
+import { Route as AuthTechnicianRouteImport } from './routes/_auth/_technician'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicForgotPasswordRouteImport } from './routes/_public/forgot-password'
+import { Route as AuthManagerDashboardRouteImport } from './routes/_auth/_manager/dashboard'
+import { Route as AuthTechnicianWeekScheduleRouteImport } from './routes/_auth/_technician/week-schedule'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/_auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthDashboardRoute = AuthDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const AuthManagerRoute = AuthManagerRouteImport.update({
+  id: '/_manager',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthTechnicianRoute = AuthTechnicianRouteImport.update({
+  id: '/_technician',
   getParentRoute: () => AuthRoute,
 } as any)
 const PublicIndexRoute = PublicIndexRouteImport.update({
@@ -34,6 +40,17 @@ const PublicForgotPasswordRoute = PublicForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthManagerDashboardRoute = AuthManagerDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthManagerRoute,
+} as any)
+const AuthTechnicianWeekScheduleRoute =
+  AuthTechnicianWeekScheduleRouteImport.update({
+    id: '/week-schedule',
+    path: '/week-schedule',
+    getParentRoute: () => AuthTechnicianRoute,
+  } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -42,35 +59,44 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
-  '/dashboard': typeof AuthDashboardRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
+  '/dashboard': typeof AuthManagerDashboardRoute
+  '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
-  '/dashboard': typeof AuthDashboardRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
+  '/dashboard': typeof AuthManagerDashboardRoute
+  '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_auth': typeof AuthRouteWithChildren
-  '/_auth/dashboard': typeof AuthDashboardRoute
+  '/_auth/_manager': typeof AuthManagerRouteWithChildren
+  '/_auth/_technician': typeof AuthTechnicianRouteWithChildren
   '/_public/forgot-password': typeof PublicForgotPasswordRoute
   '/_public/': typeof PublicIndexRoute
+  '/_auth/_manager/dashboard': typeof AuthManagerDashboardRoute
+  '/_auth/_technician/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/forgot-password' | '/api/auth/$'
+  fullPaths:
+    '/' | '/forgot-password' | '/dashboard' | '/week-schedule' | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/forgot-password' | '/api/auth/$'
+  to: '/' | '/forgot-password' | '/dashboard' | '/week-schedule' | '/api/auth/$'
   id:
     | '__root__'
     | '/_auth'
-    | '/_auth/dashboard'
+    | '/_auth/_manager'
+    | '/_auth/_technician'
     | '/_public/forgot-password'
     | '/_public/'
+    | '/_auth/_manager/dashboard'
+    | '/_auth/_technician/week-schedule'
     | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
@@ -90,11 +116,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_auth/dashboard': {
-      id: '/_auth/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof AuthDashboardRouteImport
+    '/_auth/_manager': {
+      id: '/_auth/_manager'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthManagerRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/_auth/_technician': {
+      id: '/_auth/_technician'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthTechnicianRouteImport
       parentRoute: typeof AuthRoute
     }
     '/_public/': {
@@ -111,6 +144,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_auth/_manager/dashboard': {
+      id: '/_auth/_manager/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthManagerDashboardRouteImport
+      parentRoute: typeof AuthManagerRoute
+    }
+    '/_auth/_technician/week-schedule': {
+      id: '/_auth/_technician/week-schedule'
+      path: '/week-schedule'
+      fullPath: '/week-schedule'
+      preLoaderRoute: typeof AuthTechnicianWeekScheduleRouteImport
+      parentRoute: typeof AuthTechnicianRoute
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -121,12 +168,38 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthManagerRouteChildren {
+  AuthManagerDashboardRoute: typeof AuthManagerDashboardRoute
+}
+
+const AuthManagerRouteChildren: AuthManagerRouteChildren = {
+  AuthManagerDashboardRoute: AuthManagerDashboardRoute,
+}
+
+const AuthManagerRouteWithChildren = AuthManagerRoute._addFileChildren(
+  AuthManagerRouteChildren,
+)
+
+interface AuthTechnicianRouteChildren {
+  AuthTechnicianWeekScheduleRoute: typeof AuthTechnicianWeekScheduleRoute
+}
+
+const AuthTechnicianRouteChildren: AuthTechnicianRouteChildren = {
+  AuthTechnicianWeekScheduleRoute: AuthTechnicianWeekScheduleRoute,
+}
+
+const AuthTechnicianRouteWithChildren = AuthTechnicianRoute._addFileChildren(
+  AuthTechnicianRouteChildren,
+)
+
 interface AuthRouteChildren {
-  AuthDashboardRoute: typeof AuthDashboardRoute
+  AuthManagerRoute: typeof AuthManagerRouteWithChildren
+  AuthTechnicianRoute: typeof AuthTechnicianRouteWithChildren
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
-  AuthDashboardRoute: AuthDashboardRoute,
+  AuthManagerRoute: AuthManagerRouteWithChildren,
+  AuthTechnicianRoute: AuthTechnicianRouteWithChildren,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)

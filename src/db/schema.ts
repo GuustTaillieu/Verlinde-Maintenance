@@ -142,7 +142,7 @@ export const workOrders = sqliteTable('work_orders', {
   siteId: text('site_id').references(() => sites.id, { onDelete: 'set null' }),
   assignedTechnicianId: text('assigned_technician_id').references(() => user.id, { onDelete: 'set null' }),
   status: text('status', {
-    enum: ['UNASSIGNED', 'SCHEDULED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED'],
+    enum: ['UNASSIGNED', 'PROPOSED', 'SCHEDULED', 'IN_PROGRESS', 'COMPLETED', 'CANCELLED'],
   }).notNull().default('UNASSIGNED'),
   kind: text('kind', {
     enum: ['MAINTENANCE', 'INTERVENTION_REPAIR', 'NEW_INSTALLATION'],
@@ -154,6 +154,7 @@ export const workOrders = sqliteTable('work_orders', {
   siteAddress: text('site_address'),
   officeNotes: text('office_notes'),
   techNotes: text('tech_notes'),
+  certificateDocument: text('certificate_document'), // Filename or reference for fire inspection attest
   isSigned: integer('is_signed', { mode: 'boolean' }).notNull().default(false),
   signedByName: text('signed_by_name'),
   signedAt: text('signed_at'),
