@@ -1,0 +1,338 @@
+import * as React from 'react'
+import {
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+  AccordionDefaultArrow,
+} from '#/features/shared/components/ui/accordion'
+import { Badge } from '#/features/shared/components/ui/badge'
+import { Button } from '#/features/shared/components/ui/button'
+import { TodoStepper, type StepItem } from './TodoStepper'
+import {
+  Flame,
+  Mail,
+  Phone,
+  CalendarCheck,
+  FileText,
+  Loader2,
+  ShieldAlert,
+  Video,
+  KeyRound,
+  Wrench,
+} from 'lucide-react'
+import type { FireInspectionItem } from '../types'
+import { cn } from 'cn'
+
+interface FireInspectionCardContextValue {
+  item: FireInspectionItem
+  onOpenPropose?: (item: FireInspectionItem) => void
+  onConfirmAppointment?: (workOrderId: string) => Promise<void>
+  onOpenUploadAttest?: (item: FireInspectionItem) => void
+  isConfirming: boolean
+  setIsConfirming: (val: boolean) => void
+  isOverdue: boolean
+}
+
+const FireInspectionCardContext = React.createContext<FireInspectionCardContextValue | null>(null)
+
+export function useFireInspectionCard() {
+  const context = React.useContext(FireInspectionCardContext)
+  if (!context) {
+    throw new Error('FireInspectionCard compound subcomponents must be used within FireInspectionCard')
+  }
+  return context
+}
+
+export function FireInspectionCardIcon({ className }: { className?: string }) {
+  const { item, isOverdue } = useFireInspectionCard()
+  const isFire = item.primaryDiscipline === 'FIRE'
+
+  const renderIcon = () => {
+    switch (item.primaryDiscipline) {
+      case 'FIRE':
+        return <Flame className="size-4" />
+      case 'INTRUSION':
+        return <ShieldAlert className="size-4" />
+      case 'CCTV':
+        return <Video className="size-4" />
+      case 'ACCESS':
+        return <KeyRound className="size-4" />
+      default:
+        return <Wrench className="size-4" />
+    }
+  }
+
+  return (
+    <div
+      className={cn(
+        'flex size-8 shrink-0 items-center justify-center rounded-lg',
+        isFire
+          ? 'bg-red-500/10 text-red-600 dark:text-red-400'
+          : isOverdue
+            ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+            : 'bg-muted text-muted-foreground',
+        className
+      )}
+    >
+      {renderIcon()}
+    </div>
+  )
+}
+
+export function FireInspectionCardInfo() {
+  const { item } = useFireInspectionCard()
+
+  const disciplineLabel =
+    item.primaryDiscipline === 'FIRE'
+      ? 'Brandtec BV (Branddetectie)'
+      : item.primaryDiscipline === 'INTRUSION'
+        ? 'Inbraakbeveiliging'
+        : item.primaryDiscipline === 'CCTV'
+          ? 'Camerabewaking'
+          : item.primaryDiscipline === 'ACCESS'
+            ? 'Toegangscontrole'
+            : 'Periodiek Onderhoud'
+
+  return (
+    <div>
+      <div className="flex items-center gap-2">
+        <span className="font-medium text-xs text-foreground">{item.siteName}</span>
+        <span className="text-[11px] text-muted-foreground">({item.customerName})</span>
+      </div>
+      <div className="text-[11px] text-muted-foreground">
+        {item.siteAddress} • {item.siteCity} • {disciplineLabel}
+      </div>
+    </div>
+  )
+}
+
+export function FireInspectionCardBadges() {
+  const { item, isOverdue } = useFireInspectionCard()
+  return (
+    <div className="flex gap-2">
+      {item.stage === 'AWAITING_ATTEST' && (
+        <Badge
+          variant="secondary"
+          className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px]"
+        >
+          Attest vereist
+        </Badge>
+      )}
+      {item.stage === 'PENDING_APPROVAL' && (
+        <Badge variant="outline" className="text-blue-500 text-[10px]">
+          Wacht op akkoord
+        </Badge>
+      )}
+      {isOverdue && (
+        <Badge variant="destructive" className="text-[10px] font-mono">
+          {item.daysOverdue}d te laat
+        </Badge>
+      )}
+      <AccordionDefaultArrow />
+    </div>
+  )
+}
+
+export function FireInspectionCardHeader({ children }: { children?: React.ReactNode }) {
+  if (children) {
+    return (
+      <AccordionTrigger className="hover:no-underline py-3 flex justify-between">
+        {children}
+      </AccordionTrigger>
+    )
+  }
+
+  return (
+    <AccordionTrigger className="hover:no-underline py-3 flex justify-between">
+      <div className="flex items-center gap-3 text-left">
+        <FireInspectionCardIcon />
+        <FireInspectionCardInfo />
+      </div>
+      <FireInspectionCardBadges />
+    </AccordionTrigger>
+  )
+}
+
+export function FireInspectionCardContent() {
+  const {
+    item,
+    onOpenPropose,
+    onConfirmAppointment,
+    onOpenUploadAttest,
+    isConfirming,
+    setIsConfirming,
+  } = useFireInspectionCard()
+
+  const handleConfirm = async () => {
+    if (!item.workOrderId || !onConfirmAppointment) return
+    setIsConfirming(true)
+    try {
+      await onConfirmAppointment(item.workOrderId)
+    } finally {
+      setIsConfirming(false)
+    }
+  }
+
+  const steps: StepItem[] = [
+    {
+      id: 'step-1',
+      title: 'Afspraak voorstellen aan Brandtec & klant',
+      status: item.stage === 'NEEDS_PROPOSAL' ? 'active' : 'completed',
+      completedInfo: item.proposedDate
+        ? `${item.proposedDate} (${item.plannedStartTime || '09:00'})`
+        : undefined,
+      action: onOpenPropose && (
+        <div className="flex items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={() => onOpenPropose(item)}
+            className="h-7 text-xs gap-1.5"
+          >
+            <Mail className="size-3" />
+            Voorstel Mailen
+          </Button>
+          {item.customerPhone && (
+            <Button
+              size="sm"
+              variant="ghost"
+              asChild
+              className="h-7 text-xs gap-1 text-muted-foreground"
+            >
+              <a href={`tel:${item.customerPhone}`}>
+                <Phone className="size-3" />
+                Bellen ({item.customerPhone})
+              </a>
+            </Button>
+          )}
+        </div>
+      ),
+    },
+    {
+      id: 'step-2',
+      title: 'Akkoord registreren & planning vastleggen',
+      status:
+        item.stage === 'PENDING_APPROVAL'
+          ? 'active'
+          : item.stage === 'NEEDS_PROPOSAL'
+            ? 'upcoming'
+            : 'completed',
+      completedInfo:
+        item.stage === 'AWAITING_ATTEST' || item.stage === 'COMPLETED'
+          ? 'Bevestigd'
+          : undefined,
+      action: (
+        <div className="flex items-center gap-2">
+          {onConfirmAppointment && (
+            <Button
+              size="sm"
+              onClick={handleConfirm}
+              disabled={isConfirming}
+              className="h-7 text-xs gap-1.5"
+            >
+              {isConfirming ? (
+                <Loader2 className="size-3 animate-spin" />
+              ) : (
+                <CalendarCheck className="size-3" />
+              )}
+              Akkoord Ontvangen
+            </Button>
+          )}
+          {onOpenPropose && (
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => onOpenPropose(item)}
+              className="h-7 text-xs text-muted-foreground"
+            >
+              Ander Tijdstip
+            </Button>
+          )}
+        </div>
+      ),
+    },
+    {
+      id: 'step-3',
+      title: 'Keuringsattest archiveren',
+      status:
+        item.stage === 'COMPLETED'
+          ? 'completed'
+          : item.stage === 'AWAITING_ATTEST'
+            ? 'active'
+            : 'upcoming',
+      completedInfo: item.stage === 'COMPLETED' ? 'Attest bewaard' : undefined,
+      action: onOpenUploadAttest && (
+        <Button
+          size="sm"
+          onClick={() => onOpenUploadAttest(item)}
+          className="h-7 text-xs gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white"
+        >
+          <FileText className="size-3" />
+          Attest Opladen & Afronden (+1J)
+        </Button>
+      ),
+    },
+  ]
+
+  return (
+    <AccordionContent className="px-10 py-4">
+      <TodoStepper steps={steps} />
+    </AccordionContent>
+  )
+}
+
+export interface FireInspectionCardProps {
+  item: FireInspectionItem
+  onOpenPropose?: (item: FireInspectionItem) => void
+  onConfirmAppointment?: (workOrderId: string) => Promise<void>
+  onOpenUploadAttest?: (item: FireInspectionItem) => void
+  children?: React.ReactNode
+  className?: string
+}
+
+export function FireInspectionCard({
+  item,
+  onOpenPropose,
+  onConfirmAppointment,
+  onOpenUploadAttest,
+  children,
+  className,
+}: FireInspectionCardProps) {
+  const [isConfirming, setIsConfirming] = React.useState(false)
+  const isOverdue = item.daysOverdue > 0
+
+  return (
+    <FireInspectionCardContext.Provider
+      value={{
+        item,
+        onOpenPropose,
+        onConfirmAppointment,
+        onOpenUploadAttest,
+        isConfirming,
+        setIsConfirming,
+        isOverdue,
+      }}
+    >
+      <AccordionItem
+        value={item.siteId}
+        className={cn(
+          'border border-border rounded-lg bg-card px-4 py-1 shadow-xs transition-colors',
+          className
+        )}
+      >
+        {children || (
+          <>
+            <FireInspectionCardHeader />
+            <FireInspectionCardContent />
+          </>
+        )}
+      </AccordionItem>
+    </FireInspectionCardContext.Provider>
+  )
+}
+
+FireInspectionCard.Header = FireInspectionCardHeader
+FireInspectionCard.Icon = FireInspectionCardIcon
+FireInspectionCard.Info = FireInspectionCardInfo
+FireInspectionCard.Badges = FireInspectionCardBadges
+FireInspectionCard.Content = FireInspectionCardContent

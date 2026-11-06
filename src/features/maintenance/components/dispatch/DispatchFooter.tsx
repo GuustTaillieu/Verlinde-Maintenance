@@ -1,26 +1,16 @@
 import { Button } from '#/features/shared/components/ui/button'
 import { DialogFooter } from '#/features/shared/components/ui/dialog'
 import { CheckCircle2, Loader2 } from 'lucide-react'
+import { useClusterDispatch } from './ClusterDispatchContext'
 
-interface DispatchFooterProps {
-  selectedCount: number
-  techName: string
-  weekLabel: string
-  isSubmitting: boolean
-  isOverCapacity: boolean
-  onCancel: () => void
-  onConfirm: () => void
-}
+export function DispatchFooter() {
+  const { planner, isSubmitting, onConfirmDispatch, onClose } = useClusterDispatch()
 
-export function DispatchFooter({
-  selectedCount,
-  techName,
-  weekLabel,
-  isSubmitting,
-  isOverCapacity,
-  onCancel,
-  onConfirm,
-}: DispatchFooterProps) {
+  const selectedCount = planner.selectedSiteIds.length
+  const techName = planner.activeTech.name
+  const weekLabel = planner.weekDays[0]?.dayLabel || ''
+  const isOverCapacity = planner.isOverCapacity
+
   return (
     <DialogFooter className="px-6 py-3 border-t border-border bg-muted/20 flex items-center justify-between shrink-0">
       <div className="text-xs text-muted-foreground hidden md:block">
@@ -39,7 +29,7 @@ export function DispatchFooter({
           type="button"
           variant="outline"
           size="sm"
-          onClick={onCancel}
+          onClick={onClose}
           disabled={isSubmitting}
           className="text-xs h-8"
         >
@@ -48,7 +38,7 @@ export function DispatchFooter({
         <Button
           type="button"
           size="sm"
-          onClick={onConfirm}
+          onClick={onConfirmDispatch}
           disabled={isSubmitting || selectedCount === 0 || isOverCapacity}
           className="text-xs h-8 gap-1.5"
         >
@@ -63,4 +53,3 @@ export function DispatchFooter({
     </DialogFooter>
   )
 }
-

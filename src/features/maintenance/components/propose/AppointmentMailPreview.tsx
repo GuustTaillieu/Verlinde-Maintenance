@@ -1,9 +1,9 @@
 import { Badge } from '#/features/shared/components/ui/badge'
 import { Mail, CheckCircle } from 'lucide-react'
-import type { FireTodoItem } from '../../types'
+import type { FireInspectionItem } from '../../types'
 
 interface AppointmentMailPreviewProps {
-  item: FireTodoItem
+  item: FireInspectionItem
   proposedDate: string
   startTime: string
   endTime: string

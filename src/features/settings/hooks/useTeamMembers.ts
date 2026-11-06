@@ -1,20 +1,16 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
-  getTeamMembersFn,
   createTeamMemberFn,
   type TeamMemberDto,
 } from '../server/settingsMutations'
+import { teamMemberKeys, teamMemberQueries } from '../query'
+import { maintenanceKeys } from '#/features/maintenance/query'
 
-export const TEAM_MEMBERS_QUERY_KEY = ['settings', 'team-members'] as const
+export { teamMemberKeys } from '../query'
+export const TEAM_MEMBERS_QUERY_KEY = teamMemberKeys.all
 
-export function useTeamMembers() {
+export function useTeamMemberMutations() {
   const queryClient = useQueryClient()
-
-  const query = useQuery({
-    queryKey: TEAM_MEMBERS_QUERY_KEY,
-    queryFn: () => getTeamMembersFn(),
-    staleTime: 1000 * 60,
-  })
 
   const createMember = useMutation({
     mutationFn: (data: {
@@ -32,8 +28,8 @@ export function useTeamMembers() {
       }
     }) => createTeamMemberFn({ data }),
     onMutate: async (newMemberData) => {
-      await queryClient.cancelQueries({ queryKey: TEAM_MEMBERS_QUERY_KEY })
-      const previousMembers = queryClient.getQueryData<TeamMemberDto[]>(TEAM_MEMBERS_QUERY_KEY)
+      await queryClient.cancelQueries({ queryKey: teamMemberKeys.list() })
+      const previousMembers = queryClient.getQueryData<TeamMemberDto[]>(teamMemberKeys.list())
 
       const optimisticMember: TeamMemberDto = {
         id: `optimistic_${Date.now()}`,
@@ -43,12 +39,15 @@ export function useTeamMembers() {
         isContractor: false,
         techCode: null,
         initials: newMemberData.name.slice(0, 2).toUpperCase(),
-        title: newMemberData.title || (newMemberData.role === 'MANAGER' ? 'Projectbeheerder' : 'Technicus'),
+        title:
+          newMemberData.title ||
+          (newMemberData.role === 'MANAGER' ? 'Projectbeheerder' : 'Technicus'),
         specialties: newMemberData.specialties || ['INTRUSION', 'CCTV'],
-        weeklySchedule: newMemberData.weeklySchedule || { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
+        weeklySchedule:
+          newMemberData.weeklySchedule || { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
       }
 
-      queryClient.setQueryData<TeamMemberDto[]>(TEAM_MEMBERS_QUERY_KEY, (old = []) => [
+      queryClient.setQueryData<TeamMemberDto[]>(teamMemberKeys.list(), (old = []) => [
         ...old,
         optimisticMember,
       ])
@@ -57,18 +56,24 @@ export function useTeamMembers() {
     },
     onError: (_err, _variables, context) => {
       if (context?.previousMembers) {
-        queryClient.setQueryData(TEAM_MEMBERS_QUERY_KEY, context.previousMembers)
+        queryClient.setQueryData(teamMemberKeys.list(), context.previousMembers)
       }
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: TEAM_MEMBERS_QUERY_KEY })
-      void queryClient.invalidateQueries({ queryKey: ['cockpit', 'data'] })
+      void queryClient.invalidateQueries({ queryKey: teamMemberKeys.list() })
+      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
   })
+
+  return { createMember }
+}
+
+export function useTeamMembers() {
+  const query = useQuery(teamMemberQueries.list())
+  const { createMember } = useTeamMemberMutations()
 
   return {
     ...query,
     createMember,
   }
 }
-

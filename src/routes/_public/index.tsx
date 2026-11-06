@@ -1,8 +1,17 @@
 import { LoginForm } from '#/features/auth/components/LoginForm'
-import { createFileRoute } from '@tanstack/react-router'
+import { getCurrentUserFn } from '#/features/auth/server/getCurrentUser'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_public/')({
   component: LoginPage,
+  beforeLoad: async () => {
+    const user = await getCurrentUserFn()
+    if (user) {
+      throw redirect({
+        to: '/dashboard',
+      })
+    }
+  }
 })
 
 function LoginPage() {

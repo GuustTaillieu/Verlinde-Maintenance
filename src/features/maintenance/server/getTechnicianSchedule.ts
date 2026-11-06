@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
 import { workOrders, sites } from '#/db/schema'
 import { eq, and, gte, lte } from 'drizzle-orm'
+import { z } from 'zod'
 
 export interface ScheduledSlot {
   id: string
@@ -15,6 +16,12 @@ export interface ScheduledSlot {
   durationHours: number
 }
 
+export const technicianScheduleInputSchema = z.object({
+  techId: z.string(),
+  weekStartDate: z.string(),
+  weekEndDate: z.string(),
+})
+
 function calculateDurationHours(start?: string | null, end?: string | null): number {
   if (!start || !end) return 2.0
   const [sh, sm] = start.split(':').map(Number)
@@ -24,7 +31,7 @@ function calculateDurationHours(start?: string | null, end?: string | null): num
 }
 
 export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
-  .validator((d: { techId: string; weekStartDate: string; weekEndDate: string }) => d)
+  .validator(technicianScheduleInputSchema)
   .handler(async ({ data }): Promise<ScheduledSlot[]> => {
     const rows = await db
       .select({

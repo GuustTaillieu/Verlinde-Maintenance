@@ -6,34 +6,25 @@ import {
   Coffee,
   Ban,
 } from 'lucide-react'
-import type { TechnicianUser } from '../../server/getTechnicians'
-import type { ScheduledSlot } from '../../server/getTechnicianSchedule'
-import type { DayColumn, ProposedSlot } from './useDispatchPlanner'
-
-interface DispatchWeekGridProps {
-  activeTech: TechnicianUser
-  weekDays: DayColumn[]
-  existingSlots: ScheduledSlot[]
-  proposedSlots: ProposedSlot[]
-  dayLoads: Record<string, number>
-  isLoadingSlots: boolean
-  isOverCapacity: boolean
-}
+import { useClusterDispatch } from './ClusterDispatchContext'
 
 function timeStringToMinutes(timeStr: string): number {
   const [h, m] = timeStr.split(':').map(Number)
   return h * 60 + m
 }
 
-export function DispatchWeekGrid({
-  activeTech,
-  weekDays,
-  existingSlots,
-  proposedSlots,
-  dayLoads,
-  isLoadingSlots,
-  isOverCapacity,
-}: DispatchWeekGridProps) {
+export function DispatchWeekGrid() {
+  const { planner } = useClusterDispatch()
+  const {
+    activeTech,
+    weekDays,
+    existingSlots,
+    proposedSlots,
+    dayLoads,
+    isLoadingSlots,
+    isOverCapacity,
+  } = planner
+
   const hoursList = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
 
   return (
@@ -214,4 +205,3 @@ export function DispatchWeekGrid({
     </div>
   )
 }
-

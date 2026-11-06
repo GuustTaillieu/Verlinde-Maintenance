@@ -1,7 +1,9 @@
 import { useState, useMemo, useEffect } from 'react'
-import { getTechniciansFn, type TechnicianUser } from '../../server/getTechnicians'
-import { getTechnicianScheduleFn, type ScheduledSlot } from '../../server/getTechnicianSchedule'
-import type { RegionalCluster } from '../../types'
+import { useQuery } from '@tanstack/react-query'
+import { maintenanceQueries } from '../query'
+import type { TechnicianUser } from '../server/getTechnicians'
+import type { ScheduledSlot } from '../server/getTechnicianSchedule'
+import type { MaintenanceCluster } from '../types'
 
 export interface DayColumn {
   name: string
@@ -55,28 +57,31 @@ function minutesToTimeString(minutes: number): string {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
 }
 
-export function useDispatchPlanner(cluster: RegionalCluster | null, open: boolean) {
-  const [technicians, setTechnicians] = useState<TechnicianUser[]>([])
+export function useDispatchPlanner(cluster: MaintenanceCluster | null, open: boolean) {
   const [selectedTechId, setSelectedTechId] = useState('usr_tom')
   const [currentMonday, setCurrentMonday] = useState<Date>(() => new Date(2025, 2, 17))
   const [selectedSiteIds, setSelectedSiteIds] = useState<string[]>([])
-  const [existingSlots, setExistingSlots] = useState<ScheduledSlot[]>([])
-  const [isLoadingSlots, setIsLoadingSlots] = useState(false)
   const [isCalendarPickerOpen, setIsCalendarPickerOpen] = useState(false)
   const [pickerMonth, setPickerMonth] = useState<Date>(() => new Date(2025, 2, 1))
 
-  useEffect(() => {
-    if (!open) return
-    void getTechniciansFn().then((data) => {
-      setTechnicians(data)
-    })
-  }, [open])
+  // Query options for technicians list
+  const techniciansQuery = useQuery({
+    ...maintenanceQueries.technicians(),
+    enabled: open,
+  })
+  const technicians: TechnicianUser[] = techniciansQuery.data ?? []
 
   useEffect(() => {
     if (cluster) {
       setSelectedSiteIds(cluster.sites.map((s) => s.id))
       const city = cluster.city.toLowerCase()
-      if (city.includes('kortrijk') || city.includes('wevelgem') || city.includes('heule') || city.includes('kuurne') || city.includes('harelbeke')) {
+      if (
+        city.includes('kortrijk') ||
+        city.includes('wevelgem') ||
+        city.includes('heule') ||
+        city.includes('kuurne') ||
+        city.includes('harelbeke')
+      ) {
         setSelectedTechId('usr_tom')
       } else if (city.includes('waregem') || city.includes('deerlijk')) {
         setSelectedTechId('usr_jens')
@@ -96,7 +101,13 @@ export function useDispatchPlanner(cluster: RegionalCluster | null, open: boolea
 
   const weekDays: DayColumn[] = useMemo(() => {
     const dayNames = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag']
-    const dayKeys: Array<'mon' | 'tue' | 'wed' | 'thu' | 'fri'> = ['mon', 'tue', 'wed', 'thu', 'fri']
+    const dayKeys: Array<'mon' | 'tue' | 'wed' | 'thu' | 'fri'> = [
+      'mon',
+      'tue',
+      'wed',
+      'thu',
+      'fri',
+    ]
     return dayNames.map((name, i) => {
       const d = new Date(currentMonday)
       d.setDate(d.getDate() + i)
@@ -112,45 +123,29 @@ export function useDispatchPlanner(cluster: RegionalCluster | null, open: boolea
   const weekStartDate = weekDays[0]?.date || '2025-03-17'
   const weekEndDate = weekDays[4]?.date || '2025-03-21'
 
-  useEffect(() => {
-    if (!open) return
-    let isMounted = true
-    setIsLoadingSlots(true)
-
-    void getTechnicianScheduleFn({
-      data: {
-        techId: selectedTechId,
-        weekStartDate,
-        weekEndDate,
-      },
+  // Query options for technician schedule
+  const scheduleQuery = useQuery(
+    maintenanceQueries.technicianSchedule(selectedTechId, weekStartDate, weekEndDate, {
+      enabled: open,
     })
-      .then((slots) => {
-        if (isMounted) {
-          setExistingSlots(slots)
-          setIsLoadingSlots(false)
-        }
-      })
-      .catch(() => {
-        if (isMounted) setIsLoadingSlots(false)
-      })
+  )
+  const existingSlots: ScheduledSlot[] = scheduleQuery.data ?? []
+  const isLoadingSlots = scheduleQuery.isLoading
 
-    return () => {
-      isMounted = false
-    }
-  }, [selectedTechId, weekStartDate, weekEndDate, open])
-
-  const activeTech = useMemo(() => {
-    return technicians.find((t) => t.id === selectedTechId) || {
-      id: selectedTechId,
-      name: 'Technicus',
-      role: 'TECHNICIAN' as const,
-      isContractor: false,
-      techCode: null,
-      initials: null,
-      title: 'Technicus',
-      specialties: [],
-      weeklySchedule: { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
-    }
+  const activeTech: TechnicianUser = useMemo(() => {
+    return (
+      technicians.find((t) => t.id === selectedTechId) || {
+        id: selectedTechId,
+        name: 'Technicus',
+        role: 'TECHNICIAN' as const,
+        isContractor: false,
+        techCode: null,
+        initials: null,
+        title: 'Technicus',
+        specialties: [],
+        weeklySchedule: { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
+      }
+    )
   }, [technicians, selectedTechId])
 
   const { proposedSlots, dayLoads, isOverCapacity } = useMemo(() => {
@@ -338,11 +333,13 @@ export function useDispatchPlanner(cluster: RegionalCluster | null, open: boolea
 
   const totalSelectedHours = useMemo(() => {
     if (!cluster) return 0
-    return Math.round(
-      cluster.sites
-        .filter((s) => selectedSiteIds.includes(s.id))
-        .reduce((sum, s) => sum + s.durationHours, 0) * 10
-    ) / 10
+    return (
+      Math.round(
+        cluster.sites
+          .filter((s) => selectedSiteIds.includes(s.id))
+          .reduce((sum, s) => sum + s.durationHours, 0) * 10
+      ) / 10
+    )
   }, [cluster, selectedSiteIds])
 
   return {

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {
   SheetHeader,
   SheetTitle,
@@ -25,50 +24,36 @@ import {
   ChevronRight,
   CalendarCheck,
 } from 'lucide-react'
-import type { TechnicianUser } from '../../server/getTechnicians'
-import type { DayColumn } from './useDispatchPlanner'
-
-interface DispatchHeaderProps {
-  city: string
-  technicians: TechnicianUser[]
-  selectedTechId: string
-  onSelectTechId: (id: string) => void
-  recommendedTech: TechnicianUser | null
-  otherTechs: TechnicianUser[]
-  weekDays: DayColumn[]
-  currentYear: number
-  onNavigateWeek: (delta: number) => void
-  isCalendarPickerOpen: boolean
-  onCalendarPickerOpenChange: (open: boolean) => void
-  pickerMonth: Date
-  onChangePickerMonth: (date: Date) => void
-  calendarDays: Array<{ date: Date; isCurrentMonth: boolean; isCurrentWeek: boolean }>
-  onSelectCalendarDate: (date: Date) => void
-  sheetContentRef?: React.RefObject<HTMLDivElement | null>
-}
+import { useClusterDispatch } from './ClusterDispatchContext'
 
 export function DispatchHeader({
-  city,
-  technicians,
-  selectedTechId,
-  onSelectTechId,
-  recommendedTech,
-  otherTechs,
-  weekDays,
-  currentYear,
-  onNavigateWeek,
-  isCalendarPickerOpen,
-  onCalendarPickerOpenChange,
-  pickerMonth,
-  onChangePickerMonth,
-  calendarDays,
-  onSelectCalendarDate,
   sheetContentRef,
-}: DispatchHeaderProps) {
+}: {
+  sheetContentRef?: React.RefObject<HTMLDivElement | null>
+} = {}) {
+  const { cluster, planner } = useClusterDispatch()
+  const { city } = cluster
+  const {
+    technicians,
+    selectedTechId,
+    setSelectedTechId,
+    recommendedTech,
+    otherTechs,
+    weekDays,
+    currentMonday,
+    handleNavigateWeek,
+    isCalendarPickerOpen,
+    setIsCalendarPickerOpen,
+    pickerMonth,
+    setPickerMonth,
+    calendarDays,
+    handleSelectCalendarDate,
+  } = planner
+
+  const currentYear = currentMonday.getFullYear()
+
   return (
-    <SheetHeader
-      className="-mx-4 -mt-4 bg-muted/20 border-b border-border/80 px-8 py-3 flex flex-row items-center justify-between gap-4"
-    >
+    <SheetHeader className="-mx-4 -mt-4 bg-muted/20 border-b border-border/80 px-8 py-3 flex flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <div className="hidden xl:flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
           <CalendarCheck className="size-4.5" />
@@ -91,7 +76,7 @@ export function DispatchHeader({
           <Combobox
             value={selectedTechId}
             onValueChange={(val) => {
-              if (typeof val === 'string' && val) onSelectTechId(val)
+              if (typeof val === 'string' && val) setSelectedTechId(val)
             }}
             itemToStringLabel={(techId) => {
               const tech = technicians.find((t) => t.id === techId)
@@ -102,18 +87,19 @@ export function DispatchHeader({
               className="w-65 h-8 text-xs bg-background"
               placeholder="Zoek technicus..."
             />
-            <ComboboxContent
-              className="w-65"
-              container={sheetContentRef}
-            >
+            <ComboboxContent className="w-65" container={sheetContentRef}>
               <ComboboxList>
                 {recommendedTech && (
                   <ComboboxGroup>
                     <ComboboxLabel>Aanbevolen</ComboboxLabel>
                     <ComboboxItem value={recommendedTech.id} className="text-xs">
                       <div className="flex flex-col">
-                        <span className="font-semibold text-foreground">{recommendedTech.name}</span>
-                        <span className="text-[10px] text-muted-foreground">{recommendedTech.title}</span>
+                        <span className="font-semibold text-foreground">
+                          {recommendedTech.name}
+                        </span>
+                        <span className="text-[10px] text-muted-foreground">
+                          {recommendedTech.title}
+                        </span>
                       </div>
                     </ComboboxItem>
                   </ComboboxGroup>
@@ -124,8 +110,12 @@ export function DispatchHeader({
                     {otherTechs.map((tech) => (
                       <ComboboxItem key={tech.id} value={tech.id} className="text-xs">
                         <div className="flex flex-col">
-                          <span className="font-semibold text-foreground">{tech.name}</span>
-                          <span className="text-[10px] text-muted-foreground">{tech.title}</span>
+                          <span className="font-semibold text-foreground">
+                            {tech.name}
+                          </span>
+                          <span className="text-[10px] text-muted-foreground">
+                            {tech.title}
+                          </span>
                         </div>
                       </ComboboxItem>
                     ))}
@@ -140,13 +130,13 @@ export function DispatchHeader({
           <Button
             size="icon-sm"
             variant="ghost"
-            onClick={() => onNavigateWeek(-1)}
+            onClick={() => handleNavigateWeek(-1)}
             className="size-7"
           >
             <ChevronLeft className="size-3.5" />
           </Button>
 
-          <Popover open={isCalendarPickerOpen} onOpenChange={onCalendarPickerOpenChange}>
+          <Popover open={isCalendarPickerOpen} onOpenChange={setIsCalendarPickerOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant="ghost"
@@ -166,7 +156,7 @@ export function DispatchHeader({
                     onClick={() => {
                       const prev = new Date(pickerMonth)
                       prev.setMonth(prev.getMonth() - 1)
-                      onChangePickerMonth(prev)
+                      setPickerMonth(prev)
                     }}
                   >
                     <ChevronLeft className="size-3" />
@@ -180,7 +170,7 @@ export function DispatchHeader({
                     onClick={() => {
                       const next = new Date(pickerMonth)
                       next.setMonth(next.getMonth() + 1)
-                      onChangePickerMonth(next)
+                      setPickerMonth(next)
                     }}
                   >
                     <ChevronRight className="size-3" />
@@ -202,13 +192,14 @@ export function DispatchHeader({
                     <button
                       key={idx}
                       type="button"
-                      onClick={() => onSelectCalendarDate(item.date)}
-                      className={`size-7 text-[11px] rounded flex items-center justify-center transition-colors ${item.isCurrentWeek
-                        ? 'bg-primary text-primary-foreground font-semibold'
-                        : item.isCurrentMonth
-                          ? 'text-foreground hover:bg-muted'
-                          : 'text-muted-foreground/40 hover:bg-muted/50'
-                        }`}
+                      onClick={() => handleSelectCalendarDate(item.date)}
+                      className={`size-7 text-[11px] rounded flex items-center justify-center transition-colors ${
+                        item.isCurrentWeek
+                          ? 'bg-primary text-primary-foreground font-semibold'
+                          : item.isCurrentMonth
+                            ? 'text-foreground hover:bg-muted'
+                            : 'text-muted-foreground/40 hover:bg-muted/50'
+                      }`}
                     >
                       {item.date.getDate()}
                     </button>
@@ -221,7 +212,7 @@ export function DispatchHeader({
           <Button
             size="icon-sm"
             variant="ghost"
-            onClick={() => onNavigateWeek(1)}
+            onClick={() => handleNavigateWeek(1)}
             className="size-7"
           >
             <ChevronRight className="size-3.5" />
@@ -231,4 +222,3 @@ export function DispatchHeader({
     </SheetHeader>
   )
 }
-

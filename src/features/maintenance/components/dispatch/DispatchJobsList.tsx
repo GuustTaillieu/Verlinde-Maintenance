@@ -1,47 +1,29 @@
 import { Checkbox } from '#/features/shared/components/ui/checkbox'
-import { Badge } from '#/features/shared/components/ui/badge'
 import { Clock, Wrench } from 'lucide-react'
-import type { ClusterSiteItem } from '../../types'
-import type { ProposedSlot } from './useDispatchPlanner'
+import { useClusterDispatch } from './ClusterDispatchContext'
 
-interface DispatchJobsListProps {
-  city: string
-  sites: ClusterSiteItem[]
-  selectedSiteIds: string[]
-  onToggleSite: (id: string) => void
-  onSelectAll: () => void
-  totalSelectedHours: number
-}
+export function DispatchJobsList() {
+  const { cluster, planner } = useClusterDispatch()
+  const { city, sites } = cluster
+  const { selectedSiteIds, handleToggleSite, handleSelectAll, totalSelectedHours } = planner
 
-export function DispatchJobsList({
-  city,
-  sites,
-  selectedSiteIds,
-  onToggleSite,
-  onSelectAll,
-  totalSelectedHours,
-}: DispatchJobsListProps) {
   const isAllSelected = selectedSiteIds.length === sites.length
   const isIndeterminate = selectedSiteIds.length > 0 && selectedSiteIds.length < sites.length
 
   return (
     <div className="w-95 flex flex-col bg-muted/10 shrink-0">
       <div className="p-4 border-b border-border flex flex-col gap-2">
-        <h3
-          className="text-base font-semibold text-foreground block cursor-pointer select-none"
-        >
+        <h3 className="text-base font-semibold text-foreground block cursor-pointer select-none">
           Werven in {city}
         </h3>
         <div className="flex items-center gap-2.5">
           <Checkbox
             id="select-all-jobs"
             checked={isAllSelected ? true : isIndeterminate ? 'indeterminate' : false}
-            onCheckedChange={onSelectAll}
+            onCheckedChange={handleSelectAll}
             className="opacity-90"
           />
-          <label
-            htmlFor="select-all-jobs"
-            className="text-[11px] text-muted-foreground block">
+          <label htmlFor="select-all-jobs" className="text-[11px] text-muted-foreground block">
             {selectedSiteIds.length} van {sites.length} geselecteerd (~{totalSelectedHours}u)
           </label>
         </div>
@@ -54,16 +36,17 @@ export function DispatchJobsList({
           return (
             <div
               key={site.id}
-              onClick={() => onToggleSite(site.id)}
-              className={`rounded-lg border p-2.5 text-xs cursor-pointer transition-colors select-none ${isSelected
-                ? 'border-primary/50 bg-primary/5 shadow-2xs'
-                : 'border-border bg-card hover:bg-muted/40 opacity-75'
-                }`}
+              onClick={() => handleToggleSite(site.id)}
+              className={`rounded-lg border p-2.5 text-xs cursor-pointer transition-colors select-none ${
+                isSelected
+                  ? 'border-primary/50 bg-primary/5 shadow-2xs'
+                  : 'border-border bg-card hover:bg-muted/40 opacity-75'
+              }`}
             >
               <div className="flex items-start gap-2.5">
                 <Checkbox
                   checked={isSelected}
-                  onCheckedChange={() => onToggleSite(site.id)}
+                  onCheckedChange={() => handleToggleSite(site.id)}
                   onClick={(e) => e.stopPropagation()}
                   className="mt-0.5 opacity-90"
                 />
@@ -79,7 +62,9 @@ export function DispatchJobsList({
                     <Clock className="size-3" />
                     {site.durationHours}u werk
                     <Wrench className="size-3" />
-                    {site.sheetNumbers.length > 1 ? `${site.sheetNumbers.length} installaties` : (site.disciplines[0] || 'Onderhoud')}
+                    {site.sheetNumbers.length > 1
+                      ? `${site.sheetNumbers.length} installaties`
+                      : site.disciplines[0] || 'Onderhoud'}
                   </div>
                 </div>
               </div>
@@ -90,4 +75,3 @@ export function DispatchJobsList({
     </div>
   )
 }
-
