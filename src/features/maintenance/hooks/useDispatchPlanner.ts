@@ -57,7 +57,11 @@ function minutesToTimeString(minutes: number): string {
   return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
 }
 
-export function useDispatchPlanner(cluster: MaintenanceCluster | null, open: boolean) {
+export function useDispatchPlanner(
+  cluster: MaintenanceCluster | null,
+  open: boolean,
+  initialSelectedSiteIds?: string[]
+) {
   const [selectedTechId, setSelectedTechId] = useState('usr_tom')
   const [currentMonday, setCurrentMonday] = useState<Date>(() => new Date(2025, 2, 17))
   const [selectedSiteIds, setSelectedSiteIds] = useState<string[]>([])
@@ -73,7 +77,11 @@ export function useDispatchPlanner(cluster: MaintenanceCluster | null, open: boo
 
   useEffect(() => {
     if (cluster) {
-      setSelectedSiteIds(cluster.sites.map((s) => s.id))
+      if (initialSelectedSiteIds && initialSelectedSiteIds.length > 0) {
+        setSelectedSiteIds(initialSelectedSiteIds)
+      } else {
+        setSelectedSiteIds(cluster.sites.map((s) => s.id))
+      }
       const city = cluster.city.toLowerCase()
       if (
         city.includes('kortrijk') ||

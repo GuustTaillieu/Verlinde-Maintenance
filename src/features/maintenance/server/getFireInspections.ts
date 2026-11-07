@@ -60,16 +60,12 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
         }
       }
 
-      // Check if site is relevant for maintenance dashboard:
-      // - Fire items (always relevant: statutory compliance)
-      // - Overdue non-fire items (diffDays > 0)
-      // - Upcoming non-fire items due within 3 months (diffDays >= -90)
-      // - Any item with an active work order / step in progress
       const isFire = site.primaryDiscipline === 'FIRE'
       const isOverdue = diffDays > 0
       const isUpcoming3Months = diffDays <= 0 && diffDays >= -90
       const isWaitingStep = stage === 'PENDING_APPROVAL' || stage === 'AWAITING_ATTEST'
 
+      // Only relevant items
       if (isFire || isOverdue || isUpcoming3Months || isWaitingStep) {
         allInspections.push({
           siteId: site.id,
@@ -95,56 +91,55 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
       }
     }
 
-    // Always sort by operational priority:
-    // 1. Awaiting attest / response
-    // 2. Fire items first
-    // 3. Days overdue descending
-    allInspections.sort((a, b) => {
-      const priority: Record<FireStage, number> = {
-        AWAITING_ATTEST: 0,
-        NEEDS_PROPOSAL: 1,
-        PENDING_APPROVAL: 2,
-        COMPLETED: 3,
+    const view = data?.view || 'active'
+    let filtered = allInspections.filter((item) => {
+      const isWaiting = item.stage === 'PENDING_APPROVAL' || item.stage === 'AWAITING_ATTEST'
+      if (view === 'inbox') {
+        return isWaiting
+      } else {
+        // Active queue: everything requiring Dirk's initiative (not waiting on external response)
+        return !isWaiting
       }
-      if (priority[a.stage] !== priority[b.stage]) {
-        return priority[a.stage] - priority[b.stage]
-      }
-      if ((a.primaryDiscipline === 'FIRE') !== (b.primaryDiscipline === 'FIRE')) {
-        return a.primaryDiscipline === 'FIRE' ? -1 : 1
-      }
-      return b.daysOverdue - a.daysOverdue
     })
 
-    // Filter by KPI category:
-    // kritiek => all fire items
-    // dringend => everything that is overdue (without the fire items)
-    // preventief => everything that is due up to 3 months from now (diffDays >= -90 && <= 0)
-    // afwachting => everything waiting for a step (PENDING_APPROVAL or AWAITING_ATTEST)
-    // all => all actionable items
-    const filter = data?.filter || 'all'
-    const filtered = allInspections.filter((item) => {
-      if (filter === 'kritiek') {
-        return item.primaryDiscipline === 'FIRE'
-      }
-      if (filter === 'dringend') {
-        return item.primaryDiscipline !== 'FIRE' && item.daysOverdue > 0
-      }
-      if (filter === 'afwachting') {
-        return item.stage === 'PENDING_APPROVAL' || item.stage === 'AWAITING_ATTEST'
-      }
-      if (filter === 'preventief') {
+    // Search filter if query provided
+    const search = data?.search?.toLowerCase().trim()
+    if (search) {
+      filtered = filtered.filter((item) => {
         return (
-          item.primaryDiscipline !== 'FIRE' &&
-          item.daysOverdue === 0 &&
-          item.diffDays !== undefined &&
-          item.diffDays >= -90
+          item.customerName.toLowerCase().includes(search) ||
+          item.siteName.toLowerCase().includes(search) ||
+          item.sheetNumber.toLowerCase().includes(search) ||
+          item.siteAddress.toLowerCase().includes(search) ||
+          item.siteCity.toLowerCase().includes(search)
         )
-      }
-      return true
-    })
+      })
+    }
+
+    // Sort:
+    if (view === 'active') {
+      // Fire items first, then overdue descending
+      filtered.sort((a, b) => {
+        if ((a.primaryDiscipline === 'FIRE') !== (b.primaryDiscipline === 'FIRE')) {
+          return a.primaryDiscipline === 'FIRE' ? -1 : 1
+        }
+        return b.daysOverdue - a.daysOverdue
+      })
+    } else {
+      // Inbox: Awaiting attest first, then pending approval
+      filtered.sort((a, b) => {
+        const priority: Record<FireStage, number> = {
+          AWAITING_ATTEST: 0,
+          PENDING_APPROVAL: 1,
+          NEEDS_PROPOSAL: 2,
+          COMPLETED: 3,
+        }
+        return priority[a.stage] - priority[b.stage]
+      })
+    }
 
     const cursor = data?.cursor ?? 0
-    const limit = data?.limit ?? 25
+    const limit = data?.limit ?? 50
     const items = filtered.slice(cursor, cursor + limit)
     const nextCursor = cursor + limit < filtered.length ? cursor + limit : null
 

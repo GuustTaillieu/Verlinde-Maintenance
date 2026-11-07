@@ -7,11 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from '#/features/shared/components/ui/card'
-import { AlertTriangle, Clock, CalendarCheck, ShieldAlert, type LucideIcon } from 'lucide-react'
+import { AlertTriangle, Clock, CalendarCheck, ShieldAlert, type LucideIcon, TriangleAlert } from 'lucide-react'
 import type { MaintenanceKPIs } from '../types'
 import { useQuery } from '@tanstack/react-query'
 import { maintenanceQueries } from '../query'
 import { cn } from 'cn'
+import { Skeleton } from '#/features/shared/components/ui/skeleton'
 
 type InsightVariant = 'destructive' | 'warning' | 'info' | 'default'
 
@@ -67,6 +68,16 @@ export function InsightCard({
   )
 }
 
+InsightCard.Skeleton = function InsightCardSkeleton() {
+  return (
+    <Skeleton className="h-64">
+      <Skeleton className="h-12" />
+      <Skeleton className="h-6" />
+      <Skeleton className="h-6" />
+    </Skeleton>
+  )
+}
+
 interface DashboardInsightsProps extends React.ComponentProps<'div'> {
   kpis?: MaintenanceKPIs
 }
@@ -89,15 +100,24 @@ export function DashboardInsightsRoot({
   )
 }
 
-export function DashboardInsights({ kpis: propKpis, className, ...props }: DashboardInsightsProps) {
-  const query = useQuery({
-    ...maintenanceQueries.kpis(),
-    enabled: !propKpis,
-  })
+export function DashboardInsights({ className, ...props }: DashboardInsightsProps) {
+  const { data: kpis, isPending, error } = useQuery(maintenanceQueries.kpis())
 
-  const kpis = propKpis ?? query.data
+  if (isPending) return (
+    <DashboardInsightsRoot className={className} {...props}>
+      <InsightCard.Skeleton />
+      <InsightCard.Skeleton />
+      <InsightCard.Skeleton />
+      <InsightCard.Skeleton />
+    </DashboardInsightsRoot>
+  )
 
-  if (!kpis) return null
+  if (error) return (
+    <DashboardInsightsRoot className={className} {...props}>
+      <TriangleAlert className='size-4' />
+      Er ging iets mis bij het inladen van de gegevens. Probeer het later opnieuw.
+    </DashboardInsightsRoot>
+  )
 
   return (
     <DashboardInsightsRoot className={className} {...props}>

@@ -8,7 +8,7 @@ export const getMaintenanceDashboardDataFn = createServerFn({ method: 'GET' }).h
   async (): Promise<MaintenanceDashboardData> => {
     const [kpis, paginatedInspections, clusters] = await Promise.all([
       getMaintenanceKpisFn(),
-      getFireInspectionsFn({ data: { filter: 'all', cursor: 0, limit: 100 } }),
+      getFireInspectionsFn({ data: { view: 'active', cursor: 0, limit: 100 } }),
       getMaintenanceClustersFn(),
     ])
 

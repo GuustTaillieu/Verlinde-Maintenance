@@ -1,11 +1,14 @@
 import { useState } from 'react'
-import type { MaintenanceFilterKey } from '../types'
+import type { MaintenanceView } from '../types'
 
-export function useMaintenanceFilters(initialFilter: MaintenanceFilterKey = 'all') {
-  const [activeFilter, setActiveFilter] = useState<MaintenanceFilterKey>(initialFilter)
+export function useMaintenanceFilters(initialView: MaintenanceView = 'active') {
+  const [view, setView] = useState<MaintenanceView>(initialView)
+  const [search, setSearch] = useState<string>('')
 
   return {
-    activeFilter,
-    setActiveFilter,
+    view,
+    setView,
+    search,
+    setSearch,
   }
 }

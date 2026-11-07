@@ -116,10 +116,7 @@ export function useMaintenanceMutations() {
       }
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.fireInspections() })
-      void queryClient.invalidateQueries({ queryKey: ['maintenance', 'fire-inspections-infinite'] })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.kpis() })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.data() })
+      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
   })
 
@@ -173,9 +170,7 @@ export function useMaintenanceMutations() {
       }
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.fireInspections() })
-      void queryClient.invalidateQueries({ queryKey: ['maintenance', 'fire-inspections-infinite'] })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.data() })
+      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
   })
 
@@ -239,10 +234,7 @@ export function useMaintenanceMutations() {
       }
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.fireInspections() })
-      void queryClient.invalidateQueries({ queryKey: ['maintenance', 'fire-inspections-infinite'] })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.kpis() })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.data() })
+      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
   })
 
@@ -362,9 +354,7 @@ export function useMaintenanceMutations() {
       }
     },
     onSettled: () => {
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.clusters() })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.kpis() })
-      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.data() })
+      void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
   })
 

@@ -1,5 +1,6 @@
 import { Checkbox } from '#/features/shared/components/ui/checkbox'
-import { Clock, Wrench } from 'lucide-react'
+import { Button } from '#/features/shared/components/ui/button'
+import { Clock, Wrench, Plus } from 'lucide-react'
 import { useClusterDispatch } from './ClusterDispatchContext'
 
 export function DispatchJobsList() {
@@ -71,6 +72,21 @@ export function DispatchJobsList() {
             </div>
           )
         })}
+
+        {selectedSiteIds.length < sites.length && (
+          <div className="pt-3 pb-1 border-t border-border mt-3">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={handleSelectAll}
+              className="w-full text-xs h-7 gap-1.5 text-muted-foreground hover:text-foreground border-dashed"
+            >
+              <Plus className="size-3" />
+              Voeg overige {sites.length - selectedSiteIds.length} werven in {city} toe
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -18,6 +18,7 @@ export { useClusterDispatch } from './dispatch/ClusterDispatchContext'
 
 export interface ClusterDispatchDialogProps {
   cluster: MaintenanceCluster | null
+  initialSelectedSiteIds?: string[]
   open: boolean
   onOpenChange: (open: boolean) => void
   onConfirm: (data: PlanClusterBatchInput) => Promise<void>
@@ -43,13 +44,14 @@ export function ClusterDispatchBody({
 
 export function ClusterDispatchDialog({
   cluster,
+  initialSelectedSiteIds,
   open,
   onOpenChange,
   onConfirm,
   children,
 }: ClusterDispatchDialogProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const planner = useDispatchPlanner(cluster, open)
+  const planner = useDispatchPlanner(cluster, open, initialSelectedSiteIds)
 
   if (!cluster) return null
 

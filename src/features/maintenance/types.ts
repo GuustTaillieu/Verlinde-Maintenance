@@ -155,27 +155,24 @@ export const uploadFireAttestInputSchema = z.object({
 export type UploadFireAttestInput = z.infer<typeof uploadFireAttestInputSchema>
 
 /**
- * Maintenance filter tab keys based on operational urgency and KPI categories.
+ * Top-level dashboard view:
+ * - 'active': Actieve Taken (Action queue requiring Dirk's initiative)
+ * - 'inbox': In Afwachting (Waiting room for client confirmations / Brandtec attests)
  */
-export const maintenanceFilterKeySchema = z.enum([
-  'all',
-  'kritiek',
-  'dringend',
-  'afwachting',
-  'preventief',
-])
-export type MaintenanceFilterKey = z.infer<typeof maintenanceFilterKeySchema>
+export const maintenanceViewSchema = z.enum(['active', 'inbox'])
+export type MaintenanceView = z.infer<typeof maintenanceViewSchema>
 
 /**
- * Paginated query input schema for fetching fire and maintenance inspections.
+ * Paginated query input schema for fetching maintenance inspections/todos.
  */
 export const getFireInspectionsInputSchema = z
   .object({
-    filter: z.enum(['all', 'kritiek', 'dringend', 'afwachting', 'preventief']).default('all'),
+    view: maintenanceViewSchema.default('active'),
+    search: z.string().optional(),
     cursor: z.number().int().nonnegative().default(0),
-    limit: z.number().int().positive().default(25),
+    limit: z.number().int().positive().default(50),
   })
-  .default({ filter: 'all', cursor: 0, limit: 25 })
+  .default({ view: 'active', cursor: 0, limit: 50 })
 export type GetFireInspectionsInput = z.infer<typeof getFireInspectionsInputSchema>
 
 /**

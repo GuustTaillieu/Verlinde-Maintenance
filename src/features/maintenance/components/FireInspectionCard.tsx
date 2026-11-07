@@ -19,6 +19,8 @@ import {
   Video,
   KeyRound,
   Wrench,
+  Check,
+  Square,
 } from 'lucide-react'
 import type { FireInspectionItem } from '../types'
 import { cn } from 'cn'
@@ -31,6 +33,9 @@ interface FireInspectionCardContextValue {
   isConfirming: boolean
   setIsConfirming: (val: boolean) => void
   isOverdue: boolean
+  isSelected?: boolean
+  onToggleSelect?: (siteId: string) => void
+  selectable?: boolean
 }
 
 const FireInspectionCardContext = React.createContext<FireInspectionCardContextValue | null>(null)
@@ -44,8 +49,9 @@ export function useFireInspectionCard() {
 }
 
 export function FireInspectionCardIcon({ className }: { className?: string }) {
-  const { item, isOverdue } = useFireInspectionCard()
+  const { item, isOverdue, isSelected, onToggleSelect, selectable } = useFireInspectionCard()
   const isFire = item.primaryDiscipline === 'FIRE'
+  const [isHovered, setIsHovered] = React.useState(false)
 
   const renderIcon = () => {
     switch (item.primaryDiscipline) {
@@ -62,19 +68,40 @@ export function FireInspectionCardIcon({ className }: { className?: string }) {
     }
   }
 
+  const showCheckbox = selectable && (isHovered || isSelected)
+
   return (
     <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={(e) => {
+        if (selectable && onToggleSelect) {
+          e.stopPropagation()
+          onToggleSelect(item.siteId)
+        }
+      }}
       className={cn(
-        'flex size-8 shrink-0 items-center justify-center rounded-lg',
-        isFire
-          ? 'bg-red-500/10 text-red-600 dark:text-red-400'
-          : isOverdue
-            ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
-            : 'bg-muted text-muted-foreground',
+        'group/icon flex size-8 shrink-0 items-center justify-center rounded-lg transition-all select-none',
+        selectable && 'cursor-pointer hover:ring-2 hover:ring-primary/40',
+        isSelected
+          ? 'bg-primary text-primary-foreground shadow-xs'
+          : isFire
+            ? 'bg-red-500/10 text-red-600 dark:text-red-400'
+            : isOverdue
+              ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+              : 'bg-muted text-muted-foreground',
         className
       )}
     >
-      {renderIcon()}
+      {showCheckbox ? (
+        isSelected ? (
+          <Check className="size-4 stroke-[2.5]" />
+        ) : (
+          <Square className="size-4 stroke-[1.5] text-muted-foreground group-hover/icon:text-primary" />
+        )
+      ) : (
+        renderIcon()
+      )}
     </div>
   )
 }
@@ -286,6 +313,9 @@ export interface FireInspectionCardProps {
   onOpenPropose?: (item: FireInspectionItem) => void
   onConfirmAppointment?: (workOrderId: string) => Promise<void>
   onOpenUploadAttest?: (item: FireInspectionItem) => void
+  isSelected?: boolean
+  onToggleSelect?: (siteId: string) => void
+  selectable?: boolean
   children?: React.ReactNode
   className?: string
 }
@@ -295,6 +325,9 @@ export function FireInspectionCard({
   onOpenPropose,
   onConfirmAppointment,
   onOpenUploadAttest,
+  isSelected,
+  onToggleSelect,
+  selectable,
   children,
   className,
 }: FireInspectionCardProps) {
@@ -311,12 +344,16 @@ export function FireInspectionCard({
         isConfirming,
         setIsConfirming,
         isOverdue,
+        isSelected,
+        onToggleSelect,
+        selectable,
       }}
     >
       <AccordionItem
         value={item.siteId}
         className={cn(
-          'border border-border rounded-lg bg-card px-4 py-1 shadow-xs transition-colors',
+          'border rounded-lg px-4 py-1 shadow-xs transition-colors',
+          isSelected ? 'border-primary/60 bg-primary/2 shadow-2xs' : 'border-border bg-card',
           className
         )}
       >
