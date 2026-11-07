@@ -1,10 +1,11 @@
 import {
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-} from '#/features/shared/components/ui/sheet'
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '#/features/shared/components/ui/dialog'
 import {
   Combobox,
+  ComboboxTrigger,
   ComboboxInput,
   ComboboxContent,
   ComboboxList,
@@ -27,11 +28,11 @@ import {
 import { useClusterDispatch } from './ClusterDispatchContext'
 
 export function DispatchHeader({
-  sheetContentRef,
+  sheetContentRef: _sheetContentRef,
 }: {
   sheetContentRef?: React.RefObject<HTMLDivElement | null>
 } = {}) {
-  const { cluster, planner } = useClusterDispatch()
+  const { cluster, planner, step } = useClusterDispatch()
   const { city } = cluster
   const {
     technicians,
@@ -52,23 +53,40 @@ export function DispatchHeader({
 
   const currentYear = currentMonday.getFullYear()
 
+  const selectedTech = technicians.find((t) => t.id === selectedTechId)
+
   return (
-    <SheetHeader className="-mx-4 -mt-4 bg-muted/20 border-b border-border/80 px-8 py-3 flex flex-row items-center justify-between gap-4">
+    <DialogHeader className="bg-muted/20 border-b border-border/80 px-6 py-3 flex flex-row items-center justify-between gap-4 shrink-0">
       <div className="flex items-center gap-3">
         <div className="hidden xl:flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
           <CalendarCheck className="size-4.5" />
         </div>
         <div>
-          <SheetTitle className="text-lg font-semibold tracking-tight">
-            Batch Dispatching: Regio {city}
-          </SheetTitle>
-          <SheetDescription className="text-xs text-muted-foreground line-clamp-2">
-            Bekijk direct de bezetting van de technicus en zie hoe de geselecteerde werven in het dagschema passen.
-          </SheetDescription>
+          <DialogTitle className="text-base font-semibold tracking-tight">
+            {step === 'EMAILS'
+              ? `Voorstel E-mails Nakijken: Regio ${city}`
+              : `Batch Dispatching: Regio ${city}`}
+          </DialogTitle>
+          <DialogDescription className="text-xs text-muted-foreground line-clamp-1">
+            {step === 'EMAILS'
+              ? 'Controleer of bewerk de gegenereerde e-mails per klant alvorens de voorstellen te verzenden.'
+              : 'Bekijk direct de bezetting van de technicus en zie hoe de geselecteerde werven in het dagschema passen.'}
+          </DialogDescription>
         </div>
       </div>
 
-      <div className="flex flex-col items-end xl:flex-row xl:items-center gap-2 mr-4">
+      {step === 'EMAILS' ? (
+        <div className="flex items-center gap-3 text-xs bg-background/80 border border-border px-3 py-1.5 rounded-lg shadow-2xs">
+          <div>
+            Technicus: <strong className="text-foreground">{planner.activeTech.name}</strong>
+          </div>
+          <span className="text-muted-foreground">•</span>
+          <div className="text-muted-foreground">
+            Week van {weekDays[0]?.dayLabel}
+          </div>
+        </div>
+      ) : (
+        <div className="flex flex-col items-end xl:flex-row xl:items-center gap-2">
         <div className="flex items-center gap-2">
           <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
             Technicus:
@@ -78,20 +96,21 @@ export function DispatchHeader({
             onValueChange={(val) => {
               if (typeof val === 'string' && val) setSelectedTechId(val)
             }}
-            itemToStringLabel={(techId) => {
-              const tech = technicians.find((t) => t.id === techId)
-              return tech ? tech.name : ''
-            }}
           >
-            <ComboboxInput
-              className="w-65 h-8 text-xs bg-background"
-              placeholder="Zoek technicus..."
-            />
-            <ComboboxContent className="w-65" container={sheetContentRef}>
+            <ComboboxTrigger className="flex h-8 w-56 items-center justify-between gap-2 rounded-lg border border-input bg-background px-2.5 py-1 text-xs hover:bg-muted/50 cursor-pointer shadow-2xs">
+              <span className="truncate font-medium text-foreground">
+                {selectedTech ? `${selectedTech.name} (${selectedTech.title})` : 'Selecteer technicus...'}
+              </span>
+            </ComboboxTrigger>
+            <ComboboxContent className="w-60" align="end">
+              <ComboboxInput
+                placeholder="Zoek technicus..."
+                className="h-8 text-xs bg-background"
+              />
               <ComboboxList>
                 {recommendedTech && (
                   <ComboboxGroup>
-                    <ComboboxLabel>Aanbevolen</ComboboxLabel>
+                    <ComboboxLabel>Aanbevolen voor {city}</ComboboxLabel>
                     <ComboboxItem value={recommendedTech.id} className="text-xs">
                       <div className="flex flex-col">
                         <span className="font-semibold text-foreground">
@@ -219,6 +238,7 @@ export function DispatchHeader({
           </Button>
         </div>
       </div>
-    </SheetHeader>
+      )}
+    </DialogHeader>
   )
 }

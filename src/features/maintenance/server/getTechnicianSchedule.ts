@@ -14,6 +14,7 @@ export interface ScheduledSlot {
   startTime: string // HH:MM
   endTime: string // HH:MM
   durationHours: number
+  status?: string
 }
 
 export const technicianScheduleInputSchema = z.object({
@@ -40,6 +41,7 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
         plannedDate: workOrders.plannedDate,
         plannedStartTime: workOrders.plannedStartTime,
         plannedEndTime: workOrders.plannedEndTime,
+        status: workOrders.status,
         siteName: sites.name,
         siteAddress: sites.siteAddress,
         siteCity: sites.siteCity,
@@ -64,6 +66,7 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
       startTime: r.plannedStartTime || '08:30',
       endTime: r.plannedEndTime || '10:30',
       durationHours: calculateDurationHours(r.plannedStartTime, r.plannedEndTime),
+      status: r.status || undefined,
     }))
   })
 

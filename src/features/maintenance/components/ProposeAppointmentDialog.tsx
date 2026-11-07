@@ -8,7 +8,7 @@ import {
   DialogFooter,
 } from '#/features/shared/components/ui/dialog'
 import { Button } from '#/features/shared/components/ui/button'
-import { Mail, Send, Loader2, MapPin, Building2, Phone, Contact, Clock } from 'lucide-react'
+import { Mail, Send, Loader2, MapPin, Building2, Phone, Clock } from 'lucide-react'
 import { DateTimePicker } from './propose/DateTimePicker'
 import { AppointmentMailPreview } from './propose/AppointmentMailPreview'
 import { DISCIPLINE, type FireInspectionItem, type ProposeFireAppointmentInput } from '../types'

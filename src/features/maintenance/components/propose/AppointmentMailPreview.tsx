@@ -1,4 +1,3 @@
-import { Badge } from '#/features/shared/components/ui/badge'
 import { Mail } from 'lucide-react'
 import type { FireInspectionItem } from '../../types'
 

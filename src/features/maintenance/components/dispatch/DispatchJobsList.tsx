@@ -12,8 +12,8 @@ export function DispatchJobsList() {
   const isIndeterminate = selectedSiteIds.length > 0 && selectedSiteIds.length < sites.length
 
   return (
-    <div className="w-95 flex flex-col bg-muted/10 shrink-0">
-      <div className="p-4 border-b border-border flex flex-col gap-2">
+    <div className="w-95 flex flex-col h-full min-h-0 bg-muted/10 shrink-0 overflow-hidden">
+      <div className="p-4 border-b border-border flex flex-col gap-2 shrink-0">
         <h3 className="text-base font-semibold text-foreground block cursor-pointer select-none">
           Werven in {city}
         </h3>
@@ -30,7 +30,7 @@ export function DispatchJobsList() {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-3 space-y-2">
+      <div className="flex-1 min-h-0 overflow-y-auto p-3 space-y-2">
         {sites.map((site) => {
           const isSelected = selectedSiteIds.includes(site.id)
 
@@ -44,18 +44,27 @@ export function DispatchJobsList() {
                   : 'border-border bg-card hover:bg-muted/40 opacity-75'
               }`}
             >
-              <div className="flex items-start gap-2.5">
+              <div className="flex items-start gap-2.5 min-w-0">
                 <Checkbox
                   checked={isSelected}
                   onCheckedChange={() => handleToggleSite(site.id)}
                   onClick={(e) => e.stopPropagation()}
-                  className="mt-0.5 opacity-90"
+                  className="mt-0.5 opacity-90 shrink-0"
                 />
-                <div className="flex-1">
-                  <span className="text-sm font-semibold text-foreground/90 truncate">
+                <div className="flex-1 min-w-0">
+                  <div
+                    className="text-sm font-semibold text-foreground/90 truncate"
+                    title={site.name}
+                  >
                     {site.name}
-                  </span>
-                  <div className="text-[11px] text-muted-foreground truncate">
+                  </div>
+                  <div
+                    className="text-[11px] text-muted-foreground truncate"
+                    title={site.address}
+                  >
+                    {site.customerName && site.customerName !== site.name
+                      ? `${site.customerName} • `
+                      : ''}
                     {site.address}
                   </div>
 

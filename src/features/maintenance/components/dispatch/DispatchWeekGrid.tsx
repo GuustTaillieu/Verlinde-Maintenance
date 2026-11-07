@@ -144,17 +144,26 @@ export function DispatchWeekGrid() {
                     const endMin = timeStringToMinutes(slot.endTime)
                     const topPct = Math.max(0, ((startMin - 480) / 540) * 100)
                     const heightPct = Math.min(100 - topPct, (((endMin - startMin) / 540) * 100))
+                    const isReserved = slot.status === 'PROPOSED'
 
                     return (
                       <div
                         key={slot.id}
                         style={{ top: `${topPct}%`, height: `${heightPct}%` }}
-                        className="absolute inset-x-1 rounded-md border border-border bg-muted/90 p-1.5 text-xs flex flex-col justify-between overflow-hidden shadow-2xs z-20"
+                        className={`absolute inset-x-1 rounded-md p-1.5 text-xs flex flex-col justify-between overflow-hidden shadow-2xs z-20 ${
+                          isReserved
+                            ? 'border-2 border-dashed border-primary/50 bg-primary/5'
+                            : 'border border-border bg-muted/90'
+                        }`}
                       >
                         <div>
                           <div className="flex items-center justify-between font-mono text-[9px] text-muted-foreground">
                             <span>{slot.startTime} - {slot.endTime}</span>
-                            <span className="font-semibold">{slot.durationHours}u</span>
+                            {isReserved ? (
+                              <span className="text-[9px] font-sans font-medium text-primary">Gereserveerd</span>
+                            ) : (
+                              <span className="font-semibold">{slot.durationHours}u</span>
+                            )}
                           </div>
                           <div className="font-medium text-foreground text-[11px] leading-tight truncate">
                             {slot.siteName}
@@ -177,11 +186,14 @@ export function DispatchWeekGrid() {
                       <div
                         key={slot.siteId}
                         style={{ top: `${topPct}%`, height: `${heightPct}%` }}
-                        className="absolute inset-x-1 rounded-md border-2 border-primary/50 bg-primary/10 p-1.5 text-xs flex flex-col justify-between overflow-hidden shadow-xs z-30 transition-all animate-in fade-in-50"
+                        className="absolute inset-x-1 rounded-md border-2 border-dashed border-primary/70 bg-primary/10 p-1.5 text-xs flex flex-col justify-between overflow-hidden shadow-xs z-30 transition-all animate-in fade-in-50"
                       >
                         <div>
-                          <div className="font-mono text-[9px] text-primary font-semibold">
+                          <div className="flex items-center justify-between font-mono text-[9px] text-primary font-semibold">
                             <span>{slot.startTime} - {slot.endTime}</span>
+                            <span className="text-[9px] font-sans font-medium bg-primary/15 px-1 rounded text-primary">
+                              Voorstel
+                            </span>
                           </div>
                           <div className="font-semibold text-foreground text-[11px] line-clamp-2 mt-0.5">
                             {slot.siteName}

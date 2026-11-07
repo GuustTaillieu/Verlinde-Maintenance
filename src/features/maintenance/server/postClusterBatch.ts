@@ -2,7 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
 import { sites, workOrders } from '#/db/schema'
 import { inArray } from 'drizzle-orm'
-import { planClusterBatchInputSchema } from '../types'
+import { planClusterBatchInputSchema, WORK_ORDER_STATUS } from '../types'
 
 export const planClusterBatchFn = createServerFn({ method: 'POST' })
   .validator(planClusterBatchInputSchema)
@@ -44,7 +44,7 @@ export const planClusterBatchFn = createServerFn({ method: 'POST' })
             customerId: s.customerId,
             siteId: s.id,
             assignedTechnicianId: assignment.techId,
-            status: 'SCHEDULED',
+            status: WORK_ORDER_STATUS.PROPOSED,
             kind: 'MAINTENANCE',
             plannedDate: assignment.plannedDate,
             plannedStartTime: assignment.startTime,
@@ -73,7 +73,7 @@ export const planClusterBatchFn = createServerFn({ method: 'POST' })
           customerId: s.customerId,
           siteId: s.id,
           assignedTechnicianId: data.techId,
-          status: 'SCHEDULED',
+          status: WORK_ORDER_STATUS.PROPOSED,
           kind: 'MAINTENANCE',
           plannedDate: data.plannedDate,
           plannedStartTime: '08:30',
