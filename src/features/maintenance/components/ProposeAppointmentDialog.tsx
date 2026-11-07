@@ -8,10 +8,11 @@ import {
   DialogFooter,
 } from '#/features/shared/components/ui/dialog'
 import { Button } from '#/features/shared/components/ui/button'
-import { Mail, Send, Loader2, MapPin, Building2, Phone } from 'lucide-react'
+import { Mail, Send, Loader2, MapPin, Building2, Phone, Contact, Clock } from 'lucide-react'
 import { DateTimePicker } from './propose/DateTimePicker'
 import { AppointmentMailPreview } from './propose/AppointmentMailPreview'
-import type { FireInspectionItem, ProposeFireAppointmentInput } from '../types'
+import { DISCIPLINE, type FireInspectionItem, type ProposeFireAppointmentInput } from '../types'
+import { TimePicker } from './propose/TimePicker'
 
 interface ProposeAppointmentContextValue {
   item: FireInspectionItem
@@ -36,9 +37,7 @@ export function useProposeAppointment() {
 }
 
 function getRecommendedFutureDate(): string {
-  const now = new Date()
-  const target = new Date(now)
-  target.setDate(target.getDate() + 5)
+  const target = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)
   if (target.getDay() === 6) target.setDate(target.getDate() + 2)
   if (target.getDay() === 0) target.setDate(target.getDate() + 1)
   const y = target.getFullYear()
@@ -49,9 +48,10 @@ function getRecommendedFutureDate(): string {
 
 export function ProposeSiteSummary() {
   const { item } = useProposeAppointment()
+  const isFire = item.primaryDiscipline === DISCIPLINE.FIRE
 
   return (
-    <div className="rounded-xl border border-border bg-muted/20 p-3 space-y-2 text-xs">
+    <div className="rounded-xl border border-border bg-muted/20 p-3 space-y-3 text-xs">
       <div className="flex items-center justify-between font-medium">
         <span className="font-semibold text-foreground text-sm flex items-center gap-1.5">
           <Building2 className="size-3.5 text-primary" />
@@ -69,49 +69,90 @@ export function ProposeSiteSummary() {
         </span>
       </div>
 
-      <div className="border-t border-border/60 pt-2 flex flex-wrap gap-x-4 gap-y-1 text-muted-foreground">
-        <div>
-          Klant: <strong className="text-foreground">{item.customerName}</strong>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-border/60">
+        {/* Customer Contact */}
+        <div className="space-y-1 bg-background/50 rounded-lg p-2 border border-border/40">
+          <div className="text-[11px] font-semibold text-foreground">
+            Klantcontact: {item.customerName}
+          </div>
+          {item.customerPhone ? (
+            <a
+              href={`tel:${item.customerPhone}`}
+              className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1.5 hover:underline"
+            >
+              <Phone className="size-3 text-primary shrink-0" />
+              <span>{item.customerPhone} (Bellen)</span>
+            </a>
+          ) : (
+            <div className="text-[11px] text-muted-foreground">Geen telefoonnummer</div>
+          )}
+          {item.customerEmail ? (
+            <a
+              href={`mailto:${item.customerEmail}`}
+              className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1.5 hover:underline truncate"
+            >
+              <Mail className="size-3 text-primary shrink-0" />
+              <span className="truncate">{item.customerEmail}</span>
+            </a>
+          ) : (
+            <div className="text-[11px] text-muted-foreground">Geen e-mailadres</div>
+          )}
         </div>
-        {item.customerPhone && (
-          <div className="flex items-center gap-1">
-            <Phone className="size-3 text-muted-foreground" />
-            <span>{item.customerPhone}</span>
+
+        {/* Subcontractor or Technician Contact */}
+        <div className="space-y-1 bg-background/50 rounded-lg p-2 border border-border/40">
+          <div className="text-[11px] font-semibold text-foreground">
+            {isFire ? 'Keuringsinstantie: Brandtec BV' : 'Uitvoerder: Verlinde Beveiliging'}
           </div>
-        )}
-        {item.customerEmail && (
-          <div className="flex items-center gap-1">
-            <Mail className="size-3 text-muted-foreground" />
-            <span>{item.customerEmail}</span>
-          </div>
-        )}
+          <a
+            href={isFire ? 'tel:056224488' : 'tel:056778899'}
+            className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1.5 hover:underline"
+          >
+            <Phone className="size-3 text-primary shrink-0" />
+            <span>{isFire ? '056 22 44 88 (Brandtec Planning)' : '056 77 88 99 (Dispatch)'}</span>
+          </a>
+          <a
+            href={isFire ? 'mailto:planning@brandtec.be' : 'mailto:planning@verlinde-beveiliging.be'}
+            className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1.5 hover:underline truncate"
+          >
+            <Mail className="size-3 text-primary shrink-0" />
+            <span className="truncate">{isFire ? 'planning@brandtec.be' : 'planning@verlinde-beveiliging.be'}</span>
+          </a>
+        </div>
       </div>
     </div>
   )
 }
 
 export function ProposeDialogHeader() {
+  const { item } = useProposeAppointment()
+  const isFire = item.primaryDiscipline === 'FIRE'
+
   return (
-    <DialogHeader className="px-6 py-4 border-b border-border bg-card shrink-0">
+    <DialogHeader className="-mx-4 -mt-4 px-8 py-3 bg-muted/20 border-b border-border/80 shrink-0">
       <DialogTitle className="text-base font-semibold flex items-center gap-2">
         <Mail className="size-4 text-primary" />
-        Afspraakvoorstel Branddetectie (Brandtec BV)
+        {isFire
+          ? 'Afspraakvoorstel Branddetectie'
+          : 'Afspraakvoorstel Periodiek Onderhoud'}
       </DialogTitle>
       <DialogDescription className="text-xs">
-        Kies een datum in de nabije toekomst en een tijdvenster voor de wettelijke keuring.
+        {isFire
+          ? 'Kies een datum in de nabije toekomst en een tijdvenster voor de wettelijke keuring.'
+          : 'Kies een datum en tijdvenster om te reserveren in de planning en voor te stellen aan de klant.'}
       </DialogDescription>
     </DialogHeader>
   )
 }
 
 export function ProposeDialogFooter() {
-  const { proposedDate, startTime, endTime, isSubmitting, onSend, onClose } =
-    useProposeAppointment()
+  const { proposedDate, isSubmitting, onSend, onClose } = useProposeAppointment()
 
   return (
-    <DialogFooter className="px-6 py-3.5 border-t border-border bg-muted/20 flex sm:flex-row items-center justify-between shrink-0">
-      <div className="text-xs text-muted-foreground">
-        Voorgesteld voor <strong>{proposedDate}</strong> ({startTime} - {endTime}).
+    <DialogFooter className="px-6 py-3 border-t border-border bg-muted/20 flex items-center justify-between shrink-0">
+      <div className="text-xs text-muted-foreground hidden md:block">
+        Na verzending wordt de afspraak verplaatst naar{' '}
+        <strong className="text-foreground">In Afwachting</strong> totdat de klant of partner bevestigt.
       </div>
 
       <div className="flex items-center gap-2">
@@ -137,7 +178,7 @@ export function ProposeDialogFooter() {
           ) : (
             <Send className="size-3.5" />
           )}
-          Voorstel Verzenden naar Brandtec
+          Voorstel Verzenden
         </Button>
       </div>
     </DialogFooter>
@@ -149,37 +190,44 @@ export function ProposeDialogBody() {
     useProposeAppointment()
 
   return (
-    <div className="flex-1 overflow-y-auto p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-4">
-          <ProposeSiteSummary />
-
-          <div>
-            <h4 className="text-xs font-semibold text-foreground mb-2">
-              Voorgestelde Keuringsdatum & Uur
-            </h4>
-            <DateTimePicker
-              selectedDate={proposedDate}
-              onSelectDate={setProposedDate}
-              startTime={startTime}
-              endTime={endTime}
-              onSelectTimeSlot={handleSelectTimeSlot}
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <h4 className="text-xs font-semibold text-foreground flex items-center gap-1.5">
-            <Mail className="size-3.5 text-muted-foreground" />
-            E-mail Preview (Automatische notificatie naar Brandtec)
+    <div className="flex-1 overflow-y-auto p-6 flex flex-col xl:flex-row gap-8">
+      <div className="flex flex-col md:flex-row xl:flex-col gap-8">
+        <div className="space-y-4 max-w-xl">
+          <h4 className="text-xs font-semibold text-foreground mb-2">
+            Voorgestelde Keuringsdatum & Uur
           </h4>
-          <AppointmentMailPreview
-            item={item}
-            proposedDate={proposedDate}
-            startTime={startTime}
-            endTime={endTime}
+          <DateTimePicker
+            selectedDate={proposedDate}
+            onSelectDate={setProposedDate}
           />
         </div>
+
+        <div className="space-y-4 flex-1">
+          <h4 className="text-xs font-medium flex items-center gap-1.5 text-foreground">
+            <Clock className="size-3.5 text-muted-foreground" />
+            Kies Tijdvenster
+          </h4>
+          <TimePicker
+            startTime={startTime}
+            endTime={endTime}
+            onSelectTimeSlot={handleSelectTimeSlot}
+          />
+        </div>
+      </div>
+
+      <div className='space-y-4'>
+        <div>
+          <h4 className="text-xs font-semibold text-foreground mb-2">Locatie & Contact</h4>
+          <ProposeSiteSummary />
+        </div>
+
+        <h4 className="text-xs font-semibold text-foreground mb-2">E-mail Preview</h4>
+        <AppointmentMailPreview
+          item={item}
+          proposedDate={proposedDate}
+          startTime={startTime}
+          endTime={endTime}
+        />
       </div>
     </div>
   )
@@ -257,7 +305,7 @@ export function ProposeAppointmentDialog({
   return (
     <ProposeAppointmentContext.Provider value={contextValue}>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="sm:max-w-4xl! w-full max-h-[90vh] flex flex-col p-0 overflow-hidden bg-background">
+        <DialogContent className="max-w-[96vw]! max-h-[96vh]! h-full w-max flex flex-col max-sm:p-2 max-sm:max-w-screen! max-sm:h-screen! gap-0">
           {children || (
             <>
               <ProposeDialogHeader />

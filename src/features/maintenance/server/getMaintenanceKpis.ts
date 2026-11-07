@@ -2,7 +2,11 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
 import { sites, workOrders } from '#/db/schema'
 import { eq, inArray, desc } from 'drizzle-orm'
-import type { MaintenanceKPIs } from '../types'
+import {
+  type MaintenanceKPIs,
+  DISCIPLINE,
+  WORK_ORDER_STATUS,
+} from '../types'
 
 export const getMaintenanceKpisFn = createServerFn({ method: 'GET' }).handler(
   async (): Promise<MaintenanceKPIs> => {
@@ -26,7 +30,13 @@ export const getMaintenanceKpisFn = createServerFn({ method: 'GET' }).handler(
         plannedDate: workOrders.plannedDate,
       })
       .from(workOrders)
-      .where(inArray(workOrders.status, ['PROPOSED', 'SCHEDULED', 'IN_PROGRESS']))
+      .where(
+        inArray(workOrders.status, [
+          WORK_ORDER_STATUS.PROPOSED,
+          WORK_ORDER_STATUS.SCHEDULED,
+          WORK_ORDER_STATUS.IN_PROGRESS,
+        ])
+      )
       .orderBy(desc(workOrders.plannedDate))
 
     const activeWoBySiteId = new Map<string, (typeof activeWos)[number]>()
@@ -48,16 +58,24 @@ export const getMaintenanceKpisFn = createServerFn({ method: 'GET' }).handler(
       const existingWo = activeWoBySiteId.get(site.id)
 
       const isWaitingForStep =
-        existingWo?.status === 'PROPOSED' ||
-        (existingWo?.status === 'SCHEDULED' &&
-          site.primaryDiscipline === 'FIRE' &&
+        existingWo?.status === WORK_ORDER_STATUS.PROPOSED ||
+        (existingWo?.status === WORK_ORDER_STATUS.SCHEDULED &&
+          site.primaryDiscipline === DISCIPLINE.FIRE &&
           (existingWo.plannedDate ? new Date(existingWo.plannedDate).getTime() <= todayMs : false))
 
       if (isWaitingForStep) {
         pendingApprovalCount++
+        continue
       }
 
-      if (site.primaryDiscipline === 'FIRE') {
+      const isScheduledFuture =
+        existingWo?.status === WORK_ORDER_STATUS.SCHEDULED &&
+        (existingWo.plannedDate ? new Date(existingWo.plannedDate).getTime() > todayMs : false)
+      if (isScheduledFuture) {
+        continue
+      }
+
+      if (site.primaryDiscipline === DISCIPLINE.FIRE) {
         urgentFireCount++
       } else {
         if (diffDays > 0) {

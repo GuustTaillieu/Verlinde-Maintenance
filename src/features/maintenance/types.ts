@@ -11,6 +11,27 @@ export const fireStageSchema = z.enum([
   'COMPLETED',
 ])
 export type FireStage = z.infer<typeof fireStageSchema>
+export const MAINTENANCE_STAGE = fireStageSchema.enum
+
+/**
+ * Technical disciplines supported by Verlinde Beveiliging.
+ */
+export const disciplineSchema = z.enum(['FIRE', 'INTRUSION', 'CCTV', 'ACCESS'])
+export type Discipline = z.infer<typeof disciplineSchema>
+export const DISCIPLINE = disciplineSchema.enum
+
+/**
+ * Work order operational execution status.
+ */
+export const workOrderStatusSchema = z.enum([
+  'PROPOSED',
+  'SCHEDULED',
+  'IN_PROGRESS',
+  'COMPLETED',
+  'CANCELLED',
+])
+export type WorkOrderStatus = z.infer<typeof workOrderStatusSchema>
+export const WORK_ORDER_STATUS = workOrderStatusSchema.enum
 
 /**
  * Base site identification and address fields.
@@ -161,6 +182,7 @@ export type UploadFireAttestInput = z.infer<typeof uploadFireAttestInputSchema>
  */
 export const maintenanceViewSchema = z.enum(['active', 'inbox'])
 export type MaintenanceView = z.infer<typeof maintenanceViewSchema>
+export const MAINTENANCE_VIEW = maintenanceViewSchema.enum
 
 /**
  * Paginated query input schema for fetching maintenance inspections/todos.

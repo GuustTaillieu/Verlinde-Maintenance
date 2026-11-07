@@ -14,6 +14,7 @@ import type {
   MaintenanceCluster,
   ClusterSiteItem,
 } from '../types'
+import { MAINTENANCE_VIEW, DISCIPLINE } from '../types'
 
 export function MaintenanceInspectionSkeleton() {
   return (
@@ -93,12 +94,12 @@ export function MaintenanceInspectionList({
 
   // Separate Fire items from Regional items in the active queue
   const fireItems = React.useMemo(
-    () => inspections.filter((i) => i.primaryDiscipline === 'FIRE'),
+    () => inspections.filter((i) => i.primaryDiscipline === DISCIPLINE.FIRE),
     [inspections]
   )
 
   const regionalItems = React.useMemo(
-    () => inspections.filter((i) => i.primaryDiscipline !== 'FIRE'),
+    () => inspections.filter((i) => i.primaryDiscipline !== DISCIPLINE.FIRE),
     [inspections]
   )
 
@@ -226,13 +227,13 @@ export function MaintenanceInspectionList({
   }
 
   // INBOX VIEW: Flat list of dossiers waiting on client/subcontractor
-  if (view === 'inbox') {
+  if (view === MAINTENANCE_VIEW.inbox) {
     return (
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-xs text-muted-foreground pb-1">
           <Inbox className="size-3.5 text-blue-500" />
           <span>
-            {inspections.length} dossiers in afwachting van akkoord of keuringsattest
+            {inspections.length} {inspections.length === 1 ? 'dossier' : 'dossiers'} in afwachting van akkoord of keuringsattest
           </span>
         </div>
 

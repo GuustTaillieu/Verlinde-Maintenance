@@ -7,12 +7,16 @@ import {
   type FireInspectionItem,
   type FireStage,
   type PaginatedInspectionsResult,
+  MAINTENANCE_STAGE,
+  DISCIPLINE,
+  WORK_ORDER_STATUS,
+  MAINTENANCE_VIEW,
 } from '../types'
 
 export const getFireInspectionsFn = createServerFn({ method: 'GET' })
   .validator(getFireInspectionsInputSchema)
   .handler(async ({ data }): Promise<PaginatedInspectionsResult> => {
-    const todayIso = '2025-03-01'
+    const todayIso = new Date().toISOString().split('T')[0]
     const todayMs = new Date(todayIso).getTime()
 
     const siteResults = await db
@@ -27,7 +31,13 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
     const activeWos = await db
       .select()
       .from(workOrders)
-      .where(inArray(workOrders.status, ['PROPOSED', 'SCHEDULED', 'IN_PROGRESS']))
+      .where(
+        inArray(workOrders.status, [
+          WORK_ORDER_STATUS.PROPOSED,
+          WORK_ORDER_STATUS.SCHEDULED,
+          WORK_ORDER_STATUS.IN_PROGRESS,
+        ])
+      )
       .orderBy(desc(workOrders.plannedDate))
 
     const activeWoBySiteId = new Map<string, typeof workOrders.$inferSelect>()
@@ -46,27 +56,33 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
 
       const existingWo = activeWoBySiteId.get(site.id)
 
-      let stage: FireStage = 'NEEDS_PROPOSAL'
+      let stage: FireStage = MAINTENANCE_STAGE.NEEDS_PROPOSAL
       if (existingWo) {
-        if (existingWo.status === 'PROPOSED') {
-          stage = 'PENDING_APPROVAL'
-        } else if (existingWo.status === 'SCHEDULED') {
+        if (existingWo.status === WORK_ORDER_STATUS.PROPOSED) {
+          stage = MAINTENANCE_STAGE.PENDING_APPROVAL
+        } else if (existingWo.status === WORK_ORDER_STATUS.SCHEDULED) {
           const plannedMs = existingWo.plannedDate ? new Date(existingWo.plannedDate).getTime() : 0
-          if (plannedMs <= todayMs && site.primaryDiscipline === 'FIRE') {
-            stage = 'AWAITING_ATTEST'
+          if (plannedMs <= todayMs && site.primaryDiscipline === DISCIPLINE.FIRE) {
+            stage = MAINTENANCE_STAGE.AWAITING_ATTEST
           } else {
-            stage = 'PENDING_APPROVAL'
+            stage = MAINTENANCE_STAGE.COMPLETED
           }
         }
       }
 
-      const isFire = site.primaryDiscipline === 'FIRE'
+      const isFire = site.primaryDiscipline === DISCIPLINE.FIRE
       const isOverdue = diffDays > 0
       const isUpcoming3Months = diffDays <= 0 && diffDays >= -90
-      const isWaitingStep = stage === 'PENDING_APPROVAL' || stage === 'AWAITING_ATTEST'
+      const isWaitingStep =
+        stage === MAINTENANCE_STAGE.PENDING_APPROVAL ||
+        stage === MAINTENANCE_STAGE.AWAITING_ATTEST
 
-      // Only relevant items
-      if (isFire || isOverdue || isUpcoming3Months || isWaitingStep) {
+      const isScheduledFuture =
+        existingWo?.status === WORK_ORDER_STATUS.SCHEDULED &&
+        (existingWo.plannedDate ? new Date(existingWo.plannedDate).getTime() > todayMs : false)
+
+      // Only include items needing Dirk's action or waiting on external confirmation
+      if (isWaitingStep || (!isScheduledFuture && (isFire || isOverdue || isUpcoming3Months))) {
         allInspections.push({
           siteId: site.id,
           sheetNumber: site.sheetNumber,
@@ -79,7 +95,7 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
           siteCity: site.siteCity,
           nextDueDate: dueIso,
           daysOverdue: Math.max(0, diffDays),
-          primaryDiscipline: site.primaryDiscipline || 'INTRUSION',
+          primaryDiscipline: site.primaryDiscipline || DISCIPLINE.INTRUSION,
           stage,
           workOrderId: existingWo?.id || null,
           proposedDate: existingWo?.plannedDate || null,
@@ -91,10 +107,12 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
       }
     }
 
-    const view = data?.view || 'active'
+    const view = data?.view || MAINTENANCE_VIEW.active
     let filtered = allInspections.filter((item) => {
-      const isWaiting = item.stage === 'PENDING_APPROVAL' || item.stage === 'AWAITING_ATTEST'
-      if (view === 'inbox') {
+      const isWaiting =
+        item.stage === MAINTENANCE_STAGE.PENDING_APPROVAL ||
+        item.stage === MAINTENANCE_STAGE.AWAITING_ATTEST
+      if (view === MAINTENANCE_VIEW.inbox) {
         return isWaiting
       } else {
         // Active queue: everything requiring Dirk's initiative (not waiting on external response)
@@ -117,11 +135,11 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
     }
 
     // Sort:
-    if (view === 'active') {
+    if (view === MAINTENANCE_VIEW.active) {
       // Fire items first, then overdue descending
       filtered.sort((a, b) => {
-        if ((a.primaryDiscipline === 'FIRE') !== (b.primaryDiscipline === 'FIRE')) {
-          return a.primaryDiscipline === 'FIRE' ? -1 : 1
+        if ((a.primaryDiscipline === DISCIPLINE.FIRE) !== (b.primaryDiscipline === DISCIPLINE.FIRE)) {
+          return a.primaryDiscipline === DISCIPLINE.FIRE ? -1 : 1
         }
         return b.daysOverdue - a.daysOverdue
       })
@@ -129,10 +147,10 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
       // Inbox: Awaiting attest first, then pending approval
       filtered.sort((a, b) => {
         const priority: Record<FireStage, number> = {
-          AWAITING_ATTEST: 0,
-          PENDING_APPROVAL: 1,
-          NEEDS_PROPOSAL: 2,
-          COMPLETED: 3,
+          [MAINTENANCE_STAGE.AWAITING_ATTEST]: 0,
+          [MAINTENANCE_STAGE.PENDING_APPROVAL]: 1,
+          [MAINTENANCE_STAGE.NEEDS_PROPOSAL]: 2,
+          [MAINTENANCE_STAGE.COMPLETED]: 3,
         }
         return priority[a.stage] - priority[b.stage]
       })

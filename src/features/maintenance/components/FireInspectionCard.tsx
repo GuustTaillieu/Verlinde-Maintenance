@@ -10,8 +10,6 @@ import { Button } from '#/features/shared/components/ui/button'
 import { TodoStepper, type StepItem } from './TodoStepper'
 import {
   Flame,
-  Mail,
-  Phone,
   CalendarCheck,
   FileText,
   Loader2,
@@ -23,6 +21,7 @@ import {
   Square,
 } from 'lucide-react'
 import type { FireInspectionItem } from '../types'
+import { MAINTENANCE_STAGE, DISCIPLINE } from '../types'
 import { cn } from 'cn'
 
 interface FireInspectionCardContextValue {
@@ -109,16 +108,23 @@ export function FireInspectionCardIcon({ className }: { className?: string }) {
 export function FireInspectionCardInfo() {
   const { item } = useFireInspectionCard()
 
-  const disciplineLabel =
-    item.primaryDiscipline === 'FIRE'
-      ? 'Brandtec BV (Branddetectie)'
-      : item.primaryDiscipline === 'INTRUSION'
-        ? 'Inbraakbeveiliging'
-        : item.primaryDiscipline === 'CCTV'
-          ? 'Camerabewaking'
-          : item.primaryDiscipline === 'ACCESS'
-            ? 'Toegangscontrole'
-            : 'Periodiek Onderhoud'
+  let disciplineLabel = ''
+  switch (item.primaryDiscipline) {
+    case DISCIPLINE.FIRE:
+      disciplineLabel = 'Brandtec BV (Branddetectie)'
+      break
+    case DISCIPLINE.INTRUSION:
+      disciplineLabel = 'Inbraakbeveiliging'
+      break
+    case DISCIPLINE.CCTV:
+      disciplineLabel = 'Camerabewaking'
+      break
+    case DISCIPLINE.ACCESS:
+      disciplineLabel = 'Toegangscontrole'
+      break
+    default:
+      disciplineLabel = 'Periodiek Onderhoud'
+  }
 
   return (
     <div>
@@ -135,9 +141,11 @@ export function FireInspectionCardInfo() {
 
 export function FireInspectionCardBadges() {
   const { item, isOverdue } = useFireInspectionCard()
+  const isFire = item.primaryDiscipline === DISCIPLINE.FIRE
+
   return (
     <div className="flex gap-2">
-      {item.stage === 'AWAITING_ATTEST' && (
+      {isFire && item.stage === MAINTENANCE_STAGE.AWAITING_ATTEST && (
         <Badge
           variant="secondary"
           className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px]"
@@ -145,7 +153,7 @@ export function FireInspectionCardBadges() {
           Attest vereist
         </Badge>
       )}
-      {item.stage === 'PENDING_APPROVAL' && (
+      {item.stage === MAINTENANCE_STAGE.PENDING_APPROVAL && (
         <Badge variant="outline" className="text-blue-500 text-[10px]">
           Wacht op akkoord
         </Badge>
@@ -200,53 +208,40 @@ export function FireInspectionCardContent() {
     }
   }
 
-  const steps: StepItem[] = [
+  const isFire = item.primaryDiscipline === DISCIPLINE.FIRE
+
+  const fireSteps: StepItem[] = [
     {
       id: 'step-1',
       title: 'Afspraak voorstellen aan Brandtec & klant',
-      status: item.stage === 'NEEDS_PROPOSAL' ? 'active' : 'completed',
+      status: item.stage === MAINTENANCE_STAGE.NEEDS_PROPOSAL ? 'active' : 'completed',
       completedInfo: item.proposedDate
         ? `${item.proposedDate} (${item.plannedStartTime || '09:00'})`
         : undefined,
       action: onOpenPropose && (
-        <div className="flex items-center gap-2">
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={() => onOpenPropose(item)}
-            className="h-7 text-xs gap-1.5"
-          >
-            <Mail className="size-3" />
-            Voorstel Mailen
-          </Button>
-          {item.customerPhone && (
-            <Button
-              size="sm"
-              variant="ghost"
-              asChild
-              className="h-7 text-xs gap-1 text-muted-foreground"
-            >
-              <a href={`tel:${item.customerPhone}`}>
-                <Phone className="size-3" />
-                Bellen ({item.customerPhone})
-              </a>
-            </Button>
-          )}
-        </div>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => onOpenPropose(item)}
+          className="h-7 text-xs gap-1.5"
+        >
+          <CalendarCheck className="size-3 text-primary" />
+          Datum voorstellen
+        </Button>
       ),
     },
     {
       id: 'step-2',
       title: 'Akkoord registreren & planning vastleggen',
       status:
-        item.stage === 'PENDING_APPROVAL'
+        item.stage === MAINTENANCE_STAGE.PENDING_APPROVAL
           ? 'active'
-          : item.stage === 'NEEDS_PROPOSAL'
+          : item.stage === MAINTENANCE_STAGE.NEEDS_PROPOSAL
             ? 'upcoming'
             : 'completed',
       completedInfo:
-        item.stage === 'AWAITING_ATTEST' || item.stage === 'COMPLETED'
-          ? 'Bevestigd'
+        item.stage === MAINTENANCE_STAGE.AWAITING_ATTEST || item.stage === MAINTENANCE_STAGE.COMPLETED
+          ? 'Ingepland bij Brandtec'
           : undefined,
       action: (
         <div className="flex items-center gap-2">
@@ -280,14 +275,14 @@ export function FireInspectionCardContent() {
     },
     {
       id: 'step-3',
-      title: 'Keuringsattest archiveren',
+      title: 'Keuringsattest archiveren (NBN S 21-100)',
       status:
-        item.stage === 'COMPLETED'
+        item.stage === MAINTENANCE_STAGE.COMPLETED
           ? 'completed'
-          : item.stage === 'AWAITING_ATTEST'
+          : item.stage === MAINTENANCE_STAGE.AWAITING_ATTEST
             ? 'active'
             : 'upcoming',
-      completedInfo: item.stage === 'COMPLETED' ? 'Attest bewaard' : undefined,
+      completedInfo: item.stage === MAINTENANCE_STAGE.COMPLETED ? 'Attest bewaard' : undefined,
       action: onOpenUploadAttest && (
         <Button
           size="sm"
@@ -301,9 +296,74 @@ export function FireInspectionCardContent() {
     },
   ]
 
+  const regularSteps: StepItem[] = [
+    {
+      id: 'regular-step-1',
+      title: 'Tijdslot reserveren in technicusplanning & voorstel versturen',
+      status: item.stage === MAINTENANCE_STAGE.NEEDS_PROPOSAL ? 'active' : 'completed',
+      completedInfo: item.proposedDate
+        ? `${item.proposedDate} (${item.plannedStartTime || '08:30'} – ${item.plannedEndTime || '12:00'})`
+        : undefined,
+      action: onOpenPropose && (
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => onOpenPropose(item)}
+          className="h-7 text-xs gap-1.5"
+        >
+          <CalendarCheck className="size-3 text-primary" />
+          Datum voorstellen
+        </Button>
+      ),
+    },
+    {
+      id: 'regular-step-2',
+      title: 'Akkoord klant registreren & technicusagenda vastleggen',
+      status:
+        item.stage === MAINTENANCE_STAGE.PENDING_APPROVAL
+          ? 'active'
+          : item.stage === MAINTENANCE_STAGE.NEEDS_PROPOSAL
+            ? 'upcoming'
+            : 'completed',
+      completedInfo:
+        item.stage === MAINTENANCE_STAGE.COMPLETED
+          ? 'Definitief bevestigd'
+          : undefined,
+      action: (
+        <div className="flex items-center gap-2">
+          {onConfirmAppointment && (
+            <Button
+              size="sm"
+              onClick={handleConfirm}
+              disabled={isConfirming}
+              className="h-7 text-xs gap-1.5"
+            >
+              {isConfirming ? (
+                <Loader2 className="size-3 animate-spin" />
+              ) : (
+                <CalendarCheck className="size-3" />
+              )}
+              Akkoord Ontvangen
+            </Button>
+          )}
+          {onOpenPropose && (
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() => onOpenPropose(item)}
+              className="h-7 text-xs text-muted-foreground"
+            >
+              Ander Tijdstip
+            </Button>
+          )}
+        </div>
+      ),
+    },
+  ]
+
   return (
     <AccordionContent className="px-10 py-4">
-      <TodoStepper steps={steps} />
+      <TodoStepper steps={isFire ? fireSteps : regularSteps} />
     </AccordionContent>
   )
 }

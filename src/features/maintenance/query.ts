@@ -5,13 +5,14 @@ import { getMaintenanceClustersFn } from './server/getMaintenanceClusters'
 import { getTechniciansFn, type TechnicianUser } from './server/getTechnicians'
 import { getTechnicianScheduleFn, type ScheduledSlot } from './server/getTechnicianSchedule'
 import type { MaintenanceView } from './types'
+import { MAINTENANCE_VIEW } from './types'
 
 export const maintenanceKeys = {
   all: ['maintenance'] as const,
   kpis: () => [...maintenanceKeys.all, 'kpis'] as const,
-  fireInspections: (view: MaintenanceView = 'active') =>
+  fireInspections: (view: MaintenanceView = MAINTENANCE_VIEW.active) =>
     [...maintenanceKeys.all, 'fire-inspections', view] as const,
-  fireInspectionsInfinite: (view: MaintenanceView = 'active', search: string = '') =>
+  fireInspectionsInfinite: (view: MaintenanceView = MAINTENANCE_VIEW.active, search: string = '') =>
     [...maintenanceKeys.all, 'inspections-infinite', view, search] as const,
   clusters: () => [...maintenanceKeys.all, 'clusters'] as const,
   data: () => [...maintenanceKeys.all, 'data'] as const,
@@ -34,7 +35,7 @@ export const maintenanceQueries = {
       staleTime: 1000 * 30,
     }),
   fireInspectionsInfinite: (
-    view: MaintenanceView = 'active',
+    view: MaintenanceView = MAINTENANCE_VIEW.active,
     search: string = '',
     limit: number = 50
   ) =>
@@ -42,7 +43,7 @@ export const maintenanceQueries = {
       queryKey: maintenanceKeys.fireInspectionsInfinite(view, search),
       queryFn: ({ pageParam = 0 }) =>
         getFireInspectionsFn({
-          data: { view, search: search || undefined, cursor: Number(pageParam), limit },
+          data: { view, search, cursor: Number(pageParam), limit },
         }),
       initialPageParam: 0,
       getNextPageParam: (lastPage) => lastPage.nextCursor ?? undefined,

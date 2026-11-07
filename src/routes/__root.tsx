@@ -6,8 +6,10 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
+import { toast } from 'sonner'
 import appCss from '../styles.css?url'
 import type { QueryClient } from '@tanstack/react-query'
+import { ThemeToaster } from '#/features/shared/components/theme-toaster'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -52,6 +54,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="font-sans antialiased wrap-anywhere selection:bg-accent min-h-screen flex flex-col">
+        <ThemeToaster position='top-right' closeButton richColors />
         <div className="flex-1">
           {children}
         </div>

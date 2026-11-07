@@ -5,6 +5,7 @@ import { Button } from '#/features/shared/components/ui/button'
 import { Input } from '#/features/shared/components/ui/input'
 import { CheckSquare, Inbox, Search, X } from 'lucide-react'
 import type { MaintenanceView, MaintenanceKPIs } from '../types'
+import { MAINTENANCE_VIEW } from '../types'
 import { cn } from 'cn'
 import { useQuery } from '@tanstack/react-query'
 import { maintenanceQueries } from '../query'
@@ -129,7 +130,7 @@ export function MaintenanceFilters({
         onValueChange={(val) => onViewChange(val as MaintenanceView)}
       >
         <TabsList className="bg-muted p-0 gap-2 rounded-lg h-9">
-          <TabsTrigger value="active" className="text-xs gap-1.5 px-3 h-7">
+          <TabsTrigger value={MAINTENANCE_VIEW.active} className="text-xs gap-1.5 px-3 h-7">
             <CheckSquare className="size-3.5" />
             <span>Actieve Taken</span>
             <Badge
@@ -140,7 +141,7 @@ export function MaintenanceFilters({
             </Badge>
           </TabsTrigger>
 
-          <TabsTrigger value="inbox" className="text-xs gap-1.5 px-3 h-7">
+          <TabsTrigger value={MAINTENANCE_VIEW.inbox} className="text-xs gap-1.5 px-3 h-7">
             <Inbox className="size-3.5" />
             <span>In Afwachting</span>
             {pendingApprovalCount > 0 ? (

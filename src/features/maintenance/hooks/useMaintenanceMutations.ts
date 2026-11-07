@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { toast } from 'sonner'
 import type {
   MaintenanceDashboardData,
   MaintenanceKPIs,
@@ -115,6 +116,11 @@ export function useMaintenanceMutations() {
         queryClient.setQueryData(maintenanceKeys.data(), context.prevData)
       }
     },
+    onSuccess: () => {
+      toast.success('Afspraakvoorstel verstuurd', {
+        description: 'Simulatie: Er wordt geen echte e-mail verstuurd naar de klant of Brandtec BV.',
+      })
+    },
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
     },
@@ -168,6 +174,11 @@ export function useMaintenanceMutations() {
       if (context?.prevData) {
         queryClient.setQueryData(maintenanceKeys.data(), context.prevData)
       }
+    },
+    onSuccess: () => {
+      toast.success('Afspraak definitief vastgelegd', {
+        description: 'De afspraak staat nu definitief op de agenda van de technicus.',
+      })
     },
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
@@ -232,6 +243,11 @@ export function useMaintenanceMutations() {
       if (context?.prevData) {
         queryClient.setQueryData(maintenanceKeys.data(), context.prevData)
       }
+    },
+    onSuccess: () => {
+      toast.success('Keuringsattest opgeslagen', {
+        description: 'Wettelijke cyclus NBN S 21-100 afgerond. Geldigheid met 1 jaar verlengd.',
+      })
     },
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
@@ -352,6 +368,12 @@ export function useMaintenanceMutations() {
       if (context?.prevData) {
         queryClient.setQueryData(maintenanceKeys.data(), context.prevData)
       }
+    },
+    onSuccess: (result) => {
+      const count = result?.count ?? 'Werven'
+      toast.success(`${count} werven succesvol ingepland`, {
+        description: 'Simulatie: Tijdsloten gereserveerd. Er worden geen echte mails verstuurd.',
+      })
     },
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })
