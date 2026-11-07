@@ -18,18 +18,11 @@ import {
   User,
 } from 'lucide-react'
 import { useClusterDispatch } from './ClusterDispatchContext'
-
-function formatDateDutch(isoDate: string): string {
-  if (!isoDate) return ''
-  const [y, m, d] = isoDate.split('-').map(Number)
-  const dt = new Date(y, m - 1, d)
-  return dt.toLocaleDateString('nl-BE', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
-}
+import { formatDateDutch } from '../../utils/dateUtils'
+import {
+  handleAutoBulletOnEnter,
+  generateCustomerBatchEmail,
+} from '../../utils/emailTemplateUtils'
 
 export function DispatchEmailReview() {
   const {
@@ -73,79 +66,28 @@ export function DispatchEmailReview() {
     }, 0)
   }
 
-  const handleTemplateChange = (template: string) => {
+  const handleTemplateChange = (template: 'standard' | 'concise' | 'urgent') => {
     if (!activeDraft) return
-    const techName = planner.activeTech.name
-    const city = cluster.city
-
-    let newBody = ''
-    if (template === 'concise') {
-      newBody = `Beste ${activeDraft.customerName},
-
-In het kader van het periodiek onderhoud in ${city} stellen we voor om langs te komen op:
-
-${activeDraft.sites
-  .map(
-    (s) =>
-      `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime}`
-  )
-  .join('\n')}
-
-Onze technicus ${techName} voert het nazicht uit. Past dit voor u?
-
-Met vriendelijke groeten,
-Dirk Verlinde — Verlinde Beveiliging BV`
-    } else if (template === 'urgent') {
-      newBody = `Beste ${activeDraft.customerName},
-
-Het wettelijk vereiste nazicht van uw beveiligingsinstallaties in ${city} is dringend aan de beurt. We hebben reeds een prioritair tijdslot gereserveerd voor u:
-
-${activeDraft.sites
-  .map(
-    (s) =>
-      `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime}`
-  )
-  .join('\n')}
-
-Gelieve dit tijdstip zo snel mogelijk te bevestigen zodat we de planning van technicus ${techName} definitief kunnen vastleggen.
-
-Met vriendelijke groeten,
-Dirk Verlinde — Verlinde Beveiliging BV`
-    } else {
-      // standard template
-      newBody = `Beste ${activeDraft.customerName},
-
-In het kader van het periodieke onderhoud aan uw installaties in ${city} stelt Verlinde Beveiliging voor om de volgende werven in te plannen:
-
-${activeDraft.sites
-  .map(
-    (s) =>
-      `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime} (${s.disciplines.join(', ') || 'Onderhoud'})`
-  )
-  .join('\n')}
-
-Onze technicus ${techName} zal ter plaatse de nodige controles en het nazicht uitvoeren.
-
-Past dit voorgestelde tijdstip voor u? Gelieve deze e-mail te beantwoorden ter bevestiging van de afspraak.
-
-Met vriendelijke groeten,
-Dirk Verlinde
-Verlinde Beveiliging BV • Zwevegem`
-    }
-
+    const newBody = generateCustomerBatchEmail(
+      activeDraft.customerName,
+      cluster.city,
+      planner.activeTech.name,
+      activeDraft.sites,
+      template
+    )
     updateEmailDraft(activeDraft.customerId, { body: newBody })
   }
 
   if (!activeDraft) {
     return (
-      <div className="flex-1 flex items-center justify-center p-12 text-sm text-muted-foreground">
+      <div className="-mx-4 flex-1 flex items-center justify-center p-12 text-sm text-muted-foreground">
         Geen werven geselecteerd om e-mails voor op te stellen.
       </div>
     )
   }
 
   return (
-    <div className="flex flex-1 min-h-0 divide-x divide-border overflow-hidden">
+    <div className="-mx-4 flex flex-1 min-h-0 divide-x divide-border overflow-hidden">
       {/* Left: Customer Switcher Sidebar */}
       <div className="w-80 flex flex-col h-full min-h-0 bg-muted/10 shrink-0 overflow-hidden">
         <div className="p-4 border-b border-border shrink-0">
@@ -321,6 +263,11 @@ Verlinde Beveiliging BV • Zwevegem`
             <Textarea
               ref={textareaRef}
               value={activeDraft.body}
+              onKeyDown={(e) => {
+                handleAutoBulletOnEnter(e, activeDraft.body, (nextBody) => {
+                  updateEmailDraft(activeDraft.customerId, { body: nextBody })
+                })
+              }}
               onChange={(e) =>
                 updateEmailDraft(activeDraft.customerId, { body: e.target.value })
               }

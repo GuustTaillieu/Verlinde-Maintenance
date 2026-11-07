@@ -7,6 +7,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+::selection {
+  background-color: oklch(0.25 0.05 285 / 22%);
+  color: inherit;
+}
+
+.dark ::selection {
+  background-color: oklch(0.85 0.05 285 / 35%);
+  color: inherit;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);

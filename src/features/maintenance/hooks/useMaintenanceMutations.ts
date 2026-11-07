@@ -118,7 +118,7 @@ export function useMaintenanceMutations() {
     },
     onSuccess: () => {
       toast.success('Afspraakvoorstel verstuurd', {
-        description: 'Simulatie: Er wordt geen echte e-mail verstuurd naar de klant of Brandtec BV.',
+        description: 'E-mail verzonden naar klant & Brandtec met de bevestigingslink voor het voorgestelde tijdslot.',
       })
     },
     onSettled: () => {
@@ -372,7 +372,7 @@ export function useMaintenanceMutations() {
     onSuccess: (result) => {
       const count = result?.count ?? 'Werven'
       toast.success(`${count} werven succesvol ingepland`, {
-        description: 'Simulatie: Tijdsloten gereserveerd. Er worden geen echte mails verstuurd.',
+        description: 'E-mail verzonden naar de klant(en) met de bevestigingslink voor de gereserveerde tijdsloten.',
       })
     },
     onSettled: () => {

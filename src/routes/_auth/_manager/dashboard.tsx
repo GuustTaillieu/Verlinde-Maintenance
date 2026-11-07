@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useSuspenseQuery, useQuery } from '@tanstack/react-query'
 import { maintenanceQueries } from '#/features/maintenance/query'
 import { useMaintenanceMutations } from '#/features/maintenance/hooks/useMaintenanceMutations'
 import { useMaintenanceFilters } from '#/features/maintenance/hooks/useMaintenanceFilters'
@@ -12,6 +12,7 @@ import { ProposeAppointmentDialog } from '#/features/maintenance/components/Prop
 import { UploadAttestDialog } from '#/features/maintenance/components/UploadAttestDialog'
 import { ClusterDispatchDialog } from '#/features/maintenance/components/ClusterDispatchDialog'
 import type { FireInspectionItem, MaintenanceCluster } from '#/features/maintenance/types'
+import { DISCIPLINE } from '#/features/maintenance/types'
 import { RefreshCw } from 'lucide-react'
 import { Button } from '#/features/shared/components/ui/button'
 
@@ -19,6 +20,7 @@ export const Route = createFileRoute('/_auth/_manager/dashboard')({
   loader: async ({ context: { queryClient } }) => {
     await Promise.allSettled([
       queryClient.query({ ...maintenanceQueries.kpis(), staleTime: 'static' }),
+      queryClient.query({ ...maintenanceQueries.clusters(), staleTime: 'static' }),
     ])
   },
   component: DashboardPage,
@@ -26,6 +28,7 @@ export const Route = createFileRoute('/_auth/_manager/dashboard')({
 
 function DashboardPage() {
   const { data: kpis, refetch: refetchKpis } = useSuspenseQuery(maintenanceQueries.kpis())
+  const { data: clusters = [], refetch: refetchClusters } = useQuery(maintenanceQueries.clusters())
 
   const [isRefreshing, setIsRefreshing] = useState(false)
 
@@ -49,15 +52,72 @@ function DashboardPage() {
   const handleRefresh = async () => {
     setIsRefreshing(true)
     try {
-      await refetchKpis()
+      await Promise.allSettled([refetchKpis(), refetchClusters()])
     } finally {
       setIsRefreshing(false)
     }
   }
 
   const handleOpenPropose = (item: FireInspectionItem) => {
-    setSelectedFireItem(item)
-    setIsProposeOpen(true)
+    if (item.primaryDiscipline === DISCIPLINE.FIRE) {
+      setSelectedFireItem(item)
+      setIsProposeOpen(true)
+      return
+    }
+
+    // Non-fire inspection (INTRUSION, CCTV, ACCESS): route directly to technician dispatch dialog
+    const targetCity = (item.siteCity || 'Overig').trim()
+    const matchingCluster = clusters.find(
+      (c) => c.city.toLowerCase() === targetCity.toLowerCase()
+    )
+
+    if (matchingCluster) {
+      setSelectedCluster(matchingCluster)
+      setSelectedBatchSiteIds([item.siteId])
+      setIsPlanClusterOpen(true)
+    } else {
+      const fallbackCluster: MaintenanceCluster = {
+        city: targetCity,
+        siteCount: 1,
+        totalSheetsCount: 1,
+        sites: [
+          {
+            id: item.siteId,
+            siteIds: [item.siteId],
+            sheetNumber: item.sheetNumber,
+            sheetNumbers: [item.sheetNumber],
+            name: item.siteName,
+            customerId: item.customerId,
+            customerName: item.customerName,
+            customerEmail: item.customerEmail || null,
+            customerPhone: item.customerPhone || null,
+            address: item.siteAddress,
+            city: targetCity,
+            disciplines: [item.primaryDiscipline],
+            equipmentCount: 1,
+            durationHours: 1.5,
+            nextDueDate: item.nextDueDate,
+            daysOverdue: item.daysOverdue,
+          },
+        ],
+        recommendedTechId:
+          targetCity.toLowerCase().includes('kortrijk') ||
+          targetCity.toLowerCase().includes('wevelgem') ||
+          targetCity.toLowerCase().includes('heule')
+            ? 'usr_tom'
+            : 'usr_jens',
+        recommendedTechName:
+          targetCity.toLowerCase().includes('kortrijk') ||
+          targetCity.toLowerCase().includes('wevelgem') ||
+          targetCity.toLowerCase().includes('heule')
+            ? 'Tom De Coninck'
+            : 'Jens Maes',
+        estimatedHours: 1.5,
+      }
+      setSelectedCluster(fallbackCluster)
+      setSelectedBatchSiteIds([item.siteId])
+      setIsPlanClusterOpen(true)
+    }
   }
 
   const handleOpenAttest = (item: FireInspectionItem) => {

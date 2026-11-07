@@ -16,6 +16,7 @@ import {
   type CustomerEmailDraft,
 } from './dispatch/ClusterDispatchContext'
 import type { MaintenanceCluster, PlanClusterBatchInput } from '../types'
+import { generateCustomerBatchEmail } from '../utils/emailTemplateUtils'
 
 export { useClusterDispatch } from './dispatch/ClusterDispatchContext'
 
@@ -47,7 +48,7 @@ export function ClusterDispatchBody({
 }: React.ComponentProps<'div'>) {
   return (
     <div
-      className={`flex flex-1 min-h-0 divide-x divide-border overflow-hidden ${className || ''}`}
+      className={`-m-4 flex flex-1 min-h-0 divide-x divide-border overflow-hidden ${className || ''}`}
       {...props}
     >
       {children || (
@@ -131,11 +132,11 @@ export function ClusterDispatchDialog({
 In het kader van het periodieke onderhoud aan uw installaties in ${city} stelt Verlinde Beveiliging voor om de volgende werven in te plannen:
 
 ${draft.sites
-  .map(
-    (s) =>
-      `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime} (${s.disciplines.join(', ') || 'Onderhoud'})`
-  )
-  .join('\n')}
+          .map(
+            (s) =>
+              `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime} (${s.disciplines.join(', ') || 'Onderhoud'})`
+          )
+          .join('\n')}
 
 Onze technicus ${techName} zal ter plaatse de nodige controles en het nazicht uitvoeren.
 
@@ -144,6 +145,13 @@ Past dit voorgestelde tijdstip voor u? Gelieve deze e-mail te beantwoorden ter b
 Met vriendelijke groeten,
 Dirk Verlinde
 Verlinde Beveiliging BV • Zwevegem`
+      draft.body = generateCustomerBatchEmail(
+        draft.customerName,
+        city,
+        techName,
+        draft.sites,
+        'concise'
+      )
     }
 
     return grouped
@@ -232,7 +240,7 @@ Verlinde Beveiliging BV • Zwevegem`
   return (
     <ClusterDispatchContext.Provider value={contextValue}>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-[96vw]! max-h-[96vh]! h-full w-full flex flex-col gap-0 p-0 overflow-hidden bg-background">
+        <DialogContent className="max-w-[96vw]! max-h-[96vh]! h-full w-full flex flex-col overflow-hidden bg-background">
           {children || (
             <>
               <DispatchHeader />

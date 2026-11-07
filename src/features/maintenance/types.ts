@@ -162,6 +162,10 @@ export const proposeFireAppointmentInputSchema = z.object({
   proposedDate: z.string(),
   startTime: z.string().optional(),
   endTime: z.string().optional(),
+  toEmail: z.string().optional(),
+  ccEmail: z.string().optional(),
+  subject: z.string().optional(),
+  emailBody: z.string().optional(),
 })
 export type ProposeFireAppointmentInput = z.infer<typeof proposeFireAppointmentInputSchema>
 

@@ -1,0 +1,211 @@
+import * as React from 'react'
+import { formatDateDutch } from './dateUtils'
+import { VERLINDE_COMPANY, BRANDTEC_PARTNER } from './constants'
+
+export interface EmailSiteItem {
+  siteName: string
+  siteAddress: string
+  plannedDate: string
+  startTime: string
+  endTime: string
+}
+
+/**
+ * Formats site and address cleanly without ugly "(Adres onbekend)" or redundant street names.
+ */
+export function formatSiteAddressDisplay(siteName: string, siteAddress?: string | null): string {
+  if (!siteAddress) return siteName
+
+  const trimmedAddress = siteAddress.trim()
+  const lowerAddress = trimmedAddress.toLowerCase()
+
+  // If address says "onbekend" or is empty
+  if (lowerAddress.includes('onbekend') || lowerAddress === '') {
+    return siteName
+  }
+
+  // If site name already contains the address (e.g. "pand Otegemstraat 42")
+  if (siteName.toLowerCase().includes(lowerAddress)) {
+    return siteName
+  }
+
+  return `${siteName} (${trimmedAddress})`
+}
+
+/**
+ * Handles automatic bullet point continuation when pressing Enter in a textarea.
+ */
+export function handleAutoBulletOnEnter(
+  e: React.KeyboardEvent<HTMLTextAreaElement>,
+  currentValue: string,
+  onUpdate: (nextValue: string) => void
+): boolean {
+  if (e.key !== 'Enter' || e.shiftKey) return false
+
+  const textarea = e.currentTarget
+  const { selectionStart } = textarea
+
+  // Find start of current line
+  const lastNewLine = currentValue.lastIndexOf('\n', selectionStart - 1)
+  const lineStart = lastNewLine === -1 ? 0 : lastNewLine + 1
+  const currentLine = currentValue.substring(lineStart, selectionStart)
+
+  // Check if current line starts with a bullet point
+  const bulletMatch = currentLine.match(/^(\s*)([•\-\*])\s+/)
+  if (!bulletMatch) return false
+
+  e.preventDefault()
+  const indent = bulletMatch[1]
+  const bulletChar = bulletMatch[2]
+  const bulletPrefix = `${indent}${bulletChar} `
+
+  // If user pressed enter on an empty bullet line (just "• "):
+  if (currentLine.trim() === bulletChar) {
+    // Remove the empty bullet from current line and insert a clean blank line
+    const beforeLine = currentValue.substring(0, lineStart)
+    const afterCursor = currentValue.substring(selectionStart)
+    const nextVal = `${beforeLine}\n${afterCursor}`
+    onUpdate(nextVal)
+    requestAnimationFrame(() => {
+      textarea.selectionStart = textarea.selectionEnd = lineStart + 1
+    })
+    return true
+  }
+
+  // Insert a newline followed by the same bullet
+  const beforeCursor = currentValue.substring(0, selectionStart)
+  const afterCursor = currentValue.substring(selectionStart)
+  const insertion = `\n${bulletPrefix}`
+  const nextVal = beforeCursor + insertion + afterCursor
+  onUpdate(nextVal)
+
+  requestAnimationFrame(() => {
+    textarea.selectionStart = textarea.selectionEnd = selectionStart + insertion.length
+  })
+  return true
+}
+
+/**
+ * Generates customer email draft for technician batch maintenance.
+ * Free of internal technical discipline codes like (ACCESS) or (INTRUSION).
+ */
+export function generateCustomerBatchEmail(
+  customerName: string,
+  city: string,
+  techName: string,
+  sites: EmailSiteItem[],
+  template: 'concise' | 'standard' | 'urgent' = 'concise'
+): string {
+  const formattedSites = sites
+    .map((s) => {
+      const siteDisplay = formatSiteAddressDisplay(s.siteName, s.siteAddress)
+      const dateDutch = formatDateDutch(s.plannedDate)
+      return `• ${siteDisplay}: ${dateDutch} van ${s.startTime} tot ${s.endTime}`
+    })
+    .join('\n')
+
+  if (template === 'urgent') {
+    return `Beste ${customerName},
+
+Het periodiek onderhoud aan uw installaties in ${city} is dringend aan de beurt. We hebben reeds een prioritair tijdslot voor u gereserveerd in de planning:
+
+${formattedSites}
+
+Gelieve deze afspraak zo snel mogelijk te bevestigen zodat we de agenda van technicus ${techName} definitief kunnen vastleggen.
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName}
+${VERLINDE_COMPANY.name}`
+  }
+
+  if (template === 'standard') {
+    return `Beste ${customerName},
+
+In het kader van het periodieke onderhoud aan uw installaties in ${city} stelt Verlinde Beveiliging voor om de volgende werven in te plannen:
+
+${formattedSites}
+
+Onze technicus ${techName} zal ter plaatse de nodige controles en het nazicht uitvoeren conform onze kwaliteitsnormen.
+
+Past dit voorgestelde tijdstip voor u? Gelieve deze e-mail te beantwoorden ter bevestiging van de afspraak.
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName}
+${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}`
+  }
+
+  // Concise (default)
+  return `Beste ${customerName},
+
+In het kader van het periodiek onderhoud in ${city} stellen we voor om langs te komen op:
+
+${formattedSites}
+
+Onze technicus ${techName} zal ter plaatse het nodige nazicht en onderhoud uitvoeren. Past dit tijdstip voor u?
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
+}
+
+/**
+ * Generates Brandtec Fire compliance inspection email draft.
+ */
+export function generateFireInspectionEmail(
+  customerName: string,
+  siteName: string,
+  siteAddress: string,
+  sheetNumber: string,
+  proposedDate: string,
+  startTime: string,
+  endTime: string,
+  template: 'concise' | 'standard' | 'urgent' = 'standard'
+): string {
+  const dateDutch = formatDateDutch(proposedDate)
+  const siteDisplay = formatSiteAddressDisplay(siteName, siteAddress)
+
+  if (template === 'concise') {
+    return `Beste planningsteam en ${customerName},
+
+Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we voor:
+
+• ${siteDisplay}
+• Datum: ${dateDutch}
+• Tijdvenster: ${startTime} – ${endTime}
+
+${BRANDTEC_PARTNER.name} voert deze keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip te bevestigen.
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
+  }
+
+  if (template === 'urgent') {
+    return `Beste planningsteam en ${customerName},
+
+De wettelijke vervaldatum voor het branddetectienazicht van ${siteDisplay} (fiche #${sheetNumber}) is overschreden.
+
+We stellen prioritair voor om de keuring in te plannen op:
+• ${dateDutch} van ${startTime} tot ${endTime}
+
+Onderaannemer ${BRANDTEC_PARTNER.name} voert de keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip met spoed te bevestigen.
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName}
+${VERLINDE_COMPANY.name}`
+  }
+
+  return `Beste planningsteam en ${customerName},
+
+In het kader van het wettelijk verplichte jaarlijkse onderhoud van de branddetectie-installatie stelt Verlinde Beveiliging voor om de keuring voor ${siteDisplay} in te plannen op:
+
+• Datum: ${dateDutch}
+• Tijdvenster: ${startTime} – ${endTime}
+
+Onderaannemer ${BRANDTEC_PARTNER.name} zal deze keuring ter plaatse uitvoeren conform de geldende ${BRANDTEC_PARTNER.certificationStandard}-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.
+
+Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.
+
+Met vriendelijke groeten,
+${VERLINDE_COMPANY.managerName}
+${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}`
+}
+
