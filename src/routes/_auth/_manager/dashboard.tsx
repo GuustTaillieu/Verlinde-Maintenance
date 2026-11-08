@@ -12,11 +12,18 @@ import { ProposeAppointmentDialog } from '#/features/maintenance/components/Prop
 import { UploadAttestDialog } from '#/features/maintenance/components/UploadAttestDialog'
 import { ClusterDispatchDialog } from '#/features/maintenance/components/ClusterDispatchDialog'
 import type { FireInspectionItem, MaintenanceCluster } from '#/features/maintenance/types'
-import { DISCIPLINE } from '#/features/maintenance/types'
+import { DISCIPLINE, type MaintenanceView } from '#/features/maintenance/types'
 import { RefreshCw } from 'lucide-react'
 import { Button } from '#/features/shared/components/ui/button'
+import { z } from 'zod'
+
+const dashboardSearchSchema = z.object({
+  view: z.enum(['active', 'inbox']).default('active').catch('active'),
+  search: z.string().default('').catch(''),
+})
 
 export const Route = createFileRoute('/_auth/_manager/dashboard')({
+  validateSearch: dashboardSearchSchema,
   loader: async ({ context: { queryClient } }) => {
     await Promise.allSettled([
       queryClient.query({ ...maintenanceQueries.kpis(), staleTime: 'static' }),
@@ -30,9 +37,25 @@ function DashboardPage() {
   const { data: kpis, refetch: refetchKpis } = useSuspenseQuery(maintenanceQueries.kpis())
   const { data: clusters = [], refetch: refetchClusters } = useQuery(maintenanceQueries.clusters())
 
+  const searchParams = Route.useSearch()
+  const navigate = Route.useNavigate()
+
   const [isRefreshing, setIsRefreshing] = useState(false)
 
-  const { view, setView, search, setSearch } = useMaintenanceFilters('active')
+  const { view, setView, search, setSearch } = useMaintenanceFilters(
+    searchParams.view as MaintenanceView,
+    searchParams.search,
+    (params) => {
+      void navigate({
+        search: (prev) => ({
+          ...prev,
+          ...(params.view ? { view: params.view } : {}),
+          ...(params.search !== undefined ? { search: params.search } : {}),
+        }),
+        replace: true,
+      })
+    }
+  )
 
   const {
     proposeFireMut,

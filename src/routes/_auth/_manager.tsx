@@ -35,7 +35,6 @@ import {
   LogOut,
   ChevronsUpDown,
   Bell,
-  UsersIcon,
   Layout,
   Settings2,
   Sun,
@@ -46,10 +45,7 @@ import {
 import { useTheme } from '#/features/shared/hooks/use-theme'
 import { useCurrentUser } from '#/features/auth/hooks/useCurrentUser'
 import { TooltipProvider } from '#/features/shared/components/ui/tooltip'
-import { type NavItem } from '#/features/shared/components/ui/sidebar'
 import { SettingsDialog, SettingsDialogTrigger, SettingsRoot } from '#/features/settings/components/SettingsDialog'
-
-
 
 export const Route = createFileRoute('/_auth/_manager')({
   component: RouteComponent,
@@ -67,20 +63,17 @@ function RouteComponent() {
   const { mode, setTheme } = useTheme()
   const { signOut } = useCurrentUser()
 
-  const navItems: NavItem[] = [
+  const navItems = [
     {
-      title: 'Dashboard',
-      url: '/dashboard',
+      title: 'Onderhoudscockpit',
+      url: '/dashboard' as const,
+      search: { view: 'active' as const },
       icon: Layout,
     },
     {
-      title: 'Klanten',
-      url: '/',
-      icon: UsersIcon,
-    },
-    {
-      title: 'Planning',
-      url: '/',
+      title: 'In Afwachting',
+      url: '/dashboard' as const,
+      search: { view: 'inbox' as const },
       icon: Calendar,
     },
   ]
@@ -118,11 +111,12 @@ function RouteComponent() {
                 <SidebarGroupLabel>Beheer & Dispatch</SidebarGroupLabel>
                 <SidebarMenu>
                   {navItems.map((item) => {
-                    const isActive = location.pathname === item.url
+                    const currentView = (location.search as any)?.view || 'active'
+                    const isActive = location.pathname === item.url && currentView === item.search.view
                     return (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
-                          <Link to={item.url}>
+                          <Link to={item.url} search={item.search}>
                             <item.icon className="size-4" />
                             <span>{item.title}</span>
                           </Link>

@@ -5,40 +5,38 @@ import {
   DialogDescription,
 } from '#/features/shared/components/ui/dialog'
 import { createContext, useContext, useState } from 'react'
-import { Slot } from 'radix-ui'
 import {
-  Bell,
-  Check,
-  Globe,
-  Home,
-  Keyboard,
-  Link,
-  Lock,
-  Menu,
-  MessageCircle,
-  Paintbrush,
+  Users,
+  Sliders,
   Settings,
-  Video,
-} from "lucide-react"
-import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider } from '#/features/shared/components/ui/sidebar'
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from '#/features/shared/components/ui/breadcrumb'
+} from 'lucide-react'
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+} from '#/features/shared/components/ui/sidebar'
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from '#/features/shared/components/ui/breadcrumb'
+import { TeamManagementSection } from './TeamManagementSection'
+import { PlatformPreferencesSection } from './PlatformPreferencesSection'
+import { useTeamMembers } from '../hooks/useTeamMembers'
 
-const data = {
-  nav: [
-    { name: "Notifications", icon: Bell },
-    { name: "Navigation", icon: Menu },
-    { name: "Home", icon: Home },
-    { name: "Appearance", icon: Paintbrush },
-    { name: "Messages & media", icon: MessageCircle },
-    { name: "Language & region", icon: Globe },
-    { name: "Accessibility", icon: Keyboard },
-    { name: "Mark as read", icon: Check },
-    { name: "Audio & video", icon: Video },
-    { name: "Connected accounts", icon: Link },
-    { name: "Privacy & visibility", icon: Lock },
-    { name: "Advanced", icon: Settings },
-  ],
-}
+type SettingsTab = 'team' | 'preferences'
+
+const navItems: Array<{ id: SettingsTab; name: string; icon: typeof Users }> = [
+  { id: 'team', name: 'Team & Technici', icon: Users },
+  { id: 'preferences', name: 'Bedrijf & Dispatch', icon: Sliders },
+]
 
 type SettingsDialogContextType = {
   open: boolean
@@ -71,31 +69,34 @@ function SettingsRoot({ children, open: controlledOpen }: SettingsRootProps) {
 }
 
 function SettingsDialog() {
-  let { open, setSettingsOpen } = useSettingsDialogContext()
+  const { open, setSettingsOpen } = useSettingsDialogContext()
+  const [activeTab, setActiveTab] = useState<SettingsTab>('team')
+  const { data: members = [], createMember } = useTeamMembers()
+
+  const currentNav = navItems.find((n) => n.id === activeTab) || navItems[0]
 
   return (
     <Dialog open={open} onOpenChange={setSettingsOpen}>
-      <DialogContent className="overflow-hidden p-0 md:max-h-[500px] md:max-w-[700px] lg:max-w-[800px]">
-        <DialogTitle className="sr-only">Settings</DialogTitle>
+      <DialogContent className="overflow-hidden p-0 max-h-[85vh] md:max-h-[600px] md:max-w-[780px] lg:max-w-[900px]">
+        <DialogTitle className="sr-only">Instellingen</DialogTitle>
         <DialogDescription className="sr-only">
-          Customize your settings here.
+          Beheer teamleden, dispatch parameters en platform voorkeuren.
         </DialogDescription>
         <SidebarProvider className="items-start">
-          <Sidebar collapsible="none" className="hidden md:flex">
+          <Sidebar collapsible="none" className="hidden sm:flex border-r border-border">
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {data.nav.map((item) => (
-                      <SidebarMenuItem key={item.name}>
+                    {navItems.map((item) => (
+                      <SidebarMenuItem key={item.id}>
                         <SidebarMenuButton
-                          asChild
-                          isActive={item.name === "Messages & media"}
+                          isActive={item.id === activeTab}
+                          onClick={() => setActiveTab(item.id)}
+                          className="cursor-pointer"
                         >
-                          <a href="#">
-                            <item.icon />
-                            <span>{item.name}</span>
-                          </a>
+                          <item.icon className="size-4" />
+                          <span className="text-xs">{item.name}</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                     ))}
@@ -104,29 +105,33 @@ function SettingsDialog() {
               </SidebarGroup>
             </SidebarContent>
           </Sidebar>
-          <main className="flex h-[480px] flex-1 flex-col overflow-hidden">
-            <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
-              <div className="flex items-center gap-2 px-4">
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem className="hidden md:block">
-                      <BreadcrumbLink href="#">Settings</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="hidden md:block" />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Messages & media</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
-              </div>
+          <main className="flex h-[560px] flex-1 flex-col overflow-hidden">
+            <header className="flex h-12 shrink-0 items-center gap-2 border-b border-border px-4 bg-muted/20">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem className="text-xs">
+                    <span className="text-muted-foreground flex items-center gap-1">
+                      <Settings className="size-3.5" />
+                      Instellingen
+                    </span>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem className="text-xs">
+                    <BreadcrumbPage>{currentNav.name}</BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
             </header>
-            <div className="flex flex-1 flex-col gap-4 overflow-y-auto p-4 pt-0">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-video max-w-3xl rounded-xl bg-muted/50"
+            <div className="flex-1 overflow-y-auto p-4">
+              {activeTab === 'team' && (
+                <TeamManagementSection
+                  members={members}
+                  onAddMember={async (data) => {
+                    await createMember.mutateAsync(data)
+                  }}
                 />
-              ))}
+              )}
+              {activeTab === 'preferences' && <PlatformPreferencesSection />}
             </div>
           </main>
         </SidebarProvider>
@@ -135,26 +140,31 @@ function SettingsDialog() {
   )
 }
 
+import { Slot } from 'radix-ui'
+
+interface SettingsDialogTriggerProps extends React.ComponentProps<'button'> {
+  asChild?: boolean
+}
+
 function SettingsDialogTrigger({
   asChild = false,
+  children,
   onClick,
-  onSelect,
   ...props
-}: React.ComponentProps<"div"> & {
-  asChild?: boolean
-  onSelect?: (event: any) => void
-}) {
+}: SettingsDialogTriggerProps) {
   const { setSettingsOpen } = useSettingsDialogContext()
-  const Comp = asChild ? Slot.Root : 'div'
+  const Comp = asChild ? Slot.Root : 'button'
 
   return (
     <Comp
-      {...props}
-      onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(e)
         setSettingsOpen(true)
       }}
-    />
+      {...props}
+    >
+      {children}
+    </Comp>
   )
 }
 

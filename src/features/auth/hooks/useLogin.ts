@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from '@tanstack/react-router'
 import { authClient } from '#/features/shared/lib/auth-client'
+import { getCurrentUserFn } from '../server/getCurrentUser'
 
 export function useLogin() {
   const router = useRouter()
@@ -27,7 +28,12 @@ export function useLogin() {
       if (res.error) {
         setError(res.error.message || 'Ongeldige inloggegevens. Controleer uw e-mail en wachtwoord.')
       } else {
-        await router.navigate({ to: '/dashboard' })
+        const currentUser = await getCurrentUserFn()
+        if (currentUser?.role === 'TECHNICIAN') {
+          await router.navigate({ to: '/week-schedule' })
+        } else {
+          await router.navigate({ to: '/dashboard' })
+        }
       }
     } catch {
       setError('Er is een onverwachte fout opgetreden bij het verbinden met de authenticatieserver.')
@@ -46,4 +52,3 @@ export function useLogin() {
     login,
   }
 }
-
