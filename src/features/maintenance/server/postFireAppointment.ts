@@ -51,8 +51,9 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
         plannedDate: data.proposedDate,
         plannedStartTime: data.startTime || '09:00',
         plannedEndTime: data.endTime || '11:00',
-        description: 'Jaarlijks branddetectie onderhoud (NBN S 21-100)',
+        description: 'Jaarlijks branddetectie onderhoud (Brandtec BV)',
       })
+
 
 
       // Generate checklist items for fire equipment

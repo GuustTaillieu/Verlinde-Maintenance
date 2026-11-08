@@ -11,6 +11,8 @@ import { useQuery } from '@tanstack/react-query'
 import { maintenanceQueries } from '../query'
 import { Skeleton } from '#/features/shared/components/ui/skeleton'
 
+import { useDebounce } from '#/features/shared/hooks/useDebounce'
+
 interface MaintenanceFilterBarProps {
   view: MaintenanceView
   onViewChange: (view: MaintenanceView) => void
@@ -28,11 +30,22 @@ function ExpandingSearchBar({
   onChange: (val: string) => void
 }) {
   const [isExpanded, setIsExpanded] = React.useState(Boolean(value))
+  const [localSearch, setLocalSearch] = React.useState(value)
+  const debouncedSearch = useDebounce(localSearch, 250)
   const inputRef = React.useRef<HTMLInputElement | null>(null)
 
   React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    setLocalSearch(value)
+  }, [value])
 
+  React.useEffect(() => {
+    if (debouncedSearch !== value) {
+      onChange(debouncedSearch)
+    }
+  }, [debouncedSearch, value, onChange])
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (
         e.key === '/' &&
         !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)
@@ -40,13 +53,13 @@ function ExpandingSearchBar({
         e.preventDefault()
         setIsExpanded(true)
       }
-      if (e.key === 'Escape' && isExpanded && !value) {
+      if (e.key === 'Escape' && isExpanded && !localSearch) {
         setIsExpanded(false)
       }
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isExpanded, value])
+  }, [isExpanded, localSearch])
 
   return (
     <div className="relative flex items-center">
@@ -56,19 +69,19 @@ function ExpandingSearchBar({
           <Input
             ref={inputRef}
             autoFocus
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-
+            value={localSearch}
+            onChange={(e) => setLocalSearch(e.target.value)}
             placeholder="Zoek klant, werf, gemeente..."
             className="pl-8 pr-7 h-8 text-xs bg-background shadow-xs"
             onBlur={() => {
-              if (!value) setIsExpanded(false)
+              if (!localSearch) setIsExpanded(false)
             }}
           />
-          {value ? (
+          {localSearch ? (
             <button
               type="button"
               onClick={() => {
+                setLocalSearch('')
                 onChange('')
                 inputRef.current?.focus()
               }}

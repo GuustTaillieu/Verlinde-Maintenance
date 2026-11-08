@@ -30,12 +30,12 @@ import {
 } from '#/features/shared/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback } from '#/features/shared/components/ui/avatar'
 import {
-  Calendar,
   ShieldCheck,
   LogOut,
   ChevronsUpDown,
   Bell,
   Layout,
+  Building2,
   Settings2,
   Sun,
   Contrast,
@@ -65,16 +65,16 @@ function RouteComponent() {
 
   const navItems = [
     {
-      title: 'Onderhoudscockpit',
+      title: 'Dashboard',
       url: '/dashboard' as const,
       search: { view: 'active' as const },
       icon: Layout,
     },
     {
-      title: 'In Afwachting',
-      url: '/dashboard' as const,
-      search: { view: 'inbox' as const },
-      icon: Calendar,
+      title: 'Klanten & Installaties',
+      url: '/clients' as const,
+      search: {},
+      icon: Building2,
     },
   ]
 
@@ -111,8 +111,7 @@ function RouteComponent() {
                 <SidebarGroupLabel>Beheer & Dispatch</SidebarGroupLabel>
                 <SidebarMenu>
                   {navItems.map((item) => {
-                    const currentView = (location.search as any)?.view || 'active'
-                    const isActive = location.pathname === item.url && currentView === item.search.view
+                    const isActive = location.pathname.startsWith(item.url)
                     return (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>

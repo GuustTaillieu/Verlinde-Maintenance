@@ -1,7 +1,8 @@
 import { Input } from '#/features/shared/components/ui/input'
 import { Label } from '#/features/shared/components/ui/label'
 import { Badge } from '#/features/shared/components/ui/badge'
-import { Sliders, MapPin } from 'lucide-react'
+import { Sliders, MapPin, ShieldCheck } from 'lucide-react'
+
 
 export function PlatformPreferencesSection() {
   const regions = [
@@ -50,6 +51,57 @@ export function PlatformPreferencesSection() {
       </div>
 
       <div className="space-y-2">
+        <div className="flex items-center justify-between">
+          <Label className="text-xs font-medium flex items-center gap-1.5">
+            <ShieldCheck className="size-3.5 text-red-500" />
+            Externe Keuringspartner (Branddetectie)
+          </Label>
+          <span className="text-[10px] text-muted-foreground font-mono">NBN S 21-100</span>
+        </div>
+        <div className="rounded-lg border border-border p-3 space-y-3 bg-card">
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="space-y-1">
+              <Label className="text-[11px] text-muted-foreground">Partner Bedrijfsnaam</Label>
+              <Input
+                defaultValue="Brandtec BV"
+                className="h-8 text-xs font-medium"
+                placeholder="bv. Brandtec BV"
+              />
+            </div>
+            <div className="space-y-1">
+              <Label className="text-[11px] text-muted-foreground">Dispatch E-mail</Label>
+              <Input
+                defaultValue="dispatch@brandtec.be"
+                className="h-8 text-xs font-mono"
+                placeholder="dispatch@brandtec.be"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-3 text-xs">
+            <div className="space-y-1">
+              <Label className="text-[11px] text-muted-foreground">Planning Telefoon</Label>
+              <Input
+                defaultValue="056 22 44 88"
+                className="h-8 text-xs font-mono"
+                placeholder="056 22 44 88"
+              />
+            </div>
+            <div className="space-y-1">
+              <Label className="text-[11px] text-muted-foreground">Wettelijke Norm</Label>
+              <Input
+                defaultValue="NBN S 21-100"
+                className="h-8 text-xs font-mono"
+                placeholder="NBN S 21-100"
+              />
+            </div>
+          </div>
+          <p className="text-[10px] text-muted-foreground">
+            Deze partner verschijnt in voorstellen, e-mailberichten en keuringsattesten voor branddetectie. Externe partners hebben geen login tot de applicatie.
+          </p>
+        </div>
+      </div>
+
+      <div className="space-y-2">
         <Label className="text-xs font-medium flex items-center gap-1.5">
           <MapPin className="size-3.5 text-muted-foreground" />
           Regionale Technicus Toewijzing
@@ -68,4 +120,5 @@ export function PlatformPreferencesSection() {
     </div>
   )
 }
+
 

@@ -92,9 +92,10 @@ export function useMaintenanceMutations() {
     },
     onSuccess: () => {
       toast.success('Afspraakvoorstel verzonden', {
-        description: 'Het inspectievoorstel is succesvol verzonden naar de klant.',
+        description: 'Het voorstel is naar Brandtec BV en de klant verzonden.',
       })
     },
+
 
     onSettled: () => {
       void queryClient.invalidateQueries({ queryKey: maintenanceKeys.all })

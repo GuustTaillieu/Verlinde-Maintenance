@@ -22,7 +22,8 @@ export const uploadFireAttestFn = createServerFn({ method: 'POST' })
           completedAt: new Date().toISOString(),
           certificateDocument: data.certificateDocument,
           officeNotes:
-            data.officeNotes || 'Keuringsattest NBN S 21-100 goedgekeurd en gearchiveerd',
+            data.officeNotes || 'Keuringsattest Brandtec goedgekeurd en gearchiveerd',
+
         })
         .where(eq(workOrders.id, data.workOrderId))
 

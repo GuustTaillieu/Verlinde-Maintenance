@@ -111,8 +111,9 @@ export function FireInspectionCardInfo() {
   let disciplineLabel = ''
   switch (item.primaryDiscipline) {
     case DISCIPLINE.FIRE:
-      disciplineLabel = 'Branddetectie (NBN S 21-100)'
+      disciplineLabel = 'Brandtec BV (Branddetectie)'
       break
+
 
     case DISCIPLINE.INTRUSION:
       disciplineLabel = 'Inbraakbeveiliging'
@@ -214,7 +215,7 @@ export function FireInspectionCardContent() {
   const fireSteps: StepItem[] = [
     {
       id: 'step-1',
-      title: 'Afspraak voorstellen aan klant',
+      title: 'Afspraak voorstellen aan Brandtec & klant',
       status: item.stage === MAINTENANCE_STAGE.NEEDS_PROPOSAL ? 'active' : 'completed',
       completedInfo: item.proposedDate
         ? `${item.proposedDate} (${item.plannedStartTime || '09:00'})`
@@ -242,8 +243,9 @@ export function FireInspectionCardContent() {
             : 'completed',
       completedInfo:
         item.stage === MAINTENANCE_STAGE.AWAITING_ATTEST || item.stage === MAINTENANCE_STAGE.COMPLETED
-          ? 'Ingepland voor keuring'
+          ? 'Ingepland bij Brandtec'
           : undefined,
+
 
       action: (
         <div className="flex items-center gap-2">

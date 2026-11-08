@@ -152,8 +152,9 @@ export function DashboardInsights({ className, kpis: propKpis, ...props }: Dashb
         icon={Clock}
         variant="info"
         subtitle="Voorstel verzonden"
-        subtext="Wacht op klant of attest"
+        subtext="Wacht op klant of Brandtec"
       />
+
 
       <InsightCard
         title="Preventief (3 mnd)"

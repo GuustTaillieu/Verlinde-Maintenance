@@ -10,4 +10,25 @@ export const VERLINDE_COMPANY = {
   certificationStandard: 'NBN S 21-100',
 } as const
 
+export interface FirePartnerConfig {
+  name: string
+  contactPerson: string
+  phone: string
+  email: string
+  dispatchEmail: string
+  certificationStandard: string
+}
+
+export const DEFAULT_FIRE_PARTNER: FirePartnerConfig = {
+  name: 'Brandtec BV',
+  contactPerson: 'Dirk Vanderbeken (Dispatch & Planning)',
+  phone: '056 22 44 88',
+  email: 'planning@brandtec.be',
+  dispatchEmail: 'dispatch@brandtec.be',
+  certificationStandard: 'NBN S 21-100',
+}
+
+export const BRANDTEC_PARTNER = DEFAULT_FIRE_PARTNER
+
+
 

@@ -14,6 +14,7 @@ import { Route as AuthManagerRouteImport } from './routes/_auth/_manager'
 import { Route as AuthTechnicianRouteImport } from './routes/_auth/_technician'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicForgotPasswordRouteImport } from './routes/_public/forgot-password'
+import { Route as AuthManagerClientsRouteImport } from './routes/_auth/_manager/clients'
 import { Route as AuthManagerDashboardRouteImport } from './routes/_auth/_manager/dashboard'
 import { Route as AuthTechnicianWeekScheduleRouteImport } from './routes/_auth/_technician/week-schedule'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
@@ -40,6 +41,11 @@ const PublicForgotPasswordRoute = PublicForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthManagerClientsRoute = AuthManagerClientsRouteImport.update({
+  id: '/clients',
+  path: '/clients',
+  getParentRoute: () => AuthManagerRoute,
+} as any)
 const AuthManagerDashboardRoute = AuthManagerDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -60,6 +66,7 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
+  '/clients': typeof AuthManagerClientsRoute
   '/dashboard': typeof AuthManagerDashboardRoute
   '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
+  '/clients': typeof AuthManagerClientsRoute
   '/dashboard': typeof AuthManagerDashboardRoute
   '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/_auth/_technician': typeof AuthTechnicianRouteWithChildren
   '/_public/forgot-password': typeof PublicForgotPasswordRoute
   '/_public/': typeof PublicIndexRoute
+  '/_auth/_manager/clients': typeof AuthManagerClientsRoute
   '/_auth/_manager/dashboard': typeof AuthManagerDashboardRoute
   '/_auth/_technician/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
@@ -85,9 +94,20 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/forgot-password' | '/dashboard' | '/week-schedule' | '/api/auth/$'
+    | '/'
+    | '/forgot-password'
+    | '/clients'
+    | '/dashboard'
+    | '/week-schedule'
+    | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/forgot-password' | '/dashboard' | '/week-schedule' | '/api/auth/$'
+  to:
+    | '/'
+    | '/forgot-password'
+    | '/clients'
+    | '/dashboard'
+    | '/week-schedule'
+    | '/api/auth/$'
   id:
     | '__root__'
     | '/_auth'
@@ -95,6 +115,7 @@ export interface FileRouteTypes {
     | '/_auth/_technician'
     | '/_public/forgot-password'
     | '/_public/'
+    | '/_auth/_manager/clients'
     | '/_auth/_manager/dashboard'
     | '/_auth/_technician/week-schedule'
     | '/api/auth/$'
@@ -144,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_auth/_manager/clients': {
+      id: '/_auth/_manager/clients'
+      path: '/clients'
+      fullPath: '/clients'
+      preLoaderRoute: typeof AuthManagerClientsRouteImport
+      parentRoute: typeof AuthManagerRoute
+    }
     '/_auth/_manager/dashboard': {
       id: '/_auth/_manager/dashboard'
       path: '/dashboard'
@@ -169,10 +197,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthManagerRouteChildren {
+  AuthManagerClientsRoute: typeof AuthManagerClientsRoute
   AuthManagerDashboardRoute: typeof AuthManagerDashboardRoute
 }
 
 const AuthManagerRouteChildren: AuthManagerRouteChildren = {
+  AuthManagerClientsRoute: AuthManagerClientsRoute,
   AuthManagerDashboardRoute: AuthManagerDashboardRoute,
 }
 

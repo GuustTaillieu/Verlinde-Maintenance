@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { formatDateDutch } from './dateUtils'
-import { VERLINDE_COMPANY } from './constants'
+import { VERLINDE_COMPANY, BRANDTEC_PARTNER } from './constants'
+
 
 export type EmailTemplateType = 'concise' | 'standard' | 'urgent' | 'blank'
 
@@ -241,7 +242,7 @@ export function generateFireInspectionEmailHtml(
   <li>Datum: <strong>${dateDutch}</strong> van <strong>${startTime}</strong> tot <strong>${endTime}</strong></li>
   <li>Locatie: <strong>${siteDisplay}</strong></li>
 </ul>
-<p>Onze gecertificeerde technicus voert de keuring uit conform <strong>${VERLINDE_COMPANY.certificationStandard}</strong>. Gelieve dit tijdstip met spoed te bevestigen.</p>
+<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> voert de keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip met spoed te bevestigen.</p>
 <p><br></p>
 <p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name}</p>`
   }
@@ -255,7 +256,7 @@ export function generateFireInspectionEmailHtml(
   <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
   <li>Locatie: <strong>${siteDisplay}</strong> (fiche #${sheetNumber})</li>
 </ul>
-<p>Onze technicus zal deze keuring ter plaatse uitvoeren conform de geldende <strong>${VERLINDE_COMPANY.certificationStandard}</strong>-normen. Na afronding wordt het officiële keuringsattest direct gedocumenteerd in uw dossier.</p>
+<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> zal deze keuring ter plaatse uitvoeren conform de geldende <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.</p>
 <p><br></p>
 <p>Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.</p>
 <p><br></p>
@@ -271,7 +272,7 @@ export function generateFireInspectionEmailHtml(
   <li>Datum: <strong>${dateDutch}</strong></li>
   <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
 </ul>
-<p>Verlinde Beveiliging voert deze keuring uit conform <strong>${VERLINDE_COMPANY.certificationStandard}</strong>. Gelieve dit tijdstip te bevestigen.</p>
+<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> voert deze keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip te bevestigen.</p>
 <p><br></p>
 <p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong> — ${VERLINDE_COMPANY.name}</p>`
 }
@@ -305,7 +306,7 @@ Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we vo
 • Datum: ${dateDutch}
 • Tijdvenster: ${startTime} – ${endTime}
 
-Verlinde Beveiliging voert deze keuring uit conform ${VERLINDE_COMPANY.certificationStandard}. Gelieve dit tijdstip te bevestigen.
+Onderaannemer ${BRANDTEC_PARTNER.name} voert deze keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip te bevestigen.
 
 Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
@@ -319,7 +320,7 @@ De wettelijke vervaldatum voor het branddetectienazicht van ${siteDisplay} (fich
 We stellen prioritair voor om de keuring in te plannen op:
 • ${dateDutch} van ${startTime} tot ${endTime}
 
-Onze technicus voert de keuring uit conform ${VERLINDE_COMPANY.certificationStandard}. Gelieve dit tijdstip met spoed te bevestigen.
+Onderaannemer ${BRANDTEC_PARTNER.name} voert de keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip met spoed te bevestigen.
 
 Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName}
@@ -333,7 +334,7 @@ In het kader van het wettelijk verplichte jaarlijkse onderhoud van de branddetec
 • Datum: ${dateDutch}
 • Tijdvenster: ${startTime} – ${endTime}
 
-Onze technicus zal deze keuring ter plaatse uitvoeren conform de geldende ${VERLINDE_COMPANY.certificationStandard}-normen. Na afronding wordt het officiële keuringsattest direct gedocumenteerd in uw dossier.
+Onderaannemer ${BRANDTEC_PARTNER.name} zal deze keuring ter plaatse uitvoeren conform de geldende ${BRANDTEC_PARTNER.certificationStandard}-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.
 
 Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.
 
@@ -341,3 +342,4 @@ Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName}
 ${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}`
 }
+

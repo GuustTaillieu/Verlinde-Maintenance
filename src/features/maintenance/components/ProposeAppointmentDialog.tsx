@@ -15,7 +15,8 @@ import { TimePicker } from './propose/TimePicker'
 import { DISCIPLINE, type FireInspectionItem, type ProposeFireAppointmentInput } from '../types'
 import { getRecommendedFutureDate } from '../utils/dateUtils'
 import { generateFireInspectionEmailHtml, type EmailTemplateType } from '../utils/emailTemplateUtils'
-import { VERLINDE_COMPANY } from '../utils/constants'
+import { VERLINDE_COMPANY, BRANDTEC_PARTNER } from '../utils/constants'
+
 
 
 export interface ProposeAppointmentContextValue {
@@ -107,28 +108,28 @@ export function ProposeSiteSummary() {
           </div>
         </div>
 
-        {/* Certified Technician Contact */}
+        {/* Subcontractor or Technician Contact */}
         <div className="space-y-1 bg-muted/40 rounded-lg p-2.5 border border-border/40">
           <div className="text-[11px] font-semibold text-foreground flex items-center justify-between">
-            <span>{VERLINDE_COMPANY.name}</span>
+            <span>{isFire ? BRANDTEC_PARTNER.name : VERLINDE_COMPANY.name}</span>
             <span className="text-[10px] font-normal text-muted-foreground">
-              {isFire ? 'NBN S 21-100 Gecertificeerd' : 'Planning'}
+              {isFire ? 'Onderaannemer Branddetectie' : 'Planning'}
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-3 pt-0.5">
             <a
-              href={`tel:${VERLINDE_COMPANY.dispatchPhone}`}
+              href={isFire ? `tel:${BRANDTEC_PARTNER.phone}` : `tel:${VERLINDE_COMPANY.dispatchPhone}`}
               className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1 hover:underline"
             >
               <Phone className="size-3 text-primary shrink-0" />
-              <span>{VERLINDE_COMPANY.dispatchPhone}</span>
+              <span>{isFire ? `${BRANDTEC_PARTNER.phone} (Planning)` : VERLINDE_COMPANY.dispatchPhone}</span>
             </a>
             <a
-              href={`mailto:${VERLINDE_COMPANY.dispatchEmail}`}
+              href={isFire ? `mailto:${BRANDTEC_PARTNER.dispatchEmail}` : `mailto:${VERLINDE_COMPANY.dispatchEmail}`}
               className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1 hover:underline truncate"
             >
               <Mail className="size-3 text-primary shrink-0" />
-              <span className="truncate">{VERLINDE_COMPANY.dispatchEmail}</span>
+              <span className="truncate">{isFire ? BRANDTEC_PARTNER.dispatchEmail : VERLINDE_COMPANY.dispatchEmail}</span>
             </a>
           </div>
         </div>
@@ -150,13 +151,14 @@ export function ProposeDialogHeader() {
         </DialogTitle>
         <DialogDescription className="text-xs">
           {isFire
-            ? 'Kies een datum en tijdvenster voor de keuring en pas indien gewenst het e-mailbericht aan.'
+            ? 'Kies een datum en tijdvenster voor de keuring door Brandtec BV en pas indien gewenst het e-mailbericht aan.'
             : 'Kies een datum en tijdvenster om voor te stellen aan de klant.'}
         </DialogDescription>
       </div>
     </DialogHeader>
   )
 }
+
 
 
 export function ProposeDialogFooter() {
@@ -261,9 +263,12 @@ function ProposeAppointmentFormContent({
   )
   const [startTime, setStartTime] = React.useState(() => item.plannedStartTime || '09:00')
   const [endTime, setEndTime] = React.useState(() => item.plannedEndTime || '11:00')
-  const [toEmail, setToEmail] = React.useState(
-    () => item.customerEmail || VERLINDE_COMPANY.dispatchEmail
+  const [toEmail, setToEmail] = React.useState(() =>
+    item.primaryDiscipline === 'FIRE'
+      ? BRANDTEC_PARTNER.dispatchEmail
+      : item.customerEmail || VERLINDE_COMPANY.dispatchEmail
   )
+
   const [ccEmail, setCcEmail] = React.useState('')
   const [subject, setSubject] = React.useState(
     () => `Afspraakvoorstel jaarlijks nazicht branddetectie #${item.sheetNumber} — ${item.siteName}`
