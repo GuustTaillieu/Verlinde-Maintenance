@@ -13,6 +13,7 @@ import {
   articles,
 } from './schema'
 import { eq } from 'drizzle-orm'
+import { migrate } from 'drizzle-orm/libsql/migrator'
 import { addMonthsToIso, extractCityFromAddress, extractZipFromAddress, normalizeDiscipline, parseDdMmYyyyToIso } from '#/features/shared/lib/date'
 
 export interface LegacySeed {
@@ -142,6 +143,10 @@ export async function runMigrationAndSeed(dataPath = 'data/seed_full.json') {
   const seed: LegacySeed = JSON.parse(raw)
   const refDate = parseDdMmYyyyToIso(seed.today || '02/11/2026')
   console.log(`📅 Snapshot Reference Date: ${refDate} (Today)`)
+
+  // 0. Ensure database tables exist
+  console.log('📦 Applying database schema migrations...')
+  await migrate(db, { migrationsFolder: path.resolve(process.cwd(), 'drizzle') })
 
   // 1. Clean existing records in foreign key order
   console.log('🧹 Cleaning existing tables...')

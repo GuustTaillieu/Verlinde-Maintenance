@@ -8,9 +8,8 @@ import {
   ComboboxEmpty,
 } from '#/features/shared/components/ui/combobox'
 import { Button } from '#/features/shared/components/ui/button'
-import { Badge } from '#/features/shared/components/ui/badge'
 import { Avatar, AvatarFallback } from '#/features/shared/components/ui/avatar'
-import { Sparkles, Clock } from 'lucide-react'
+import { Clock } from 'lucide-react'
 import { cn } from '#/features/shared/lib/utils'
 
 export interface TechnicianOption {
