@@ -3,13 +3,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from '#/features/shared/components/ui/dialog'
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from '#/features/shared/components/ui/select'
+import { TechnicianCombobox } from '#/features/shared/components/TechnicianCombobox'
 import {
   Popover,
   PopoverTrigger,
@@ -35,7 +29,6 @@ export function DispatchHeader({
     selectedTechId,
     setSelectedTechId,
     recommendedTech,
-    otherTechs,
     weekDays,
     currentMonday,
     handleNavigateWeek,
@@ -85,32 +78,14 @@ export function DispatchHeader({
             <span className="text-xs font-medium text-muted-foreground whitespace-nowrap">
               Technicus:
             </span>
-            <Select
+            <TechnicianCombobox
+              technicians={planner.technicians}
               value={selectedTechId}
-              onValueChange={(val) => {
-                if (val) setSelectedTechId(val)
-              }}
-            >
-              <SelectTrigger className="w-56 h-9! text-xs bg-background shadow-2xs">
-                <SelectValue placeholder="Selecteer technicus..." />
-              </SelectTrigger>
-              <SelectContent align="end" className="w-60">
-                {recommendedTech && (
-                  <SelectItem key={recommendedTech.id} value={recommendedTech.id} className="text-xs h-9!">
-                    <span className="font-semibold text-foreground">
-                      {recommendedTech.name}
-                    </span>
-                  </SelectItem>
-                )}
-                {otherTechs.length > 0 && otherTechs.map((tech) => (
-                  <SelectItem key={tech.id} value={tech.id} className="text-xs h-9!">
-                    <span className="font-semibold text-foreground">
-                      {tech.name}
-                    </span>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              onValueChange={setSelectedTechId}
+              recommendedTechId={recommendedTech?.id}
+              className="w-56"
+              align="end"
+            />
           </div>
 
           <div className="flex items-center gap-1 border border-border rounded-lg bg-background p-1">

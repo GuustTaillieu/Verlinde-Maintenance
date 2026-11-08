@@ -36,6 +36,7 @@ import {
   Bell,
   Layout,
   Building2,
+  CalendarDays,
   Settings2,
   Sun,
   Contrast,
@@ -76,6 +77,12 @@ function RouteComponent() {
       url: '/clients' as const,
       search: {},
       icon: Building2,
+    },
+    {
+      title: 'Planning & Agenda',
+      url: '/planning' as const,
+      search: {},
+      icon: CalendarDays,
     },
   ]
 

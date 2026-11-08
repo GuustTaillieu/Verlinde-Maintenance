@@ -20,6 +20,9 @@ export const ROUTE_CONFIG: Record<FileRouteTypes['to'], RouteBreadcrumbConfig> =
     title: 'Klantendossier',
     parent: '/clients',
   },
+  '/planning': {
+    title: 'Planning & Agenda',
+  },
   '/week-schedule': {
     title: 'Weekplanning',
   },
