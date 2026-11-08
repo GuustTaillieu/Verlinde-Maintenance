@@ -7,9 +7,11 @@ import {
   DISCIPLINE,
   WORK_ORDER_STATUS,
 } from '../types'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export const getMaintenanceKpisFn = createServerFn({ method: 'GET' }).handler(
   async (): Promise<MaintenanceKPIs> => {
+    await requireAuthUser()
     const todayIso = new Date().toISOString().split('T')[0]
     const todayMs = new Date(todayIso).getTime()
 

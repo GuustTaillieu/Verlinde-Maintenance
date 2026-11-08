@@ -4,6 +4,8 @@ import { workOrders, sites } from '#/db/schema'
 import { eq, and, gte, lte } from 'drizzle-orm'
 import { z } from 'zod'
 import { normalizeCity } from '../utils/regionUtils'
+import { requireAuthUser, AuthError } from '#/features/auth/server/authGuards'
+import { sanitizeAlarmCode } from '#/lib/permissions'
 
 export interface ScheduledSlot {
   id: string
@@ -16,6 +18,7 @@ export interface ScheduledSlot {
   endTime: string // HH:MM
   durationHours: number
   status?: string
+  accessNotesConfidential?: string | null
 }
 
 export const technicianScheduleInputSchema = z.object({
@@ -60,6 +63,15 @@ function sanitizeTimes(
 export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
   .validator(technicianScheduleInputSchema)
   .handler(async ({ data }): Promise<ScheduledSlot[]> => {
+    const currentUser = await requireAuthUser()
+
+    // Authorization rule: Technicians can only view their own schedule
+    if (currentUser.role === 'TECHNICIAN' && currentUser.id !== data.techId) {
+      throw new AuthError('Technici kunnen enkel hun eigen agenda raadplegen.', 403)
+    }
+
+    const todayIso = new Date().toISOString().split('T')[0]
+
     const rows = await db
       .select({
         id: workOrders.id,
@@ -71,6 +83,7 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
         siteName: sites.name,
         siteAddress: sites.siteAddress,
         siteCity: sites.siteCity,
+        accessNotesConfidential: sites.accessNotesConfidential,
       })
       .from(workOrders)
       .leftJoin(sites, eq(workOrders.siteId, sites.id))
@@ -84,6 +97,16 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
 
     return rows.map((r) => {
       const times = sanitizeTimes(r.plannedStartTime, r.plannedEndTime)
+      const sanitizedCode = sanitizeAlarmCode(r.accessNotesConfidential, currentUser, {
+        workOrder: {
+          id: r.id,
+          assignedTechnicianId: data.techId,
+          plannedDate: r.plannedDate,
+          status: r.status || 'SCHEDULED',
+        },
+        today: todayIso,
+      })
+
       return {
         id: r.id,
         woNumber: r.woNumber,
@@ -95,7 +118,7 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
         endTime: times.endTime,
         durationHours: times.durationHours,
         status: r.status || undefined,
+        accessNotesConfidential: sanitizedCode,
       }
     })
   })
-

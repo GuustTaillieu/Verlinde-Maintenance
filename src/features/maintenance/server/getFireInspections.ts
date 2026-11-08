@@ -13,10 +13,12 @@ import {
   WORK_ORDER_STATUS,
   MAINTENANCE_VIEW,
 } from '../types'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export const getFireInspectionsFn = createServerFn({ method: 'GET' })
   .validator(getFireInspectionsInputSchema)
   .handler(async ({ data }): Promise<PaginatedInspectionsResult> => {
+    await requireAuthUser(['MANAGER'])
     const todayIso = new Date().toISOString().split('T')[0]
     const todayMs = new Date(todayIso).getTime()
 

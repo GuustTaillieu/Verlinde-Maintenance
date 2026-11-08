@@ -110,3 +110,19 @@ export function can(
   return false
 }
 
+/**
+ * Sanitizes confidential alarm codes in compliance with Zero-Trust GDPR policy.
+ * Returns the plain code if permitted, otherwise returns null.
+ */
+export function sanitizeAlarmCode(
+  rawCode: string | null | undefined,
+  user: AuthUser | null | undefined,
+  context?: PermissionContext
+): string | null {
+  if (!rawCode) return null
+  if (can(user, 'sites:view_confidential_codes', context)) {
+    return rawCode
+  }
+  return null
+}
+

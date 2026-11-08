@@ -1,15 +1,18 @@
 import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
-import { workOrders } from '#/db/schema'
-import { eq, sql } from 'drizzle-orm'
+import { workOrders, equipment, workOrderItems } from '#/db/schema'
+import { eq, sql, and } from 'drizzle-orm'
 import {
   proposeFireAppointmentInputSchema,
   confirmFireAppointmentInputSchema,
 } from '../types'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
   .validator(proposeFireAppointmentInputSchema)
   .handler(async ({ data }) => {
+    await requireAuthUser(['MANAGER'])
+
     const existing = await db
       .select()
       .from(workOrders)
@@ -18,8 +21,7 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
       )
       .limit(1)
 
-    const randomSuffix = Math.floor(1000 + Math.random() * 9000)
-    const woNumber = `WB2025-BRT-${randomSuffix}`
+    const woNumber = `WO2026-BRT-${Date.now().toString().slice(-6)}`
 
     if (existing.length > 0) {
       await db
@@ -36,18 +38,49 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
     }
 
     const id = `wo_brt_${Date.now()}`
-    await db.insert(workOrders).values({
-      id,
-      woNumber,
-      customerId: data.customerId,
-      siteId: data.siteId,
-      assignedTechnicianId: 'usr_brandtec',
-      status: 'PROPOSED',
-      kind: 'MAINTENANCE',
-      plannedDate: data.proposedDate,
-      plannedStartTime: data.startTime || '09:00',
-      plannedEndTime: data.endTime || '11:00',
-      description: 'Jaarlijks branddetectie onderhoud (Brandtec BV)',
+
+    await db.transaction(async (tx) => {
+      await tx.insert(workOrders).values({
+        id,
+        woNumber,
+        customerId: data.customerId,
+        siteId: data.siteId,
+        assignedTechnicianId: 'usr_brandtec',
+        status: 'PROPOSED',
+        kind: 'MAINTENANCE',
+        plannedDate: data.proposedDate,
+        plannedStartTime: data.startTime || '09:00',
+        plannedEndTime: data.endTime || '11:00',
+        description: 'Jaarlijks branddetectie onderhoud (Brandtec BV)',
+      })
+
+      // Generate checklist items for fire equipment
+      const fireEquipment = await tx
+        .select()
+        .from(equipment)
+        .where(and(eq(equipment.siteId, data.siteId), eq(equipment.status, 'ACTIVE')))
+
+      if (fireEquipment.length > 0) {
+        for (const item of fireEquipment) {
+          await tx.insert(workOrderItems).values({
+            id: `woi_${id}_${item.id}`,
+            workOrderId: id,
+            equipmentId: item.id,
+            articleCode: item.articleCode,
+            description: `Branddetectiekeuring: ${item.description}`,
+            quantity: item.quantity || 1,
+            isChecked: false,
+          })
+        }
+      } else {
+        await tx.insert(workOrderItems).values({
+          id: `woi_${id}_gen`,
+          workOrderId: id,
+          description: 'Wettelijke jaarlijkse branddetectiekeuring (NBN S 21-100)',
+          quantity: 1,
+          isChecked: false,
+        })
+      }
     })
 
     return { success: true, workOrderId: id }
@@ -56,6 +89,8 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
 export const confirmFireAppointmentFn = createServerFn({ method: 'POST' })
   .validator(confirmFireAppointmentInputSchema)
   .handler(async ({ data }) => {
+    await requireAuthUser(['MANAGER'])
+
     await db
       .update(workOrders)
       .set({

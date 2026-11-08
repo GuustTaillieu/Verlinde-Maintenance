@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
 import { user } from '#/db/schema'
 import { eq, and } from 'drizzle-orm'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export interface TechnicianUser {
   id: string
@@ -22,6 +23,7 @@ export interface TechnicianUser {
 }
 
 export const getTechniciansFn = createServerFn({ method: 'GET' }).handler(async (): Promise<TechnicianUser[]> => {
+  await requireAuthUser()
   const rows = await db
     .select({
       id: user.id,

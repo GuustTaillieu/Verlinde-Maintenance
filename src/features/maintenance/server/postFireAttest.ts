@@ -1,34 +1,49 @@
 import { db } from '#/db'
-import { sites, workOrders } from '#/db/schema'
+import { sites, workOrders, equipment } from '#/db/schema'
 import { addMonthsToIso } from '#/features/shared/lib/date'
 import { createServerFn } from '@tanstack/react-start'
 import { eq } from 'drizzle-orm'
 import { uploadFireAttestInputSchema } from '../types'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export const uploadFireAttestFn = createServerFn({ method: 'POST' })
   .validator(uploadFireAttestInputSchema)
   .handler(async ({ data }) => {
+    await requireAuthUser(['MANAGER'])
+
     const todayIso = new Date().toISOString().split('T')[0]
     const nextDue = addMonthsToIso(todayIso, 12)
 
-    await db
-      .update(workOrders)
-      .set({
-        status: 'COMPLETED',
-        completedAt: new Date().toISOString(),
-        certificateDocument: data.certificateDocument,
-        officeNotes:
-          data.officeNotes || 'Keuringsattest Brandtec goedgekeurd en gearchiveerd',
-      })
-      .where(eq(workOrders.id, data.workOrderId))
+    // Atomic transaction updating work order, site dates, and all linked equipment
+    await db.transaction(async (tx) => {
+      await tx
+        .update(workOrders)
+        .set({
+          status: 'COMPLETED',
+          completedAt: new Date().toISOString(),
+          certificateDocument: data.certificateDocument,
+          officeNotes:
+            data.officeNotes || 'Keuringsattest Brandtec goedgekeurd en gearchiveerd',
+        })
+        .where(eq(workOrders.id, data.workOrderId))
 
-    await db
-      .update(sites)
-      .set({
-        lastServiceDate: todayIso,
-        nextDueDate: nextDue,
-      })
-      .where(eq(sites.id, data.siteId))
+      await tx
+        .update(sites)
+        .set({
+          lastServiceDate: todayIso,
+          nextDueDate: nextDue,
+        })
+        .where(eq(sites.id, data.siteId))
+
+      // Bump last service date and next due date on all equipment for this site
+      await tx
+        .update(equipment)
+        .set({
+          lastServiceDate: todayIso,
+          nextDueDate: nextDue,
+        })
+        .where(eq(equipment.siteId, data.siteId))
+    })
 
     return { success: true, nextDueDate: nextDue }
   })

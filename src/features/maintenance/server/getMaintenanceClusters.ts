@@ -4,9 +4,11 @@ import { sites, customers, workOrders, equipment } from '#/db/schema'
 import { eq, inArray, desc, count } from 'drizzle-orm'
 import type { MaintenanceCluster, ClusterSiteItem } from '../types'
 import { normalizeCity } from '../utils/regionUtils'
+import { requireAuthUser } from '#/features/auth/server/authGuards'
 
 export const getMaintenanceClustersFn = createServerFn({ method: 'GET' }).handler(
   async (): Promise<MaintenanceCluster[]> => {
+    await requireAuthUser(['MANAGER'])
     const todayIso = new Date().toISOString().split('T')[0]
     const todayMs = new Date(todayIso).getTime()
 
