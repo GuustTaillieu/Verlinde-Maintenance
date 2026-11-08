@@ -108,12 +108,20 @@ export function MaintenanceFilters({
   onViewChange,
   search,
   onSearchChange,
+  kpis: propKpis,
   className,
 }: MaintenanceFilterBarProps) {
-  const { data: kpis, isPending, error } = useQuery(maintenanceQueries.kpis())
+  const query = useQuery({
+    ...maintenanceQueries.kpis(),
+    enabled: !propKpis,
+  })
 
-  if (isPending) return <Skeleton className='h-9' />
-  if (error) return null
+  const kpis = propKpis ?? query.data
+
+  if (!kpis) {
+    if (query.isPending) return <Skeleton className="h-9" />
+    return null
+  }
 
   const { pendingApprovalCount, overdueCount, upcomingCount, urgentFireCount } = kpis
   const activeCount = urgentFireCount + overdueCount + upcomingCount

@@ -100,24 +100,33 @@ export function DashboardInsightsRoot({
   )
 }
 
-export function DashboardInsights({ className, ...props }: DashboardInsightsProps) {
-  const { data: kpis, isPending, error } = useQuery(maintenanceQueries.kpis())
+export function DashboardInsights({ className, kpis: propKpis, ...props }: DashboardInsightsProps) {
+  const query = useQuery({
+    ...maintenanceQueries.kpis(),
+    enabled: !propKpis,
+  })
 
-  if (isPending) return (
-    <DashboardInsightsRoot className={className} {...props}>
-      <InsightCard.Skeleton />
-      <InsightCard.Skeleton />
-      <InsightCard.Skeleton />
-      <InsightCard.Skeleton />
-    </DashboardInsightsRoot>
-  )
+  const kpis = propKpis ?? query.data
 
-  if (error) return (
-    <DashboardInsightsRoot className={className} {...props}>
-      <TriangleAlert className='size-4' />
-      Er ging iets mis bij het inladen van de gegevens. Probeer het later opnieuw.
-    </DashboardInsightsRoot>
-  )
+  if (!kpis) {
+    if (query.isPending) {
+      return (
+        <DashboardInsightsRoot className={className} {...props}>
+          <InsightCard.Skeleton />
+          <InsightCard.Skeleton />
+          <InsightCard.Skeleton />
+          <InsightCard.Skeleton />
+        </DashboardInsightsRoot>
+      )
+    }
+
+    return (
+      <DashboardInsightsRoot className={className} {...props}>
+        <TriangleAlert className="size-4" />
+        Er ging iets mis bij het inladen van de gegevens. Probeer het later opnieuw.
+      </DashboardInsightsRoot>
+    )
+  }
 
   return (
     <DashboardInsightsRoot className={className} {...props}>
