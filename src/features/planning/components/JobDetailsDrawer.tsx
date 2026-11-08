@@ -144,7 +144,7 @@ export function JobDetailsDrawer({ slot, open, onOpenChange }: JobDetailsDrawerP
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold text-foreground flex items-center gap-1.5">
               <Lock className="size-3.5 text-amber-600 dark:text-amber-400" />
-              Toegangs- & Alarmcode (Zero-Trust)
+              Toegangs- & Alarmcode
             </span>
             <Button
               size="sm"

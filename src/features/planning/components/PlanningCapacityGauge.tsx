@@ -54,13 +54,8 @@ export function PlanningCapacityGauge() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-sm">
-                  Capaciteit & Rooster — {selectedTech?.name}
+                  Capaciteit & Rooster van {selectedTech?.name}
                 </span>
-                {selectedTech?.techCode && (
-                  <Badge variant="outline" className="text-[10px] font-mono px-1.5 py-0">
-                    {selectedTech.techCode}
-                  </Badge>
-                )}
               </div>
               <p className="text-xs text-muted-foreground mt-0.5">
                 {selectedTech?.title || 'Veldtechnicus'} • Weekrooster: {techMax}u / week

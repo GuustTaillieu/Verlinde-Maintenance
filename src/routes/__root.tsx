@@ -27,7 +27,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Verlinde Beveiliging — Onderhoud & Planning Cockpit',
+        title: 'Verlinde Beveiliging',
       },
     ],
     links: [

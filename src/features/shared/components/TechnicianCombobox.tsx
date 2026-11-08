@@ -1,3 +1,4 @@
+import * as React from 'react'
 import {
   Combobox,
   ComboboxTrigger,
@@ -7,6 +8,7 @@ import {
   ComboboxItem,
   ComboboxEmpty,
 } from '#/features/shared/components/ui/combobox'
+import { Combobox as ComboboxPrimitive } from '@base-ui/react'
 import { Button } from '#/features/shared/components/ui/button'
 import { Avatar, AvatarFallback } from '#/features/shared/components/ui/avatar'
 import { Clock } from 'lucide-react'
@@ -45,15 +47,23 @@ export function TechnicianCombobox({
 }: TechnicianComboboxProps) {
   const selectedTech = technicians.find((t) => t.id === value)
 
+  const items = React.useMemo(() => {
+    return ComboboxPrimitive.createItems(technicians, {
+      getValue: (t: TechnicianOption) => t.id,
+      getLabel: (t: TechnicianOption) => `${t.name} ${t.techCode ? `(${t.techCode})` : ''}`,
+    })
+  }, [technicians])
+
   return (
     <Combobox
       value={value}
       onValueChange={(val) => {
-        if (typeof val === 'string' && val) {
-          onValueChange(val)
+        const nextId = typeof val === 'string' ? val : (val as TechnicianOption | null)?.id
+        if (nextId) {
+          onValueChange(nextId)
         }
       }}
-      items={technicians}
+      items={items}
       defaultValue={selectedTech?.id || recommendedTechId}
       itemToStringLabel={(techId) => {
         const tech = technicians.find((t) => t.id === techId)
@@ -90,8 +100,11 @@ export function TechnicianCombobox({
           showTrigger={false}
           className="m-1 h-8 text-xs"
         />
+        <ComboboxEmpty className="py-3 text-center text-xs text-muted-foreground">
+          Geen technicus gevonden.
+        </ComboboxEmpty>
         <ComboboxList>
-          {technicians.map((tech) => {
+          {(tech: TechnicianOption) => {
             const availableHours = tech.availableHours
 
             return (
@@ -115,10 +128,7 @@ export function TechnicianCombobox({
                 </div>
               </ComboboxItem>
             )
-          })}
-          <ComboboxEmpty className="py-3 text-center text-xs text-muted-foreground">
-            Geen technicus gevonden.
-          </ComboboxEmpty>
+          }}
         </ComboboxList>
       </ComboboxContent>
     </Combobox>

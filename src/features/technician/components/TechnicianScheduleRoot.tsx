@@ -19,7 +19,7 @@ export function TechnicianScheduleRoot({
   onSelectDate,
   selectedWoId,
 }: TechnicianScheduleRootProps) {
-  const { date, technician, scheduledDailyHours, isDayOff, isHalfDay, slots } = data
+  const { date, scheduledDailyHours, isDayOff, isHalfDay, slots } = data
 
   // Initial selected work order if specified in URL or user taps a card
   const initialSelected = selectedWoId
@@ -70,20 +70,12 @@ export function TechnicianScheduleRoot({
 
   return (
     <div className="space-y-4 max-w-3xl mx-auto pb-16 w-full">
-      {/* Technician Banner Header */}
-      <div className="flex items-center justify-between gap-3 pb-1 border-b border-border">
-        <div className="flex items-center gap-2.5">
-          <div className="size-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-sm shrink-0">
-            {technician.initials || technician.techCode || 'TC'}
-          </div>
-          <div>
-            <h1 className="text-base sm:text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
-              <span>Mijn Dagschema — {technician.name}</span>
-            </h1>
-            <p className="text-xs text-muted-foreground">
-              {technician.title || 'Veldtechnicus'} • Code: {technician.techCode || 'TECH'}
-            </p>
-          </div>
+      {/* Clean Header: Mijn Dagschema + Progress */}
+      <div className="flex items-center justify-between gap-3 pb-2 border-b border-border">
+        <div>
+          <h1 className="text-lg font-bold tracking-tight text-foreground">
+            Mijn Dagschema
+          </h1>
         </div>
 
         {slots.length > 0 && (
@@ -91,7 +83,7 @@ export function TechnicianScheduleRoot({
             <span className="font-semibold text-foreground">
               {completedCount}/{slots.length} Voltooid
             </span>
-            <span className="text-[10px] text-muted-foreground block">
+            <span className="text-[11px] text-muted-foreground block font-mono">
               {slots.reduce((sum, s) => sum + s.durationHours, 0)}u gepland
             </span>
           </div>
@@ -102,7 +94,6 @@ export function TechnicianScheduleRoot({
       <TechnicianDayNavigator
         currentDate={date}
         onSelectDate={onSelectDate}
-        totalSlotsCount={slots.length}
       />
 
       {/* Part-time & Day Off schedule notification */}

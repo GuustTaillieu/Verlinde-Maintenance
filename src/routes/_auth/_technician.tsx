@@ -9,8 +9,7 @@ import {
 } from '#/features/shared/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback } from '#/features/shared/components/ui/avatar'
 import { Button } from '#/features/shared/components/ui/button'
-import { Badge } from '#/features/shared/components/ui/badge'
-import { ShieldCheck, LogOut, ChevronsUpDown, UserCheck } from 'lucide-react'
+import { ShieldCheck, LogOut } from 'lucide-react'
 import { useCurrentUser } from '#/features/auth/hooks/useCurrentUser'
 
 export const Route = createFileRoute('/_auth/_technician')({
@@ -44,9 +43,6 @@ function TechnicianLayoutComponent() {
             <span className="font-bold text-sm text-foreground">Verlinde Beveiliging</span>
             <div className="flex items-center gap-1.5 mt-0.5">
               <span className="text-[10px] text-muted-foreground">Veldwerk Agenda</span>
-              <Badge variant="secondary" className="text-[9px] px-1 py-0 h-3.5 font-mono">
-                {user.techCode || 'TECH'}
-              </Badge>
             </div>
           </div>
         </div>
@@ -57,23 +53,21 @@ function TechnicianLayoutComponent() {
             <Button
               variant="ghost"
               size="sm"
-              className="h-9 px-2 gap-2 text-xs font-medium hover:bg-muted"
+              className="size-8 p-0 rounded-full hover:bg-muted focus-visible:ring-1"
             >
-              <Avatar className="size-6 rounded text-[10px]">
-                <AvatarFallback className="rounded bg-primary/10 text-primary font-bold text-[10px]">
+              <Avatar className="size-8 rounded-full text-[11px]">
+                <AvatarFallback className="rounded-full bg-primary/10 text-primary font-bold text-xs">
                   {user.initials || user.name.slice(0, 2).toUpperCase()}
                 </AvatarFallback>
               </Avatar>
-              <span className="font-semibold text-foreground hidden xs:inline">{user.name}</span>
-              <ChevronsUpDown className="size-3.5 text-muted-foreground" />
             </Button>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent className="w-56 rounded-xl" side="bottom" align="end" sideOffset={6}>
             <DropdownMenuLabel className="p-2 font-normal">
               <div className="flex items-center gap-2">
-                <Avatar className="size-7 rounded">
-                  <AvatarFallback className="rounded bg-primary/10 text-primary font-bold text-xs">
+                <Avatar className="size-7 rounded-full">
+                  <AvatarFallback className="rounded-full bg-primary/10 text-primary font-bold text-xs">
                     {user.initials || user.name.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
@@ -83,11 +77,6 @@ function TechnicianLayoutComponent() {
                 </div>
               </div>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-xs gap-2">
-              <UserCheck className="size-3.5" />
-              <span>{user.title || 'Veldtechnicus'}</span>
-            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={handleSignOut}

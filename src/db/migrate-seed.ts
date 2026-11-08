@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { hashPassword } from 'better-auth/crypto'
-import { db } from './index'
+import { client, db } from './index'
 import {
   user,
   account,
@@ -13,7 +13,6 @@ import {
   articles,
 } from './schema'
 import { eq } from 'drizzle-orm'
-import { migrate } from 'drizzle-orm/libsql/migrator'
 import { addMonthsToIso, extractCityFromAddress, extractZipFromAddress, normalizeDiscipline, parseDdMmYyyyToIso } from '#/features/shared/lib/date'
 
 export interface LegacySeed {
@@ -145,8 +144,18 @@ export async function runMigrationAndSeed(dataPath = 'data/seed_full.json') {
   console.log(`📅 Snapshot Reference Date: ${refDate} (Today)`)
 
   // 0. Ensure database tables exist
-  console.log('📦 Applying database schema migrations...')
-  await migrate(db, { migrationsFolder: path.resolve(process.cwd(), 'drizzle') })
+  console.log('📦 Applying database schema DDL...')
+  const migrationSqlPath = path.resolve(process.cwd(), 'drizzle/0000_short_jane_foster.sql')
+  if (fs.existsSync(migrationSqlPath)) {
+    const rawSql = fs.readFileSync(migrationSqlPath, 'utf8')
+    const statements = rawSql
+      .split('--> statement-breakpoint')
+      .map((s) => s.trim())
+      .filter(Boolean)
+    for (const stmt of statements) {
+      await client.execute(stmt)
+    }
+  }
 
   // 1. Clean existing records in foreign key order
   console.log('🧹 Cleaning existing tables...')

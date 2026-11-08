@@ -134,7 +134,7 @@ export function ExecutionChecklistStep({
             </span>
           </div>
 
-          <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+          <div className="space-y-1.5">
             {workOrder.equipment.map((eq) => (
               <div
                 key={eq.id}

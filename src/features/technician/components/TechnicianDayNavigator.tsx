@@ -16,7 +16,6 @@ import { formatDateIso, formatDateDutch } from '#/features/maintenance/utils/dat
 interface TechnicianDayNavigatorProps {
   currentDate: string // YYYY-MM-DD
   onSelectDate: (dateIso: string) => void
-  totalSlotsCount: number
 }
 
 /**
@@ -61,7 +60,6 @@ export function getAdjacentWorkday(dateIso: string, direction: 'prev' | 'next'):
 export function TechnicianDayNavigator({
   currentDate,
   onSelectDate,
-  totalSlotsCount,
 }: TechnicianDayNavigatorProps) {
   const todayIso = useMemo(() => formatDateIso(new Date()), [])
   const isToday = currentDate === todayIso
@@ -129,113 +127,108 @@ export function TechnicianDayNavigator({
   }, [pickerMonth, currentDate])
 
   return (
-    <div className="bg-card border border-border rounded-xl p-3 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-      {/* Current Date & Info */}
-      <div className="flex items-center gap-2">
-        <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              size="sm"
-              className="h-9 px-3 text-xs font-semibold gap-2 border-border bg-background hover:bg-muted"
-            >
+    <div className="bg-card border border-border rounded-xl p-3 shadow-2xs space-y-2">
+      {/* 1. Date Selector Button (Full-width, opens calendar popup) */}
+      <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+        <PopoverTrigger asChild>
+          <Button
+            variant="outline"
+            className="w-full h-10 px-3 text-xs sm:text-sm font-semibold justify-between border-border bg-background hover:bg-muted"
+          >
+            <div className="flex items-center gap-2 truncate">
               <CalendarIcon className="size-4 text-primary shrink-0" />
-              <span className="capitalize">{formatDateDutch(currentDate)}</span>
-              {isToday && (
-                <Badge variant="default" className="text-[9px] px-1.5 py-0 h-4 font-bold bg-primary text-primary-foreground">
-                  Vandaag
-                </Badge>
-              )}
-            </Button>
-          </PopoverTrigger>
-
-          <PopoverContent className="w-64 p-3 bg-popover shadow-md border-border" align="start">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between pb-1 border-b border-border">
-                <Button
-                  size="icon-xs"
-                  variant="ghost"
-                  onClick={() => {
-                    const prev = new Date(pickerMonth)
-                    prev.setMonth(prev.getMonth() - 1)
-                    setPickerMonth(prev)
-                  }}
-                >
-                  <ChevronLeft className="size-3" />
-                </Button>
-                <span className="text-xs font-semibold capitalize">
-                  {pickerMonth.toLocaleString('nl-BE', { month: 'long', year: 'numeric' })}
-                </span>
-                <Button
-                  size="icon-xs"
-                  variant="ghost"
-                  onClick={() => {
-                    const next = new Date(pickerMonth)
-                    next.setMonth(next.getMonth() + 1)
-                    setPickerMonth(next)
-                  }}
-                >
-                  <ChevronRight className="size-3" />
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-medium text-muted-foreground">
-                <span>Ma</span>
-                <span>Di</span>
-                <span>Wo</span>
-                <span>Do</span>
-                <span>Vr</span>
-                <span className="text-muted-foreground/50">Za</span>
-                <span className="text-muted-foreground/50">Zo</span>
-              </div>
-
-              <div className="grid grid-cols-7 gap-1">
-                {calendarDays.map((item, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => handleSelectDateFromPicker(item.date)}
-                    className={`size-7 text-[11px] rounded flex items-center justify-center transition-colors cursor-pointer ${
-                      item.isSelected
-                        ? 'bg-primary text-primary-foreground font-semibold'
-                        : item.isWeekend
-                        ? 'text-muted-foreground/40 hover:bg-muted/30'
-                        : item.isCurrentMonth
-                        ? 'text-foreground hover:bg-muted font-medium'
-                        : 'text-muted-foreground/30 hover:bg-muted/40'
-                    }`}
-                  >
-                    {item.date.getDate()}
-                  </button>
-                ))}
-              </div>
+              <span className="capitalize truncate">{formatDateDutch(currentDate)}</span>
             </div>
-          </PopoverContent>
-        </Popover>
+            {isToday && (
+              <Badge variant="default" className="text-[9px] px-1.5 py-0 h-4 font-bold bg-primary text-primary-foreground shrink-0">
+                Vandaag
+              </Badge>
+            )}
+          </Button>
+        </PopoverTrigger>
 
-        <Badge variant="secondary" className="text-[11px] font-mono px-2 py-0.5">
-          {totalSlotsCount} {totalSlotsCount === 1 ? 'werf' : 'werven'}
-        </Badge>
-      </div>
+        <PopoverContent className="w-64 p-3 bg-popover shadow-md border-border" align="center">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between pb-1 border-b border-border">
+              <Button
+                size="icon-xs"
+                variant="ghost"
+                onClick={() => {
+                  const prev = new Date(pickerMonth)
+                  prev.setMonth(prev.getMonth() - 1)
+                  setPickerMonth(prev)
+                }}
+              >
+                <ChevronLeft className="size-3" />
+              </Button>
+              <span className="text-xs font-semibold capitalize">
+                {pickerMonth.toLocaleString('nl-BE', { month: 'long', year: 'numeric' })}
+              </span>
+              <Button
+                size="icon-xs"
+                variant="ghost"
+                onClick={() => {
+                  const next = new Date(pickerMonth)
+                  next.setMonth(next.getMonth() + 1)
+                  setPickerMonth(next)
+                }}
+              >
+                <ChevronRight className="size-3" />
+              </Button>
+            </div>
 
-      {/* Nav Actions: Prev / Today / Next (Skipping weekends) */}
-      <div className="flex items-center gap-1.5 self-end sm:self-auto">
+            <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-medium text-muted-foreground">
+              <span>Ma</span>
+              <span>Di</span>
+              <span>Wo</span>
+              <span>Do</span>
+              <span>Vr</span>
+              <span className="text-muted-foreground/50">Za</span>
+              <span className="text-muted-foreground/50">Zo</span>
+            </div>
+
+            <div className="grid grid-cols-7 gap-1">
+              {calendarDays.map((item, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => handleSelectDateFromPicker(item.date)}
+                  className={`size-7 text-[11px] rounded flex items-center justify-center transition-colors cursor-pointer ${
+                    item.isSelected
+                      ? 'bg-primary text-primary-foreground font-semibold'
+                      : item.isWeekend
+                      ? 'text-muted-foreground/40 hover:bg-muted/30'
+                      : item.isCurrentMonth
+                      ? 'text-foreground hover:bg-muted font-medium'
+                      : 'text-muted-foreground/30 hover:bg-muted/40'
+                  }`}
+                >
+                  {item.date.getDate()}
+                </button>
+              ))}
+            </div>
+          </div>
+        </PopoverContent>
+      </Popover>
+
+      {/* 2. Navigation Buttons (Positioned underneath in a clean 3-button grid) */}
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
         <Button
           size="sm"
           variant="outline"
           onClick={handlePrevDay}
-          className="h-8 px-2.5 text-xs gap-1 border-border"
+          className="h-9 text-xs gap-1 border-border w-full justify-center px-1"
           title="Vorige werkdag (weekend overslaan)"
         >
-          <ChevronLeft className="size-3.5" />
-          <span className="hidden xs:inline">Vorige</span>
+          <ChevronLeft className="size-3.5 shrink-0" />
+          <span>Vorige</span>
         </Button>
 
         <Button
           size="sm"
           variant={isToday ? 'default' : 'outline'}
           onClick={handleToday}
-          className="h-8 px-3 text-xs font-medium"
+          className="h-9 text-xs font-semibold w-full justify-center px-1"
         >
           Vandaag
         </Button>
@@ -244,11 +237,11 @@ export function TechnicianDayNavigator({
           size="sm"
           variant="outline"
           onClick={handleNextDay}
-          className="h-8 px-2.5 text-xs gap-1 border-border"
+          className="h-9 text-xs gap-1 border-border w-full justify-center px-1"
           title="Volgende werkdag (weekend overslaan)"
         >
-          <span className="hidden xs:inline">Volgende</span>
-          <ChevronRight className="size-3.5" />
+          <span>Volgende</span>
+          <ChevronRight className="size-3.5 shrink-0" />
         </Button>
       </div>
     </div>

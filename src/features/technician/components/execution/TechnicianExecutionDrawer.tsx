@@ -31,7 +31,6 @@ import {
   ListTodo,
   PenTool,
   CheckCircle2,
-  Sparkles,
 } from 'lucide-react'
 import { ExecutionNavigationStep } from './ExecutionNavigationStep'
 import { ExecutionChecklistStep } from './ExecutionChecklistStep'
@@ -205,16 +204,11 @@ export function TechnicianExecutionDrawer({
               <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-600 border-emerald-500/30 shrink-0">
                 Afgetekend
               </Badge>
-            ) : isAllChecked ? (
-              <Badge variant="default" className="text-[10px] bg-primary text-primary-foreground shrink-0 gap-0.5">
-                <Sparkles className="size-2.5" />
-                Klaar
-              </Badge>
-            ) : (
+            ) : !isAllChecked ? (
               <Badge variant="outline" className="text-[10px] text-muted-foreground opacity-60 shrink-0">
                 Vergrendeld
               </Badge>
-            )}
+            ) : null}
           </div>
         </AccordionTrigger>
         <AccordionContent className="pb-3 text-xs">
@@ -229,12 +223,12 @@ export function TechnicianExecutionDrawer({
     </Accordion>
   )
 
-  // Mobile / Tablet Drawer
+  // Mobile / Tablet Drawer (90% screen height, smooth thumb scrolling without nested scroll traps)
   if (isMobile) {
     return (
       <Drawer open={open} onOpenChange={onOpenChange}>
-        <DrawerContent className="max-h-[92vh] flex flex-col">
-          <DrawerHeader className="p-4 border-b border-border">
+        <DrawerContent className="data-[vaul-drawer-direction=bottom]:max-h-[92vh] h-[90vh] flex flex-col">
+          <DrawerHeader className="p-4 border-b border-border text-left">
             <DrawerTitle asChild>{headerContent}</DrawerTitle>
             <DrawerDescription className="sr-only">Werkorder uitvoering</DrawerDescription>
           </DrawerHeader>
