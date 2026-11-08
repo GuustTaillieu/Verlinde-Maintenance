@@ -15,7 +15,8 @@ import { TimePicker } from './propose/TimePicker'
 import { DISCIPLINE, type FireInspectionItem, type ProposeFireAppointmentInput } from '../types'
 import { getRecommendedFutureDate } from '../utils/dateUtils'
 import { generateFireInspectionEmailHtml, type EmailTemplateType } from '../utils/emailTemplateUtils'
-import { BRANDTEC_PARTNER, VERLINDE_COMPANY } from '../utils/constants'
+import { VERLINDE_COMPANY } from '../utils/constants'
+
 
 export interface ProposeAppointmentContextValue {
   item: FireInspectionItem
@@ -106,28 +107,28 @@ export function ProposeSiteSummary() {
           </div>
         </div>
 
-        {/* Subcontractor or Technician Contact */}
+        {/* Certified Technician Contact */}
         <div className="space-y-1 bg-muted/40 rounded-lg p-2.5 border border-border/40">
           <div className="text-[11px] font-semibold text-foreground flex items-center justify-between">
-            <span>{isFire ? BRANDTEC_PARTNER.name : VERLINDE_COMPANY.name}</span>
+            <span>{VERLINDE_COMPANY.name}</span>
             <span className="text-[10px] font-normal text-muted-foreground">
-              {isFire ? 'Keuringsinstantie' : 'Planning'}
+              {isFire ? 'NBN S 21-100 Gecertificeerd' : 'Planning'}
             </span>
           </div>
           <div className="flex flex-wrap items-center gap-3 pt-0.5">
             <a
-              href={isFire ? `tel:${BRANDTEC_PARTNER.phone}` : `tel:${VERLINDE_COMPANY.dispatchPhone}`}
+              href={`tel:${VERLINDE_COMPANY.dispatchPhone}`}
               className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1 hover:underline"
             >
               <Phone className="size-3 text-primary shrink-0" />
-              <span>{isFire ? `${BRANDTEC_PARTNER.phone} (Planning)` : VERLINDE_COMPANY.dispatchPhone}</span>
+              <span>{VERLINDE_COMPANY.dispatchPhone}</span>
             </a>
             <a
-              href={isFire ? `mailto:${BRANDTEC_PARTNER.email}` : `mailto:${VERLINDE_COMPANY.dispatchEmail}`}
+              href={`mailto:${VERLINDE_COMPANY.dispatchEmail}`}
               className="text-[11px] text-muted-foreground hover:text-foreground flex items-center gap-1 hover:underline truncate"
             >
               <Mail className="size-3 text-primary shrink-0" />
-              <span className="truncate">{isFire ? BRANDTEC_PARTNER.email : VERLINDE_COMPANY.dispatchEmail}</span>
+              <span className="truncate">{VERLINDE_COMPANY.dispatchEmail}</span>
             </a>
           </div>
         </div>
@@ -149,13 +150,14 @@ export function ProposeDialogHeader() {
         </DialogTitle>
         <DialogDescription className="text-xs">
           {isFire
-            ? 'Kies een datum en tijdvenster voor de keuring door Brandtec BV en pas indien gewenst het e-mailbericht aan.'
+            ? 'Kies een datum en tijdvenster voor de keuring en pas indien gewenst het e-mailbericht aan.'
             : 'Kies een datum en tijdvenster om voor te stellen aan de klant.'}
         </DialogDescription>
       </div>
     </DialogHeader>
   )
 }
+
 
 export function ProposeDialogFooter() {
   const { proposedDate, isSubmitting, onSend, onClose } = useProposeAppointment()
@@ -243,76 +245,37 @@ export interface ProposeAppointmentDialogProps {
   children?: React.ReactNode
 }
 
-export function ProposeAppointmentDialog({
+function ProposeAppointmentFormContent({
   item,
-  open,
-  onOpenChange,
   onConfirm,
+  onOpenChange,
   children,
-}: ProposeAppointmentDialogProps) {
-  const [proposedDate, setProposedDate] = React.useState<string>(() =>
-    getRecommendedFutureDate()
+}: {
+  item: FireInspectionItem
+  onConfirm: (payload: ProposeFireAppointmentInput) => Promise<void>
+  onOpenChange: (open: boolean) => void
+  children?: React.ReactNode
+}) {
+  const [proposedDate, setProposedDate] = React.useState<string>(
+    () => item.proposedDate || getRecommendedFutureDate()
   )
-  const [startTime, setStartTime] = React.useState('09:00')
-  const [endTime, setEndTime] = React.useState('11:00')
-  const [toEmail, setToEmail] = React.useState('dispatch@brandtec.be')
+  const [startTime, setStartTime] = React.useState(() => item.plannedStartTime || '09:00')
+  const [endTime, setEndTime] = React.useState(() => item.plannedEndTime || '11:00')
+  const [toEmail, setToEmail] = React.useState(
+    () => item.customerEmail || VERLINDE_COMPANY.dispatchEmail
+  )
   const [ccEmail, setCcEmail] = React.useState('')
-  const [subject, setSubject] = React.useState('')
-  const [body, setBody] = React.useState('')
+  const [subject, setSubject] = React.useState(
+    () => `Afspraakvoorstel jaarlijks nazicht branddetectie #${item.sheetNumber} — ${item.siteName}`
+  )
   const [activeTemplate, setActiveTemplate] = React.useState<EmailTemplateType>('concise')
-  const [isBodyDirty, setIsBodyDirty] = React.useState(false)
+  const [customBody, setCustomBody] = React.useState<string | null>(null)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
-  // Initialize form when dialog opens or item changes
-  React.useEffect(() => {
-    if (open && item) {
-      const initialDate = item.proposedDate || getRecommendedFutureDate()
-      setProposedDate(initialDate)
-      setStartTime(item.plannedStartTime || '09:00')
-      setEndTime(item.plannedEndTime || '11:00')
-      setToEmail(BRANDTEC_PARTNER.email)
-      setCcEmail(item.customerEmail || '')
-      setSubject(`Afspraakvoorstel jaarlijks nazicht branddetectie #${item.sheetNumber} — ${item.siteName}`)
-      setActiveTemplate('concise')
-      setIsBodyDirty(false)
-
-      const initialBody = generateFireInspectionEmailHtml(
-        item.customerName,
-        item.siteName,
-        item.siteAddress,
-        item.sheetNumber,
-        initialDate,
-        item.plannedStartTime || '09:00',
-        item.plannedEndTime || '11:00',
-        'concise'
-      )
-      setBody(initialBody)
-    }
-  }, [open, item])
-
-  // Sync date/time changes into body if user has not typed custom modifications
-  React.useEffect(() => {
-    if (item && !isBodyDirty) {
-      const newBody = generateFireInspectionEmailHtml(
-        item.customerName,
-        item.siteName,
-        item.siteAddress,
-        item.sheetNumber,
-        proposedDate,
-        startTime,
-        endTime,
-        activeTemplate
-      )
-      setBody(newBody)
-    }
-  }, [item, proposedDate, startTime, endTime, activeTemplate, isBodyDirty])
-
-  if (!item) return null
-
-  const handleApplyTemplate = (template: EmailTemplateType) => {
-    setActiveTemplate(template)
-    setIsBodyDirty(false)
-    const newBody = generateFireInspectionEmailHtml(
+  // Derived body: if user hasn't typed custom HTML, compute dynamically without any useEffect!
+  const body =
+    customBody ??
+    generateFireInspectionEmailHtml(
       item.customerName,
       item.siteName,
       item.siteAddress,
@@ -320,14 +283,16 @@ export function ProposeAppointmentDialog({
       proposedDate,
       startTime,
       endTime,
-      template
+      activeTemplate
     )
-    setBody(newBody)
+
+  const handleApplyTemplate = (template: EmailTemplateType) => {
+    setActiveTemplate(template)
+    setCustomBody(null)
   }
 
   const handleUpdateBody = (newBody: string) => {
-    setIsBodyDirty(true)
-    setBody(newBody)
+    setCustomBody(newBody)
   }
 
   const handleSend = async () => {
@@ -380,20 +345,42 @@ export function ProposeAppointmentDialog({
 
   return (
     <ProposeAppointmentContext.Provider value={contextValue}>
-      <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-[96vw]! max-h-[96vh]! h-full w-full flex flex-col gap-0 p-4 overflow-hidden bg-background">
-          {children || (
-            <>
-              <ProposeDialogHeader />
-              <ProposeDialogBody />
-              <ProposeDialogFooter />
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      {children || (
+        <>
+          <ProposeDialogHeader />
+          <ProposeDialogBody />
+          <ProposeDialogFooter />
+        </>
+      )}
     </ProposeAppointmentContext.Provider>
   )
 }
+
+export function ProposeAppointmentDialog({
+  item,
+  open,
+  onOpenChange,
+  onConfirm,
+  children,
+}: ProposeAppointmentDialogProps) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-w-[96vw]! max-h-[96vh]! h-full w-full flex flex-col gap-0 p-4 overflow-hidden bg-background">
+        {open && item ? (
+          <ProposeAppointmentFormContent
+            key={`${item.siteId}_${item.workOrderId || 'new'}`}
+            item={item}
+            onConfirm={onConfirm}
+            onOpenChange={onOpenChange}
+          >
+            {children}
+          </ProposeAppointmentFormContent>
+        ) : null}
+      </DialogContent>
+    </Dialog>
+  )
+}
+
 
 // Compound component attachments
 ProposeAppointmentDialog.Header = ProposeDialogHeader

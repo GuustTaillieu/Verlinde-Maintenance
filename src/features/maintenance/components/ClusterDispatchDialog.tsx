@@ -159,15 +159,14 @@ export function ClusterDispatchDialog({
     return merged
   }, [baseEmailDrafts, userDraftEdits])
 
-  // Set default selected customer ID if empty or invalid
-  React.useEffect(() => {
-    const keys = Object.keys(emailDrafts)
-    if (keys.length > 0 && (!selectedCustomerId || !emailDrafts[selectedCustomerId])) {
-      setSelectedCustomerId(keys[0])
-    }
-  }, [emailDrafts, selectedCustomerId])
+  // Derive active selected customer ID without cascading effects
+  const activeCustomerId =
+    selectedCustomerId && emailDrafts[selectedCustomerId]
+      ? selectedCustomerId
+      : Object.keys(emailDrafts)[0] || ''
 
   if (!cluster) return null
+
 
   const handleUpdateEmailDraft = (customerId: string, patch: Partial<CustomerEmailDraft>) => {
     setUserDraftEdits((prev) => ({
@@ -216,9 +215,10 @@ export function ClusterDispatchDialog({
     setStep,
     emailDrafts,
     updateEmailDraft: handleUpdateEmailDraft,
-    selectedCustomerId,
+    selectedCustomerId: activeCustomerId,
     setSelectedCustomerId,
     onProceedToEmails: handleProceedToEmails,
+
     onBackToPlanning: handleBackToPlanning,
     isSubmitting,
     onConfirmDispatch: handleConfirmDispatch,

@@ -64,7 +64,7 @@ export function AppointmentMailPreview({
           </div>
           <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
             <ShieldCheck className="size-3.5 text-red-500" />
-            <span>Brandtec BV (NBN S 21-100)</span>
+            <span>Verlinde Beveiliging BV (NBN S 21-100)</span>
           </div>
         </div>
 
@@ -74,10 +74,11 @@ export function AppointmentMailPreview({
             <Input
               value={toEmail}
               onChange={(e) => setToEmail(e.target.value)}
-              placeholder="dispatch@brandtec.be"
+              placeholder="planning@verlinde-beveiliging.be"
               className="h-8 text-xs bg-background"
             />
           </div>
+
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground w-20 shrink-0 font-medium">CC:</span>
             <Input
@@ -146,7 +147,7 @@ export function AppointmentMailPreview({
         <RichEmailEditor
           value={body}
           onChange={setBody}
-          placeholder="Typ hier het bericht voor Brandtec en de klant..."
+          placeholder="Typ hier het bericht voor de klant..."
           className="flex-1 min-h-56"
         />
 
@@ -158,9 +159,10 @@ export function AppointmentMailPreview({
               Gereserveerd tijdslot voor keuring
             </span>
             <span className="text-[11px] font-normal text-muted-foreground">
-              Wordt als &apos;Gereserveerd&apos; vastgelegd bij Brandtec
+              Wordt als &apos;Gereserveerd&apos; vastgelegd in de planning
             </span>
           </div>
+
 
           <div className="rounded-lg border border-border/80 bg-background/80 p-2.5 text-xs space-y-1 shadow-2xs">
             <div className="font-semibold text-foreground flex items-center justify-between">

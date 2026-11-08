@@ -7,12 +7,13 @@ import {
   DISCIPLINE,
   WORK_ORDER_STATUS,
 } from '../types'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { authMiddleware } from '#/features/auth/server/authGuards'
 
-export const getMaintenanceKpisFn = createServerFn({ method: 'GET' }).handler(
-  async (): Promise<MaintenanceKPIs> => {
-    await requireAuthUser()
+export const getMaintenanceKpisFn = createServerFn({ method: 'GET' })
+  .middleware([authMiddleware])
+  .handler(async (): Promise<MaintenanceKPIs> => {
     const todayIso = new Date().toISOString().split('T')[0]
+
     const todayMs = new Date(todayIso).getTime()
 
     const activeSites = await db

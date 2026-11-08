@@ -56,11 +56,12 @@ export function UploadAttestDialogHeader() {
         Keuringsattest Opladen
       </DialogTitle>
       <DialogDescription className="text-xs">
-        Registreer het keuringsverslag van Brandtec BV. De onderhoudscyclus wordt met 1 jaar verlengd.
+        Registreer het officiële NBN S 21-100 keuringsverslag. De onderhoudscyclus wordt met 1 jaar verlengd.
       </DialogDescription>
     </DialogHeader>
   )
 }
+
 
 export function UploadAttestDialogBody() {
   const { documentName, setDocumentName, officeNotes, setOfficeNotes } =
@@ -156,10 +157,11 @@ export function UploadAttestDialog({
   onConfirm,
   children,
 }: UploadAttestDialogProps) {
-  const [documentName, setDocumentName] = React.useState('keuringsattest_brandtec_2025.pdf')
+  const [documentName, setDocumentName] = React.useState('keuringsattest_nbn_s21_100.pdf')
   const [officeNotes, setOfficeNotes] = React.useState(
-    'Conform NBN S 21-100 gecontroleerd door Brandtec. Geen opmerkingen.'
+    'Conform NBN S 21-100 gecontroleerd door Verlinde Beveiliging. Geen opmerkingen.'
   )
+
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   if (!item || !item.workOrderId) return null

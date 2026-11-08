@@ -268,8 +268,9 @@ export function MaintenanceInspectionList({
                 ({fireItems.length})
               </span>
             </div>
-            <span className="text-[11px] text-muted-foreground">Brandtec BV</span>
+            <span className="text-[11px] text-muted-foreground">NBN S 21-100</span>
           </div>
+
 
           <Accordion type="single" collapsible className="space-y-3">
             {fireItems.map((item) => (

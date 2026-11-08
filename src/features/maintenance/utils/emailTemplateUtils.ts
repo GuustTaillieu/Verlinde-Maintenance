@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { formatDateDutch } from './dateUtils'
-import { VERLINDE_COMPANY, BRANDTEC_PARTNER } from './constants'
+import { VERLINDE_COMPANY } from './constants'
 
 export type EmailTemplateType = 'concise' | 'standard' | 'urgent' | 'blank'
 
@@ -212,7 +212,7 @@ ${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
 }
 
 /**
- * Generates Brandtec Fire compliance inspection email draft as visual HTML (no asterisks).
+ * Generates Fire compliance inspection email draft as visual HTML (no asterisks).
  */
 export function generateFireInspectionEmailHtml(
   customerName: string,
@@ -232,7 +232,7 @@ export function generateFireInspectionEmailHtml(
   const siteDisplay = formatSiteAddressDisplay(siteName, siteAddress)
 
   if (template === 'urgent') {
-    return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+    return `<p>Beste <strong>${customerName}</strong>,</p>
 <p><br></p>
 <p>De wettelijke vervaldatum voor het branddetectienazicht van <strong>${siteDisplay}</strong> (fiche #${sheetNumber}) is overschreden.</p>
 <p><br></p>
@@ -241,13 +241,13 @@ export function generateFireInspectionEmailHtml(
   <li>Datum: <strong>${dateDutch}</strong> van <strong>${startTime}</strong> tot <strong>${endTime}</strong></li>
   <li>Locatie: <strong>${siteDisplay}</strong></li>
 </ul>
-<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> voert de keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip met spoed te bevestigen.</p>
+<p>Onze gecertificeerde technicus voert de keuring uit conform <strong>${VERLINDE_COMPANY.certificationStandard}</strong>. Gelieve dit tijdstip met spoed te bevestigen.</p>
 <p><br></p>
 <p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name}</p>`
   }
 
   if (template === 'standard') {
-    return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+    return `<p>Beste <strong>${customerName}</strong>,</p>
 <p><br></p>
 <p>In het kader van het wettelijk verplichte jaarlijkse onderhoud van de branddetectie-installatie stelt Verlinde Beveiliging voor om de keuring voor <strong>${siteDisplay}</strong> in te plannen op:</p>
 <ul class="list-disc pl-5 my-2 space-y-1">
@@ -255,7 +255,7 @@ export function generateFireInspectionEmailHtml(
   <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
   <li>Locatie: <strong>${siteDisplay}</strong> (fiche #${sheetNumber})</li>
 </ul>
-<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> zal deze keuring ter plaatse uitvoeren conform de geldende <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.</p>
+<p>Onze technicus zal deze keuring ter plaatse uitvoeren conform de geldende <strong>${VERLINDE_COMPANY.certificationStandard}</strong>-normen. Na afronding wordt het officiële keuringsattest direct gedocumenteerd in uw dossier.</p>
 <p><br></p>
 <p>Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.</p>
 <p><br></p>
@@ -263,7 +263,7 @@ export function generateFireInspectionEmailHtml(
   }
 
   // Concise (default)
-  return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+  return `<p>Beste <strong>${customerName}</strong>,</p>
 <p><br></p>
 <p>Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we voor:</p>
 <ul class="list-disc pl-5 my-2 space-y-1">
@@ -271,13 +271,13 @@ export function generateFireInspectionEmailHtml(
   <li>Datum: <strong>${dateDutch}</strong></li>
   <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
 </ul>
-<p><strong>${BRANDTEC_PARTNER.name}</strong> voert deze keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip te bevestigen.</p>
+<p>Verlinde Beveiliging voert deze keuring uit conform <strong>${VERLINDE_COMPANY.certificationStandard}</strong>. Gelieve dit tijdstip te bevestigen.</p>
 <p><br></p>
 <p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong> — ${VERLINDE_COMPANY.name}</p>`
 }
 
 /**
- * Generates Brandtec Fire compliance inspection email draft in plain text.
+ * Generates Fire compliance inspection email draft in plain text.
  */
 export function generateFireInspectionEmail(
   customerName: string,
@@ -297,7 +297,7 @@ export function generateFireInspectionEmail(
   const siteDisplay = formatSiteAddressDisplay(siteName, siteAddress)
 
   if (template === 'concise') {
-    return `Beste planningsteam en ${customerName},
+    return `Beste ${customerName},
 
 Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we voor:
 
@@ -305,35 +305,35 @@ Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we vo
 • Datum: ${dateDutch}
 • Tijdvenster: ${startTime} – ${endTime}
 
-${BRANDTEC_PARTNER.name} voert deze keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip te bevestigen.
+Verlinde Beveiliging voert deze keuring uit conform ${VERLINDE_COMPANY.certificationStandard}. Gelieve dit tijdstip te bevestigen.
 
 Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
   }
 
   if (template === 'urgent') {
-    return `Beste planningsteam en ${customerName},
+    return `Beste ${customerName},
 
 De wettelijke vervaldatum voor het branddetectienazicht van ${siteDisplay} (fiche #${sheetNumber}) is overschreden.
 
 We stellen prioritair voor om de keuring in te plannen op:
 • ${dateDutch} van ${startTime} tot ${endTime}
 
-Onderaannemer ${BRANDTEC_PARTNER.name} voert de keuring uit conform ${BRANDTEC_PARTNER.certificationStandard}. Gelieve dit tijdstip met spoed te bevestigen.
+Onze technicus voert de keuring uit conform ${VERLINDE_COMPANY.certificationStandard}. Gelieve dit tijdstip met spoed te bevestigen.
 
 Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName}
 ${VERLINDE_COMPANY.name}`
   }
 
-  return `Beste planningsteam en ${customerName},
+  return `Beste ${customerName},
 
 In het kader van het wettelijk verplichte jaarlijkse onderhoud van de branddetectie-installatie stelt Verlinde Beveiliging voor om de keuring voor ${siteDisplay} in te plannen op:
 
 • Datum: ${dateDutch}
 • Tijdvenster: ${startTime} – ${endTime}
 
-Onderaannemer ${BRANDTEC_PARTNER.name} zal deze keuring ter plaatse uitvoeren conform de geldende ${BRANDTEC_PARTNER.certificationStandard}-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.
+Onze technicus zal deze keuring ter plaatse uitvoeren conform de geldende ${VERLINDE_COMPANY.certificationStandard}-normen. Na afronding wordt het officiële keuringsattest direct gedocumenteerd in uw dossier.
 
 Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.
 

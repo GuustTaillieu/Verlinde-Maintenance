@@ -31,13 +31,8 @@ function ExpandingSearchBar({
   const inputRef = React.useRef<HTMLInputElement | null>(null)
 
   React.useEffect(() => {
-    if (isExpanded) {
-      inputRef.current?.focus()
-    }
-  }, [isExpanded])
-
-  React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+
       if (
         e.key === '/' &&
         !['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)
@@ -60,8 +55,10 @@ function ExpandingSearchBar({
           <Search className="size-3.5 absolute left-2.5 text-muted-foreground pointer-events-none" />
           <Input
             ref={inputRef}
+            autoFocus
             value={value}
             onChange={(e) => onChange(e.target.value)}
+
             placeholder="Zoek klant, werf, gemeente..."
             className="pl-8 pr-7 h-8 text-xs bg-background shadow-xs"
             onBlur={() => {

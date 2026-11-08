@@ -12,7 +12,7 @@ import {
   findAvailableSlotOnDay,
 } from '../utils/dateUtils'
 import { areCitiesInSameRegion, normalizeCity } from '../utils/regionUtils'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { managerMiddleware } from '#/features/auth/server/authGuards'
 
 export const findRecommendedSlotInputSchema = z.object({
   city: z.string().default('Kortrijk'),
@@ -50,9 +50,9 @@ function getPreferredTechIdForCity(city: string): string {
 }
 
 export const findRecommendedSlotFn = createServerFn({ method: 'GET' })
+  .middleware([managerMiddleware])
   .validator(findRecommendedSlotInputSchema)
   .handler(async ({ data }): Promise<RecommendedScheduleSlot> => {
-    await requireAuthUser(['MANAGER'])
     const requiredDurationMinutes = Math.round(data.durationHours * 60)
     const preferredTechId = data.preferredTechId || getPreferredTechIdForCity(data.city)
 

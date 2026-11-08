@@ -3,7 +3,7 @@ import { db } from '#/db/index'
 import { user, account } from '#/db/schema'
 import { desc } from 'drizzle-orm'
 import { z } from 'zod'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { managerMiddleware } from '#/features/auth/server/authGuards'
 import { hashPassword } from 'better-auth/crypto'
 
 export interface TeamMemberDto {
@@ -46,10 +46,9 @@ export const createTeamMemberInputSchema = z.object({
 
 export type CreateTeamMemberInput = z.infer<typeof createTeamMemberInputSchema>
 
-export const getTeamMembersFn = createServerFn({ method: 'GET' }).handler(
-  async (): Promise<TeamMemberDto[]> => {
-    await requireAuthUser(['MANAGER'])
-
+export const getTeamMembersFn = createServerFn({ method: 'GET' })
+  .middleware([managerMiddleware])
+  .handler(async (): Promise<TeamMemberDto[]> => {
     const rows = await db
       .select({
         id: user.id,
@@ -71,15 +70,14 @@ export const getTeamMembersFn = createServerFn({ method: 'GET' }).handler(
       specialties: r.specialties || [],
       weeklySchedule: r.weeklySchedule || { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
     }))
-  }
-)
+  })
 
 export const createTeamMemberFn = createServerFn({ method: 'POST' })
+  .middleware([managerMiddleware])
   .validator(createTeamMemberInputSchema)
   .handler(async ({ data }): Promise<TeamMemberDto> => {
-    await requireAuthUser(['MANAGER'])
-
     const id = `usr_${Date.now()}`
+
     const initials =
       data.initials ||
       data.name

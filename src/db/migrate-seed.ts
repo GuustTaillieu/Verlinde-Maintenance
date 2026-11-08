@@ -221,21 +221,6 @@ export async function runMigrationAndSeed(dataPath = 'data/seed_full.json') {
       createdAt: now,
       updatedAt: now,
     },
-    {
-      id: 'usr_brandtec',
-      name: 'Brandtec BV',
-      email: 'dispatch@brandtec.be',
-      emailVerified: true,
-      role: 'TECHNICIAN' as const,
-      isContractor: true,
-      techCode: 'BRT',
-      initials: 'BT',
-      title: 'Certified Fire Safety Partner',
-      specialties: ['FIRE'],
-      weeklySchedule: { mon: 8, tue: 8, wed: 8, thu: 8, fri: 8 },
-      createdAt: now,
-      updatedAt: now,
-    },
   ]
 
   for (const u of seedUsers) {
@@ -253,13 +238,15 @@ export async function runMigrationAndSeed(dataPath = 'data/seed_full.json') {
   console.log(`  ✓ ${seedUsers.length} users and auth accounts provisioned (default password: '${defaultPassword}')`)
 
   // Map technician legacy code to user id
+  // Note: External subcontractors (BRT) are mapped to internal senior fire technician Tom De Coninck
   const techUserMap = new Map<string, string>([
     ['DV', 'usr_dirk'],
     ['TDC', 'usr_tom'],
     ['WVH', 'usr_wout'],
     ['JMS', 'usr_jens'],
-    ['BRT', 'usr_brandtec'],
+    ['BRT', 'usr_tom'],
   ])
+
 
   // 3. Seed Articles Catalog
   console.log('📦 Seeding Articles Catalog...')

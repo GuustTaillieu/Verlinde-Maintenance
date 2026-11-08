@@ -3,14 +3,14 @@ import { db } from '#/db/index'
 import { sites, workOrders, equipment, workOrderItems } from '#/db/schema'
 import { inArray, eq, and } from 'drizzle-orm'
 import { planClusterBatchInputSchema, WORK_ORDER_STATUS } from '../types'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { managerMiddleware } from '#/features/auth/server/authGuards'
 
 export const planClusterBatchFn = createServerFn({ method: 'POST' })
+  .middleware([managerMiddleware])
   .validator(planClusterBatchInputSchema)
   .handler(async ({ data }) => {
-    await requireAuthUser(['MANAGER'])
-
     if (data.assignments && data.assignments.length > 0) {
+
       const allSiteIds = Array.from(
         new Set(
           data.assignments.flatMap((a) =>

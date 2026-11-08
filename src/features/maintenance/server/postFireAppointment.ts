@@ -6,13 +6,12 @@ import {
   proposeFireAppointmentInputSchema,
   confirmFireAppointmentInputSchema,
 } from '../types'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { managerMiddleware } from '#/features/auth/server/authGuards'
 
 export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
+  .middleware([managerMiddleware])
   .validator(proposeFireAppointmentInputSchema)
   .handler(async ({ data }) => {
-    await requireAuthUser(['MANAGER'])
-
     const existing = await db
       .select()
       .from(workOrders)
@@ -21,7 +20,8 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
       )
       .limit(1)
 
-    const woNumber = `WO2026-BRT-${Date.now().toString().slice(-6)}`
+    const woNumber = `WO2026-FIRE-${Date.now().toString().slice(-6)}`
+    const assignedTechnicianId = data.technicianId || 'usr_tom'
 
     if (existing.length > 0) {
       await db
@@ -31,13 +31,13 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
           plannedStartTime: data.startTime || '09:00',
           plannedEndTime: data.endTime || '11:00',
           status: 'PROPOSED',
-          assignedTechnicianId: 'usr_brandtec',
+          assignedTechnicianId,
         })
         .where(eq(workOrders.id, existing[0].id))
       return { success: true, workOrderId: existing[0].id }
     }
 
-    const id = `wo_brt_${Date.now()}`
+    const id = `wo_fire_${Date.now()}`
 
     await db.transaction(async (tx) => {
       await tx.insert(workOrders).values({
@@ -45,14 +45,15 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
         woNumber,
         customerId: data.customerId,
         siteId: data.siteId,
-        assignedTechnicianId: 'usr_brandtec',
+        assignedTechnicianId,
         status: 'PROPOSED',
         kind: 'MAINTENANCE',
         plannedDate: data.proposedDate,
         plannedStartTime: data.startTime || '09:00',
         plannedEndTime: data.endTime || '11:00',
-        description: 'Jaarlijks branddetectie onderhoud (Brandtec BV)',
+        description: 'Jaarlijks branddetectie onderhoud (NBN S 21-100)',
       })
+
 
       // Generate checklist items for fire equipment
       const fireEquipment = await tx
@@ -87,10 +88,9 @@ export const proposeFireAppointmentFn = createServerFn({ method: 'POST' })
   })
 
 export const confirmFireAppointmentFn = createServerFn({ method: 'POST' })
+  .middleware([managerMiddleware])
   .validator(confirmFireAppointmentInputSchema)
   .handler(async ({ data }) => {
-    await requireAuthUser(['MANAGER'])
-
     await db
       .update(workOrders)
       .set({
@@ -100,3 +100,4 @@ export const confirmFireAppointmentFn = createServerFn({ method: 'POST' })
 
     return { success: true }
   })
+

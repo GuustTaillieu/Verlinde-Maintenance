@@ -4,13 +4,12 @@ import { addMonthsToIso } from '#/features/shared/lib/date'
 import { createServerFn } from '@tanstack/react-start'
 import { eq } from 'drizzle-orm'
 import { uploadFireAttestInputSchema } from '../types'
-import { requireAuthUser } from '#/features/auth/server/authGuards'
+import { managerMiddleware } from '#/features/auth/server/authGuards'
 
 export const uploadFireAttestFn = createServerFn({ method: 'POST' })
+  .middleware([managerMiddleware])
   .validator(uploadFireAttestInputSchema)
   .handler(async ({ data }) => {
-    await requireAuthUser(['MANAGER'])
-
     const todayIso = new Date().toISOString().split('T')[0]
     const nextDue = addMonthsToIso(todayIso, 12)
 
@@ -23,9 +22,10 @@ export const uploadFireAttestFn = createServerFn({ method: 'POST' })
           completedAt: new Date().toISOString(),
           certificateDocument: data.certificateDocument,
           officeNotes:
-            data.officeNotes || 'Keuringsattest Brandtec goedgekeurd en gearchiveerd',
+            data.officeNotes || 'Keuringsattest NBN S 21-100 goedgekeurd en gearchiveerd',
         })
         .where(eq(workOrders.id, data.workOrderId))
+
 
       await tx
         .update(sites)

@@ -2,8 +2,9 @@ import { z } from 'zod'
 
 /**
  * Stage of a statutory fire compliance inspection (NBN S 21-100).
- * Lifecycle: Needs Proposal -> Pending Customer Approval -> Awaiting Brandtec Attest -> Completed
+ * Lifecycle: Needs Proposal -> Pending Customer Approval -> Awaiting Attest -> Completed
  */
+
 export const fireStageSchema = z.enum([
   'NEEDS_PROPOSAL',
   'PENDING_APPROVAL',
@@ -159,6 +160,7 @@ export type PlanClusterBatchInput = z.infer<typeof planClusterBatchInputSchema>
 export const proposeFireAppointmentInputSchema = z.object({
   siteId: z.string(),
   customerId: z.string(),
+  technicianId: z.string().optional(),
   proposedDate: z.string(),
   startTime: z.string().optional(),
   endTime: z.string().optional(),
@@ -167,6 +169,7 @@ export const proposeFireAppointmentInputSchema = z.object({
   subject: z.string().optional(),
   emailBody: z.string().optional(),
 })
+
 export type ProposeFireAppointmentInput = z.infer<typeof proposeFireAppointmentInputSchema>
 
 export const confirmFireAppointmentInputSchema = z.object({
@@ -185,8 +188,9 @@ export type UploadFireAttestInput = z.infer<typeof uploadFireAttestInputSchema>
 /**
  * Top-level dashboard view:
  * - 'active': Actieve Taken (Action queue requiring Dirk's initiative)
- * - 'inbox': In Afwachting (Waiting room for client confirmations / Brandtec attests)
+ * - 'inbox': In Afwachting (Waiting room for client confirmations / inspection attests)
  */
+
 export const maintenanceViewSchema = z.enum(['active', 'inbox'])
 export type MaintenanceView = z.infer<typeof maintenanceViewSchema>
 export const MAINTENANCE_VIEW = maintenanceViewSchema.enum

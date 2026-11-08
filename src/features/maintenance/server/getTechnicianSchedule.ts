@@ -4,7 +4,7 @@ import { workOrders, sites } from '#/db/schema'
 import { eq, and, gte, lte } from 'drizzle-orm'
 import { z } from 'zod'
 import { normalizeCity } from '../utils/regionUtils'
-import { requireAuthUser, AuthError } from '#/features/auth/server/authGuards'
+import { authMiddleware, AuthError } from '#/features/auth/server/authGuards'
 import { sanitizeAlarmCode } from '#/lib/permissions'
 
 export interface ScheduledSlot {
@@ -61,14 +61,16 @@ function sanitizeTimes(
 }
 
 export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
+  .middleware([authMiddleware])
   .validator(technicianScheduleInputSchema)
-  .handler(async ({ data }): Promise<ScheduledSlot[]> => {
-    const currentUser = await requireAuthUser()
+  .handler(async ({ data, context }): Promise<ScheduledSlot[]> => {
+    const currentUser = context.user
 
     // Authorization rule: Technicians can only view their own schedule
     if (currentUser.role === 'TECHNICIAN' && currentUser.id !== data.techId) {
       throw new AuthError('Technici kunnen enkel hun eigen agenda raadplegen.', 403)
     }
+
 
     const todayIso = new Date().toISOString().split('T')[0]
 

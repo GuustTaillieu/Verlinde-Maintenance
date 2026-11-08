@@ -60,13 +60,8 @@ export function useDispatchPlanner(
   open: boolean,
   initialSelectedSiteIds?: string[]
 ) {
-  const [selectedTechId, setSelectedTechId] = useState<string>(() =>
-    getPreferredTechIdForCity(cluster?.city)
-  )
-
-  const [currentMonday, setCurrentMonday] = useState<Date>(() =>
-    getMonday(getEarliestSchedulableDate())
-  )
+  const [userSelectedTechId, setUserSelectedTechId] = useState<string | null>(null)
+  const [userSelectedMonday, setUserSelectedMonday] = useState<Date | null>(null)
 
   const [selectedSiteIds, setSelectedSiteIds] = useState<string[]>([])
   const [isCalendarPickerOpen, setIsCalendarPickerOpen] = useState(false)
@@ -127,16 +122,24 @@ export function useDispatchPlanner(
     ),
   })
 
-  // When dialog opens, adopt the recommended week and technician automatically
-  useEffect(() => {
-    if (open && recommendedSlotQuery.data) {
-      const rec = recommendedSlotQuery.data
-      setSelectedTechId(rec.techId)
-      const recMonday = getMonday(new Date(`${rec.weekMonday}T00:00:00`))
-      setCurrentMonday(recMonday)
-      setPickerMonth(new Date(recMonday.getFullYear(), recMonday.getMonth(), 1))
-    }
-  }, [open, cluster?.city, recommendedSlotQuery.data?.weekMonday, recommendedSlotQuery.data?.techId])
+  // Derive selected technician and week: prioritizes intentional user choice, then recommended slot, then sensible default
+  const selectedTechId =
+    userSelectedTechId ??
+    recommendedSlotQuery.data?.techId ??
+    getPreferredTechIdForCity(cluster?.city)
+
+  const currentMonday =
+    userSelectedMonday ??
+    (recommendedSlotQuery.data?.weekMonday
+      ? getMonday(new Date(`${recommendedSlotQuery.data.weekMonday}T00:00:00`))
+      : getMonday(getEarliestSchedulableDate()))
+
+  const setSelectedTechId = (techId: string) => setUserSelectedTechId(techId)
+  const setCurrentMonday = (monday: Date) => {
+    setUserSelectedMonday(monday)
+    setPickerMonth(new Date(monday.getFullYear(), monday.getMonth(), 1))
+  }
+
 
   const recommendedTech = useMemo(() => {
     return technicians.find((t) => t.id === selectedTechId) || technicians[0] || null

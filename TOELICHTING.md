@@ -22,23 +22,24 @@ As a Forward Deployed Engineer (FDE), the mission is not to replicate a 15-year-
 2. **Priority Alert Dashboard (Fire Safety & Forgotten Clients First):**
    Dirk gets immediate clarity: legally overdue fire systems (strict priority), overdue systems without any open work order (forgotten clients), upcoming tasks (30–60 days), and compliant systems.
 3. **Smart Batch Scheduling & Technician Availability:**
-   Dirk selects overdue installations in a given municipality (e.g. Zwevegem, Harelbeke, or Kortrijk) and schedules them in a single action. The smart dispatch overlay checks technician availability, recommends specialists (e.g. Brandtec for fire systems), and automatically generates linked work orders with component checklists.
+   Dirk selects overdue installations in a given municipality (e.g. Zwevegem, Harelbeke, or Kortrijk) and schedules them in a single action. The smart dispatch overlay checks technician availability across his team and automatically generates linked work orders with component checklists.
 4. **Focused Mobile Technician Execution (Zero-Trust):**
-   Technicians (Tom, Wout, Jens, Brandtec) log into their dedicated, responsive daily agenda. They see their schedule, GPS directions, calling buttons, client access codes (scoped only to today's job), and an interactive component checklist with customer sign-off.
+   Technicians (Tom, Wout, Jens) log into their dedicated, responsive daily agenda. They see their schedule, GPS directions, calling buttons, client access codes (scoped only to today's job), and an interactive component checklist with customer sign-off.
 
 ---
 
 ### 3. What did we deliberately NOT do (and why)?
 * **No real-time streaming or websockets:** Security installation dispatching operates in minutes and hours, not milliseconds. Standard query caching with TanStack Query v5 provides instant optimistic updates without websocket infrastructure overhead or server costs.
 * **No full billing or accounting module:** BuildDesk Pro already exports invoices (`INV`) to an external accountant. Rebuilding accounting does not solve Dirk’s planning pain and introduces migration risk.
-* **No complex warehouse inventory system (WMS):** Verlinde operates with 3 technicians and 1 subcontractor using vehicle stocks. A rigid warehouse tracking system would add unnecessary administrative overhead for field technicians.
+* **No complex warehouse inventory system (WMS):** Verlinde operates with 3 internal technicians using vehicle van stock. A rigid warehouse tracking system would add unnecessary administrative overhead for field technicians.
+* **No external subcontractor portal:** The application is strictly scoped to Verlinde's internal organization (Dirk as Manager + Tom, Wout, Jens as Technicians). External contractors (e.g. Brandtec) are out of scope.
 * **No native app stores:** A responsive web application works seamlessly on desktops, tablets, and smartphones without app store approval delays or deployment barriers.
 
 ---
 
-### 4. Questions to ask Dirk before the next iteration (FDE Discovery)
-1. **Subcontractor vs. In-house Technicians:**
-   *"Are certain fire detection panels certified exclusively for Brandtec (e.g., brand-specific supplier certifications), or can Tom and Wout also be dispatched for standard fire inspections?"*
+### 4. Operational Decisions & Clarifications
+1. **Subcontractors (Resolved):**
+   External subcontractors like Brandtec are out of scope. The platform is strictly built for Verlinde's internal team: Dirk Verlinde (Manager) and Tom De Coninck, Wout Vanhoutte, and Jens Maes (Technicians). All inspections and maintenance are handled internally.
 2. **Customer Appointment Scheduling Workflow:**
    *"Do you call clients to confirm a date before dispatching, or would an automated SMS/email with a proposed date and one-click confirmation link save you phone time?"*
 3. **Fixed Customer Maintenance Windows:**

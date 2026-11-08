@@ -76,11 +76,12 @@ export function TeamManagementSection({
                       {member.name}
                     </span>
                     <Badge
-                      variant={isManager ? 'default' : member.isContractor ? 'outline' : 'secondary'}
+                      variant={isManager ? 'default' : 'secondary'}
                       className="text-[9px] py-0 px-1.5"
                     >
-                      {isManager ? 'Manager' : member.isContractor ? 'Partner (Brandtec)' : 'Technicus'}
+                      {isManager ? 'Manager' : 'Technicus'}
                     </Badge>
+
                   </div>
                   <div className="text-[11px] text-muted-foreground truncate">
                     {member.title || member.email} • {member.email}
