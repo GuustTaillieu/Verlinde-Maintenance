@@ -128,16 +128,23 @@ export function groupSitesByLocation(sites: ClientSiteDetail[]): ClientLocationG
       .replace(/^(Branddetectie|Inbraakalarm|Inbraakbeveiliging|Camerabewaking|Toegangscontrole)\s*(pand|woning|Fam\.|)/i, '')
       .trim()
 
-    // Determine normalized address or location key
-    const hasRealAddress = s.siteAddress && s.siteAddress.trim() !== '' && s.siteAddress.toLowerCase() !== 'adres onbekend'
+    const isUnknownAddress = !s.siteAddress || s.siteAddress.trim() === '' || s.siteAddress.toLowerCase().includes('onbekend')
+    const looksLikeStreet = /(straat|steenweg|laan|dreef|weg|kaai|lei|square|plein|route|kade|\d+)/i.test(stripped)
+
+    // Resolved clean address
+    const resolvedAddress = !isUnknownAddress
+      ? s.siteAddress.trim()
+      : (looksLikeStreet ? stripped : '')
+
+    const hasRealAddress = resolvedAddress !== ''
     const locationKey = hasRealAddress
-      ? `${s.siteAddress.trim().toLowerCase()}__${(s.siteCity || '').trim().toLowerCase()}`
+      ? `${resolvedAddress.toLowerCase()}__${(s.siteCity || '').trim().toLowerCase()}`
       : `${(stripped || s.name).trim().toLowerCase()}__${(s.siteCity || '').trim().toLowerCase()}`
 
     // Clean location display title
     let displayTitle = stripped
     if (!displayTitle || displayTitle.length < 2) {
-      displayTitle = hasRealAddress ? s.siteAddress.split(',')[0].trim() : s.name
+      displayTitle = hasRealAddress ? resolvedAddress.split(',')[0].trim() : s.name
     }
     // Capitalize first letter
     displayTitle = displayTitle.charAt(0).toUpperCase() + displayTitle.slice(1)
@@ -146,8 +153,8 @@ export function groupSitesByLocation(sites: ClientSiteDetail[]): ClientLocationG
       groupsMap.set(locationKey, {
         id: locationKey,
         name: displayTitle,
-        address: s.siteAddress,
-        city: s.siteCity,
+        address: resolvedAddress,
+        city: s.siteCity || 'Zwevegem',
         zip: s.siteZip,
         healthStatus: s.healthStatus,
         fiches: [s],
@@ -155,6 +162,9 @@ export function groupSitesByLocation(sites: ClientSiteDetail[]): ClientLocationG
     } else {
       const group = groupsMap.get(locationKey)!
       group.fiches.push(s)
+      if (!group.address && resolvedAddress) {
+        group.address = resolvedAddress
+      }
       // Escalate health status if needed
       if (s.healthStatus === 'OVERDUE') {
         group.healthStatus = 'OVERDUE'

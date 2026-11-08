@@ -20,21 +20,6 @@ export function SiteInspectionHistory({ workOrders }: SiteInspectionHistoryProps
     )
   }
 
-  const getTechBadgeColor = (initials: string | null | undefined) => {
-    switch (initials) {
-      case 'DV':
-        return 'bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/30'
-      case 'TDC':
-        return 'bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-500/30'
-      case 'WVH':
-        return 'bg-purple-500/10 text-purple-700 dark:text-purple-300 border-purple-500/30'
-      case 'JMS':
-        return 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30'
-      default:
-        return 'bg-muted text-muted-foreground border-border'
-    }
-  }
-
   return (
     <div className="space-y-3">
       {workOrders.map((wo) => {
@@ -52,26 +37,17 @@ export function SiteInspectionHistory({ workOrders }: SiteInspectionHistoryProps
                   {wo.woNumber}
                 </span>
 
-                <Badge
-                  variant="outline"
-                  className={`text-[10px] font-semibold border ${getTechBadgeColor(wo.technicianInitials)}`}
-                >
-                  {wo.technicianInitials || 'EXT'} • {wo.technicianName || 'Technicus'}
-                </Badge>
+                <span className="text-muted-foreground/40 text-xs">•</span>
 
-                {wo.kind === 'MAINTENANCE' && (
-                  <Badge variant="secondary" className="text-[10px]">
-                    Periodiek Onderhoud
-                  </Badge>
-                )}
-                {wo.kind === 'INTERVENTION_REPAIR' && (
-                  <Badge variant="outline" className="border-amber-500/40 text-amber-600 dark:text-amber-400 text-[10px]">
-                    Interventie / Herstelling
-                  </Badge>
-                )}
+                <span className="text-xs text-muted-foreground font-medium">
+                  {wo.kind === 'MAINTENANCE' ? 'Periodiek Onderhoud' : 'Interventie / Herstelling'}
+                </span>
 
                 {isCompleted ? (
-                  <Badge variant="outline" className="border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[10px] flex items-center gap-1">
+                  <Badge
+                    variant="outline"
+                    className="border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-[10px] flex items-center gap-1 font-medium"
+                  >
                     <CheckCircle2 className="size-3" />
                     Voltooid
                   </Badge>
@@ -82,17 +58,26 @@ export function SiteInspectionHistory({ workOrders }: SiteInspectionHistoryProps
                 )}
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
                 <div className="flex items-center gap-1">
-                  <Calendar className="size-3.5" />
+                  <Calendar className="size-3.5 text-muted-foreground/70" />
                   <span>Uitgevoerd op: {dateStr}</span>
                 </div>
 
+                <span className="text-muted-foreground/40">•</span>
+
+                <span>
+                  Technicus: <strong className="font-medium text-foreground">{wo.technicianName || 'Tom De Coninck'}</strong>
+                </span>
+
                 {wo.isSigned && (
-                  <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
-                    <UserCheck className="size-3.5" />
-                    <span>Ondertekend door: {wo.signedByName || 'Klant'}</span>
-                  </div>
+                  <>
+                    <span className="text-muted-foreground/40">•</span>
+                    <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium">
+                      <UserCheck className="size-3.5" />
+                      <span>Ondertekend door: {wo.signedByName || 'Klant'}</span>
+                    </div>
+                  </>
                 )}
               </div>
 

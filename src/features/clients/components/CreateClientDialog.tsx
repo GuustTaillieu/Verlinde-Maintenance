@@ -60,7 +60,7 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
 
   const [allowDuplicate, setAllowDuplicate] = useState(false)
 
-  // Real-time debounced check for duplicate customer names
+  // Real-time debounced check for duplicate customer names (case-insensitive)
   const debouncedName = useDebounce(name.trim(), 300)
   const { data: duplicateCheck } = useQuery(clientQueries.checkName(debouncedName))
 
@@ -145,176 +145,187 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-6">
-        <DialogHeader>
-          <DialogTitle className="text-lg font-bold flex items-center gap-2">
-            <Building2 className="size-5 text-primary" />
-            <span>Nieuwe Klant Aanmaken</span>
+      <DialogContent className="sm:max-w-2xl max-w-xl max-h-[92vh] overflow-y-auto p-6 sm:p-7">
+        <DialogHeader className="space-y-1.5 pb-2 border-b border-border/60">
+          <DialogTitle className="text-xl font-bold flex items-center gap-2 text-foreground">
+            <Building2 className="size-5 text-primary shrink-0" />
+            <span>Nieuwe Klant Toevoegen</span>
           </DialogTitle>
-          <DialogDescription className="text-xs text-muted-foreground">
-            Voer de klant- en facturatiegegevens in. Er wordt automatisch een klantcode en eerste installatiefiche toegekend.
+          <DialogDescription className="text-xs text-muted-foreground leading-normal">
+            Voer de klant- en facturatiegegevens in. Er wordt automatisch een unieke klantcode en eerste installatiefiche toegekend.
           </DialogDescription>
         </DialogHeader>
 
-        <form id={formId} onSubmit={handleSubmit} className="space-y-4 pt-2">
-          {/* Customer Type Toggle */}
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold text-foreground">Type Klant:</span>
-            <div className="flex items-center rounded-lg bg-muted p-1 text-xs">
-              <button
-                type="button"
-                onClick={() => setType('B2B')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-md font-medium transition-all ${
-                  type === 'B2B'
-                    ? 'bg-background text-foreground shadow-xs'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <Building2 className="size-3" />
-                <span>B2B (Onderneming)</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setType('RESIDENTIAL')}
-                className={`flex items-center gap-1.5 px-3 py-1 rounded-md font-medium transition-all ${
-                  type === 'RESIDENTIAL'
-                    ? 'bg-background text-foreground shadow-xs'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                <User className="size-3" />
-                <span>Particulier</span>
-              </button>
+        <form id={formId} onSubmit={handleSubmit} className="space-y-6 pt-2">
+          {/* Section 1: Customer Type & Identity */}
+          <div className="space-y-4">
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold text-foreground block">
+                Type Klant
+              </label>
+              <div className="grid grid-cols-2 gap-2 rounded-lg bg-muted/60 p-1">
+                <button
+                  type="button"
+                  onClick={() => setType('B2B')}
+                  className={`flex items-center justify-center gap-2 py-2 px-3 rounded-md text-xs font-medium transition-all whitespace-nowrap ${
+                    type === 'B2B'
+                      ? 'bg-background text-foreground shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  <Building2 className="size-3.5" />
+                  <span>B2B Onderneming</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setType('RESIDENTIAL')}
+                  className={`flex items-center justify-center gap-2 py-2 px-3 rounded-md text-xs font-medium transition-all whitespace-nowrap ${
+                    type === 'RESIDENTIAL'
+                      ? 'bg-background text-foreground shadow-xs'
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  <User className="size-3.5" />
+                  <span>Particulier</span>
+                </button>
+              </div>
             </div>
-          </div>
 
-          {/* Name & Duplicate Check Alert */}
-          <div className="space-y-1.5">
-            <label className="text-xs font-semibold text-foreground block">
-              {type === 'B2B' ? 'Bedrijfsnaam / Firmanaam' : 'Volledige Naam Klant'} *
-            </label>
-            <Input
-              value={name}
-              onChange={(e) => {
-                setName(e.target.value)
-                setAllowDuplicate(false)
-              }}
-              placeholder={type === 'B2B' ? 'bv. Schrijnwerkerij Desmet BV' : 'bv. Jan & Els Verbeke'}
-              required
-              className="text-xs h-9"
-            />
+            {/* Name input & real-time duplicate check alert */}
+            <div className="space-y-1.5">
+              <label className="text-xs font-semibold text-foreground block">
+                {type === 'B2B' ? 'Bedrijfsnaam / Firmanaam' : 'Volledige Naam Klant'} *
+              </label>
+              <Input
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value)
+                  setAllowDuplicate(false)
+                }}
+                placeholder={type === 'B2B' ? 'bv. Schrijnwerkerij Desmet BV' : 'bv. Jan & Els Verbeke'}
+                required
+                className="text-xs h-9.5"
+              />
 
-            {/* In-app warning for duplicate client name (case-insensitive) */}
-            {isDuplicate && duplicateInfo && (
-              <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-800 dark:text-amber-300 space-y-2 animate-in fade-in-50 duration-150">
-                <div className="flex items-start gap-2">
-                  <AlertTriangle className="size-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
-                  <div>
-                    <span className="font-semibold">Let op: Klant bestaat al</span>
-                    <p className="mt-0.5 text-[11px] leading-relaxed">
-                      Er is reeds een klant geregistreerd met de naam <strong>&ldquo;{duplicateInfo.name}&rdquo;</strong> (Klantcode: <span className="font-mono">{duplicateInfo.code}</span>, Gemeente: {duplicateInfo.invoiceCity || 'Onbekend'}).
-                    </p>
+              {/* In-app warning for duplicate client name (case-insensitive) */}
+              {isDuplicate && duplicateInfo && (
+                <div className="rounded-lg border border-amber-500/30 bg-amber-500/10 p-3.5 text-xs text-amber-800 dark:text-amber-300 space-y-2.5 animate-in fade-in-50 duration-150">
+                  <div className="flex items-start gap-2.5">
+                    <AlertTriangle className="size-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
+                    <div>
+                      <span className="font-semibold block">Let op: Klant bestaat al in het systeem</span>
+                      <p className="mt-0.5 text-[11px] leading-relaxed">
+                        Er is reeds een actieve klant geregistreerd met de naam <strong>&ldquo;{duplicateInfo.name}&rdquo;</strong> (Klantcode: <span className="font-mono">{duplicateInfo.code}</span>, Gemeente: {duplicateInfo.invoiceCity || 'Onbekend'}).
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2 border-t border-amber-500/20">
+                    <Checkbox
+                      id="allow-dup"
+                      checked={allowDuplicate}
+                      onCheckedChange={(chk) => setAllowDuplicate(Boolean(chk))}
+                    />
+                    <label htmlFor="allow-dup" className="text-xs font-medium cursor-pointer select-none">
+                      Toch aanmaken met dezelfde naam (bv. ander filiaal of zusterbedrijf)
+                    </label>
                   </div>
                 </div>
+              )}
+            </div>
 
-                <div className="flex items-center gap-2 pt-1 border-t border-amber-500/20">
-                  <Checkbox
-                    id="allow-dup"
-                    checked={allowDuplicate}
-                    onCheckedChange={(chk) => setAllowDuplicate(Boolean(chk))}
-                  />
-                  <label htmlFor="allow-dup" className="text-xs font-medium cursor-pointer select-none">
-                    Toch aanmaken met dezelfde naam (bv. ander filiaal of vennootschap)
-                  </label>
-                </div>
+            {/* VAT number if B2B */}
+            {type === 'B2B' && (
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-foreground block">
+                  Btw-nummer (optioneel)
+                </label>
+                <Input
+                  value={vatNumber}
+                  onChange={(e) => setVatNumber(e.target.value)}
+                  placeholder="bv. BE 0123.456.789"
+                  className="text-xs h-9.5 font-mono"
+                />
               </div>
             )}
           </div>
 
-          {/* VAT number if B2B */}
-          {type === 'B2B' && (
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-foreground block">
-                Btw-nummer (optioneel)
-              </label>
-              <Input
-                value={vatNumber}
-                onChange={(e) => setVatNumber(e.target.value)}
-                placeholder="bv. BE 0123.456.789"
-                className="text-xs h-9 font-mono"
-              />
-            </div>
-          )}
-
-          {/* Contact Details (Email & Phone) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-foreground block">
-                E-mailadres
-              </label>
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="facturatie@bedrijf.be"
-                className="text-xs h-9"
-              />
-            </div>
-            <div className="space-y-1.5">
-              <label className="text-xs font-semibold text-foreground block">
-                Telefoon of Gsm
-              </label>
-              <Input
-                type="tel"
-                value={phone || mobile}
-                onChange={(e) => {
-                  setPhone(e.target.value)
-                  setMobile(e.target.value)
-                }}
-                placeholder="+32 56 00 11 22"
-                className="text-xs h-9"
-              />
+          {/* Section 2: Contact Details */}
+          <div className="space-y-3 pt-3 border-t border-border/60">
+            <span className="text-xs font-semibold text-foreground block">
+              Contactgegevens
+            </span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="space-y-1.5">
+                <label className="text-[11px] text-muted-foreground block">
+                  E-mailadres
+                </label>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="facturatie@bedrijf.be"
+                  className="text-xs h-9"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-[11px] text-muted-foreground block">
+                  Telefoon of Gsm
+                </label>
+                <Input
+                  type="tel"
+                  value={phone || mobile}
+                  onChange={(e) => {
+                    setPhone(e.target.value)
+                    setMobile(e.target.value)
+                  }}
+                  placeholder="+32 56 00 11 22"
+                  className="text-xs h-9"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Billing Address */}
-          <div className="space-y-2 pt-2 border-t border-border/60">
+          {/* Section 3: Billing Address */}
+          <div className="space-y-3 pt-3 border-t border-border/60">
             <span className="text-xs font-semibold text-foreground block">
               Facturatieadres *
             </span>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-              <div className="sm:col-span-2 space-y-1">
+            <div className="space-y-2.5">
+              <div>
                 <Input
                   value={invoiceAddress}
                   onChange={(e) => setInvoiceAddress(e.target.value)}
                   placeholder="Straat en nummer (bv. Kerkstraat 12)"
                   required
-                  className="text-xs h-9"
+                  className="text-xs h-9.5"
                 />
               </div>
-              <div className="space-y-1">
-                <Input
-                  value={invoiceZip}
-                  onChange={(e) => setInvoiceZip(e.target.value)}
-                  placeholder="Postcode (bv. 8550)"
-                  className="text-xs h-9"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                <div className="sm:col-span-1">
+                  <Input
+                    value={invoiceZip}
+                    onChange={(e) => setInvoiceZip(e.target.value)}
+                    placeholder="Postcode (bv. 8550)"
+                    className="text-xs h-9.5"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <Input
+                    value={invoiceCity}
+                    onChange={(e) => setInvoiceCity(e.target.value)}
+                    placeholder="Gemeente (bv. Zwevegem)"
+                    required
+                    className="text-xs h-9.5"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="w-full sm:w-1/2">
-              <Input
-                value={invoiceCity}
-                onChange={(e) => setInvoiceCity(e.target.value)}
-                placeholder="Gemeente (bv. Zwevegem)"
-                required
-                className="text-xs h-9"
-              />
             </div>
           </div>
 
-          {/* Initial Site & Discipline */}
-          <div className="space-y-2 pt-2 border-t border-border/60">
-            <div className="flex items-center justify-between">
+          {/* Section 4: Initial Site & Discipline */}
+          <div className="space-y-3 pt-3 border-t border-border/60">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
               <span className="text-xs font-semibold text-foreground">
                 Eerste Installatie (Site) & Beveiligingssysteem
               </span>
@@ -324,20 +335,20 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
                   checked={sameAsInvoice}
                   onCheckedChange={(chk) => setSameAsInvoice(Boolean(chk))}
                 />
-                <label htmlFor="same-addr" className="text-xs text-muted-foreground cursor-pointer">
+                <label htmlFor="same-addr" className="text-xs text-muted-foreground cursor-pointer select-none">
                   Zelfde adres als facturatie
                 </label>
               </div>
             </div>
 
             {!sameAsInvoice && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 animate-in fade-in-50">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 animate-in fade-in-50 duration-150">
                 <div className="sm:col-span-2">
                   <Input
                     value={siteAddress}
                     onChange={(e) => setSiteAddress(e.target.value)}
                     placeholder="Installatieadres (werfadres)"
-                    className="text-xs h-9"
+                    className="text-xs h-9.5"
                   />
                 </div>
                 <div>
@@ -345,41 +356,50 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
                     value={siteCity}
                     onChange={(e) => setSiteCity(e.target.value)}
                     placeholder="Gemeente werf"
-                    className="text-xs h-9"
+                    className="text-xs h-9.5"
                   />
                 </div>
               </div>
             )}
 
-            <div className="pt-1">
-              <label className="text-[11px] text-muted-foreground block mb-1">
-                Geïnstalleerd beveiligingssysteem:
+            <div className="space-y-1.5 pt-1">
+              <label className="text-[11px] text-muted-foreground block">
+                Geïnstalleerd beveiligingssysteem (Eerste installatiefiche):
               </label>
               <Select
                 value={primaryDiscipline}
-                onValueChange={(val) => setPrimaryDiscipline(val as any)}
+                onValueChange={(val) =>
+                  setPrimaryDiscipline(val as 'FIRE' | 'INTRUSION' | 'CCTV' | 'ACCESS')
+                }
               >
-                <SelectTrigger className="h-9 text-xs">
-                  <SelectValue />
+                <SelectTrigger className="text-xs h-9.5">
+                  <SelectValue placeholder="Kies discipline" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="INTRUSION">Inbraakbeveiliging (Inbraakalarm)</SelectItem>
-                  <SelectItem value="FIRE">Branddetectie (NBN S 21-100)</SelectItem>
-                  <SelectItem value="CCTV">Camerabewaking (CCTV)</SelectItem>
-                  <SelectItem value="ACCESS">Toegangscontrole</SelectItem>
+                  <SelectItem value="INTRUSION" className="text-xs">
+                    Inbraakbeveiliging (Inbraakalarm)
+                  </SelectItem>
+                  <SelectItem value="FIRE" className="text-xs">
+                    Branddetectie (NBN S21-100 normering)
+                  </SelectItem>
+                  <SelectItem value="CCTV" className="text-xs">
+                    Camerabewaking (CCTV)
+                  </SelectItem>
+                  <SelectItem value="ACCESS" className="text-xs">
+                    Toegangscontrole (Badges / Klavieren)
+                  </SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
 
-          <DialogFooter className="pt-3 gap-2">
+          <DialogFooter className="pt-4 border-t border-border flex items-center justify-end gap-2">
             <Button
               type="button"
               variant="outline"
               size="sm"
               onClick={() => onOpenChange(false)}
-              disabled={createMutation.isPending}
-              className="text-xs"
+              className="text-xs h-9 px-4"
             >
               Annuleren
             </Button>
@@ -387,7 +407,7 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
               type="submit"
               size="sm"
               disabled={createMutation.isPending || (isDuplicate && !allowDuplicate)}
-              className="text-xs gap-1.5"
+              className="text-xs h-9 px-5 gap-1.5 shadow-xs"
             >
               {createMutation.isPending ? (
                 <>

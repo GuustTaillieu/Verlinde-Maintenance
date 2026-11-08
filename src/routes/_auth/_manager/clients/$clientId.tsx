@@ -6,6 +6,8 @@ import { groupSitesByLocation, type MaintenanceHealthStatus } from '#/features/c
 import { ConfidentialAccessVault } from '#/features/clients/components/ConfidentialAccessVault'
 import { SiteEquipmentTable } from '#/features/clients/components/SiteEquipmentTable'
 import { SiteInspectionHistory } from '#/features/clients/components/SiteInspectionHistory'
+import { AddSiteDialog } from '#/features/clients/components/AddSiteDialog'
+import { EditClientDialog } from '#/features/clients/components/EditClientDialog'
 import { Badge } from '#/features/shared/components/ui/badge'
 import { Button } from '#/features/shared/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '#/features/shared/components/ui/tabs'
@@ -29,6 +31,10 @@ import {
   ChevronLeft,
   ChevronRight,
   FolderGit2,
+  Plus,
+  Edit3,
+  CalendarCheck,
+  Repeat,
 } from 'lucide-react'
 
 export const Route = createFileRoute('/_auth/_manager/clients/$clientId')({
@@ -60,6 +66,8 @@ function ClientDetailPage() {
 
   const [selectedLocationId, setSelectedLocationId] = useState<string | null>(null)
   const [selectedFicheId, setSelectedFicheId] = useState<string | null>(null)
+  const [isAddSiteOpen, setIsAddSiteOpen] = useState(false)
+  const [isEditClientOpen, setIsEditClientOpen] = useState(false)
 
   // Active Location Group
   const activeLocation =
@@ -165,6 +173,19 @@ function ClientDetailPage() {
     }
   }
 
+  // Format clean address line without duplicate street repeating if title already has the street
+  const getLocationSubline = (loc: typeof activeLocation) => {
+    if (!loc) return ''
+    const street = loc.address?.trim()
+    const title = loc.name.trim().toLowerCase()
+    const cityPart = `${loc.zip ? `${loc.zip} ` : ''}${loc.city}`
+
+    if (!street || street.toLowerCase() === title || title.includes(street.toLowerCase())) {
+      return cityPart
+    }
+    return `${street}, ${cityPart}`
+  }
+
   return (
     <div className="space-y-6 max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 pb-16 w-full">
       {/* Top Navigation Bar: Back button */}
@@ -217,7 +238,7 @@ function ClientDetailPage() {
             </div>
           </div>
 
-          {/* Quick Contact Action Buttons */}
+          {/* Quick Contact & Action Buttons */}
           <div className="flex flex-wrap items-center gap-2 shrink-0">
             {client.phone && (
               <Button variant="outline" size="sm" asChild className="h-8 gap-1.5 text-xs">
@@ -243,10 +264,20 @@ function ClientDetailPage() {
                 </a>
               </Button>
             )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsEditClientOpen(true)}
+              className="h-8 gap-1.5 text-xs"
+              title="Klantdossier en facturatiegegevens bewerken"
+            >
+              <Edit3 className="size-3.5 text-muted-foreground" />
+              <span>Gegevens Bewerken</span>
+            </Button>
           </div>
         </div>
 
-        {/* Clean systems summary (no heavy badge overload) */}
+        {/* Systems Summary (Clean, quiet tags) */}
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 pt-3 border-t border-border/60 text-xs text-muted-foreground">
           <span className="font-medium text-foreground">Beveiligingssystemen:</span>
           <div className="flex flex-wrap items-center gap-2">
@@ -269,44 +300,59 @@ function ClientDetailPage() {
 
       {/* Sites & Locations Section */}
       <div className="space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h2 className="text-lg font-bold tracking-tight text-foreground flex items-center gap-2">
               <FolderGit2 className="size-5 text-primary" />
-              <span>
-                Installatielocaties ({locationGroups.length} {locationGroups.length === 1 ? 'locatie' : 'locaties'} • {client.sites.length} fiches)
-              </span>
+              <span>Installatielocaties</span>
             </h2>
             <p className="text-xs text-muted-foreground">
-              Fysieke gebouwen en installaties met apparatuur, alarmcodes en keuringsdossiers.
+              Overzicht van fysieke vestigingen, werven en bijhorende installatiefiches.
             </p>
           </div>
 
-          {/* Scroll navigation arrows for location tabs when many locations exist */}
-          {(canScrollLeft || canScrollRight) && (
-            <div className="flex items-center gap-1 self-end sm:self-auto">
-              <Button
-                variant="outline"
-                size="icon-xs"
-                onClick={() => scrollLocations('left')}
-                disabled={!canScrollLeft}
-                className="size-7"
-                title="Scroll locaties naar links"
-              >
-                <ChevronLeft className="size-3.5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon-xs"
-                onClick={() => scrollLocations('right')}
-                disabled={!canScrollRight}
-                className="size-7"
-                title="Scroll locaties naar rechts"
-              >
-                <ChevronRight className="size-3.5" />
-              </Button>
-            </div>
-          )}
+          <div className="flex items-center gap-3 self-end sm:self-auto">
+            {/* Subtle Location & Fiches count next to arrows */}
+            <span className="text-xs text-muted-foreground/80 font-mono hidden sm:inline-block">
+              {locationGroups.length} {locationGroups.length === 1 ? 'locatie' : 'locaties'} • {client.sites.length} fiches
+            </span>
+
+            {/* Scroll navigation arrows for location tabs when many locations exist */}
+            {(canScrollLeft || canScrollRight) && (
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="outline"
+                  size="icon-xs"
+                  onClick={() => scrollLocations('left')}
+                  disabled={!canScrollLeft}
+                  className="size-7"
+                  title="Scroll locaties naar links"
+                >
+                  <ChevronLeft className="size-3.5" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon-xs"
+                  onClick={() => scrollLocations('right')}
+                  disabled={!canScrollRight}
+                  className="size-7"
+                  title="Scroll locaties naar rechts"
+                >
+                  <ChevronRight className="size-3.5" />
+                </Button>
+              </div>
+            )}
+
+            {/* Manager button to add a new site */}
+            <Button
+              size="sm"
+              onClick={() => setIsAddSiteOpen(true)}
+              className="h-8 gap-1.5 text-xs shadow-xs"
+            >
+              <Plus className="size-3.5" />
+              <span>Locatie Toevoegen</span>
+            </Button>
+          </div>
         </div>
 
         {/* Location selector tabs: Single-line horizontal scroll container (NEVER wraps into multiple lines) */}
@@ -348,7 +394,7 @@ function ClientDetailPage() {
         {/* Active Physical Location Card */}
         {activeLocation && (
           <div className="rounded-xl border border-border bg-card p-5 space-y-5 shadow-xs">
-            {/* Location Address Header & GPS Navigation */}
+            {/* Location Address Header & Action Buttons */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/60 pb-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
@@ -363,32 +409,39 @@ function ClientDetailPage() {
                 </div>
 
                 <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                  <MapPin className="size-3.5 shrink-0" />
-                  <span>
-                    {activeLocation.address}, {activeLocation.zip ? `${activeLocation.zip} ` : ''}{activeLocation.city}
-                  </span>
+                  <MapPin className="size-3.5 shrink-0 text-muted-foreground/70" />
+                  <span>{getLocationSubline(activeLocation)}</span>
                 </p>
               </div>
 
-              {/* Direct GPS / Google Maps Link */}
+              {/* Action Buttons: Confidential Vault & GPS Navigation */}
               <div className="flex items-center gap-2 shrink-0">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  asChild
-                  className="h-8 text-xs gap-1.5"
-                >
-                  <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                      `${activeLocation.address}, ${activeLocation.city}`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                {activeFiche && (
+                  <ConfidentialAccessVault
+                    accessNotes={activeFiche.accessNotesConfidential}
+                    siteName={activeLocation.name}
+                  />
+                )}
+
+                {activeLocation.address && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                    className="h-8 text-xs gap-1.5"
                   >
-                    <ExternalLink className="size-3.5" />
-                    <span>Navigeer via GPS</span>
-                  </a>
-                </Button>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        `${activeLocation.address}, ${activeLocation.city}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="size-3.5" />
+                      <span>GPS</span>
+                    </a>
+                  </Button>
+                )}
               </div>
             </div>
 
@@ -441,41 +494,56 @@ function ClientDetailPage() {
 
             {/* Active Fiche Details */}
             {activeFiche && (
-              <div className="space-y-4 pt-1">
-                {/* Zero-Trust Confidential Access Vault */}
-                <ConfidentialAccessVault
-                  accessNotes={activeFiche.accessNotesConfidential}
-                  siteName={activeLocation.name}
-                />
+              <div className="space-y-5 pt-1">
+                {/* 4 Mini Metric Insight Cards (dashboard card rhythm, quiet & uncluttered) */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
+                    <div className="flex items-center justify-between text-muted-foreground">
+                      <span className="text-[11px] font-medium uppercase tracking-wider">Onderhoudsinterval</span>
+                      <Repeat className="size-3.5 text-muted-foreground" />
+                    </div>
+                    <div className="text-base font-semibold text-foreground font-mono">
+                      {activeFiche.frequency || 'Jaarlijks'}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground">Contractuele periodiciteit</p>
+                  </div>
 
-                {/* Maintenance KPI Specifications Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 rounded-lg bg-muted/30 p-3.5 text-xs border border-border/50">
-                  <div>
-                    <span className="text-muted-foreground block text-[11px]">Onderhoudsinterval</span>
-                    <span className="font-semibold text-foreground">
-                      {activeFiche.frequency || 'Jaarlijks (12 maanden)'}
-                    </span>
+                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
+                    <div className="flex items-center justify-between text-muted-foreground">
+                      <span className="text-[11px] font-medium uppercase tracking-wider">Laatste Keuring</span>
+                      <CalendarCheck className="size-3.5 text-blue-500" />
+                    </div>
+                    <div className="text-base font-semibold text-foreground font-mono">
+                      {activeFiche.lastServiceDate || 'Geen onderhoud'}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground">Recentste werkbon</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground block text-[11px]">Laatste Keuring</span>
-                    <span className="font-semibold text-foreground">
-                      {activeFiche.lastServiceDate || 'Geen geregistreerd onderhoud'}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-muted-foreground block text-[11px]">Volgende Keuringsdatum</span>
-                    <span className="font-semibold text-foreground">
+
+                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
+                    <div className="flex items-center justify-between text-muted-foreground">
+                      <span className="text-[11px] font-medium uppercase tracking-wider">Volgende Keuring</span>
+                      <Clock className="size-3.5 text-amber-500" />
+                    </div>
+                    <div className="text-base font-semibold text-foreground font-mono">
                       {activeFiche.nextDueDate || 'Niet ingepland'}
-                    </span>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground">Vervaldatum inspectie</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground block text-[11px]">Status</span>
-                    <div className="mt-0.5">{getHealthBadge(activeFiche.healthStatus)}</div>
+
+                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
+                    <div className="flex items-center justify-between text-muted-foreground">
+                      <span className="text-[11px] font-medium uppercase tracking-wider">Status Dossier</span>
+                      <ShieldCheck className="size-3.5 text-emerald-500" />
+                    </div>
+                    <div className="pt-0.5">
+                      {getHealthBadge(activeFiche.healthStatus)}
+                    </div>
+                    <p className="text-[10px] text-muted-foreground">Inspectieconformiteit</p>
                   </div>
                 </div>
 
                 {/* Tabbed deep dive: Installed Hardware vs Work Order History */}
-                <Tabs defaultValue="equipment" className="w-full pt-2">
+                <Tabs defaultValue="equipment" className="w-full pt-1">
                   <TabsList className="grid w-full sm:w-auto grid-cols-2">
                     <TabsTrigger value="equipment" className="gap-2 text-xs">
                       <Layers className="size-3.5" />
@@ -500,6 +568,24 @@ function ClientDetailPage() {
           </div>
         )}
       </div>
+
+      {/* Dialog to Add Site/Fiche */}
+      <AddSiteDialog
+        open={isAddSiteOpen}
+        onOpenChange={setIsAddSiteOpen}
+        customerId={client.id}
+        customerName={client.name}
+        defaultAddress={client.invoiceAddress}
+        defaultCity={client.invoiceCity}
+        defaultZip={client.invoiceZip}
+      />
+
+      {/* Dialog to Edit Client Dossier Details */}
+      <EditClientDialog
+        open={isEditClientOpen}
+        onOpenChange={setIsEditClientOpen}
+        client={client}
+      />
     </div>
   )
 }

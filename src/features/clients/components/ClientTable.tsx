@@ -43,8 +43,6 @@ import {
 import {
   Building2,
   User,
-  Phone,
-  Mail,
   Eye,
   SlidersHorizontal,
   ArrowUpDown,
