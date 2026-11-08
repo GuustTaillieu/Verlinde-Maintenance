@@ -15,6 +15,7 @@ import { Input } from '#/features/shared/components/ui/input'
 import { Button } from '#/features/shared/components/ui/button'
 import { toast } from 'sonner'
 import { Edit3, Loader2, Save } from 'lucide-react'
+import { AddressField } from '#/features/shared/components/AddressField'
 
 interface EditClientDialogProps {
   open: boolean
@@ -146,33 +147,30 @@ export function EditClientDialog({ open, onOpenChange, client }: EditClientDialo
           </div>
 
           <div className="space-y-2 pt-1 border-t border-border/60">
-            <label className="text-xs font-semibold text-foreground block">
+            <span className="text-xs font-semibold text-foreground block">
               Facturatieadres *
-            </label>
-            <Input
-              value={invoiceAddress}
-              onChange={(e) => setInvoiceAddress(e.target.value)}
-              placeholder="Straat en nummer"
-              required
-              className="text-xs h-9.5"
-            />
-            <div className="grid grid-cols-3 gap-2">
-              <Input
-                value={invoiceZip}
-                onChange={(e) => setInvoiceZip(e.target.value)}
-                placeholder="Postcode"
-                className="text-xs h-9.5"
+            </span>
+            <AddressField.Root
+              street={invoiceAddress}
+              onStreetChange={setInvoiceAddress}
+              postalCode={invoiceZip}
+              onPostalCodeChange={setInvoiceZip}
+              city={invoiceCity}
+              onCityChange={setInvoiceCity}
+            >
+              <AddressField.Street
+                required
+                placeholder="Straat en nummer (bv. Kerkstraat 12)"
               />
-              <div className="col-span-2">
-                <Input
-                  value={invoiceCity}
-                  onChange={(e) => setInvoiceCity(e.target.value)}
-                  placeholder="Gemeente"
-                  required
-                  className="text-xs h-9.5"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="sm:col-span-1">
+                  <AddressField.PostalCode />
+                </div>
+                <div className="sm:col-span-2">
+                  <AddressField.City required placeholder="Gemeente (bv. Zwevegem)" />
+                </div>
               </div>
-            </div>
+            </AddressField.Root>
           </div>
 
           <DialogFooter className="pt-3 border-t border-border flex items-center justify-end gap-2">

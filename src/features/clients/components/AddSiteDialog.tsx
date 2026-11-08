@@ -21,6 +21,7 @@ import {
 } from '#/features/shared/components/ui/select'
 import { toast } from 'sonner'
 import { Plus, Loader2, MapPin } from 'lucide-react'
+import { AddressField } from '#/features/shared/components/AddressField'
 
 interface AddSiteDialogProps {
   open: boolean
@@ -185,32 +186,27 @@ export function AddSiteDialog({
               )}
             </div>
 
-            <div className="space-y-2">
-              <Input
-                value={siteAddress}
-                onChange={(e) => setSiteAddress(e.target.value)}
-                placeholder="Straat en nummer (bv. Industrielaan 4)"
+            <AddressField.Root
+              street={siteAddress}
+              onStreetChange={setSiteAddress}
+              postalCode={siteZip}
+              onPostalCodeChange={setSiteZip}
+              city={siteCity}
+              onCityChange={setSiteCity}
+            >
+              <AddressField.Street
                 required
-                className="text-xs h-9.5"
+                placeholder="Straat en nummer (bv. Industrielaan 4)"
               />
-              <div className="grid grid-cols-3 gap-2">
-                <Input
-                  value={siteZip}
-                  onChange={(e) => setSiteZip(e.target.value)}
-                  placeholder="Postcode (bv. 8930)"
-                  className="text-xs h-9.5"
-                />
-                <div className="col-span-2">
-                  <Input
-                    value={siteCity}
-                    onChange={(e) => setSiteCity(e.target.value)}
-                    placeholder="Gemeente (bv. Menen)"
-                    required
-                    className="text-xs h-9.5"
-                  />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <div className="sm:col-span-1">
+                  <AddressField.PostalCode />
+                </div>
+                <div className="sm:col-span-2">
+                  <AddressField.City required placeholder="Gemeente (bv. Menen)" />
                 </div>
               </div>
-            </div>
+            </AddressField.Root>
           </div>
 
           <div className="space-y-1.5 pt-2 border-t border-border/60">

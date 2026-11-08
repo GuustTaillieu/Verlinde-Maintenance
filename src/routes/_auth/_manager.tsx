@@ -46,6 +46,7 @@ import { useTheme } from '#/features/shared/hooks/use-theme'
 import { useCurrentUser } from '#/features/auth/hooks/useCurrentUser'
 import { TooltipProvider } from '#/features/shared/components/ui/tooltip'
 import { SettingsDialog, SettingsDialogTrigger, SettingsRoot } from '#/features/settings/components/SettingsDialog'
+import { AppBreadcrumbs } from '#/features/shared/components/AppBreadcrumbs'
 
 export const Route = createFileRoute('/_auth/_manager')({
   component: RouteComponent,
@@ -231,11 +232,10 @@ function RouteComponent() {
 
           <SidebarInset className="flex flex-col flex-1 min-w-0">
             <header className="sticky top-0 z-10 h-12 border-b border-border bg-background/95 backdrop-blur px-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <SidebarTrigger />
-                <span className="text-xs font-medium text-muted-foreground">
-                  {location.pathname.replace(/\//g, '').split('-').map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                </span>
+                <div className="h-4 w-px bg-border" />
+                <AppBreadcrumbs />
               </div>
             </header>
 

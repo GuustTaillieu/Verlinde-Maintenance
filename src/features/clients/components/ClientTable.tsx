@@ -10,7 +10,7 @@ import {
   type VisibilityState,
 } from '@tanstack/react-table'
 import type { ClientListItem } from '#/features/clients/types'
-import { Badge } from '#/features/shared/components/ui/badge'
+import { StatusBadge } from '#/features/clients/components/StatusBadge'
 import { Button } from '#/features/shared/components/ui/button'
 import {
   Table,
@@ -327,37 +327,9 @@ export function ClientTable({ clients, selectedClientId, onSelectClient }: Clien
             </Button>
           )
         },
-        cell: ({ row }) => {
-          const health = row.original.healthStatus
-          if (health === 'COMPLIANT') {
-            return (
-              <Badge
-                variant="outline"
-                className="border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-medium text-xs px-2.5 py-0.5"
-              >
-                In orde
-              </Badge>
-            )
-          }
-          if (health === 'DUE_SOON') {
-            return (
-              <Badge
-                variant="outline"
-                className="border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 font-medium text-xs px-2.5 py-0.5"
-              >
-                Naderend
-              </Badge>
-            )
-          }
-          return (
-            <Badge
-              variant="destructive"
-              className="font-medium text-xs px-2.5 py-0.5"
-            >
-              Vervallen
-            </Badge>
-          )
-        },
+        cell: ({ row }) => (
+          <StatusBadge status={row.original.healthStatus} showIcon={false} />
+        ),
       },
       {
         id: 'actions',

@@ -23,6 +23,7 @@ import {
   SelectValue,
 } from '#/features/shared/components/ui/select'
 import { Checkbox } from '#/features/shared/components/ui/checkbox'
+import { AddressField } from '#/features/shared/components/AddressField'
 import { toast } from 'sonner'
 import {
   Building2,
@@ -286,41 +287,32 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
             </div>
           </div>
 
-          {/* Section 3: Billing Address */}
+          {/* Section 3: Billing Address (with real-time Belgian geocoding autocomplete) */}
           <div className="space-y-3 pt-3 border-t border-border/60">
             <span className="text-xs font-semibold text-foreground block">
               Facturatieadres *
             </span>
-            <div className="space-y-2.5">
-              <div>
-                <Input
-                  value={invoiceAddress}
-                  onChange={(e) => setInvoiceAddress(e.target.value)}
-                  placeholder="Straat en nummer (bv. Kerkstraat 12)"
-                  required
-                  className="text-xs h-9.5"
-                />
-              </div>
+            <AddressField.Root
+              street={invoiceAddress}
+              onStreetChange={setInvoiceAddress}
+              postalCode={invoiceZip}
+              onPostalCodeChange={setInvoiceZip}
+              city={invoiceCity}
+              onCityChange={setInvoiceCity}
+            >
+              <AddressField.Street
+                required
+                placeholder="bv. Kerkstraat 12 (begin met typen voor suggesties)"
+              />
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 <div className="sm:col-span-1">
-                  <Input
-                    value={invoiceZip}
-                    onChange={(e) => setInvoiceZip(e.target.value)}
-                    placeholder="Postcode (bv. 8550)"
-                    className="text-xs h-9.5"
-                  />
+                  <AddressField.PostalCode />
                 </div>
                 <div className="sm:col-span-2">
-                  <Input
-                    value={invoiceCity}
-                    onChange={(e) => setInvoiceCity(e.target.value)}
-                    placeholder="Gemeente (bv. Zwevegem)"
-                    required
-                    className="text-xs h-9.5"
-                  />
+                  <AddressField.City required />
                 </div>
               </div>
-            </div>
+            </AddressField.Root>
           </div>
 
           {/* Section 4: Initial Site & Discipline */}
@@ -342,23 +334,28 @@ export function CreateClientDialog({ open, onOpenChange }: CreateClientDialogPro
             </div>
 
             {!sameAsInvoice && (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 animate-in fade-in-50 duration-150">
-                <div className="sm:col-span-2">
-                  <Input
-                    value={siteAddress}
-                    onChange={(e) => setSiteAddress(e.target.value)}
-                    placeholder="Installatieadres (werfadres)"
-                    className="text-xs h-9.5"
+              <div className="pt-1 animate-in fade-in-50 duration-150">
+                <AddressField.Root
+                  street={siteAddress}
+                  onStreetChange={setSiteAddress}
+                  postalCode={siteZip}
+                  onPostalCodeChange={setSiteZip}
+                  city={siteCity}
+                  onCityChange={setSiteCity}
+                >
+                  <AddressField.Street
+                    label="Installatieadres (werfadres)"
+                    placeholder="bv. Industrielaan 4 (begin met typen voor suggesties)"
                   />
-                </div>
-                <div>
-                  <Input
-                    value={siteCity}
-                    onChange={(e) => setSiteCity(e.target.value)}
-                    placeholder="Gemeente werf"
-                    className="text-xs h-9.5"
-                  />
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <div className="sm:col-span-1">
+                      <AddressField.PostalCode />
+                    </div>
+                    <div className="sm:col-span-2">
+                      <AddressField.City placeholder="Gemeente werf" />
+                    </div>
+                  </div>
+                </AddressField.Root>
               </div>
             )}
 

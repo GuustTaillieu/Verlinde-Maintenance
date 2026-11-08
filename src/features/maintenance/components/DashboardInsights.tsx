@@ -14,14 +14,14 @@ import { maintenanceQueries } from '../query'
 import { cn } from '#/features/shared/lib/utils'
 import { Skeleton } from '#/features/shared/components/ui/skeleton'
 
-type InsightVariant = 'destructive' | 'warning' | 'info' | 'default'
+type InsightVariant = 'destructive' | 'warning' | 'info' | 'positive' | 'default'
 
 interface InsightCardProps extends React.ComponentProps<'div'> {
   title: string
-  value: number | string
+  value?: React.ReactNode
   icon: LucideIcon
-  subtitle: string
-  subtext: string
+  subtitle?: string
+  subtext?: string
   variant?: InsightVariant
 }
 
@@ -29,6 +29,7 @@ const variantIconStyles: Record<InsightVariant, string> = {
   destructive: 'bg-destructive/10 text-destructive',
   warning: 'bg-amber-500/10 text-amber-500',
   info: 'bg-blue-500/10 text-blue-500',
+  positive: 'bg-emerald-500/10 text-emerald-500',
   default: 'bg-muted text-muted-foreground',
 }
 
@@ -40,15 +41,19 @@ export function InsightCard({
   subtext,
   variant = 'default',
   className,
+  children,
   ...props
 }: InsightCardProps) {
   return (
     <Card className={cn('@container/card', className)} {...props}>
       <CardHeader>
         <CardDescription>{title}</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl font-mono">
-          {value}
-        </CardTitle>
+        {value !== undefined && (
+          <CardTitle className="text-xl sm:text-2xl font-semibold tabular-nums font-mono flex items-center min-h-[32px]">
+            {value}
+          </CardTitle>
+        )}
+        {children}
         <CardAction>
           <div
             className={cn(
@@ -60,10 +65,12 @@ export function InsightCard({
           </div>
         </CardAction>
       </CardHeader>
-      <CardFooter className="flex-col items-start gap-1 text-xs">
-        <div className="line-clamp-1 flex gap-1.5 font-medium">{subtitle}</div>
-        <div className="text-muted-foreground">{subtext}</div>
-      </CardFooter>
+      {(subtitle || subtext) && (
+        <CardFooter className="flex-col items-start gap-1 text-xs">
+          {subtitle && <div className="line-clamp-1 flex gap-1.5 font-medium">{subtitle}</div>}
+          {subtext && <div className="text-muted-foreground">{subtext}</div>}
+        </CardFooter>
+      )}
     </Card>
   )
 }

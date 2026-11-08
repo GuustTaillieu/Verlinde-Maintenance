@@ -2,14 +2,23 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { clientQueries } from '#/features/clients/query'
-import { groupSitesByLocation, type MaintenanceHealthStatus } from '#/features/clients/types'
+import { groupSitesByLocation } from '#/features/clients/types'
 import { ConfidentialAccessVault } from '#/features/clients/components/ConfidentialAccessVault'
 import { SiteEquipmentTable } from '#/features/clients/components/SiteEquipmentTable'
 import { SiteInspectionHistory } from '#/features/clients/components/SiteInspectionHistory'
 import { AddSiteDialog } from '#/features/clients/components/AddSiteDialog'
 import { EditClientDialog } from '#/features/clients/components/EditClientDialog'
-import { Badge } from '#/features/shared/components/ui/badge'
+import { DeleteClientDialog } from '#/features/clients/components/DeleteClientDialog'
+import { StatusBadge } from '#/features/clients/components/StatusBadge'
+import { DashboardInsights } from '#/features/maintenance/components/DashboardInsights'
 import { Button } from '#/features/shared/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from '#/features/shared/components/ui/dropdown-menu'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '#/features/shared/components/ui/tabs'
 import {
   Building2,
@@ -18,7 +27,6 @@ import {
   MapPin,
   ExternalLink,
   ShieldCheck,
-  AlertTriangle,
   Flame,
   Shield,
   Video,
@@ -27,7 +35,6 @@ import {
   History,
   ArrowLeft,
   Clock,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
   FolderGit2,
@@ -35,6 +42,8 @@ import {
   Edit3,
   CalendarCheck,
   Repeat,
+  MoreVertical,
+  Trash2,
 } from 'lucide-react'
 
 export const Route = createFileRoute('/_auth/_manager/clients/$clientId')({
@@ -68,6 +77,12 @@ function ClientDetailPage() {
   const [selectedFicheId, setSelectedFicheId] = useState<string | null>(null)
   const [isAddSiteOpen, setIsAddSiteOpen] = useState(false)
   const [isEditClientOpen, setIsEditClientOpen] = useState(false)
+  const [isDeleteClientOpen, setIsDeleteClientOpen] = useState(false)
+
+  const totalWorkOrders = useMemo(
+    () => (client ? client.sites.reduce((acc, s) => acc + s.workOrders.length, 0) : 0),
+    [client]
+  )
 
   // Active Location Group
   const activeLocation =
@@ -138,41 +153,6 @@ function ClientDetailPage() {
     )
   }
 
-  const getHealthBadge = (health: MaintenanceHealthStatus) => {
-    switch (health) {
-      case 'COMPLIANT':
-        return (
-          <Badge
-            variant="outline"
-            className="border-emerald-500/40 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 gap-1.5 font-medium text-xs px-2.5 py-0.5"
-          >
-            <CheckCircle2 className="size-3.5" />
-            In orde
-          </Badge>
-        )
-      case 'DUE_SOON':
-        return (
-          <Badge
-            variant="outline"
-            className="border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 gap-1.5 font-medium text-xs px-2.5 py-0.5"
-          >
-            <Clock className="size-3.5" />
-            Naderend (30-60d)
-          </Badge>
-        )
-      case 'OVERDUE':
-        return (
-          <Badge
-            variant="destructive"
-            className="gap-1.5 font-medium text-xs px-2.5 py-0.5"
-          >
-            <AlertTriangle className="size-3.5" />
-            Vervallen / Urgent
-          </Badge>
-        )
-    }
-  }
-
   // Format clean address line without duplicate street repeating if title already has the street
   const getLocationSubline = (loc: typeof activeLocation) => {
     if (!loc) return ''
@@ -215,7 +195,7 @@ function ClientDetailPage() {
                 {client.type === 'B2B' ? 'B2B Onderneming' : 'Particulier'}
               </span>
               <span className="text-muted-foreground/40">•</span>
-              {getHealthBadge(client.healthStatus)}
+              <StatusBadge status={client.healthStatus} />
             </div>
 
             <h1 className="text-2xl font-bold tracking-tight text-foreground flex items-center gap-2 pt-0.5">
@@ -264,16 +244,47 @@ function ClientDetailPage() {
                 </a>
               </Button>
             )}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setIsEditClientOpen(true)}
-              className="h-8 gap-1.5 text-xs"
-              title="Klantdossier en facturatiegegevens bewerken"
-            >
-              <Edit3 className="size-3.5 text-muted-foreground" />
-              <span>Gegevens Bewerken</span>
-            </Button>
+            {/* Dossier Actions (3-dots Dropdown Menu) */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon-xs"
+                  className="size-8"
+                  title="Dossierbeheer opties"
+                >
+                  <MoreVertical className="size-4 text-muted-foreground" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuItem
+                  onClick={() => setIsEditClientOpen(true)}
+                  className="gap-2 text-xs cursor-pointer"
+                >
+                  <Edit3 className="size-3.5 text-muted-foreground" />
+                  <span>Gegevens Bewerken</span>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem
+                  onClick={() => setIsAddSiteOpen(true)}
+                  className="gap-2 text-xs cursor-pointer"
+                >
+                  <Plus className="size-3.5 text-muted-foreground" />
+                  <span>Locatie / Fiche Toevoegen</span>
+                </DropdownMenuItem>
+
+                <DropdownMenuSeparator />
+
+                <DropdownMenuItem
+                  variant="destructive"
+                  onClick={() => setIsDeleteClientOpen(true)}
+                  className="gap-2 text-xs cursor-pointer text-destructive focus:text-destructive"
+                >
+                  <Trash2 className="size-3.5" />
+                  <span>Klant Dossier Verwijderen</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
@@ -495,52 +506,50 @@ function ClientDetailPage() {
             {/* Active Fiche Details */}
             {activeFiche && (
               <div className="space-y-5 pt-1">
-                {/* 4 Mini Metric Insight Cards (dashboard card rhythm, quiet & uncluttered) */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="text-[11px] font-medium uppercase tracking-wider">Onderhoudsinterval</span>
-                      <Repeat className="size-3.5 text-muted-foreground" />
-                    </div>
-                    <div className="text-base font-semibold text-foreground font-mono">
-                      {activeFiche.frequency || 'Jaarlijks'}
-                    </div>
-                    <p className="text-[10px] text-muted-foreground">Contractuele periodiciteit</p>
-                  </div>
+                {/* 4 Insight Cards (reusing DashboardInsights compound component) */}
+                <DashboardInsights.Root className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                  <DashboardInsights.Card
+                    title="Onderhoudsinterval"
+                    value={activeFiche.frequency || '1J'}
+                    icon={Repeat}
+                    subtitle="Contractuele periodiciteit"
+                    subtext="Onderhoudscyclus"
+                    variant="default"
+                  />
 
-                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="text-[11px] font-medium uppercase tracking-wider">Laatste Keuring</span>
-                      <CalendarCheck className="size-3.5 text-blue-500" />
-                    </div>
-                    <div className="text-base font-semibold text-foreground font-mono">
-                      {activeFiche.lastServiceDate || 'Geen onderhoud'}
-                    </div>
-                    <p className="text-[10px] text-muted-foreground">Recentste werkbon</p>
-                  </div>
+                  <DashboardInsights.Card
+                    title="Laatste Keuring"
+                    value={activeFiche.lastServiceDate || 'Geen'}
+                    icon={CalendarCheck}
+                    subtitle="Recentste werkbon"
+                    subtext="Inspectiedatum"
+                    variant="info"
+                  />
 
-                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="text-[11px] font-medium uppercase tracking-wider">Volgende Keuring</span>
-                      <Clock className="size-3.5 text-amber-500" />
-                    </div>
-                    <div className="text-base font-semibold text-foreground font-mono">
-                      {activeFiche.nextDueDate || 'Niet ingepland'}
-                    </div>
-                    <p className="text-[10px] text-muted-foreground">Vervaldatum inspectie</p>
-                  </div>
+                  <DashboardInsights.Card
+                    title="Volgende Keuring"
+                    value={activeFiche.nextDueDate || 'Te plannen'}
+                    icon={Clock}
+                    subtitle="Vervaldatum inspectie"
+                    subtext="Volgende cyclus"
+                    variant="warning"
+                  />
 
-                  <div className="rounded-xl border border-border bg-card p-3.5 shadow-xs space-y-1">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="text-[11px] font-medium uppercase tracking-wider">Status Dossier</span>
-                      <ShieldCheck className="size-3.5 text-emerald-500" />
-                    </div>
-                    <div className="pt-0.5">
-                      {getHealthBadge(activeFiche.healthStatus)}
-                    </div>
-                    <p className="text-[10px] text-muted-foreground">Inspectieconformiteit</p>
-                  </div>
-                </div>
+                  <DashboardInsights.Card
+                    title="Status Dossier"
+                    value={<StatusBadge status={activeFiche.healthStatus} />}
+                    icon={ShieldCheck}
+                    subtitle="Inspectieconformiteit"
+                    subtext="Wettelijke normering"
+                    variant={
+                      activeFiche.healthStatus === 'COMPLIANT'
+                        ? 'positive'
+                        : activeFiche.healthStatus === 'DUE_SOON'
+                        ? 'warning'
+                        : 'destructive'
+                    }
+                  />
+                </DashboardInsights.Root>
 
                 {/* Tabbed deep dive: Installed Hardware vs Work Order History */}
                 <Tabs defaultValue="equipment" className="w-full pt-1">
@@ -585,6 +594,17 @@ function ClientDetailPage() {
         open={isEditClientOpen}
         onOpenChange={setIsEditClientOpen}
         client={client}
+      />
+
+      {/* High-Safety Dialog to Delete Client */}
+      <DeleteClientDialog
+        open={isDeleteClientOpen}
+        onOpenChange={setIsDeleteClientOpen}
+        clientId={client.id}
+        clientName={client.name}
+        clientCode={client.code}
+        sitesCount={client.sites.length}
+        workOrdersCount={totalWorkOrders}
       />
     </div>
   )
