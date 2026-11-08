@@ -9,6 +9,7 @@ export const maintenanceHealthStatusSchema = z.enum([
   'OVERDUE',   // Red: Maintenance overdue or fire compliance expired
 ])
 export type MaintenanceHealthStatus = z.infer<typeof maintenanceHealthStatusSchema>
+export const MAINTENANCE_HEALTH_STATUS = maintenanceHealthStatusSchema.enum
 
 export const clientListItemSchema = z.object({
   id: z.string(),

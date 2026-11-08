@@ -4,7 +4,6 @@ import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import { clientQueries } from '#/features/clients/query'
 import { ClientFilters } from '#/features/clients/components/ClientFilters'
 import { ClientTable } from '#/features/clients/components/ClientTable'
-import { ClientDetailDrawer } from '#/features/clients/components/ClientDetailDrawer'
 import { Header } from '#/features/shared/components/header'
 import { Button } from '#/features/shared/components/ui/button'
 import {
@@ -19,7 +18,7 @@ const clientsSearchSchema = getClientsFilterSchema.extend({
   selectedId: z.string().optional(),
 })
 
-export const Route = createFileRoute('/_auth/_manager/clients')({
+export const Route = createFileRoute('/_auth/_manager/clients/')({
   validateSearch: clientsSearchSchema,
   loader: async ({ context: { queryClient } }) => {
     await queryClient.query({
@@ -85,21 +84,8 @@ function ClientsPage() {
 
   const handleSelectClient = (id: string) => {
     void navigate({
-      search: (prev) => ({
-        ...prev,
-        selectedId: id,
-      }),
-      replace: true,
-    })
-  }
-
-  const handleCloseDrawer = () => {
-    void navigate({
-      search: (prev) => ({
-        ...prev,
-        selectedId: undefined,
-      }),
-      replace: true,
+      to: '/clients/$clientId',
+      params: { clientId: id },
     })
   }
 
@@ -182,12 +168,6 @@ function ClientsPage() {
         clients={clients}
         selectedClientId={searchParams.selectedId ?? null}
         onSelectClient={handleSelectClient}
-      />
-
-      {/* Customer Detail Drawer */}
-      <ClientDetailDrawer
-        clientId={searchParams.selectedId ?? null}
-        onClose={handleCloseDrawer}
       />
     </div>
   )

@@ -14,10 +14,11 @@ import { Route as AuthManagerRouteImport } from './routes/_auth/_manager'
 import { Route as AuthTechnicianRouteImport } from './routes/_auth/_technician'
 import { Route as PublicIndexRouteImport } from './routes/_public/index'
 import { Route as PublicForgotPasswordRouteImport } from './routes/_public/forgot-password'
-import { Route as AuthManagerClientsRouteImport } from './routes/_auth/_manager/clients'
 import { Route as AuthManagerDashboardRouteImport } from './routes/_auth/_manager/dashboard'
 import { Route as AuthTechnicianWeekScheduleRouteImport } from './routes/_auth/_technician/week-schedule'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as AuthManagerClientsIndexRouteImport } from './routes/_auth/_manager/clients/index'
+import { Route as AuthManagerClientsClientIdRouteImport } from './routes/_auth/_manager/clients/$clientId'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/_auth',
@@ -41,11 +42,6 @@ const PublicForgotPasswordRoute = PublicForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthManagerClientsRoute = AuthManagerClientsRouteImport.update({
-  id: '/clients',
-  path: '/clients',
-  getParentRoute: () => AuthManagerRoute,
-} as any)
 const AuthManagerDashboardRoute = AuthManagerDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -62,22 +58,35 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthManagerClientsIndexRoute = AuthManagerClientsIndexRouteImport.update({
+  id: '/clients/',
+  path: '/clients/',
+  getParentRoute: () => AuthManagerRoute,
+} as any)
+const AuthManagerClientsClientIdRoute =
+  AuthManagerClientsClientIdRouteImport.update({
+    id: '/clients/$clientId',
+    path: '/clients/$clientId',
+    getParentRoute: () => AuthManagerRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof PublicIndexRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
-  '/clients': typeof AuthManagerClientsRoute
   '/dashboard': typeof AuthManagerDashboardRoute
   '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/clients/$clientId': typeof AuthManagerClientsClientIdRoute
+  '/clients/': typeof AuthManagerClientsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof PublicIndexRoute
   '/forgot-password': typeof PublicForgotPasswordRoute
-  '/clients': typeof AuthManagerClientsRoute
   '/dashboard': typeof AuthManagerDashboardRoute
   '/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/clients/$clientId': typeof AuthManagerClientsClientIdRoute
+  '/clients': typeof AuthManagerClientsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,28 +95,31 @@ export interface FileRoutesById {
   '/_auth/_technician': typeof AuthTechnicianRouteWithChildren
   '/_public/forgot-password': typeof PublicForgotPasswordRoute
   '/_public/': typeof PublicIndexRoute
-  '/_auth/_manager/clients': typeof AuthManagerClientsRoute
   '/_auth/_manager/dashboard': typeof AuthManagerDashboardRoute
   '/_auth/_technician/week-schedule': typeof AuthTechnicianWeekScheduleRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/_auth/_manager/clients/$clientId': typeof AuthManagerClientsClientIdRoute
+  '/_auth/_manager/clients/': typeof AuthManagerClientsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/forgot-password'
-    | '/clients'
     | '/dashboard'
     | '/week-schedule'
     | '/api/auth/$'
+    | '/clients/$clientId'
+    | '/clients/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/forgot-password'
-    | '/clients'
     | '/dashboard'
     | '/week-schedule'
     | '/api/auth/$'
+    | '/clients/$clientId'
+    | '/clients'
   id:
     | '__root__'
     | '/_auth'
@@ -115,10 +127,11 @@ export interface FileRouteTypes {
     | '/_auth/_technician'
     | '/_public/forgot-password'
     | '/_public/'
-    | '/_auth/_manager/clients'
     | '/_auth/_manager/dashboard'
     | '/_auth/_technician/week-schedule'
     | '/api/auth/$'
+    | '/_auth/_manager/clients/$clientId'
+    | '/_auth/_manager/clients/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -165,13 +178,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicForgotPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_auth/_manager/clients': {
-      id: '/_auth/_manager/clients'
-      path: '/clients'
-      fullPath: '/clients'
-      preLoaderRoute: typeof AuthManagerClientsRouteImport
-      parentRoute: typeof AuthManagerRoute
-    }
     '/_auth/_manager/dashboard': {
       id: '/_auth/_manager/dashboard'
       path: '/dashboard'
@@ -193,17 +199,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_auth/_manager/clients/': {
+      id: '/_auth/_manager/clients/'
+      path: '/clients'
+      fullPath: '/clients/'
+      preLoaderRoute: typeof AuthManagerClientsIndexRouteImport
+      parentRoute: typeof AuthManagerRoute
+    }
+    '/_auth/_manager/clients/$clientId': {
+      id: '/_auth/_manager/clients/$clientId'
+      path: '/clients/$clientId'
+      fullPath: '/clients/$clientId'
+      preLoaderRoute: typeof AuthManagerClientsClientIdRouteImport
+      parentRoute: typeof AuthManagerRoute
+    }
   }
 }
 
 interface AuthManagerRouteChildren {
-  AuthManagerClientsRoute: typeof AuthManagerClientsRoute
   AuthManagerDashboardRoute: typeof AuthManagerDashboardRoute
+  AuthManagerClientsClientIdRoute: typeof AuthManagerClientsClientIdRoute
+  AuthManagerClientsIndexRoute: typeof AuthManagerClientsIndexRoute
 }
 
 const AuthManagerRouteChildren: AuthManagerRouteChildren = {
-  AuthManagerClientsRoute: AuthManagerClientsRoute,
   AuthManagerDashboardRoute: AuthManagerDashboardRoute,
+  AuthManagerClientsClientIdRoute: AuthManagerClientsClientIdRoute,
+  AuthManagerClientsIndexRoute: AuthManagerClientsIndexRoute,
 }
 
 const AuthManagerRouteWithChildren = AuthManagerRoute._addFileChildren(
