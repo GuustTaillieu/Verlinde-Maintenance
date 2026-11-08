@@ -1,4 +1,4 @@
-import { cn } from "cn"
+import { cn } from '#/features/shared/lib/utils'
 
 interface HeaderProps {
   title: string

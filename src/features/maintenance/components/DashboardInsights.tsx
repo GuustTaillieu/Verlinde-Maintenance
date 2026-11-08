@@ -11,7 +11,7 @@ import { AlertTriangle, Clock, CalendarCheck, ShieldAlert, type LucideIcon, Tria
 import type { MaintenanceKPIs } from '../types'
 import { useQuery } from '@tanstack/react-query'
 import { maintenanceQueries } from '../query'
-import { cn } from 'cn'
+import { cn } from '#/features/shared/lib/utils'
 import { Skeleton } from '#/features/shared/components/ui/skeleton'
 
 type InsightVariant = 'destructive' | 'warning' | 'info' | 'default'

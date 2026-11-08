@@ -18,8 +18,7 @@ export function TimePicker({
     onSelectTimeSlot,
 }: TimePickerProps) {
     return (
-        // this cols query is good but i want max 2 cols and this doesnt do it
-        <div className="grid 2xl:grid-cols-2 xl:grid-cols-1 grid-cols-[repeat(auto-fit,minmax(10rem,1fr))] md:grid-cols-2 gap-1.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             {PRESET_TIME_SLOTS.map((slot) => {
                 const isSelected = startTime === slot.start && endTime === slot.end
                 return (

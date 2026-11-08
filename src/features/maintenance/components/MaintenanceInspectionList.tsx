@@ -192,8 +192,8 @@ export function MaintenanceInspectionList({
         city.toLowerCase().includes('kortrijk') ||
         city.toLowerCase().includes('wevelgem') ||
         city.toLowerCase().includes('heule')
-          ? 'Tom Planckaert'
-          : 'Jens De Smet',
+          ? 'Tom De Coninck'
+          : 'Jens Maes',
       estimatedHours: Math.round(cityItems.length * 1.5 * 10) / 10,
     }
 

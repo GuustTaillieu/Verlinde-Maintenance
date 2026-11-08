@@ -22,7 +22,7 @@ import {
 } from 'lucide-react'
 import type { FireInspectionItem } from '../types'
 import { MAINTENANCE_STAGE, DISCIPLINE } from '../types'
-import { cn } from 'cn'
+import { cn } from '#/features/shared/lib/utils'
 
 interface FireInspectionCardContextValue {
   item: FireInspectionItem

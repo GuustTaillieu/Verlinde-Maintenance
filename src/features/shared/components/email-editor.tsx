@@ -4,7 +4,7 @@ import {
   ToggleGroupItem,
 } from '#/features/shared/components/ui/toggle-group'
 import { Bold, Italic, List } from 'lucide-react'
-import { sanitizeHtml } from '../../maintenance/utils/htmlSanitizer'
+import { sanitizeHtml } from '#/features/shared/lib/htmlSanitizer'
 
 interface RichEmailEditorProps {
   value: string

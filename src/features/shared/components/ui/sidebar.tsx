@@ -2,26 +2,26 @@
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "cn"
+import { cn } from '#/features/shared/lib/utils'
 import { Slot } from "radix-ui"
 
-import { useIsMobile } from "#/features/shared/hooks/use-mobile.ts"
-import { Button } from "./button.tsx"
-import { Input } from "./input.tsx"
-import { Separator } from "./separator.tsx"
+import { useIsMobile } from "#/features/shared/hooks/use-mobile"
+import { Button } from "./button"
+import { Input } from "./input"
+import { Separator } from "./separator"
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "./sheet.tsx"
-import { Skeleton } from "./skeleton.tsx"
+} from "./sheet"
+import { Skeleton } from "./skeleton"
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "./tooltip.tsx"
+} from "./tooltip"
 import { PanelLeftIcon, type LucideIcon } from "lucide-react"
 import type { FileRoutesByTo } from "#/routeTree.gen.ts"
 

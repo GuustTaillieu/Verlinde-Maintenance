@@ -10,7 +10,7 @@ import { Button } from '#/features/shared/components/ui/button'
 import { TodoStepper, type StepItem } from './TodoStepper'
 import { ShieldAlert, CalendarPlus, User, Clock } from 'lucide-react'
 import type { MaintenanceCluster, ClusterSiteItem } from '../types'
-import { cn } from 'cn'
+import { cn } from '#/features/shared/lib/utils'
 
 interface MaintenanceClusterCardContextValue {
   cluster: MaintenanceCluster

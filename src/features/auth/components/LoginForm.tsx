@@ -1,18 +1,18 @@
-import { cn } from "cn"
-import { Button } from "#/features/shared/components/ui/button.tsx"
+import { cn } from '#/features/shared/lib/utils'
+import { Button } from "#/features/shared/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "#/features/shared/components/ui/card.tsx"
+} from "#/features/shared/components/ui/card"
 import {
   Field,
   FieldGroup,
   FieldLabel,
-} from "#/features/shared/components/ui/field.tsx"
-import { Input } from "#/features/shared/components/ui/input.tsx"
+} from "#/features/shared/components/ui/field"
+import { Input } from "#/features/shared/components/ui/input"
 import { Link } from "@tanstack/react-router"
 import type { SubmitEventHandler } from "react"
 import { AlertCircle, Loader2 } from "lucide-react"

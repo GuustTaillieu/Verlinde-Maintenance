@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { CircleCheck, CircleDashed } from 'lucide-react'
-import { cn } from 'cn'
+import { cn } from '#/features/shared/lib/utils'
 
 export type StepStatus = 'completed' | 'active' | 'upcoming'
 
