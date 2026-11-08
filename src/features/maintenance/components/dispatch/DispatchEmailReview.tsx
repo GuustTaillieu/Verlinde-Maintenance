@@ -1,17 +1,9 @@
 import * as React from 'react'
 import { Input } from '#/features/shared/components/ui/input'
-import { Textarea } from '#/features/shared/components/ui/textarea'
 import { Badge } from '#/features/shared/components/ui/badge'
 import { Button } from '#/features/shared/components/ui/button'
 import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from '#/features/shared/components/ui/toggle-group'
-import {
   Mail,
-  Bold,
-  Italic,
-  List,
   Clock,
   MapPin,
   CheckCircle2,
@@ -19,10 +11,8 @@ import {
 } from 'lucide-react'
 import { useClusterDispatch } from './ClusterDispatchContext'
 import { formatDateDutch } from '../../utils/dateUtils'
-import {
-  handleAutoBulletOnEnter,
-  generateCustomerBatchEmail,
-} from '../../utils/emailTemplateUtils'
+import { generateCustomerBatchEmailHtml, type EmailTemplateType } from '../../utils/emailTemplateUtils'
+import { RichEmailEditor } from '../../../shared/components/email-editor'
 
 export function DispatchEmailReview() {
   const {
@@ -37,38 +27,12 @@ export function DispatchEmailReview() {
   const customersList = React.useMemo(() => Object.values(emailDrafts), [emailDrafts])
 
   const activeDraft = emailDrafts[selectedCustomerId] || customersList[0]
+  const [activeTemplate, setActiveTemplate] = React.useState<EmailTemplateType>('concise')
 
-  const textareaRef = React.useRef<HTMLTextAreaElement | null>(null)
-
-  const handleApplyFormat = (formatType: string) => {
-    if (!activeDraft || !textareaRef.current) return
-    const el = textareaRef.current
-    const start = el.selectionStart
-    const end = el.selectionEnd
-    const currentText = activeDraft.body
-    const selectedText = currentText.substring(start, end)
-
-    let replacement = ''
-    if (formatType === 'bold') {
-      replacement = selectedText ? `**${selectedText}**` : '**belangrijk**'
-    } else if (formatType === 'italic') {
-      replacement = selectedText ? `*${selectedText}*` : '*let op*'
-    } else if (formatType === 'list') {
-      replacement = selectedText ? `\n• ${selectedText}` : '\n• Extra opmerking: '
-    }
-
-    const newText = currentText.substring(0, start) + replacement + currentText.substring(end)
-    updateEmailDraft(activeDraft.customerId, { body: newText })
-
-    setTimeout(() => {
-      el.focus()
-      el.setSelectionRange(start + replacement.length, start + replacement.length)
-    }, 0)
-  }
-
-  const handleTemplateChange = (template: 'standard' | 'concise' | 'urgent') => {
+  const handleTemplateChange = (template: EmailTemplateType) => {
+    setActiveTemplate(template)
     if (!activeDraft) return
-    const newBody = generateCustomerBatchEmail(
+    const newBody = generateCustomerBatchEmailHtml(
       activeDraft.customerName,
       cluster.city,
       planner.activeTech.name,
@@ -107,11 +71,10 @@ export function DispatchEmailReview() {
               <div
                 key={draft.customerId}
                 onClick={() => setSelectedCustomerId(draft.customerId)}
-                className={`rounded-lg border p-3 text-xs cursor-pointer transition-all select-none ${
-                  isSelected
-                    ? 'border-primary bg-primary/5 shadow-2xs'
-                    : 'border-border bg-card hover:bg-muted/40'
-                }`}
+                className={`rounded-lg border p-3 text-xs cursor-pointer transition-all select-none ${isSelected
+                  ? 'border-primary bg-primary/5 shadow-2xs'
+                  : 'border-border bg-card hover:bg-muted/40'
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-foreground text-sm truncate">
@@ -188,93 +151,58 @@ export function DispatchEmailReview() {
           </div>
         </div>
 
-        {/* Toolbar & Text Editor Area */}
-        <div className="px-4 py-2 border-b border-border bg-muted/25 flex items-center justify-between shrink-0 gap-2">
-          {/* Formatting tools */}
-          <div className="flex items-center gap-2">
-            <span className="text-[11px] text-muted-foreground font-medium">Opmaak:</span>
-            <ToggleGroup type="multiple" size="sm" variant="outline" className="h-7">
-              <ToggleGroupItem
-                value="bold"
-                onClick={() => handleApplyFormat('bold')}
-                className="h-7 px-2"
-                title="Vetgedrukt"
-              >
-                <Bold className="size-3" />
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                value="italic"
-                onClick={() => handleApplyFormat('italic')}
-                className="h-7 px-2"
-                title="Cursief"
-              >
-                <Italic className="size-3" />
-              </ToggleGroupItem>
-              <ToggleGroupItem
-                value="list"
-                onClick={() => handleApplyFormat('list')}
-                className="h-7 px-2"
-                title="Opsomming"
-              >
-                <List className="size-3" />
-              </ToggleGroupItem>
-            </ToggleGroup>
-          </div>
-
-          {/* Quick templates */}
+        {/* Quick templates toolbar bar */}
+        <div className="px-4 py-2 border-b border-border bg-muted/20 flex items-center justify-between shrink-0 gap-2">
+          <span className="text-[11px] text-muted-foreground font-medium">E-mailsjabloon:</span>
           <div className="flex items-center gap-1.5">
-            <span className="text-[11px] text-muted-foreground font-medium">Sjabloon:</span>
-            <div className="flex items-center gap-1">
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => handleTemplateChange('standard')}
-                className="h-6.5 text-[10px] px-2"
-              >
-                Standaard
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => handleTemplateChange('concise')}
-                className="h-6.5 text-[10px] px-2"
-              >
-                Kort
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => handleTemplateChange('urgent')}
-                className="h-6.5 text-[10px] px-2 text-amber-600 dark:text-amber-400"
-              >
-                Dringend
-              </Button>
-            </div>
+            <Button
+              type="button"
+              variant={activeTemplate === 'standard' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleTemplateChange('standard')}
+              className="h-6.5 text-[10px] px-2 font-medium"
+            >
+              Standaard
+            </Button>
+            <Button
+              type="button"
+              variant={activeTemplate === 'concise' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleTemplateChange('concise')}
+              className="h-6.5 text-[10px] px-2 font-medium"
+            >
+              Kort
+            </Button>
+            <Button
+              type="button"
+              variant={activeTemplate === 'urgent' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleTemplateChange('urgent')}
+              className="h-6.5 text-[10px] px-2 font-medium text-amber-600 dark:text-amber-400"
+            >
+              Dringend
+            </Button>
+            <Button
+              type="button"
+              variant={activeTemplate === 'blank' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleTemplateChange('blank')}
+              className="h-6.5 text-[10px] px-2 font-medium text-muted-foreground hover:text-foreground"
+            >
+              Leeg
+            </Button>
           </div>
         </div>
 
         {/* Editor & Planned Sites Split View */}
         <div className="flex-1 min-h-0 flex flex-col p-4 gap-4 overflow-y-auto">
-          {/* Body Textarea */}
-          <div className="flex-1 flex flex-col min-h-48">
-            <Textarea
-              ref={textareaRef}
-              value={activeDraft.body}
-              onKeyDown={(e) => {
-                handleAutoBulletOnEnter(e, activeDraft.body, (nextBody) => {
-                  updateEmailDraft(activeDraft.customerId, { body: nextBody })
-                })
-              }}
-              onChange={(e) =>
-                updateEmailDraft(activeDraft.customerId, { body: e.target.value })
-              }
-              placeholder="Typ hier het bericht voor de klant..."
-              className="flex-1 w-full text-xs font-mono leading-relaxed bg-background p-3.5 resize-none border-border"
-            />
-          </div>
+          {/* Visual Rich Text Editor */}
+          <RichEmailEditor
+            value={activeDraft.body}
+            onChange={(newHtml) => updateEmailDraft(activeDraft.customerId, { body: newHtml })}
+            placeholder="Typ hier het bericht voor de klant..."
+            className="flex-1 min-h-56"
+          />
 
           {/* Bottom Card: Reserved Appointments Summary for this Customer */}
           <div className="rounded-xl border border-dashed border-primary/40 bg-primary/5 p-3.5 space-y-2 shrink-0">

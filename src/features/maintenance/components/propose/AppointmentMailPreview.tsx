@@ -1,17 +1,8 @@
-import * as React from 'react'
 import { Input } from '#/features/shared/components/ui/input'
-import { Textarea } from '#/features/shared/components/ui/textarea'
 import { Badge } from '#/features/shared/components/ui/badge'
 import { Button } from '#/features/shared/components/ui/button'
 import {
-  ToggleGroup,
-  ToggleGroupItem,
-} from '#/features/shared/components/ui/toggle-group'
-import {
   Mail,
-  Bold,
-  Italic,
-  List,
   Clock,
   MapPin,
   Building2,
@@ -19,7 +10,7 @@ import {
 } from 'lucide-react'
 import { useProposeAppointment } from '../ProposeAppointmentDialog'
 import { formatDateDutch } from '../../utils/dateUtils'
-import { handleAutoBulletOnEnter } from '../../utils/emailTemplateUtils'
+import { RichEmailEditor } from '../../../shared/components/email-editor'
 import type { FireInspectionItem } from '../../types'
 
 interface AppointmentMailPreviewProps {
@@ -51,36 +42,9 @@ export function AppointmentMailPreview({
     setSubject,
     body,
     setBody,
+    activeTemplate,
     applyTemplate,
   } = context
-
-  const textareaRef = React.useRef<HTMLTextAreaElement | null>(null)
-
-  const handleApplyFormat = (formatType: string) => {
-    if (!textareaRef.current) return
-    const el = textareaRef.current
-    const start = el.selectionStart
-    const end = el.selectionEnd
-    const currentText = body
-    const selectedText = currentText.substring(start, end)
-
-    let replacement = ''
-    if (formatType === 'bold') {
-      replacement = selectedText ? `**${selectedText}**` : '**belangrijk**'
-    } else if (formatType === 'italic') {
-      replacement = selectedText ? `*${selectedText}*` : '*let op*'
-    } else if (formatType === 'list') {
-      replacement = selectedText ? `\n• ${selectedText}` : '\n• Extra opmerking: '
-    }
-
-    const newText = currentText.substring(0, start) + replacement + currentText.substring(end)
-    setBody(newText)
-
-    setTimeout(() => {
-      el.focus()
-      el.setSelectionRange(start + replacement.length, start + replacement.length)
-    }, 0)
-  }
 
   const formattedDate = formatDateDutch(proposedDate)
 
@@ -134,86 +98,57 @@ export function AppointmentMailPreview({
         </div>
       </div>
 
-      {/* Toolbar & Quick Templates */}
-      <div className="px-4 py-2 border-b border-border bg-muted/25 flex items-center justify-between shrink-0 gap-2">
-        {/* Formatting tools */}
-        <div className="flex items-center gap-2">
-          <span className="text-[11px] text-muted-foreground font-medium">Opmaak:</span>
-          <ToggleGroup type="multiple" size="sm" variant="outline" className="h-7">
-            <ToggleGroupItem
-              value="bold"
-              onClick={() => handleApplyFormat('bold')}
-              className="h-7 px-2"
-              title="Vetgedrukt"
-            >
-              <Bold className="size-3" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="italic"
-              onClick={() => handleApplyFormat('italic')}
-              className="h-7 px-2"
-              title="Cursief"
-            >
-              <Italic className="size-3" />
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              value="list"
-              onClick={() => handleApplyFormat('list')}
-              className="h-7 px-2"
-              title="Opsomming"
-            >
-              <List className="size-3" />
-            </ToggleGroupItem>
-          </ToggleGroup>
-        </div>
-
-        {/* Quick templates */}
+      {/* Quick Templates Toolbar */}
+      <div className="px-4 py-2 border-b border-border bg-muted/20 flex items-center justify-between shrink-0 gap-2">
+        <span className="text-[11px] text-muted-foreground font-medium">E-mailsjabloon:</span>
         <div className="flex items-center gap-1.5">
-          <span className="text-[11px] text-muted-foreground font-medium">Sjabloon:</span>
-          <div className="flex items-center gap-1">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => applyTemplate('standard')}
-              className="h-6.5 text-[10px] px-2"
-            >
-              Standaard
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => applyTemplate('concise')}
-              className="h-6.5 text-[10px] px-2"
-            >
-              Kort
-            </Button>
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => applyTemplate('urgent')}
-              className="h-6.5 text-[10px] px-2 text-amber-600 dark:text-amber-400"
-            >
-              Dringend
-            </Button>
-          </div>
+          <Button
+            type="button"
+            variant={activeTemplate === 'standard' ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => applyTemplate('standard')}
+            className="h-6.5 text-[10px] px-2 font-medium"
+          >
+            Standaard
+          </Button>
+          <Button
+            type="button"
+            variant={activeTemplate === 'concise' ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => applyTemplate('concise')}
+            className="h-6.5 text-[10px] px-2 font-medium"
+          >
+            Kort
+          </Button>
+          <Button
+            type="button"
+            variant={activeTemplate === 'urgent' ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => applyTemplate('urgent')}
+            className="h-6.5 text-[10px] px-2 font-medium text-amber-600 dark:text-amber-400"
+          >
+            Dringend
+          </Button>
+          <Button
+            type="button"
+            variant={activeTemplate === 'blank' ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => applyTemplate('blank')}
+            className="h-6.5 text-[10px] px-2 font-medium text-muted-foreground hover:text-foreground"
+          >
+            Leeg
+          </Button>
         </div>
       </div>
 
-      {/* Text Editor & Appointment Slot Summary */}
+      {/* Visual Rich Text Editor & Slot Summary */}
       <div className="flex-1 min-h-0 flex flex-col p-4 gap-4 overflow-y-auto">
-        <div className="flex-1 flex flex-col min-h-48">
-          <Textarea
-            ref={textareaRef}
-            value={body}
-            onKeyDown={(e) => handleAutoBulletOnEnter(e, body, setBody)}
-            onChange={(e) => setBody(e.target.value)}
-            placeholder="Typ hier het bericht voor Brandtec en de klant..."
-            className="flex-1 w-full text-xs font-mono leading-relaxed bg-background p-3.5 resize-none border-border"
-          />
-        </div>
+        <RichEmailEditor
+          value={body}
+          onChange={setBody}
+          placeholder="Typ hier het bericht voor Brandtec en de klant..."
+          className="flex-1 min-h-56"
+        />
 
         {/* Bottom Card: Reserved Slot Summary */}
         <div className="rounded-xl border border-dashed border-primary/40 bg-primary/5 p-3.5 space-y-2 shrink-0">

@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start'
 import { db } from '#/db/index'
 import { sites, customers, workOrders } from '#/db/schema'
 import { eq, inArray, desc } from 'drizzle-orm'
+import { normalizeCity } from '../utils/regionUtils'
 import {
   getFireInspectionsInputSchema,
   type FireInspectionItem,
@@ -92,7 +93,7 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
           customerPhone: customer.phone || customer.mobile,
           siteName: site.name,
           siteAddress: site.siteAddress,
-          siteCity: site.siteCity,
+          siteCity: normalizeCity(site.siteCity) || 'Overig',
           nextDueDate: dueIso,
           daysOverdue: Math.max(0, diffDays),
           primaryDiscipline: site.primaryDiscipline || DISCIPLINE.INTRUSION,
@@ -136,11 +137,49 @@ export const getFireInspectionsFn = createServerFn({ method: 'GET' })
 
     // Sort:
     if (view === MAINTENANCE_VIEW.active) {
-      // Fire items first, then overdue descending
+      // Group-aware sorting:
+      // 1. Fire items first (statutory compliance)
+      // 2. Non-fire items grouped contiguous by municipality, with most urgent municipality first
+      const cityUrgency = new Map<
+        string,
+        { overdueCount: number; maxOverdue: number; totalCount: number }
+      >()
+      for (const item of filtered) {
+        if (item.primaryDiscipline === DISCIPLINE.FIRE) continue
+        const city = item.siteCity || 'Overig'
+        const stats = cityUrgency.get(city) || { overdueCount: 0, maxOverdue: 0, totalCount: 0 }
+        if (item.daysOverdue > 0) stats.overdueCount++
+        stats.maxOverdue = Math.max(stats.maxOverdue, item.daysOverdue)
+        stats.totalCount++
+        cityUrgency.set(city, stats)
+      }
+
       filtered.sort((a, b) => {
-        if ((a.primaryDiscipline === DISCIPLINE.FIRE) !== (b.primaryDiscipline === DISCIPLINE.FIRE)) {
-          return a.primaryDiscipline === DISCIPLINE.FIRE ? -1 : 1
+        const isFireA = a.primaryDiscipline === DISCIPLINE.FIRE
+        const isFireB = b.primaryDiscipline === DISCIPLINE.FIRE
+        if (isFireA !== isFireB) {
+          return isFireA ? -1 : 1
         }
+        if (isFireA) {
+          return b.daysOverdue - a.daysOverdue
+        }
+
+        const cityA = a.siteCity || 'Overig'
+        const cityB = b.siteCity || 'Overig'
+
+        if (cityA !== cityB) {
+          const statsA = cityUrgency.get(cityA) || { overdueCount: 0, maxOverdue: 0, totalCount: 0 }
+          const statsB = cityUrgency.get(cityB) || { overdueCount: 0, maxOverdue: 0, totalCount: 0 }
+
+          if (statsA.overdueCount !== statsB.overdueCount) {
+            return statsB.overdueCount - statsA.overdueCount
+          }
+          if (statsA.maxOverdue !== statsB.maxOverdue) {
+            return statsB.maxOverdue - statsA.maxOverdue
+          }
+          return cityA.localeCompare(cityB)
+        }
+
         return b.daysOverdue - a.daysOverdue
       })
     } else {

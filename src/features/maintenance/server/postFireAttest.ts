@@ -8,7 +8,7 @@ import { uploadFireAttestInputSchema } from '../types'
 export const uploadFireAttestFn = createServerFn({ method: 'POST' })
   .validator(uploadFireAttestInputSchema)
   .handler(async ({ data }) => {
-    const todayIso = '2025-03-01'
+    const todayIso = new Date().toISOString().split('T')[0]
     const nextDue = addMonthsToIso(todayIso, 12)
 
     await db

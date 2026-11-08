@@ -3,6 +3,7 @@ import { db } from '#/db/index'
 import { workOrders, sites } from '#/db/schema'
 import { eq, and, gte, lte } from 'drizzle-orm'
 import { z } from 'zod'
+import { normalizeCity } from '../utils/regionUtils'
 
 export interface ScheduledSlot {
   id: string
@@ -23,12 +24,37 @@ export const technicianScheduleInputSchema = z.object({
   weekEndDate: z.string(),
 })
 
-function calculateDurationHours(start?: string | null, end?: string | null): number {
-  if (!start || !end) return 2.0
-  const [sh, sm] = start.split(':').map(Number)
-  const [eh, em] = end.split(':').map(Number)
-  const diffMinutes = (eh * 60 + em) - (sh * 60 + sm)
-  return Math.max(1, Math.round((diffMinutes / 60) * 10) / 10)
+function sanitizeTimes(
+  start?: string | null,
+  end?: string | null
+): { startTime: string; endTime: string; durationHours: number } {
+  let sTime = start && /^\d{1,2}:\d{2}$/.test(start.trim()) ? start.trim() : '08:30'
+  if (sTime.length === 4) sTime = `0${sTime}`
+
+  const [sh, sm] = sTime.split(':').map(Number)
+  const startMin = sh * 60 + sm
+
+  let endMin: number
+  if (end && /^\d{1,2}:\d{2}$/.test(end.trim())) {
+    let eTime = end.trim()
+    if (eTime.length === 4) eTime = `0${eTime}`
+    const [eh, em] = eTime.split(':').map(Number)
+    endMin = eh * 60 + em
+  } else {
+    endMin = startMin + 120
+  }
+
+  // If end time is earlier or equal to start time (legacy invalid data in DB), repair by adding 2h
+  if (endMin <= startMin) {
+    endMin = Math.min(17 * 60, startMin + 120)
+  }
+
+  const durationHours = Math.max(0.5, Math.round(((endMin - startMin) / 60) * 10) / 10)
+  const eh = Math.floor(endMin / 60)
+  const em = endMin % 60
+  const endTime = `${String(eh).padStart(2, '0')}:${String(em).padStart(2, '0')}`
+
+  return { startTime: sTime, endTime, durationHours }
 }
 
 export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
@@ -56,17 +82,20 @@ export const getTechnicianScheduleFn = createServerFn({ method: 'GET' })
         )
       )
 
-    return rows.map((r) => ({
-      id: r.id,
-      woNumber: r.woNumber,
-      siteName: r.siteName || 'Onderhoud werf',
-      siteAddress: r.siteAddress || '',
-      siteCity: r.siteCity || 'Zwevegem',
-      date: r.plannedDate || data.weekStartDate,
-      startTime: r.plannedStartTime || '08:30',
-      endTime: r.plannedEndTime || '10:30',
-      durationHours: calculateDurationHours(r.plannedStartTime, r.plannedEndTime),
-      status: r.status || undefined,
-    }))
+    return rows.map((r) => {
+      const times = sanitizeTimes(r.plannedStartTime, r.plannedEndTime)
+      return {
+        id: r.id,
+        woNumber: r.woNumber,
+        siteName: r.siteName || 'Onderhoud werf',
+        siteAddress: r.siteAddress || '',
+        siteCity: normalizeCity(r.siteCity) || 'Kortrijk',
+        date: r.plannedDate || data.weekStartDate,
+        startTime: times.startTime,
+        endTime: times.endTime,
+        durationHours: times.durationHours,
+        status: r.status || undefined,
+      }
+    })
   })
 

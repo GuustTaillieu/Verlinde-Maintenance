@@ -1,9 +1,11 @@
 import * as React from 'react'
+import { useQuery } from '@tanstack/react-query'
 import {
   Dialog,
   DialogContent,
 } from '#/features/shared/components/ui/dialog'
 import { useDispatchPlanner } from '../hooks/useDispatchPlanner'
+import { maintenanceQueries } from '../query'
 import { DispatchHeader } from './dispatch/DispatchHeader'
 import { DispatchWeekGrid } from './dispatch/DispatchWeekGrid'
 import { DispatchJobsList } from './dispatch/DispatchJobsList'
@@ -16,29 +18,18 @@ import {
   type CustomerEmailDraft,
 } from './dispatch/ClusterDispatchContext'
 import type { MaintenanceCluster, PlanClusterBatchInput } from '../types'
-import { generateCustomerBatchEmail } from '../utils/emailTemplateUtils'
+import { generateCustomerBatchEmailHtml } from '../utils/emailTemplateUtils'
 
 export { useClusterDispatch } from './dispatch/ClusterDispatchContext'
 
 export interface ClusterDispatchDialogProps {
-  cluster: MaintenanceCluster | null
+  cluster?: MaintenanceCluster | null
+  city?: string | null
   initialSelectedSiteIds?: string[]
   open: boolean
   onOpenChange: (open: boolean) => void
   onConfirm: (data: PlanClusterBatchInput) => Promise<void>
   children?: React.ReactNode
-}
-
-function formatDateDutch(isoDate: string): string {
-  if (!isoDate) return ''
-  const [y, m, d] = isoDate.split('-').map(Number)
-  const dt = new Date(y, m - 1, d)
-  return dt.toLocaleDateString('nl-BE', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
 }
 
 export function ClusterDispatchBody({
@@ -62,7 +53,8 @@ export function ClusterDispatchBody({
 }
 
 export function ClusterDispatchDialog({
-  cluster,
+  cluster: propCluster,
+  city,
   initialSelectedSiteIds,
   open,
   onOpenChange,
@@ -75,6 +67,20 @@ export function ClusterDispatchDialog({
     Record<string, Partial<CustomerEmailDraft>>
   >({})
   const [selectedCustomerId, setSelectedCustomerId] = React.useState<string>('')
+
+  const clustersQuery = useQuery({
+    ...maintenanceQueries.clusters(),
+    enabled: open && !propCluster && Boolean(city),
+  })
+
+  const cluster = React.useMemo(() => {
+    if (propCluster) return propCluster
+    if (!city) return null
+    const list = clustersQuery.data || []
+    return (
+      list.find((c) => c.city.toLowerCase() === city.toLowerCase()) || null
+    )
+  }, [propCluster, city, clustersQuery.data])
 
   const planner = useDispatchPlanner(cluster, open, initialSelectedSiteIds)
 
@@ -127,25 +133,7 @@ export function ClusterDispatchDialog({
     const city = cluster.city
 
     for (const draft of Object.values(grouped)) {
-      draft.body = `Beste ${draft.customerName},
-
-In het kader van het periodieke onderhoud aan uw installaties in ${city} stelt Verlinde Beveiliging voor om de volgende werven in te plannen:
-
-${draft.sites
-          .map(
-            (s) =>
-              `• ${s.siteName} (${s.siteAddress}): ${formatDateDutch(s.plannedDate)} van ${s.startTime} tot ${s.endTime} (${s.disciplines.join(', ') || 'Onderhoud'})`
-          )
-          .join('\n')}
-
-Onze technicus ${techName} zal ter plaatse de nodige controles en het nazicht uitvoeren.
-
-Past dit voorgestelde tijdstip voor u? Gelieve deze e-mail te beantwoorden ter bevestiging van de afspraak.
-
-Met vriendelijke groeten,
-Dirk Verlinde
-Verlinde Beveiliging BV • Zwevegem`
-      draft.body = generateCustomerBatchEmail(
+      draft.body = generateCustomerBatchEmailHtml(
         draft.customerName,
         city,
         techName,

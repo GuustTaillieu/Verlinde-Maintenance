@@ -8,8 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
   SelectContent,
-  SelectGroup,
-  SelectLabel,
   SelectItem,
 } from '#/features/shared/components/ui/select'
 import {
@@ -130,10 +128,11 @@ export function DispatchHeader({
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-7 text-xs font-medium px-2 whitespace-nowrap gap-1.5"
+                  className={`h-7 text-xs font-medium px-2 whitespace-nowrap gap-1.5 ${planner.isPastWeek ? 'text-amber-600 dark:text-amber-400' : ''}`}
                 >
                   <CalendarIcon className="size-3.5 text-muted-foreground" />
                   Week {weekDays[0]?.dayLabel} - {weekDays[4]?.dayLabel} {currentYear}
+                  {planner.isPastWeek && ' (Verleden)'}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-64 p-3 bg-popover" align="center">

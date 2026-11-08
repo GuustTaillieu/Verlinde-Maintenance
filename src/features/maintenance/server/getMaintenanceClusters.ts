@@ -3,10 +3,11 @@ import { db } from '#/db/index'
 import { sites, customers, workOrders, equipment } from '#/db/schema'
 import { eq, inArray, desc, count } from 'drizzle-orm'
 import type { MaintenanceCluster, ClusterSiteItem } from '../types'
+import { normalizeCity } from '../utils/regionUtils'
 
 export const getMaintenanceClustersFn = createServerFn({ method: 'GET' }).handler(
   async (): Promise<MaintenanceCluster[]> => {
-    const todayIso = '2025-03-01'
+    const todayIso = new Date().toISOString().split('T')[0]
     const todayMs = new Date(todayIso).getTime()
 
     const siteResults = await db
@@ -48,14 +49,7 @@ export const getMaintenanceClustersFn = createServerFn({ method: 'GET' }).handle
 
     const nonFireSites = siteResults.filter((r) => r.site.primaryDiscipline !== 'FIRE')
 
-    interface RawSiteEntry {
-      site: typeof sites.$inferSelect
-      customer: typeof customers.$inferSelect
-      diffDays: number
-      dueIso: string
-    }
-
-    const locationGroups = new Map<string, RawSiteEntry[]>()
+    const clusterMap = new Map<string, ClusterSiteItem[]>()
 
     for (const { site, customer } of nonFireSites) {
       const dueIso = site.nextDueDate || '2025-01-01'
@@ -64,74 +58,36 @@ export const getMaintenanceClustersFn = createServerFn({ method: 'GET' }).handle
 
       const hasActiveWo = activeWoBySiteId.has(site.id)
 
-      if (!hasActiveWo && (diffDays > 0 || diffDays >= -45)) {
-        const locKey = `${customer.id}_${site.siteAddress.toLowerCase().trim()}`
-        const existingGroup = locationGroups.get(locKey) || []
-        existingGroup.push({ site, customer, diffDays, dueIso })
-        locationGroups.set(locKey, existingGroup)
+      if (!hasActiveWo && (diffDays > 0 || diffDays >= -90)) {
+        const rawCity = (site.siteCity || 'Overig').trim()
+        const normalizedCity = normalizeCity(rawCity) || 'Overig'
+
+        const totalEquipmentCount = equipmentCountBySiteId.get(site.id) || 1
+        const durationHours = 1.5
+
+        const clusterItem: ClusterSiteItem = {
+          id: site.id,
+          siteIds: [site.id],
+          sheetNumber: site.sheetNumber,
+          sheetNumbers: [site.sheetNumber],
+          name: site.name,
+          customerId: customer.id,
+          customerName: customer.name,
+          customerEmail: customer.email || null,
+          customerPhone: customer.phone || customer.mobile || null,
+          address: site.siteAddress,
+          city: normalizedCity,
+          disciplines: [site.primaryDiscipline],
+          equipmentCount: totalEquipmentCount,
+          durationHours,
+          nextDueDate: dueIso,
+          daysOverdue: Math.max(0, diffDays),
+        }
+
+        const list = clusterMap.get(normalizedCity) || []
+        list.push(clusterItem)
+        clusterMap.set(normalizedCity, list)
       }
-    }
-
-    const clusterMap = new Map<string, ClusterSiteItem[]>()
-
-    for (const entries of locationGroups.values()) {
-      if (entries.length === 0) continue
-
-      const first = entries[0]
-      const customer = first.customer
-      const city = (first.site.siteCity || 'Zwevegem').trim()
-      const normalizedCity = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase()
-
-      const siteIds = entries.map((e) => e.site.id)
-      const sheetNumbers = entries.map((e) => e.site.sheetNumber)
-      const disciplines = Array.from(new Set(entries.map((e) => e.site.primaryDiscipline)))
-
-      let totalEquipmentCount = 0
-      for (const id of siteIds) {
-        totalEquipmentCount += equipmentCountBySiteId.get(id) || 0
-      }
-
-      const baseTravelHours = 0.5
-      const inspectionHours = Math.max(
-        0.75,
-        Math.round(((entries.length * 0.5) + (totalEquipmentCount * 0.1)) * 2) / 2
-      )
-      const durationHours = Math.round((baseTravelHours + inspectionHours) * 10) / 10
-
-      const maxDaysOverdue = Math.max(...entries.map((e) => Math.max(0, e.diffDays)))
-      const earliestDueDate = entries.map((e) => e.dueIso).sort()[0]
-
-      let displayName = customer.name
-      if (
-        first.site.name &&
-        !first.site.name.toLowerCase().startsWith('inbraak') &&
-        !first.site.name.toLowerCase().startsWith('camera')
-      ) {
-        displayName = first.site.name
-      }
-
-      const clusterItem: ClusterSiteItem = {
-        id: siteIds[0],
-        siteIds,
-        sheetNumber: sheetNumbers.join(', '),
-        sheetNumbers,
-        name: displayName,
-        customerId: customer.id,
-        customerName: customer.name,
-        customerEmail: customer.email || null,
-        customerPhone: customer.phone || customer.mobile || null,
-        address: first.site.siteAddress,
-        city: normalizedCity,
-        disciplines,
-        equipmentCount: totalEquipmentCount,
-        durationHours,
-        nextDueDate: earliestDueDate,
-        daysOverdue: maxDaysOverdue,
-      }
-
-      const list = clusterMap.get(normalizedCity) || []
-      list.push(clusterItem)
-      clusterMap.set(normalizedCity, list)
     }
 
     const techAssignments: Record<string, { id: string; name: string }> = {

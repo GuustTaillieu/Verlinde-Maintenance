@@ -72,7 +72,38 @@ function DashboardPage() {
     )
 
     if (matchingCluster) {
-      setSelectedCluster(matchingCluster)
+      let clusterToUse = matchingCluster
+      const existsInCluster = matchingCluster.sites.some(
+        (s) => s.id === item.siteId || s.siteIds.includes(item.siteId)
+      )
+      if (!existsInCluster) {
+        clusterToUse = {
+          ...matchingCluster,
+          siteCount: matchingCluster.siteCount + 1,
+          sites: [
+            ...matchingCluster.sites,
+            {
+              id: item.siteId,
+              siteIds: [item.siteId],
+              sheetNumber: item.sheetNumber,
+              sheetNumbers: [item.sheetNumber],
+              name: item.siteName,
+              customerId: item.customerId,
+              customerName: item.customerName,
+              customerEmail: item.customerEmail || null,
+              customerPhone: item.customerPhone || null,
+              address: item.siteAddress,
+              city: targetCity,
+              disciplines: [item.primaryDiscipline],
+              equipmentCount: 1,
+              durationHours: 1.5,
+              nextDueDate: item.nextDueDate,
+              daysOverdue: item.daysOverdue,
+            },
+          ],
+        }
+      }
+      setSelectedCluster(clusterToUse)
       setSelectedBatchSiteIds([item.siteId])
       setIsPlanClusterOpen(true)
     } else {
@@ -126,7 +157,9 @@ function DashboardPage() {
   }
 
   const handleOpenPlanBatch = (cluster: MaintenanceCluster, selectedSiteIds: string[]) => {
-    setSelectedCluster(cluster)
+    const targetCity = cluster.city.trim().toLowerCase()
+    const authoritative = clusters.find((c) => c.city.trim().toLowerCase() === targetCity)
+    setSelectedCluster(authoritative || cluster)
     setSelectedBatchSiteIds(selectedSiteIds)
     setIsPlanClusterOpen(true)
   }
@@ -195,7 +228,13 @@ function DashboardPage() {
         cluster={selectedCluster}
         initialSelectedSiteIds={selectedBatchSiteIds}
         open={isPlanClusterOpen}
-        onOpenChange={setIsPlanClusterOpen}
+        onOpenChange={(nextOpen) => {
+          setIsPlanClusterOpen(nextOpen)
+          if (!nextOpen) {
+            setSelectedBatchSiteIds([])
+            setSelectedCluster(null)
+          }
+        }}
         onConfirm={async (payload) => {
           await planClusterMut.mutateAsync(payload)
         }}

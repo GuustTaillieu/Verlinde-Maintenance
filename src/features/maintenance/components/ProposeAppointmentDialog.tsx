@@ -14,7 +14,7 @@ import { AppointmentMailPreview } from './propose/AppointmentMailPreview'
 import { TimePicker } from './propose/TimePicker'
 import { DISCIPLINE, type FireInspectionItem, type ProposeFireAppointmentInput } from '../types'
 import { getRecommendedFutureDate } from '../utils/dateUtils'
-import { generateFireInspectionEmail } from '../utils/emailTemplateUtils'
+import { generateFireInspectionEmailHtml, type EmailTemplateType } from '../utils/emailTemplateUtils'
 import { BRANDTEC_PARTNER, VERLINDE_COMPANY } from '../utils/constants'
 
 export interface ProposeAppointmentContextValue {
@@ -32,9 +32,9 @@ export interface ProposeAppointmentContextValue {
   setSubject: (val: string) => void
   body: string
   setBody: (val: string) => void
-  activeTemplate: 'concise' | 'standard' | 'urgent'
-  setActiveTemplate: (t: 'concise' | 'standard' | 'urgent') => void
-  applyTemplate: (t: 'concise' | 'standard' | 'urgent') => void
+  activeTemplate: EmailTemplateType
+  setActiveTemplate: (t: EmailTemplateType) => void
+  applyTemplate: (t: EmailTemplateType) => void
   isSubmitting: boolean
   onSend: () => Promise<void>
   onClose: () => void
@@ -259,7 +259,7 @@ export function ProposeAppointmentDialog({
   const [ccEmail, setCcEmail] = React.useState('')
   const [subject, setSubject] = React.useState('')
   const [body, setBody] = React.useState('')
-  const [activeTemplate, setActiveTemplate] = React.useState<'concise' | 'standard' | 'urgent'>('concise')
+  const [activeTemplate, setActiveTemplate] = React.useState<EmailTemplateType>('concise')
   const [isBodyDirty, setIsBodyDirty] = React.useState(false)
   const [isSubmitting, setIsSubmitting] = React.useState(false)
 
@@ -276,7 +276,7 @@ export function ProposeAppointmentDialog({
       setActiveTemplate('concise')
       setIsBodyDirty(false)
 
-      const initialBody = generateFireInspectionEmail(
+      const initialBody = generateFireInspectionEmailHtml(
         item.customerName,
         item.siteName,
         item.siteAddress,
@@ -293,7 +293,7 @@ export function ProposeAppointmentDialog({
   // Sync date/time changes into body if user has not typed custom modifications
   React.useEffect(() => {
     if (item && !isBodyDirty) {
-      const newBody = generateFireInspectionEmail(
+      const newBody = generateFireInspectionEmailHtml(
         item.customerName,
         item.siteName,
         item.siteAddress,
@@ -309,10 +309,10 @@ export function ProposeAppointmentDialog({
 
   if (!item) return null
 
-  const handleApplyTemplate = (template: 'concise' | 'standard' | 'urgent') => {
+  const handleApplyTemplate = (template: EmailTemplateType) => {
     setActiveTemplate(template)
     setIsBodyDirty(false)
-    const newBody = generateFireInspectionEmail(
+    const newBody = generateFireInspectionEmailHtml(
       item.customerName,
       item.siteName,
       item.siteAddress,

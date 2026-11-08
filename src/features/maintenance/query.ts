@@ -4,8 +4,14 @@ import { getFireInspectionsFn } from './server/getFireInspections'
 import { getMaintenanceClustersFn } from './server/getMaintenanceClusters'
 import { getTechniciansFn, type TechnicianUser } from './server/getTechnicians'
 import { getTechnicianScheduleFn, type ScheduledSlot } from './server/getTechnicianSchedule'
+import {
+  findRecommendedSlotFn,
+  type RecommendedScheduleSlot,
+} from './server/findRecommendedSlot'
 import type { MaintenanceView } from './types'
 import { MAINTENANCE_VIEW } from './types'
+
+export type { RecommendedScheduleSlot }
 
 export const maintenanceKeys = {
   all: ['maintenance'] as const,
@@ -19,6 +25,8 @@ export const maintenanceKeys = {
   technicians: () => ['technicians', 'list'] as const,
   technicianSchedule: (techId: string, weekStartDate: string, weekEndDate: string) =>
     ['technicians', 'schedule', techId, weekStartDate, weekEndDate] as const,
+  recommendedSlot: (city: string, durationHours: number = 1.5, preferredTechId?: string) =>
+    [...maintenanceKeys.all, 'recommended-slot', city, durationHours, preferredTechId || ''] as const,
 }
 
 export const maintenanceQueries = {
@@ -37,7 +45,7 @@ export const maintenanceQueries = {
   fireInspectionsInfinite: (
     view: MaintenanceView = MAINTENANCE_VIEW.active,
     search: string = '',
-    limit: number = 50
+    limit: number = 200
   ) =>
     infiniteQueryOptions({
       queryKey: maintenanceKeys.fireInspectionsInfinite(view, search),
@@ -71,6 +79,23 @@ export const maintenanceQueries = {
           data: { techId, weekStartDate, weekEndDate },
         })
         return (res as unknown as ScheduledSlot[]) || []
+      },
+      staleTime: 1000 * 30,
+      enabled: options?.enabled ?? true,
+    }),
+  recommendedSlot: (
+    city: string,
+    durationHours: number = 1.5,
+    preferredTechId?: string,
+    options?: { enabled?: boolean }
+  ) =>
+    queryOptions({
+      queryKey: maintenanceKeys.recommendedSlot(city, durationHours, preferredTechId),
+      queryFn: async (): Promise<RecommendedScheduleSlot> => {
+        const res = await findRecommendedSlotFn({
+          data: { city, durationHours, preferredTechId },
+        })
+        return res as RecommendedScheduleSlot
       },
       staleTime: 1000 * 30,
       enabled: options?.enabled ?? true,

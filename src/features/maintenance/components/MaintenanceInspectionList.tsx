@@ -60,7 +60,7 @@ export function MaintenanceInspectionList({
     hasNextPage,
     fetchNextPage,
   } = useInfiniteQuery({
-    ...maintenanceQueries.fireInspectionsInfinite(view, search, 50),
+    ...maintenanceQueries.fireInspectionsInfinite(view, search, 200),
   })
 
   // Selected site IDs grouped by municipality

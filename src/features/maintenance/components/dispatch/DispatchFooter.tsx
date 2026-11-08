@@ -19,6 +19,7 @@ export function DispatchFooter() {
   const customerCount = Object.keys(emailDrafts).length
   const techName = planner.activeTech.name
   const isOverCapacity = planner.isOverCapacity
+  const isPastWeek = planner.isPastWeek
 
   if (step === 'EMAILS') {
     return (
@@ -64,7 +65,11 @@ export function DispatchFooter() {
   return (
     <DialogFooter className="px-6 py-3 border-t border-border bg-muted/20 flex items-center justify-between shrink-0">
       <div className="text-xs text-muted-foreground hidden md:block">
-        {selectedCount > 0 ? (
+        {isPastWeek ? (
+          <span className="text-amber-600 dark:text-amber-400 font-medium">
+            Week in het verleden geselecteerd — blader naar een toekomstige week om afspraken in te plannen.
+          </span>
+        ) : selectedCount > 0 ? (
           <span>
             <strong>{selectedCount} werven</strong> ({customerCount}{' '}
             {customerCount === 1 ? 'klant' : 'klanten'}) gereserveerd voor{' '}
@@ -90,7 +95,8 @@ export function DispatchFooter() {
           type="button"
           size="sm"
           onClick={onProceedToEmails}
-          disabled={isSubmitting || selectedCount === 0 || isOverCapacity}
+          disabled={isSubmitting || selectedCount === 0 || isOverCapacity || isPastWeek}
+          title={isPastWeek ? 'Er kunnen geen afspraken in het verleden worden ingepland' : undefined}
           className="text-xs h-8 gap-1.5"
         >
           Volgende: E-mails Nakijken ({customerCount})

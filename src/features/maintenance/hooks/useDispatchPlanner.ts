@@ -4,12 +4,24 @@ import { maintenanceQueries } from '../query'
 import type { TechnicianUser } from '../server/getTechnicians'
 import type { ScheduledSlot } from '../server/getTechnicianSchedule'
 import type { MaintenanceCluster } from '../types'
+import {
+  formatDateIso,
+  getEarliestSchedulableDate,
+  getMonday,
+  getTodayIso,
+  minutesToTimeString,
+  timeStringToMinutes,
+  findAvailableSlotOnDay,
+  type DayInterval,
+} from '../utils/dateUtils'
+import { areCitiesInSameRegion } from '../utils/regionUtils'
 
 export interface DayColumn {
   name: string
   dayKey: 'mon' | 'tue' | 'wed' | 'thu' | 'fri'
   date: string
   dayLabel: string
+  isPastOrToday: boolean
 }
 
 export interface ProposedSlot {
@@ -25,36 +37,22 @@ export interface ProposedSlot {
   durationHours: number
 }
 
-interface TimeWindow {
-  start: number
-  end: number
-}
-
-function getMonday(date: Date): Date {
-  const d = new Date(date)
-  const day = d.getDay()
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1)
-  d.setDate(diff)
-  d.setHours(0, 0, 0, 0)
-  return d
-}
-
-function formatDateIso(d: Date): string {
-  const yyyy = d.getFullYear()
-  const mm = String(d.getMonth() + 1).padStart(2, '0')
-  const dd = String(d.getDate()).padStart(2, '0')
-  return `${yyyy}-${mm}-${dd}`
-}
-
-function timeStringToMinutes(timeStr: string): number {
-  const [h, m] = timeStr.split(':').map(Number)
-  return h * 60 + m
-}
-
-function minutesToTimeString(minutes: number): string {
-  const h = Math.floor(minutes / 60)
-  const m = minutes % 60
-  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`
+function getPreferredTechIdForCity(city?: string): string {
+  if (!city) return 'usr_tom'
+  const c = city.toLowerCase().trim()
+  if (
+    c.includes('kortrijk') ||
+    c.includes('wevelgem') ||
+    c.includes('heule') ||
+    c.includes('kuurne') ||
+    c.includes('harelbeke')
+  ) {
+    return 'usr_tom'
+  }
+  if (c.includes('waregem') || c.includes('deerlijk')) {
+    return 'usr_jens'
+  }
+  return 'usr_wout'
 }
 
 export function useDispatchPlanner(
@@ -62,11 +60,55 @@ export function useDispatchPlanner(
   open: boolean,
   initialSelectedSiteIds?: string[]
 ) {
-  const [selectedTechId, setSelectedTechId] = useState('usr_tom')
-  const [currentMonday, setCurrentMonday] = useState<Date>(() => new Date(2025, 2, 17))
+  const [selectedTechId, setSelectedTechId] = useState<string>(() =>
+    getPreferredTechIdForCity(cluster?.city)
+  )
+
+  const [currentMonday, setCurrentMonday] = useState<Date>(() =>
+    getMonday(getEarliestSchedulableDate())
+  )
+
   const [selectedSiteIds, setSelectedSiteIds] = useState<string[]>([])
   const [isCalendarPickerOpen, setIsCalendarPickerOpen] = useState(false)
-  const [pickerMonth, setPickerMonth] = useState<Date>(() => new Date(2025, 2, 1))
+  const [pickerMonth, setPickerMonth] = useState<Date>(() => {
+    const earliest = getEarliestSchedulableDate()
+    return new Date(earliest.getFullYear(), earliest.getMonth(), 1)
+  })
+
+  // Synchronize site selection and canonicalize IDs when dialog opens or initialSelectedSiteIds changes
+  useEffect(() => {
+    if (open && cluster) {
+      if (initialSelectedSiteIds && initialSelectedSiteIds.length > 0) {
+        // Map any requested site ID to the canonical cluster item ID
+        const matched = new Set<string>()
+        for (const reqId of initialSelectedSiteIds) {
+          const found = cluster.sites.find(
+            (s) => s.id === reqId || s.siteIds.includes(reqId)
+          )
+          if (found) {
+            matched.add(found.id)
+          } else {
+            matched.add(reqId)
+          }
+        }
+        setSelectedSiteIds(Array.from(matched))
+      } else {
+        setSelectedSiteIds(cluster.sites.map((s) => s.id))
+      }
+    }
+  }, [open, cluster, initialSelectedSiteIds])
+
+  // Total required hours of selected jobs
+  const totalSelectedHours = useMemo(() => {
+    if (!cluster) return 1.5
+    const selected = cluster.sites.filter(
+      (s) => selectedSiteIds.includes(s.id) || s.siteIds.some((id) => selectedSiteIds.includes(id))
+    )
+    if (selected.length === 0) return 1.5
+    return (
+      Math.round(selected.reduce((sum, s) => sum + s.durationHours, 0) * 10) / 10
+    )
+  }, [cluster, selectedSiteIds])
 
   // Query options for technicians list
   const techniciansQuery = useQuery({
@@ -75,29 +117,26 @@ export function useDispatchPlanner(
   })
   const technicians: TechnicianUser[] = techniciansQuery.data ?? []
 
+  // Query smart recommended slot considering technician schedules and urgency
+  const recommendedSlotQuery = useQuery({
+    ...maintenanceQueries.recommendedSlot(
+      cluster?.city || 'Kortrijk',
+      totalSelectedHours,
+      getPreferredTechIdForCity(cluster?.city),
+      { enabled: open && Boolean(cluster) }
+    ),
+  })
+
+  // When dialog opens, adopt the recommended week and technician automatically
   useEffect(() => {
-    if (cluster) {
-      if (initialSelectedSiteIds && initialSelectedSiteIds.length > 0) {
-        setSelectedSiteIds(initialSelectedSiteIds)
-      } else {
-        setSelectedSiteIds(cluster.sites.map((s) => s.id))
-      }
-      const city = cluster.city.toLowerCase()
-      if (
-        city.includes('kortrijk') ||
-        city.includes('wevelgem') ||
-        city.includes('heule') ||
-        city.includes('kuurne') ||
-        city.includes('harelbeke')
-      ) {
-        setSelectedTechId('usr_tom')
-      } else if (city.includes('waregem') || city.includes('deerlijk')) {
-        setSelectedTechId('usr_jens')
-      } else {
-        setSelectedTechId('usr_wout')
-      }
+    if (open && recommendedSlotQuery.data) {
+      const rec = recommendedSlotQuery.data
+      setSelectedTechId(rec.techId)
+      const recMonday = getMonday(new Date(`${rec.weekMonday}T00:00:00`))
+      setCurrentMonday(recMonday)
+      setPickerMonth(new Date(recMonday.getFullYear(), recMonday.getMonth(), 1))
     }
-  }, [cluster])
+  }, [open, cluster?.city, recommendedSlotQuery.data?.weekMonday, recommendedSlotQuery.data?.techId])
 
   const recommendedTech = useMemo(() => {
     return technicians.find((t) => t.id === selectedTechId) || technicians[0] || null
@@ -106,6 +145,8 @@ export function useDispatchPlanner(
   const otherTechs = useMemo(() => {
     return technicians.filter((t) => t.id !== recommendedTech?.id)
   }, [technicians, recommendedTech?.id])
+
+  const todayIso = useMemo(() => getTodayIso(), [])
 
   const weekDays: DayColumn[] = useMemo(() => {
     const dayNames = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag']
@@ -116,22 +157,29 @@ export function useDispatchPlanner(
       'thu',
       'fri',
     ]
+
     return dayNames.map((name, i) => {
       const d = new Date(currentMonday)
       d.setDate(d.getDate() + i)
+      const dateStr = formatDateIso(d)
       return {
         name,
         dayKey: dayKeys[i],
-        date: formatDateIso(d),
+        date: dateStr,
         dayLabel: `${d.getDate()} ${d.toLocaleString('nl-BE', { month: 'short' })}`,
+        isPastOrToday: dateStr <= todayIso,
       }
     })
-  }, [currentMonday])
+  }, [currentMonday, todayIso])
 
-  const weekStartDate = weekDays[0]?.date || '2025-03-17'
-  const weekEndDate = weekDays[4]?.date || '2025-03-21'
+  const isPastWeek = useMemo(() => {
+    return weekDays.every((day) => day.isPastOrToday)
+  }, [weekDays])
 
-  // Query options for technician schedule
+  const weekStartDate = weekDays[0]?.date || formatDateIso(currentMonday)
+  const weekEndDate = weekDays[4]?.date || formatDateIso(currentMonday)
+
+  // Query technician schedule for current displayed week
   const scheduleQuery = useQuery(
     maintenanceQueries.technicianSchedule(selectedTechId, weekStartDate, weekEndDate, {
       enabled: open,
@@ -156,142 +204,137 @@ export function useDispatchPlanner(
     )
   }, [technicians, selectedTechId])
 
-  const { proposedSlots, dayLoads, isOverCapacity } = useMemo(() => {
+  // Calculate placement of proposed slots within the displayed week
+  const { proposedSlots, dayLoads, dayRegionConflicts, isOverCapacity } = useMemo(() => {
     if (!cluster) {
-      return { proposedSlots: [], dayLoads: {}, isOverCapacity: false }
+      return { proposedSlots: [], dayLoads: {}, dayRegionConflicts: {}, isOverCapacity: false }
     }
 
-    const availableWindowsByDay: Record<string, TimeWindow[]> = {}
     const loads: Record<string, number> = {}
+    const dayBookedMap: Record<string, Array<{ start: number; end: number }>> = {}
+    const regionConflicts: Record<string, string> = {}
 
     weekDays.forEach((day) => {
-      const scheduledHours = activeTech.weeklySchedule[day.dayKey] ?? 8
-      const windows: TimeWindow[] = []
-
-      if (scheduledHours === 0) {
-        availableWindowsByDay[day.date] = []
-        loads[day.date] = 0
-        return
-      }
-
-      if (scheduledHours <= 4) {
-        windows.push({ start: 8 * 60 + 30, end: 12 * 60 + 30 })
-      } else {
-        windows.push({ start: 8 * 60 + 30, end: 12 * 60 })
-        windows.push({ start: 13 * 60, end: 17 * 60 })
-      }
-
+      const scheduledDailyHours = activeTech.weeklySchedule[day.dayKey] ?? 8
       const dayExisting = existingSlots.filter((s) => s.date === day.date)
-      let currentWindows = windows
-
-      dayExisting.forEach((ex) => {
-        const exStart = timeStringToMinutes(ex.startTime)
-        const exEnd = timeStringToMinutes(ex.endTime)
-
-        const nextWindows: TimeWindow[] = []
-        currentWindows.forEach((win) => {
-          if (exEnd <= win.start || exStart >= win.end) {
-            nextWindows.push(win)
-          } else {
-            if (exStart > win.start) {
-              nextWindows.push({ start: win.start, end: exStart })
-            }
-            if (exEnd < win.end) {
-              nextWindows.push({ start: exEnd, end: win.end })
-            }
-          }
-        })
-        currentWindows = nextWindows
-      })
-
-      availableWindowsByDay[day.date] = currentWindows
       const existingTotal = dayExisting.reduce((acc, s) => acc + s.durationHours, 0)
       loads[day.date] = existingTotal
+
+      // Booked intervals on this day (ensuring valid forward intervals)
+      const booked: DayInterval[] = dayExisting.map((ex) => {
+        const sMin = timeStringToMinutes(ex.startTime)
+        let eMin = timeStringToMinutes(ex.endTime)
+        if (eMin <= sMin) {
+          eMin = Math.min(17 * 60, sMin + 120)
+        }
+        return { start: sMin, end: eMin }
+      })
+
+      // Geographic co-location constraint:
+      // If a day already has work scheduled in a different/conflicting region,
+      // lock this day so technician is not dispatched across multiple regions on the same day.
+      const conflictingSlot = dayExisting.find(
+        (s) => !areCitiesInSameRegion(s.siteCity, cluster.city)
+      )
+      if (conflictingSlot) {
+        regionConflicts[day.date] = conflictingSlot.siteCity
+        // Block whole working day for cluster.city
+        booked.push({ start: 8 * 60 + 30, end: 17 * 60 })
+      }
+
+      // If day is part-time (<= 4h scheduled), block afternoon
+      if (scheduledDailyHours <= 4) {
+        booked.push({ start: 12 * 60 + 30, end: 17 * 60 })
+      }
+
+      dayBookedMap[day.date] = booked
     })
 
+    // If the entire week is in the past, no slots can or should be dispatched.
+    // Allow users to freely inspect past schedules without triggering false capacity errors.
+    if (isPastWeek) {
+      return {
+        proposedSlots: [],
+        dayLoads: loads,
+        dayRegionConflicts: regionConflicts,
+        isOverCapacity: false,
+      }
+    }
+
     const proposed: ProposedSlot[] = []
-    const selectedSites = cluster.sites.filter((s) => selectedSiteIds.includes(s.id))
+    const selectedSites = cluster.sites.filter(
+      (s) => selectedSiteIds.includes(s.id) || s.siteIds.some((id) => selectedSiteIds.includes(id))
+    )
     let hasOverflow = false
 
     for (const site of selectedSites) {
       const durationMinutes = Math.round(site.durationHours * 60)
       let placed = false
 
+      // Try placing on future available days
       for (const day of weekDays) {
-        const windows = availableWindowsByDay[day.date]
-        if (!windows || windows.length === 0) continue
+        if (day.isPastOrToday) continue
+        const scheduledDailyHours = activeTech.weeklySchedule[day.dayKey] ?? 8
+        if (scheduledDailyHours === 0) continue
 
-        for (let i = 0; i < windows.length; i++) {
-          const win = windows[i]
-          if (win.end - win.start >= durationMinutes) {
-            const startMinutes = win.start
-            const endMinutes = win.start + durationMinutes
+        const currentBooked = dayBookedMap[day.date] || []
+        const slot = findAvailableSlotOnDay(currentBooked, durationMinutes)
 
-            proposed.push({
-              siteId: site.id,
-              siteIds: site.siteIds,
-              siteName: site.name,
-              customerName: site.customerName,
-              disciplines: site.disciplines,
-              city: cluster.city,
-              date: day.date,
-              startTime: minutesToTimeString(startMinutes),
-              endTime: minutesToTimeString(endMinutes),
-              durationHours: site.durationHours,
-            })
+        if (slot) {
+          proposed.push({
+            siteId: site.id,
+            siteIds: site.siteIds,
+            siteName: site.name,
+            customerName: site.customerName,
+            disciplines: site.disciplines,
+            city: cluster.city,
+            date: day.date,
+            startTime: minutesToTimeString(slot.start),
+            endTime: minutesToTimeString(slot.end),
+            durationHours: site.durationHours,
+          })
 
-            loads[day.date] = (loads[day.date] || 0) + site.durationHours
-
-            if (endMinutes < win.end) {
-              windows[i] = { start: endMinutes, end: win.end }
-            } else {
-              windows.splice(i, 1)
-            }
-
-            placed = true
-            break
-          }
+          loads[day.date] = (loads[day.date] || 0) + site.durationHours
+          currentBooked.push({ start: slot.start, end: slot.end })
+          dayBookedMap[day.date] = currentBooked
+          placed = true
+          break
         }
-
-        if (placed) break
       }
 
       if (!placed) {
         hasOverflow = true
-        const fallbackDay = weekDays[weekDays.length - 1]
-        proposed.push({
-          siteId: site.id,
-          siteIds: site.siteIds,
-          siteName: site.name,
-          customerName: site.customerName,
-          disciplines: site.disciplines,
-          city: cluster.city,
-          date: fallbackDay.date,
-          startTime: '15:00',
-          endTime: minutesToTimeString(15 * 60 + durationMinutes),
-          durationHours: site.durationHours,
-        })
-        loads[fallbackDay.date] = (loads[fallbackDay.date] || 0) + site.durationHours
       }
     }
 
     const overCapacity = hasOverflow || Object.values(loads).some((load) => load > 8.0)
 
-    return { proposedSlots: proposed, dayLoads: loads, isOverCapacity: overCapacity }
-  }, [cluster, selectedSiteIds, existingSlots, weekDays, activeTech])
+    return {
+      proposedSlots: proposed,
+      dayLoads: loads,
+      dayRegionConflicts: regionConflicts,
+      isOverCapacity: overCapacity,
+    }
+  }, [cluster, selectedSiteIds, existingSlots, weekDays, activeTech, isPastWeek])
 
   const handleToggleSite = (id: string) => {
-    setSelectedSiteIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
-    )
+    setSelectedSiteIds((prev) => {
+      // Find canonical site ID if a sub-site ID was passed
+      const canonicalSite = cluster?.sites.find((s) => s.id === id || s.siteIds.includes(id))
+      const targetId = canonicalSite?.id || id
+      return prev.includes(targetId) ? prev.filter((i) => i !== targetId) : [...prev, targetId]
+    })
   }
 
   const handleSelectAll = () => {
     if (!cluster) return
-    if (selectedSiteIds.length === cluster.sites.length) {
+    const allCanonicalIds = cluster.sites.map((s) => s.id)
+    const isAllSelected = allCanonicalIds.every((id) => selectedSiteIds.includes(id))
+
+    if (isAllSelected) {
       setSelectedSiteIds([])
     } else {
-      setSelectedSiteIds(cluster.sites.map((s) => s.id))
+      setSelectedSiteIds(allCanonicalIds)
     }
   }
 
@@ -339,17 +382,6 @@ export function useDispatchPlanner(
     return days
   }, [pickerMonth, currentMonday])
 
-  const totalSelectedHours = useMemo(() => {
-    if (!cluster) return 0
-    return (
-      Math.round(
-        cluster.sites
-          .filter((s) => selectedSiteIds.includes(s.id))
-          .reduce((sum, s) => sum + s.durationHours, 0) * 10
-      ) / 10
-    )
-  }, [cluster, selectedSiteIds])
-
   return {
     technicians,
     selectedTechId,
@@ -363,7 +395,9 @@ export function useDispatchPlanner(
     isLoadingSlots,
     proposedSlots,
     dayLoads,
+    dayRegionConflicts,
     isOverCapacity,
+    isPastWeek,
     selectedSiteIds,
     handleToggleSite,
     handleSelectAll,

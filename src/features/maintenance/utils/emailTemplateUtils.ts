@@ -2,6 +2,8 @@ import * as React from 'react'
 import { formatDateDutch } from './dateUtils'
 import { VERLINDE_COMPANY, BRANDTEC_PARTNER } from './constants'
 
+export type EmailTemplateType = 'concise' | 'standard' | 'urgent' | 'blank'
+
 export interface EmailSiteItem {
   siteName: string
   siteAddress: string
@@ -61,7 +63,6 @@ export function handleAutoBulletOnEnter(
 
   // If user pressed enter on an empty bullet line (just "• "):
   if (currentLine.trim() === bulletChar) {
-    // Remove the empty bullet from current line and insert a clean blank line
     const beforeLine = currentValue.substring(0, lineStart)
     const afterCursor = currentValue.substring(selectionStart)
     const nextVal = `${beforeLine}\n${afterCursor}`
@@ -86,16 +87,79 @@ export function handleAutoBulletOnEnter(
 }
 
 /**
- * Generates customer email draft for technician batch maintenance.
- * Free of internal technical discipline codes like (ACCESS) or (INTRUSION).
+ * Generates customer email draft as visual HTML (no asterisks).
+ */
+export function generateCustomerBatchEmailHtml(
+  customerName: string,
+  city: string,
+  techName: string,
+  sites: EmailSiteItem[],
+  template: EmailTemplateType = 'concise'
+): string {
+  if (template === 'blank') {
+    return '<p><br></p>'
+  }
+
+  const formattedSitesHtml = sites
+    .map((s) => {
+      const siteDisplay = formatSiteAddressDisplay(s.siteName, s.siteAddress)
+      const dateDutch = formatDateDutch(s.plannedDate)
+      return `<li><strong>${siteDisplay}</strong>: ${dateDutch} van <strong>${s.startTime}</strong> tot <strong>${s.endTime}</strong></li>`
+    })
+    .join('')
+
+  if (template === 'urgent') {
+    return `<p>Beste <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>Het periodiek onderhoud aan uw installaties in <strong>${city}</strong> is dringend aan de beurt. We hebben reeds een prioritair tijdslot voor u gereserveerd in de planning:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  ${formattedSitesHtml}
+</ul>
+<p>Gelieve deze afspraak zo snel mogelijk te bevestigen zodat we de agenda van technicus <strong>${techName}</strong> definitief kunnen vastleggen.</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name}</p>`
+  }
+
+  if (template === 'standard') {
+    return `<p>Beste <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>In het kader van het periodieke onderhoud aan uw installaties in <strong>${city}</strong> stelt Verlinde Beveiliging voor om de volgende werven in te plannen:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  ${formattedSitesHtml}
+</ul>
+<p>Onze technicus <strong>${techName}</strong> zal ter plaatse de nodige controles en het nazicht uitvoeren conform onze kwaliteitsnormen.</p>
+<p><br></p>
+<p>Past dit voorgestelde tijdstip voor u? Gelieve deze e-mail te beantwoorden ter bevestiging van de afspraak.</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}</p>`
+  }
+
+  // Concise (default)
+  return `<p>Beste <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>In het kader van het periodiek onderhoud in <strong>${city}</strong> stellen we voor om langs te komen op:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  ${formattedSitesHtml}
+</ul>
+<p>Onze technicus <strong>${techName}</strong> zal ter plaatse het nodige nazicht en onderhoud uitvoeren. Past dit tijdstip voor u?</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong> — ${VERLINDE_COMPANY.name}</p>`
+}
+
+/**
+ * Generates customer email draft for technician batch maintenance in plain text.
  */
 export function generateCustomerBatchEmail(
   customerName: string,
   city: string,
   techName: string,
   sites: EmailSiteItem[],
-  template: 'concise' | 'standard' | 'urgent' = 'concise'
+  template: EmailTemplateType = 'concise'
 ): string {
+  if (template === 'blank') {
+    return ''
+  }
+
   const formattedSites = sites
     .map((s) => {
       const siteDisplay = formatSiteAddressDisplay(s.siteName, s.siteAddress)
@@ -148,7 +212,72 @@ ${VERLINDE_COMPANY.managerName} — ${VERLINDE_COMPANY.name}`
 }
 
 /**
- * Generates Brandtec Fire compliance inspection email draft.
+ * Generates Brandtec Fire compliance inspection email draft as visual HTML (no asterisks).
+ */
+export function generateFireInspectionEmailHtml(
+  customerName: string,
+  siteName: string,
+  siteAddress: string,
+  sheetNumber: string,
+  proposedDate: string,
+  startTime: string,
+  endTime: string,
+  template: EmailTemplateType = 'concise'
+): string {
+  if (template === 'blank') {
+    return '<p><br></p>'
+  }
+
+  const dateDutch = formatDateDutch(proposedDate)
+  const siteDisplay = formatSiteAddressDisplay(siteName, siteAddress)
+
+  if (template === 'urgent') {
+    return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>De wettelijke vervaldatum voor het branddetectienazicht van <strong>${siteDisplay}</strong> (fiche #${sheetNumber}) is overschreden.</p>
+<p><br></p>
+<p>We stellen prioritair voor om de keuring in te plannen op:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  <li>Datum: <strong>${dateDutch}</strong> van <strong>${startTime}</strong> tot <strong>${endTime}</strong></li>
+  <li>Locatie: <strong>${siteDisplay}</strong></li>
+</ul>
+<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> voert de keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip met spoed te bevestigen.</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name}</p>`
+  }
+
+  if (template === 'standard') {
+    return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>In het kader van het wettelijk verplichte jaarlijkse onderhoud van de branddetectie-installatie stelt Verlinde Beveiliging voor om de keuring voor <strong>${siteDisplay}</strong> in te plannen op:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  <li>Datum: <strong>${dateDutch}</strong></li>
+  <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
+  <li>Locatie: <strong>${siteDisplay}</strong> (fiche #${sheetNumber})</li>
+</ul>
+<p>Onderaannemer <strong>${BRANDTEC_PARTNER.name}</strong> zal deze keuring ter plaatse uitvoeren conform de geldende <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>-normen. Na afronding wordt het officiële keuringsattest direct opgeladen in het beheerportaal.</p>
+<p><br></p>
+<p>Gelieve op dit bericht te antwoorden ter bevestiging van het voorgestelde tijdstip.</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong><br>${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}</p>`
+  }
+
+  // Concise (default)
+  return `<p>Beste planningsteam en <strong>${customerName}</strong>,</p>
+<p><br></p>
+<p>Voor het wettelijk jaarlijks nazicht branddetectie #${sheetNumber} stellen we voor:</p>
+<ul class="list-disc pl-5 my-2 space-y-1">
+  <li>Werf: <strong>${siteDisplay}</strong></li>
+  <li>Datum: <strong>${dateDutch}</strong></li>
+  <li>Tijdvenster: <strong>${startTime} – ${endTime}</strong></li>
+</ul>
+<p><strong>${BRANDTEC_PARTNER.name}</strong> voert deze keuring uit conform <strong>${BRANDTEC_PARTNER.certificationStandard}</strong>. Gelieve dit tijdstip te bevestigen.</p>
+<p><br></p>
+<p>Met vriendelijke groeten,<br><strong>${VERLINDE_COMPANY.managerName}</strong> — ${VERLINDE_COMPANY.name}</p>`
+}
+
+/**
+ * Generates Brandtec Fire compliance inspection email draft in plain text.
  */
 export function generateFireInspectionEmail(
   customerName: string,
@@ -158,8 +287,12 @@ export function generateFireInspectionEmail(
   proposedDate: string,
   startTime: string,
   endTime: string,
-  template: 'concise' | 'standard' | 'urgent' = 'standard'
+  template: EmailTemplateType = 'concise'
 ): string {
+  if (template === 'blank') {
+    return ''
+  }
+
   const dateDutch = formatDateDutch(proposedDate)
   const siteDisplay = formatSiteAddressDisplay(siteName, siteAddress)
 
@@ -208,4 +341,3 @@ Met vriendelijke groeten,
 ${VERLINDE_COMPANY.managerName}
 ${VERLINDE_COMPANY.name} • ${VERLINDE_COMPANY.city}`
 }
-
