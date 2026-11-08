@@ -104,6 +104,88 @@ export const clientDetailSchema = z.object({
 })
 export type ClientDetail = z.infer<typeof clientDetailSchema>
 
+export interface ClientLocationGroup {
+  id: string
+  name: string
+  address: string
+  city: string
+  zip?: string | null
+  healthStatus: MaintenanceHealthStatus
+  fiches: ClientSiteDetail[]
+}
+
+/**
+ * Groups raw fiches (sites) by physical premises / location.
+ * Allows displaying real-world physical locations (e.g. "Woning Ann", "Hoofdzetel Zwevegem")
+ * with their underlying installed disciplines (e.g. Camerabewaking, Toegangscontrole).
+ */
+export function groupSitesByLocation(sites: ClientSiteDetail[]): ClientLocationGroup[] {
+  const groupsMap = new Map<string, ClientLocationGroup>()
+
+  for (const s of sites) {
+    // Clean discipline prefixes to find the physical building description
+    const stripped = s.name
+      .replace(/^(Branddetectie|Inbraakalarm|Inbraakbeveiliging|Camerabewaking|Toegangscontrole)\s*(pand|woning|Fam\.|)/i, '')
+      .trim()
+
+    // Determine normalized address or location key
+    const hasRealAddress = s.siteAddress && s.siteAddress.trim() !== '' && s.siteAddress.toLowerCase() !== 'adres onbekend'
+    const locationKey = hasRealAddress
+      ? `${s.siteAddress.trim().toLowerCase()}__${(s.siteCity || '').trim().toLowerCase()}`
+      : `${(stripped || s.name).trim().toLowerCase()}__${(s.siteCity || '').trim().toLowerCase()}`
+
+    // Clean location display title
+    let displayTitle = stripped
+    if (!displayTitle || displayTitle.length < 2) {
+      displayTitle = hasRealAddress ? s.siteAddress.split(',')[0].trim() : s.name
+    }
+    // Capitalize first letter
+    displayTitle = displayTitle.charAt(0).toUpperCase() + displayTitle.slice(1)
+
+    if (!groupsMap.has(locationKey)) {
+      groupsMap.set(locationKey, {
+        id: locationKey,
+        name: displayTitle,
+        address: s.siteAddress,
+        city: s.siteCity,
+        zip: s.siteZip,
+        healthStatus: s.healthStatus,
+        fiches: [s],
+      })
+    } else {
+      const group = groupsMap.get(locationKey)!
+      group.fiches.push(s)
+      // Escalate health status if needed
+      if (s.healthStatus === 'OVERDUE') {
+        group.healthStatus = 'OVERDUE'
+      } else if (s.healthStatus === 'DUE_SOON' && group.healthStatus !== 'OVERDUE') {
+        group.healthStatus = 'DUE_SOON'
+      }
+    }
+  }
+
+  return Array.from(groupsMap.values())
+}
+
+export const createCustomerInputSchema = z.object({
+  name: z.string().min(2, 'Klantnaam moet minimaal 2 tekens bevatten'),
+  type: customerTypeSchema,
+  vatNumber: z.string().optional().nullable(),
+  email: z.string().email('Ongeldig e-mailadres').optional().nullable().or(z.literal('')),
+  phone: z.string().optional().nullable(),
+  mobile: z.string().optional().nullable(),
+  invoiceAddress: z.string().min(3, 'Facturatieadres is verplicht'),
+  invoiceZip: z.string().optional().nullable(),
+  invoiceCity: z.string().min(2, 'Gemeente is verplicht'),
+  siteName: z.string().optional().nullable(),
+  siteAddress: z.string().optional().nullable(),
+  siteZip: z.string().optional().nullable(),
+  siteCity: z.string().optional().nullable(),
+  primaryDiscipline: z.enum(['FIRE', 'INTRUSION', 'CCTV', 'ACCESS']).default('INTRUSION'),
+  allowDuplicate: z.boolean().default(false),
+})
+export type CreateCustomerInput = z.infer<typeof createCustomerInputSchema>
+
 export const getClientsFilterSchema = z.object({
   search: z.string().optional().default(''),
   type: z.enum(['ALL', 'B2B', 'RESIDENTIAL']).optional().default('ALL'),

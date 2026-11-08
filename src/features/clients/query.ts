@@ -1,6 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
 import { getClientsFn } from './server/getClients'
 import { getClientDetailFn } from './server/getClientDetail'
+import { checkCustomerNameFn } from './server/checkCustomerName'
 import type { GetClientsFilter } from './types'
 
 export const clientKeys = {
@@ -18,6 +19,7 @@ export const clientKeys = {
     ] as const,
   details: () => [...clientKeys.all, 'detail'] as const,
   detail: (customerId: string) => [...clientKeys.details(), customerId] as const,
+  checkName: (name: string) => [...clientKeys.all, 'check-name', name.trim().toLowerCase()] as const,
 }
 
 export const clientQueries = {
@@ -42,5 +44,12 @@ export const clientQueries = {
       queryFn: () => getClientDetailFn({ data: { customerId } }),
       enabled: Boolean(customerId),
       staleTime: 1000 * 60, // 1 minute
+    }),
+  checkName: (name: string) =>
+    queryOptions({
+      queryKey: clientKeys.checkName(name),
+      queryFn: () => checkCustomerNameFn({ data: { name } }),
+      enabled: name.trim().length >= 2,
+      staleTime: 1000 * 10,
     }),
 }

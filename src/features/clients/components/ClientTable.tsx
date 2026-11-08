@@ -375,32 +375,6 @@ export function ClientTable({ clients, selectedClientId, onSelectClient }: Clien
               className="flex items-center justify-end gap-1.5 pr-1"
               onClick={(e) => e.stopPropagation()}
             >
-              {client.phone && (
-                <Button
-                  variant="ghost"
-                  size="icon-sm"
-                  asChild
-                  title={`Bellen: ${client.phone}`}
-                  className="size-7 text-muted-foreground hover:text-foreground"
-                >
-                  <a href={`tel:${client.phone}`}>
-                    <Phone className="size-3.5" />
-                  </a>
-                </Button>
-              )}
-              {client.email && (
-                <Button
-                  variant="ghost"
-                  size="icon-sm"
-                  asChild
-                  title={`E-mail: ${client.email}`}
-                  className="size-7 text-muted-foreground hover:text-foreground"
-                >
-                  <a href={`mailto:${client.email}`}>
-                    <Mail className="size-3.5" />
-                  </a>
-                </Button>
-              )}
               <Button
                 variant="secondary"
                 size="sm"
@@ -571,9 +545,9 @@ export function ClientTable({ clients, selectedClientId, onSelectClient }: Clien
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   ))}
                 </TableRow>
@@ -586,9 +560,8 @@ export function ClientTable({ clients, selectedClientId, onSelectClient }: Clien
                   <TableRow
                     key={row.id}
                     onClick={() => onSelectClient(row.original.id)}
-                    className={`cursor-pointer transition-colors text-xs hover:bg-muted/40 ${
-                      isSelected ? 'bg-primary/5 font-medium' : ''
-                    }`}
+                    className={`cursor-pointer transition-colors text-xs hover:bg-muted/40 ${isSelected ? 'bg-primary/5 font-medium' : ''
+                      }`}
                   >
                     {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id} className="px-4 py-3.5">

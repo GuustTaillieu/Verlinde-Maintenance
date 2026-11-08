@@ -4,6 +4,7 @@ import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import { clientQueries } from '#/features/clients/query'
 import { ClientFilters } from '#/features/clients/components/ClientFilters'
 import { ClientTable } from '#/features/clients/components/ClientTable'
+import { CreateClientDialog } from '#/features/clients/components/CreateClientDialog'
 import { Header } from '#/features/shared/components/header'
 import { Button } from '#/features/shared/components/ui/button'
 import {
@@ -11,7 +12,7 @@ import {
   InsightCard,
 } from '#/features/maintenance/components/DashboardInsights'
 import { getClientsFilterSchema, type GetClientsFilter } from '#/features/clients/types'
-import { RefreshCw, Users, ShieldCheck, AlertTriangle, Clock } from 'lucide-react'
+import { RefreshCw, Users, ShieldCheck, AlertTriangle, Clock, Plus } from 'lucide-react'
 import { z } from 'zod'
 
 const clientsSearchSchema = getClientsFilterSchema.extend({
@@ -20,9 +21,9 @@ const clientsSearchSchema = getClientsFilterSchema.extend({
 
 export const Route = createFileRoute('/_auth/_manager/clients/')({
   validateSearch: clientsSearchSchema,
-  loader: async ({ context: { queryClient } }) => {
+  beforeLoad: async ({ context: { queryClient }, search }) => {
     await queryClient.query({
-      ...clientQueries.list({ search: '', type: 'ALL', status: 'ALL', city: 'ALL' }),
+      ...clientQueries.list(search),
       staleTime: 'static',
     })
   },
@@ -33,20 +34,14 @@ function ClientsPage() {
   const searchParams = Route.useSearch()
   const navigate = Route.useNavigate()
   const [isRefreshing, setIsRefreshing] = useState(false)
-
-  const activeFilters: GetClientsFilter = {
-    search: searchParams.search ?? '',
-    type: searchParams.type ?? 'ALL',
-    status: searchParams.status ?? 'ALL',
-    city: searchParams.city ?? 'ALL',
-  }
+  const [isCreateOpen, setIsCreateOpen] = useState(false)
 
   const {
     data,
     isLoading,
     refetch,
   } = useQuery({
-    ...clientQueries.list(activeFilters),
+    ...clientQueries.list(searchParams),
     placeholderData: keepPreviousData,
   })
 
@@ -104,18 +99,29 @@ function ClientsPage() {
         title="Klanten & Installaties"
         subtitle="Beheer van klantenbestand, vestigingen, beveiligingshardware en keuringsdossiers."
         rightComponent={
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={handleRefresh}
-            disabled={isRefreshing || isLoading}
-            className="text-xs"
-          >
-            <RefreshCw
-              className={`mr-1.5 size-3.5 ${isRefreshing ? 'animate-spin' : ''}`}
-            />
-            Vernieuwen
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={handleRefresh}
+              disabled={isRefreshing || isLoading}
+              className="text-xs"
+            >
+              <RefreshCw
+                className={`mr-1.5 size-3.5 ${isRefreshing ? 'animate-spin' : ''}`}
+              />
+              Vernieuwen
+            </Button>
+
+            <Button
+              size="sm"
+              onClick={() => setIsCreateOpen(true)}
+              className="text-xs gap-1.5 shadow-xs"
+            >
+              <Plus className="size-3.5" />
+              <span>Nieuwe Klant</span>
+            </Button>
+          </div>
         }
       />
 
@@ -157,7 +163,7 @@ function ClientsPage() {
 
       {/* Search & Filters */}
       <ClientFilters
-        filters={activeFilters}
+        filters={searchParams}
         availableCities={availableCities}
         onFilterChange={handleFilterChange}
         onReset={handleResetFilters}
@@ -168,6 +174,12 @@ function ClientsPage() {
         clients={clients}
         selectedClientId={searchParams.selectedId ?? null}
         onSelectClient={handleSelectClient}
+      />
+
+      {/* Create New Client Dialog */}
+      <CreateClientDialog
+        open={isCreateOpen}
+        onOpenChange={setIsCreateOpen}
       />
     </div>
   )
