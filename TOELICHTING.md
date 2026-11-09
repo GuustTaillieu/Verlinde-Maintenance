@@ -43,6 +43,16 @@ In plaats van een 15 jaar oude desktop-ERP na te bouwen, hebben we de 80/20-hefb
 
 ---
 
-### 5. Verantwoording AI-gebruik
+### 5. Testinloggegevens & Beveiliging
+Om het testen van de verschillende rollen vlot te laten verlopen:
+* **Zaakvoerder (Manager):** `dirk@verlinde-beveiliging.be`
+* **Veldtechniekers:** `tom@verlinde-beveiliging.be`, `wout@verlinde-beveiliging.be`, `jens@verlinde-beveiliging.be`
+* **Wachtwoord voor alle accounts:** `password123`
+
+*Veiligheidsopmerking: Dit gedeelde testwachtwoord dient uitsluitend voor de evaluatie van dit assessment. In een echte productieomgeving worden inloggegevens uiteraard nooit statisch gedeeld, maar aangeleverd via een beveiligde eenmalige uitnodigingslink.*
+
+---
+
+### 6. Verantwoording AI-gebruik
 * **Waarvoor gebruikt:** Als sparringpartner voor het analyseren van de verouderde CSV/JSON-datastructuren (`MS_HDR`, `WO_HDR`), het genereren van Drizzle-relatieschema's, het opzetten van boilerplate-componenten met Tailwind CSS/shadcn en het valideren van edge cases in datumconversies.
 * **Zelf nagekeken en beslist:** De domeinmodellering (de ontkoppeling tussen Klant, Werf, Component en Werkbon), de validatie van de NBN S21-100 brandveiligheidsintervallen, de UX-keuzes voor Dirk (no-nonsense cockpit zonder versnippering), en het beveiligen van de Zero-Trust alarmcodes.

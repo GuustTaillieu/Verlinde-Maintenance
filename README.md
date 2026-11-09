@@ -175,6 +175,8 @@ Open `http://localhost:3000` in your browser.
 
 The seed script creates the following internal team accounts. All accounts use password: `password123`
 
+*Security note: This shared default password is used strictly for assessment evaluation and review purposes. In a production deployment, credentials would never be shared statically and would instead be provisioned via an encrypted one-time secret link or a secure email invitation flow.*
+
 | Name | Role | Email | Tech Code | Responsibilities |
 | :--- | :--- | :--- | :--- | :--- |
 | Dirk Verlinde | MANAGER | dirk@verlinde-beveiliging.be | DV | Managing director, operations, lead dispatcher |
